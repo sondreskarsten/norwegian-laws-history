@@ -18,14 +18,17 @@ from urllib.parse import urljoin, urlsplit
 from xml.parsers import expat
 
 CONTRACT = "ordered-source-document-body-v1"
-GATE_VERSION = "observed-body-links-notes-colspans-v1"
+GATE_VERSION = "observed-body-links-notes-colspans-v2"
 MAX_BYTES = 16 * 1024 * 1024
 MAX_MODEL_BYTES = 32 * 1024 * 1024
 MAX_NODES = 250_000
 MAX_DEPTH = 128
 MAX_ATTRIBUTES = 64
 _HASH = re.compile(r"[0-9a-f]{64}\Z")
-SOURCE_BODY_CSS = """main.documentBody{overflow-wrap:anywhere}main.documentBody article.legalP{margin:.65em 0}main.documentBody article.changesToParent{border-left:3px solid #73899b;padding:.6em 1em;background:#f1f4f6;font-size:.9em}main.documentBody footer.footnotes{border-top:1px solid #8a9aaa;margin-top:1.4em}main.documentBody article.footnote{font-size:.9em;margin:.6em 0}main.documentBody a[data-source-body-derived=backref]{margin-left:.5em}main.documentBody table{border-collapse:collapse;width:100%;margin:1em 0}main.documentBody th,main.documentBody td{border:1px solid #91a1aa;padding:.3em .5em}main.documentBody [data-text-align=left]{text-align:left}main.documentBody [data-text-align=center]{text-align:center}main.documentBody [data-text-align=right]{text-align:right}main.documentBody [data-vertical-align=top]{vertical-align:top}main.documentBody [data-vertical-align=middle]{vertical-align:middle}main.documentBody [data-vertical-align=bottom]{vertical-align:bottom}"""
+SOURCE_BODY_CSS = """main.documentBody{overflow-wrap:anywhere}main.documentBody article.legalP{margin:.65em 0}main.documentBody article.changesToParent{border-left:3px solid #73899b;padding:.6em 1em;background:#f1f4f6;font-size:.9em}main.documentBody footer.footnotes{border-top:1px solid #8a9aaa;margin-top:1.4em}main.documentBody article.footnote{font-size:.9em;margin:.6em 0}main.documentBody a[data-source-body-derived=backref]{margin-left:.5em}main.documentBody [data-source-body-derived=table-scroll]{max-width:100%;overflow-x:auto;margin:1em 0}main.documentBody [data-source-body-derived=table-scroll]:focus-visible{outline:2px solid #27649b;outline-offset:2px}main.documentBody table{border-collapse:collapse;min-width:100%;width:auto}main.documentBody th,main.documentBody td{border:1px solid #91a1aa;padding:.3em .5em;overflow-wrap:normal;word-break:normal}main.documentBody [data-text-align=left]{text-align:left}main.documentBody [data-text-align=center]{text-align:center}main.documentBody [data-text-align=right]{text-align:right}main.documentBody [data-vertical-align=top]{vertical-align:top}main.documentBody [data-vertical-align=middle]{vertical-align:middle}main.documentBody [data-vertical-align=bottom]{vertical-align:bottom}"""
+_TABLE_SCROLL_ATTRIBUTES = {"aria-label": "Tabell (rull vannrett ved behov)",
+                            "data-source-body-derived": "table-scroll",
+                            "role": "region", "tabindex": "0"}
 
 # Exact form/attribute pairs. No arbitrary class/data-* passthrough.
 _FORMS = {
@@ -395,7 +398,12 @@ def _render(root: dict, context: dict, notes: dict, references: Counter) -> str:
                 body += (f'<a aria-label="Back to footnote reference {i}" '
                          f'data-source-body-derived="backref" href="#source-body-ref-{key}-{i}">↩</a>')
         encoded = "".join(f' {key}="{html.escape(value, quote=True)}"' for key, value in sorted(attrs.items()))
-        return f"<{tag}{encoded}>" + ("" if tag == "br" else body + f"</{tag}>")
+        rendered = f"<{tag}{encoded}>" + ("" if tag == "br" else body + f"</{tag}>")
+        if tag == "table":
+            scroll_attrs = "".join(f' {key}="{html.escape(value, quote=True)}"'
+                                   for key, value in sorted(_TABLE_SCROLL_ATTRIBUTES.items()))
+            return f"<div{scroll_attrs}>{rendered}</div>"
+        return rendered
     return visit(root)
 
 
@@ -449,7 +457,7 @@ def verify_rendered_body(fragment: str, model: dict, *, stylesheet: str) -> None
     """
     _validate_model(model)
     _require(stylesheet == SOURCE_BODY_CSS, "rendered_reverse_check_mismatch", "/render/style", "The declared stylesheet must be retained exactly")
-    notes, references, _ = _grammar(model["root"], model["context"])
+    notes, references, counts = _grammar(model["root"], model["context"])
     _require(type(fragment) is str and len(fragment.encode("utf-8")) <= MAX_MODEL_BYTES * 2,
              "resource_limit", "/render", "Rendered artifact size/type")
     parser = _RenderedTree()
@@ -458,8 +466,10 @@ def verify_rendered_body(fragment: str, model: dict, *, stylesheet: str) -> None
     _require(not parser.stack and len(parser.roots) == 1, "rendered_reverse_check_mismatch", "/render", "Exactly one complete body fragment required")
     refs_seen: Counter = Counter()
     backs_seen: Counter = Counter()
+    tables_seen = 0
 
     def reverse(node):
+        nonlocal tables_seen
         tag, attrs = node["tag"], dict(node["attributes"])
         children = []
         if tag == "main" and model["context"]["html_lang"] is not None:
@@ -478,7 +488,16 @@ def verify_rendered_body(fragment: str, model: dict, *, stylesheet: str) -> None
                 continue
             ca = child["attributes"]
             kind = ca.get("data-source-body-derived")
-            if kind == "note-link":
+            if kind == "table-scroll":
+                _require(tag == "article" and attrs.get("class") == "legalP"
+                         and child["tag"] == "div" and ca == _TABLE_SCROLL_ATTRIBUTES
+                         and len(child["children"]) == 1
+                         and type(child["children"][0]) is dict
+                         and child["children"][0]["tag"] == "table",
+                         "rendered_reverse_check_mismatch", "/render", "Incorrect table scroll region")
+                tables_seen += 1
+                children.append(reverse(child["children"][0]))
+            elif kind == "note-link":
                 key = attrs.get("data-unique-footnote-counter")
                 refs_seen[key] += 1
                 expected = {"data-source-body-derived": "note-link", "href": "#" + notes.get(key, {}).get("id", ""), "id": f"source-body-ref-{key}-{refs_seen[key]}", "role": "doc-noteref"}
@@ -497,6 +516,7 @@ def verify_rendered_body(fragment: str, model: dict, *, stylesheet: str) -> None
 
     restored = reverse(parser.roots[0])
     _require(refs_seen == references and backs_seen == references, "rendered_reverse_check_mismatch", "/render", "Missing or extra navigation")
+    _require(tables_seen == counts.get("table", 0), "rendered_reverse_check_mismatch", "/render", "Missing or extra table scroll region")
     _require(list(_events(restored)) == list(_events(model["root"], True)),
              "rendered_reverse_check_mismatch", "/render", "Source-bearing content/order/attributes changed")
 

@@ -132,7 +132,15 @@ def _api(repository, endpoint, *, missing=False):
 
 
 def _commit(repository, project, ref, *, missing=False):
-    value = _api(repository, f"repos/{project}/commits/{ref}", missing=missing)
+    # The commits endpoint reports an absent tag as 422, which is also used
+    # for real validation failures. Probe the exact tag reference instead;
+    # only its explicit 404 is absence. Existing tags must resolve normally.
+    if missing and not _COMMIT.fullmatch(ref):
+        tag = _api(repository, f"repos/{project}/git/ref/tags/{ref}", missing=True)
+        if tag is None:
+            return None
+        require(tag.get("ref") == "refs/tags/" + ref, "Unexpected GitHub tag reference")
+    value = _api(repository, f"repos/{project}/commits/{ref}", missing=missing and bool(_COMMIT.fullmatch(ref)))
     if value is None: return None
     sha = value.get("sha")
     require(isinstance(sha, str) and _COMMIT.fullmatch(sha), "GitHub tag/commit did not resolve to a full commit")
