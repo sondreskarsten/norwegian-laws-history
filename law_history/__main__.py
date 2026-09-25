@@ -30,6 +30,15 @@ def main(argv=None):
     project.add_argument("--refid", action="append", help="Explicit bounded document selection; repeat up to 20 times")
     project.add_argument("--expected-parent", default="auto", help="Expected prior materialization ID, or none for the first")
     commands.add_parser("materializations", help="Read and verify the append-only derived-product chain")
+    operations = commands.add_parser("extract-operations", help="Preserve every parsed act/operation with unresolved temporal evidence")
+    operations.add_argument("--observation", help="Accepted observation ID; omitted means catch up all accepted observations")
+    operations.add_argument("--expected-parent", default="auto")
+    operations.add_argument("--snapshot", type=Path, help="Reuse an unpacked snapshot after complete identity validation")
+    operations.add_argument("--github-repository", default="sondreskarsten/norwegian-laws-history")
+    commands.add_parser("operation-products", help="Verify and list published operation evidence products")
+    act = commands.add_parser("operations", help="Retrieve original operations and unresolved claims for an amendment act")
+    act.add_argument("refid")
+    act.add_argument("--product", help="Pinned operation-product ID; defaults to the latest product")
     publish = commands.add_parser("publish", help="Publish new ledger/products and separate Git receipts with checked parents")
     publish.add_argument("--remote", default="origin")
     publish.add_argument("--branch", default="main")
@@ -52,6 +61,20 @@ def main(argv=None):
                 result = materialize_all(args.repository)
         elif args.command == "materializations":
             result = materializations(args.repository)
+        elif args.command == "extract-operations":
+            from .operation_products import extract_all, extract_operations
+            if args.observation:
+                result = extract_operations(args.repository, args.observation, args.expected_parent, args.snapshot, args.github_repository)
+            else:
+                if args.snapshot or args.expected_parent != "auto":
+                    raise ValueError("A snapshot or parent requires --observation")
+                result = extract_all(args.repository, args.github_repository)
+        elif args.command == "operation-products":
+            from .operation_products import operation_products
+            result = operation_products(args.repository)
+        elif args.command == "operations":
+            from .operation_products import show_operations
+            result = show_operations(args.repository, args.refid, args.product)
         elif args.command == "publish":
             from .publication import publish as publish_products
             result = publish_products(args.repository, args.remote, args.branch, args.github_repository)

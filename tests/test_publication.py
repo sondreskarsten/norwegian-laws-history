@@ -29,7 +29,8 @@ class PublicationTests(unittest.TestCase):
         (self.repository / "README.md").write_text("Local publication test\n", encoding="utf-8")
         (self.repository / ".gitignore").write_text(".cache/\n", encoding="utf-8")
         (self.repository / ".gitattributes").write_text(
-            "observations/** -text\nmaterializations/** -text\npublications/** -text\n", encoding="utf-8")
+            "observations/** -text\nmaterializations/** -text\npublications/** -text\n"
+            "operation-products/** -text\noperation-publications/** -text\n", encoding="utf-8")
         self.git("add", ".")
         self.git("commit", "-m", "Initialize test repository")
         self.git("remote", "add", "origin", str(self.remote))
@@ -100,6 +101,73 @@ class PublicationTests(unittest.TestCase):
         names = self.git("diff", "--name-status", "--no-renames", parent, "HEAD").splitlines()
         self.assertTrue(names)
         self.assertTrue(all(name.startswith("A\t") for name in names))
+
+    def test_operation_product_publication_preserves_body_receipt_contract(self):
+        from law_history.operation_products import extract_operations
+        accepted, _ = self.accepted()
+        first = self.publish()
+        body_receipt = first["publications"][0]
+        operation = extract_operations(self.repository, accepted["observation_id"], github_repository="fixture/history")
+        with patch.object(publication, "publish_bundle", side_effect=ValueError("Public release verification failed")):
+            with self.assertRaisesRegex(ValueError, "Public release verification failed"):
+                self.publish()
+        self.assertEqual(self.git("rev-parse", "HEAD").strip(), first["remote_head"])
+        self.assertEqual(self.remote_head(), first["remote_head"])
+        self.assertFalse((self.repository / "operation-publications").exists())
+        with patch.object(publication, "publish_bundle", return_value={"verification": "offline_fixture"}) as transport, \
+                patch.object(publication, "read_operation_product", wraps=publication.read_operation_product) as verify:
+            delivered = self.publish()
+        verify.assert_called_once_with(self.repository, operation["operation_product_id"])
+        transport.assert_called_once_with(self.repository, unittest.mock.ANY, "fixture/history", first["remote_head"])
+        self.assertEqual(delivered["publications"], [body_receipt])
+        self.assertEqual(delivered["operation_publication_count"], 1)
+        receipt = delivered["operation_publications"][0]
+        self.assertEqual(receipt["contract"], "history-operation-git-publication-v1")
+        self.assertEqual(receipt["operation_product_id"], operation["operation_product_id"])
+        self.assertEqual(receipt["expected_git_parent"], first["remote_head"])
+        self.assertEqual(receipt["creation_commit"], delivered["data_commit"])
+        self.assertEqual(receipt["operation_tree"], self.git("rev-parse", receipt["creation_commit"] +
+            ":operation-products/" + operation["operation_product_id"]).strip())
+        self.assertEqual(receipt["bundle"], operation["bundle"])
+        self.assertEqual(self.git("ls-tree", "-r", "--name-only", "HEAD", "--", "operation-products").splitlines(),
+                         ["operation-products/" + operation["operation_product_id"] + "/receipt.json"])
+        before = {path: path.read_bytes() for name in ("publications", "operation-publications")
+                  for path in (self.repository / name).glob("*.json")}
+        with patch.object(publication, "publish_bundle", side_effect=AssertionError("Fetched delivered release")) as transport, \
+                patch.object(publication, "read_operation_product", side_effect=AssertionError("Rechecked delivered artifacts")) as verify:
+            replay = self.publish()
+        transport.assert_not_called(); verify.assert_not_called()
+        self.assertEqual(replay["status"], "already_published")
+        self.assertEqual(replay["operation_publications"], delivered["operation_publications"])
+        self.assertEqual(replay["operation_releases"], [])
+        self.assertEqual(before, {path: path.read_bytes() for path in before})
+
+    def test_uncommitted_operation_publication_receipt_requires_full_reverification(self):
+        from law_history.operation_products import extract_operations
+        accepted, _ = self.accepted()
+        operation = extract_operations(self.repository, accepted["observation_id"], github_repository="fixture/history")
+        original_commit = publication._commit
+
+        def interrupted(repository, paths, parent, message):
+            if any(path.startswith("operation-publications/") for path in paths):
+                raise ValueError("Interrupted before publication receipt commit")
+            return original_commit(repository, paths, parent, message)
+
+        with patch.object(publication, "publish_bundle", return_value={"verification": "offline_fixture"}), \
+                patch.object(publication, "_commit", side_effect=interrupted):
+            with self.assertRaisesRegex(ValueError, "Interrupted before publication"):
+                self.publish()
+        data_commit = self.remote_head()
+        path = "operation-publications/" + operation["operation_product_id"] + ".json"
+        self.assertTrue((self.repository / path).is_file())
+        self.assertNotIn(path, self.git("ls-tree", "-r", "--name-only", "HEAD").splitlines())
+        with patch.object(publication, "publish_bundle", return_value={"verification": "offline_fixture"}) as transport, \
+                patch.object(publication, "read_operation_product", wraps=publication.read_operation_product) as verify:
+            result = self.publish()
+        verify.assert_called_once_with(self.repository, operation["operation_product_id"])
+        transport.assert_called_once_with(self.repository, unittest.mock.ANY, "fixture/history", data_commit)
+        self.assertIsNone(result["data_commit"])
+        self.assertEqual(result["operation_publications"][0]["creation_commit"], data_commit)
 
     def test_remote_parent_mismatch_fails_before_local_commit(self):
         self.accepted()

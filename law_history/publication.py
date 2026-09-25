@@ -15,6 +15,8 @@ from urllib.parse import urlsplit
 
 from .ledger import _directory, list_observations, read_observation
 from .materialize import materializations, read_materialization
+from .operation_products import operation_products, read_operation_product
+from .operation_transport import publish_bundle
 from .validation import canonical, digest, file_hash, read_json, require
 
 CONTRACT = "history-git-publication-v1"
@@ -91,7 +93,12 @@ def _checked_files(repository):
                 "Materialization references an unaccepted observation")
         files.update(f"materializations/{identity}/{name}"
                      for name in (*receipt["artifact_hashes"], "receipt.json"))
-    return files, products
+    operations = operation_products(repository, verify=False)
+    for item in operations:
+        require(item["observation_id"] in observations, "Operation product references an unaccepted observation")
+        require(item["repository"], "Operation product has no release destination")
+        files.add(f"operation-products/{item['operation_product_id']}/receipt.json")
+    return files, products, operations
 
 
 def _check_changes(repository, allowed):
@@ -104,9 +111,11 @@ def _check_changes(repository, allowed):
                 f"Publication rejects tracked modifications or unrelated staged changes: {path}")
 
 
-def _creation_receipt(repository, item, github_repository, branch):
-    identity = item["materialization_id"]
-    subtree = f"materializations/{identity}"
+def _creation_receipt(repository, item, github_repository, branch, *, operation=False):
+    identity_key = "operation_product_id" if operation else "materialization_id"
+    directory = "operation-products" if operation else "materializations"
+    identity = item[identity_key]
+    subtree = f"{directory}/{identity}"
     path = subtree + "/receipt.json"
     commits = _text(repository, "log", "--format=%H", "--diff-filter=A", "HEAD", "--", path).splitlines()
     require(len(commits) == 1, "Materialization has no unique creation commit")
@@ -122,35 +131,41 @@ def _creation_receipt(repository, item, github_repository, branch):
             "Committed materialization was changed after its creation")
     # Compare every committed blob, not just the receipt or checkout's hashes.
     names = _paths(_git(repository, "ls-tree", "-r", "--name-only", "-z", commit, "--", subtree).stdout)
-    require(set(names) == {subtree + "/" + name for name in (*item["artifact_hashes"], "receipt.json")},
+    inventory = ["receipt.json"] if operation else [*item["artifact_hashes"], "receipt.json"]
+    require(set(names) == {subtree + "/" + name for name in inventory},
             "Creation commit has a different materialization inventory")
     for name in names:
         require(_git(repository, "show", f"{commit}:{name}").stdout == (repository / name).read_bytes(),
                 "Committed materialization bytes differ from the validated product")
-    return {"contract": CONTRACT, "materialization_id": identity,
-            "materialization_receipt_sha256": file_hash(repository / path),
+    result = {"contract": "history-operation-git-publication-v1" if operation else CONTRACT, identity_key: identity,
+            "operation_receipt_sha256" if operation else "materialization_receipt_sha256": file_hash(repository / path),
             "observation_id": item["observation_id"], "github_repository": github_repository,
             "branch": branch, "creation_commit": commit, "creation_tree": values[1],
-            "materialization_tree": tree, "expected_git_parent": parent,
+            "operation_tree" if operation else "materialization_tree": tree, "expected_git_parent": parent,
             "project_author_date": values[3], "project_committer_date": values[4],
             "git_date_basis": "actual_project_commit_dates_not_legal_or_source_observation_dates",
             "remote_verification": "creation_commit_reachable_from_fetched_destination_branch",
             "creation_commit_url": f"https://github.com/{github_repository}/commit/{commit}",
-            "materialization_url": f"https://github.com/{github_repository}/tree/{commit}/{subtree}"}
+            "operation_product_url" if operation else "materialization_url": f"https://github.com/{github_repository}/tree/{commit}/{subtree}"}
+    if operation:
+        result["release_tag"] = item["release_tag"]
+        result["bundle"] = item["bundle"]
+        result["release_verification"] = "anonymous_download_size_sha256_and_exact_artifact_inventory"
+    return result
 
 
-def _existing_publications(repository, products, github_repository, branch):
-    directory = repository / "publications"
+def _existing_publications(repository, products, github_repository, branch, *, operation=False):
+    directory = repository / ("operation-publications" if operation else "publications")
     if not directory.exists():
         return set()
     require(directory.is_dir() and not directory.is_symlink()
             and not getattr(directory, "is_junction", lambda: False)(), "Linked publication directory")
-    items = {item["materialization_id"]: item for item in products}
+    items = {item["operation_product_id" if operation else "materialization_id"]: item for item in products}
     paths = set()
     for path in directory.iterdir():
         require(path.is_file() and not path.is_symlink() and path.suffix == ".json"
                 and digest(path.stem) and path.stem in items, "Unexpected publication receipt")
-        expected = _creation_receipt(repository, items[path.stem], github_repository, branch)
+        expected = _creation_receipt(repository, items[path.stem], github_repository, branch, operation=operation)
         require(read_json(path) == expected and path.read_bytes() == canonical(expected, newline=True),
                 "Publication receipt changed or has incompatible provenance")
         paths.add(path.relative_to(repository).as_posix())
@@ -244,11 +259,23 @@ def publish(repository: Path, remote="origin", branch="main",
     _destination(repository, push_urls[0], github_repository)
     mirror = _git(repository, "config", "--bool", "--get", f"remote.{remote}.mirror", check=False)
     require(mirror.stdout.strip() != b"true", "Mirror remotes are not supported")
-    data_files, products = _checked_files(repository)
+    data_files, products, operations = _checked_files(repository)
     publication_files = _existing_publications(repository, products, github_repository, branch)
+    operation_publication_files = _existing_publications(repository, operations, github_repository, branch, operation=True)
+    publication_files |= operation_publication_files
     _check_changes(repository, data_files | publication_files)
     head = _same_parent(repository, remote, branch)
     tracked = set(_paths(_git(repository, "ls-tree", "-r", "--name-only", "-z", "HEAD").stdout))
+    operation_releases = []
+    for item in operations:
+        require(item["repository"] == github_repository, "Operation release destination differs from Git publication")
+        receipt_path = f"operation-publications/{item['operation_product_id']}.json"
+        if receipt_path not in operation_publication_files or receipt_path not in tracked:
+            # Only immutable, already committed publication receipts permit a
+            # replay shortcut. New and interrupted publications must fully check
+            # the source-bound product and its public release before any commit.
+            read_operation_product(repository, item["operation_product_id"])
+            operation_releases.append(publish_bundle(repository, item, github_repository, head))
     additions = data_files - tracked
     data_commit = publication_commit = None
     if additions:
@@ -265,6 +292,14 @@ def publish(repository: Path, remote="origin", branch="main",
         if not path.exists():
             _write_receipt(repository, path, receipt)
         publication_files.add(path.relative_to(repository).as_posix())
+    operation_receipts = []
+    for item in operations:
+        receipt = _creation_receipt(repository, item, github_repository, branch, operation=True)
+        operation_receipts.append(receipt)
+        path = repository / "operation-publications" / (item["operation_product_id"] + ".json")
+        if not path.exists():
+            _write_receipt(repository, path, receipt)
+        publication_files.add(path.relative_to(repository).as_posix())
     _check_changes(repository, publication_files)
     tracked = set(_paths(_git(repository, "ls-tree", "-r", "--name-only", "-z", "HEAD").stdout))
     additions = publication_files - tracked
@@ -275,4 +310,6 @@ def publish(repository: Path, remote="origin", branch="main",
     return {"status": "published" if data_commit or publication_commit else "already_published",
             "remote": remote, "branch": branch, "remote_head": head,
             "data_commit": data_commit, "publication_commit": publication_commit,
-            "publication_count": len(receipts), "publications": receipts}
+            "publication_count": len(receipts), "publications": receipts,
+            "operation_publication_count": len(operation_receipts), "operation_publications": operation_receipts,
+            "operation_releases": operation_releases}

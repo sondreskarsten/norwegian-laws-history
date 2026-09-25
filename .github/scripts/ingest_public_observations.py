@@ -10,6 +10,7 @@ import urllib.request
 
 from law_history.ledger import ingest, load_receipt
 from law_history.materialize import materialize_all
+from law_history.operation_products import extract_all
 
 
 def releases(repository: str):
@@ -59,7 +60,14 @@ def synchronize(repository: Path, producer: str) -> dict:
                                                        'parent_materialization_id', 'refids', 'documents')})
         print(json.dumps({'materialization_id': result['materialization_id'], 'status': result['status'],
                           'qualified_documents': sum(d['status'] == 'passed' for d in result['documents'])}), flush=True)
-    return {'version': 2, 'producer': producer, 'observations': accepted, 'materializations': projections,
+    operations = []
+    for result in extract_all(repository, os.environ.get('GITHUB_REPOSITORY', 'sondreskarsten/norwegian-laws-history')):
+        summary = {key: result[key] for key in ('status', 'observation_id', 'operation_product_id',
+                                               'parent_operation_product_id', 'counts', 'diagnostics')}
+        operations.append(summary)
+        print(json.dumps(summary), flush=True)
+    return {'version': 3, 'producer': producer, 'observations': accepted, 'materializations': projections,
+            'operation_products': operations,
             'canonical_status': 'not_verified', 'legal_valid_time_status': 'unresolved'}
 
 

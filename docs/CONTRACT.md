@@ -80,7 +80,7 @@ Duplicate refids are not silently collapsed in the historical evidence model. In
 
 Preserve the original [act and amendment fields](https://github.com/sondreskarsten/norwegian-laws/blob/4f5bbf561208e436f488b086ebf34924cd435530/lovdata-loader/src/lovdata_loader/models.py#L172-L194) in full. The envelope adds immutable source occurrence identity and ordinal; it does not rewrite source strings. Keep unknown target, unknown operation, empty replacement, and unresolved commencement records. A repeal may legitimately have no replacement text; emptiness must not filter it out.
 
-An operation identity is scoped to its parsed act occurrence and zero-based operation ordinal. Include the target expression as observed, the candidate document identity, a target-resolution status and evidence pointers. Future target resolution adds a separately versioned claim instead of overwriting the raw parse.
+An operation identity is scoped to its source act occurrence, parsed model digest and zero-based operation ordinal. A corrected or reordered parse therefore cannot reuse a previous operation identity. Include the target expression as observed, the candidate document identity, a target-resolution status and evidence pointers. Future target resolution adds a separately versioned claim instead of overwriting the raw parse.
 
 Do not consume current display `amendments.jsonl` as the complete interface: it [filters unresolved targets and caps instruction/replacement text](https://github.com/sondreskarsten/norwegian-laws/blob/4f5bbf561208e436f488b086ebf34924cd435530/lovdata-publisher/src/lovdata_publisher/manifests.py#L117-L153). Do not use normalized SQLite `date_in_force_resolved` as legal evidence.
 
@@ -173,6 +173,32 @@ change without an inferred legal date. Global observation canonical status stays
 the actual Git commit/tree in a subsequent separate receipt.
 
 ## Migration gates
+
+The implemented `history-operation-product-v1` exports the entire accepted parsed
+act inventory as compressed, canonical JSONL shards. Each
+`history-operation-evidence-v1` record preserves the original envelope, every
+operation and initial `history-unresolved-legal-time-v1` claims. Commencement
+expressions have source paths, text and candidate roles; their applicability is
+unresolved. No candidate text, publication date, resolved legacy date or Git date
+sets a legal bound. Source instruction alignment is explicitly either uniquely
+matched or unresolved; matching text alone does not establish legal effect.
+
+The product includes exact input-manifest and source-member catalog proofs. The
+consumer binds them to the accepted observation, reconciles every parsed
+occurrence/model/ordinal and operation count, verifies shard/index hashes, and
+checks the preserved producer records and unresolved claims. It cannot certify
+instructions omitted by the producer parser or the structure flattened by it.
+Ordered replacement subtrees, scoped legal-time interpretation and append-only
+later interpretation claims remain separate unfinished interfaces.
+
+`operation-products/<identity>/receipt.json` is the only product file in Git.
+Its content-derived release contains the complete artifact bundle; the receipt
+hash excludes its own ID and the tag/URL derived from that ID. Bundle size/hash,
+all member hashes, generator/runtime and parent are included. Publication checks
+the Git parent, uploads without replacing assets, independently downloads the
+public bytes, and subsequently records the real creation commit in
+`operation-publications/<identity>.json`. Interrupted publication is replayable;
+previous accepted products and first release targets remain unchanged.
 
 | Gate | Required evidence | Failure behavior |
 |---|---|---|
