@@ -230,8 +230,9 @@ consumer binds them to the accepted observation, reconciles every parsed
 occurrence/model/ordinal and operation count, verifies shard/index hashes, and
 checks the preserved producer records and unresolved claims. It cannot certify
 instructions omitted by the producer parser or the structure flattened by it.
-Ordered replacement subtrees, scoped legal-time interpretation and append-only
-later interpretation claims remain separate unfinished interfaces.
+Ordered replacement subtrees and scoped legal-time interpretation remain
+unfinished. Append-only later proposals are implemented separately below and
+remain ineligible for reconstruction.
 
 `operation-products/<identity>/receipt.json` is the only product file in Git.
 Its content-derived release contains the complete artifact bundle; the receipt
@@ -250,3 +251,60 @@ previous accepted products and first release targets remain unchanged.
 | D — Git materialization | Deterministic product tree, knowledge cutoff, expected parent, versioned rendering and explicit unresolved claims | No overwrite/force-push; keep prior accepted state. |
 | E — Delivered pilot | Token-only fork execution, remote product/raw readback, repeat observation and offline reproduction | Report generated/uploaded/read-back states separately; do not claim delivered history. |
 | Later — Legal-state reconstruction | Explicit prior-state basis, scoped operation resolution, commencement evidence and independent consistency checks | Outside this observation-pilot contract; separately included in the full product plan. No synthetic baseline or date fallback. |
+
+## Complete source-body products
+
+`history-source-body-product-v1` inventories every selected law/regulation in
+an accepted snapshot-v5 observation, in catalog order. Qualification independently
+compares raw XML, the captured ordered model and reverse-parsed rendered output.
+Only passed documents have payloads; rejected documents retain explicit reasons
+and raw-source bindings. Exact styles and labelled keyboard-scroll table regions
+are part of the renderer version. The earlier bounded materializer and its
+published products remain unchanged.
+
+The receipt binds source/generator/runtime identities, selected/passed/rejected
+counts, every compressed artifact digest and an exact release bundle. Only the
+receipt enters `body-products/<id>/` in Git. Source-body JSON, standalone HTML,
+styles and the complete inventory reside in compressed release artifacts.
+`body-publications/<id>.json` subsequently records checked Git creation after
+anonymous release readback.
+
+The append parent and comparison baseline are distinct. Comparison chooses the
+latest applicable representation among earlier products whose source observation
+does not exceed the target observation. Cumulative last-qualified entries retain
+earlier bodies across rejection or absence. Reprocessing an older observation
+cannot use future evidence; reprocessing a later one may use that improved
+earlier representation. Changes remain observed-body or representation changes,
+never inferred legal changes. Every legal-time bound stays unresolved.
+
+## Later interpretation proposals
+
+`history-later-claim-request-v1` requires an exact target (operation-product ID,
+act refid/source occurrence, subject ID, parsed revision and parsed-model hash),
+one current `supersedes` claim ID, `manual-proposal-v1`, an assertion, a
+knowledge cutoff and typed evidence references returned by `claim-history`.
+Assertions retain text, proposed scope and proposed legal bounds. Evidence
+locations must resolve exactly in fully verified products, including cross-product
+citations. Stored bindings include the cited value, record, bundle and receipt
+hashes. A cutoff cannot precede cited evidence or its predecessor, or exceed the
+proposal's actual recording time.
+
+All accepted records use `history-later-claim-v1`, status `proposed` and
+`reconstruction_eligibility.eligible=false`. No registered method establishes
+legal truth. Cutoffs are submitted assertions bounded by retained evidence, not
+proof of historical knowledge. `eligible_reconstruction_inputs` remains empty.
+
+Records are installed exclusively under
+`later-claims/<two-hex-subject-bucket>/<claim-id>.json`. Full subject identity
+is retained and hashed in each record; buckets only shorten Windows paths.
+Subject chains are linear and append-only, beginning with the exported unresolved
+claim. Request replay preserves the original recording time, including after
+later supersession. Bucket-scoped writer locks prevent concurrent conflicting
+heads; no prior record is overwritten.
+
+`claim-publications/<claim-id>.json` binds canonical proposal bytes to their
+unique Git creation commit, checked parent and current committed bytes. An exact
+already committed publication proof permits routine replay without downloading
+old cited releases again. New claims still require full evidence verification.
+Explicit `claim-history` performs the full evidence audit. Git and recording
+timestamps remain separate from proposed legal bounds.

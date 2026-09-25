@@ -91,6 +91,52 @@ This read-only workflow is separate from a clean-fork publication rehearsal.
 The equivalent local command, using the matching Python version and generator, is
 `python -m law_history.reproduce MATERIALIZATION_ID --report reproduction.json`.
 
+## Complete observed-body products
+
+For accepted snapshot-v5 evidence, `qualify-bodies` accounts for every selected
+law and regulation. Each document either has a qualified ordered body with
+standalone HTML, or an explicit rejection with its original XML still available.
+The grammar currently supports declared links, notes and simple column-spanning
+tables; unsupported structures remain rejected. A complete inventory does not
+mean every document qualifies.
+
+```text
+python -m law_history qualify-bodies
+python -m law_history body-products
+python -m law_history body lov/1687-04-15 --product BODY_PRODUCT_ID --output observed-body.html
+```
+
+Replace `BODY_PRODUCT_ID` with an exact ID from `body-products`. The ordinary
+lookup verifies the pinned receipt and exact artifact bytes. Use
+`body-products --verify` to independently requalify all products against their
+retained raw sources. Only qualified documents can be saved as HTML; an output
+file must not already exist.
+Requalification requires the recorded renderer contract. When that contract
+changes, use its pinned implementation to audit an older product; ordinary
+receipt-bound retrieval continues to serve its original bytes.
+
+Each `body-products/<identity>/receipt.json` points to a separate immutable
+`bodies-<identity>` GitHub release. Large artifacts stay outside Git. The
+publisher downloads the public bundle before committing a separate creation
+receipt under `body-publications/`. Routine catch-up reuses already accepted
+representations; explicit regeneration appends a new identity. Earlier products
+and rejected/missing observations remain preserved. These bodies describe
+observed sources and do not establish what law applied on a historical date.
+
+## Proposed later interpretations
+
+`propose-claim request.json` appends a proposal bound to an exact act or
+operation revision and verified evidence locations. `claim-history target.json`
+returns the original unresolved claim and every later proposal for that subject.
+Supersession preserves prior bytes. Repeating a request returns its first
+recording, including its original recording time.
+
+Every proposal remains ineligible for legal reconstruction: no interpretive
+evidence method is registered yet. A supplied knowledge cutoff is a bounded
+assertion, not proof that an interpretation was known historically. Publication
+records actual Git creation separately. See [the claim contract](docs/CONTRACT.md#later-interpretation-proposals)
+for request and storage details.
+
 ## Prior reader copies
 
 The [prior reader archive](reader-archive/README.md) preserves 105 exact generated

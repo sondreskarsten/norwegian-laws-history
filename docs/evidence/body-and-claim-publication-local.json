@@ -1,0 +1,39 @@
+{
+  "status": "local_implementation_verified_public_delivery_pending",
+  "scope": "qualified observed-body retrieval, immutable release and Git publication, proposed interpretation history, automatic v5 catchup",
+  "runtime": "CPython 3.13.15 on Windows",
+  "full_consumer_suite": {
+    "command": "python -m unittest discover -s tests -q",
+    "tests": 85,
+    "seconds": 328.513,
+    "result": "passed"
+  },
+  "body_delivery": [
+    "Three real source bodies preserve source, model, rendered structure, notes and column spans.",
+    "Every selected fixture is inventoried; rejected documents have no rendered payload.",
+    "A pinned lookup returns exact qualified HTML; rejected or absent documents are explicit.",
+    "The CLI creates a new HTML file only for a qualified document.",
+    "A failed release blocks before any Git data publication.",
+    "Real local Git publication binds the exact creation commit and preserves previous materialization receipts.",
+    "Published body replay succeeds without reopening the old source or release.",
+    "Release transport checks anonymous exact bytes, immutable replay and interrupted draft recovery."
+  ],
+  "claim_delivery": [
+    "Proposals bind exact operation revisions and typed evidence locations.",
+    "All proposals remain ineligible for legal reconstruction.",
+    "Actual local Git publication and supersession preserve original records and creation receipts.",
+    "Replay uses checked committed proofs without reopening old evidence releases.",
+    "New claims still require full evidence and fail before remote change when it is unavailable.",
+    "Missing publication proof, deleted committed history, altered claims and altered receipts are rejected."
+  ],
+  "catchup": [
+    "Actual v4/v5 fixture bundles pass the existing intake, pilot, operation and new body stages.",
+    "Only v5 produces the new body product; replay preserves accepted receipt bytes.",
+    "An induced body-qualification failure retains explicit failed-phase diagnostics and prevents publication."
+  ],
+  "limits": [
+    "These checks use small source-bound fixtures and local bare Git remotes; public GitHub delivery remains a separate acceptance step.",
+    "Whole-corpus qualification and public bundle readback are not claimed by this report.",
+    "This does not establish a legal baseline, commencement interpretation or historical legal state."
+  ]
+}

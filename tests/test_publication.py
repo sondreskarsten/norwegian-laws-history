@@ -30,7 +30,9 @@ class PublicationTests(unittest.TestCase):
         (self.repository / ".gitignore").write_text(".cache/\n", encoding="utf-8")
         (self.repository / ".gitattributes").write_text(
             "observations/** -text\nmaterializations/** -text\npublications/** -text\n"
-            "operation-products/** -text\noperation-publications/** -text\n", encoding="utf-8")
+            "operation-products/** -text\noperation-publications/** -text\n"
+            "body-products/** -text\nbody-publications/** -text\n"
+            "later-claims/** -text\nclaim-publications/** -text\n", encoding="utf-8")
         self.git("add", ".")
         self.git("commit", "-m", "Initialize test repository")
         self.git("remote", "add", "origin", str(self.remote))

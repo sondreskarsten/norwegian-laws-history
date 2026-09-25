@@ -37,23 +37,28 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PRODUCER: ${{ vars.SOURCE_REPOSITORY || 'sondreskarsten/norwegian-laws' }}
         run: |
+          set -o pipefail
           python .github/scripts/ingest_public_observations.py --producer "$PRODUCER" \
-            --report "$RUNNER_TEMP/observation-readback.json"
+            --report "$RUNNER_TEMP/observation-readback.json" 2>&1 | tee "$RUNNER_TEMP/observation-intake.log"
       - name: Publish checked observations, body and operation products, and Git receipts
         env:
           HISTORY_REPOSITORY: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -o pipefail
           git config user.name 'Norwegian laws observations'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           python -m law_history publish --github-repository "$HISTORY_REPOSITORY" \
-            --report "$RUNNER_TEMP/publication-readback.json"
+            --report "$RUNNER_TEMP/publication-readback.json" 2>&1 | tee "$RUNNER_TEMP/observation-publication.log"
       - name: Retain consumer readback report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: observation-readback
           path: |
             ${{ runner.temp }}/observation-readback.json
             ${{ runner.temp }}/publication-readback.json
+            ${{ runner.temp }}/observation-intake.log
+            ${{ runner.temp }}/observation-publication.log
           retention-days: 30
-          if-no-files-found: error
+          if-no-files-found: warn

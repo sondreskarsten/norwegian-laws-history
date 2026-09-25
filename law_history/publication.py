@@ -17,6 +17,9 @@ from .ledger import _directory, list_observations, read_observation
 from .materialize import materializations, read_materialization
 from .operation_products import operation_products, read_operation_product
 from .operation_transport import publish_bundle
+from .source_body_products import body_products, read_body_product
+from .body_transport import publish_bundle as publish_body_bundle
+from .claim_publication import checked_claims, creation_receipt as claim_creation_receipt, existing_publications as existing_claim_publications
 from .validation import canonical, digest, file_hash, read_json, require
 
 CONTRACT = "history-git-publication-v1"
@@ -98,7 +101,11 @@ def _checked_files(repository):
         require(item["observation_id"] in observations, "Operation product references an unaccepted observation")
         require(item["repository"], "Operation product has no release destination")
         files.add(f"operation-products/{item['operation_product_id']}/receipt.json")
-    return files, products, operations
+    bodies = body_products(repository, verify=False)
+    for item in bodies:
+        require(item["observation_id"] in observations, "Body product references an unaccepted observation")
+        files.add(f"body-products/{item['body_product_id']}/receipt.json")
+    return files, products, operations, bodies
 
 
 def _check_changes(repository, allowed):
@@ -111,9 +118,11 @@ def _check_changes(repository, allowed):
                 f"Publication rejects tracked modifications or unrelated staged changes: {path}")
 
 
-def _creation_receipt(repository, item, github_repository, branch, *, operation=False):
-    identity_key = "operation_product_id" if operation else "materialization_id"
-    directory = "operation-products" if operation else "materializations"
+def _creation_receipt(repository, item, github_repository, branch, *, operation=False, body=False):
+    require(not (operation and body), "Ambiguous publication product kind")
+    external = operation or body
+    identity_key = "body_product_id" if body else "operation_product_id" if operation else "materialization_id"
+    directory = "body-products" if body else "operation-products" if operation else "materializations"
     identity = item[identity_key]
     subtree = f"{directory}/{identity}"
     path = subtree + "/receipt.json"
@@ -131,41 +140,42 @@ def _creation_receipt(repository, item, github_repository, branch, *, operation=
             "Committed materialization was changed after its creation")
     # Compare every committed blob, not just the receipt or checkout's hashes.
     names = _paths(_git(repository, "ls-tree", "-r", "--name-only", "-z", commit, "--", subtree).stdout)
-    inventory = ["receipt.json"] if operation else [*item["artifact_hashes"], "receipt.json"]
+    inventory = ["receipt.json"] if external else [*item["artifact_hashes"], "receipt.json"]
     require(set(names) == {subtree + "/" + name for name in inventory},
             "Creation commit has a different materialization inventory")
     for name in names:
-        require(_git(repository, "show", f"{commit}:{name}").stdout == (repository / name).read_bytes(),
+        require(_git(repository, "cat-file", "blob", f"{commit}:{name}").stdout == (repository / name).read_bytes(),
                 "Committed materialization bytes differ from the validated product")
-    result = {"contract": "history-operation-git-publication-v1" if operation else CONTRACT, identity_key: identity,
-            "operation_receipt_sha256" if operation else "materialization_receipt_sha256": file_hash(repository / path),
+    result = {"contract": "history-body-git-publication-v1" if body else "history-operation-git-publication-v1" if operation else CONTRACT, identity_key: identity,
+            "body_receipt_sha256" if body else "operation_receipt_sha256" if operation else "materialization_receipt_sha256": file_hash(repository / path),
             "observation_id": item["observation_id"], "github_repository": github_repository,
             "branch": branch, "creation_commit": commit, "creation_tree": values[1],
-            "operation_tree" if operation else "materialization_tree": tree, "expected_git_parent": parent,
+            "body_tree" if body else "operation_tree" if operation else "materialization_tree": tree, "expected_git_parent": parent,
             "project_author_date": values[3], "project_committer_date": values[4],
             "git_date_basis": "actual_project_commit_dates_not_legal_or_source_observation_dates",
             "remote_verification": "creation_commit_reachable_from_fetched_destination_branch",
             "creation_commit_url": f"https://github.com/{github_repository}/commit/{commit}",
-            "operation_product_url" if operation else "materialization_url": f"https://github.com/{github_repository}/tree/{commit}/{subtree}"}
-    if operation:
+            "body_product_url" if body else "operation_product_url" if operation else "materialization_url": f"https://github.com/{github_repository}/tree/{commit}/{subtree}"}
+    if external:
         result["release_tag"] = item["release_tag"]
         result["bundle"] = item["bundle"]
         result["release_verification"] = "anonymous_download_size_sha256_and_exact_artifact_inventory"
     return result
 
 
-def _existing_publications(repository, products, github_repository, branch, *, operation=False):
-    directory = repository / ("operation-publications" if operation else "publications")
+def _existing_publications(repository, products, github_repository, branch, *, operation=False, body=False):
+    require(not (operation and body), "Ambiguous publication product kind")
+    directory = repository / ("body-publications" if body else "operation-publications" if operation else "publications")
     if not directory.exists():
         return set()
     require(directory.is_dir() and not directory.is_symlink()
             and not getattr(directory, "is_junction", lambda: False)(), "Linked publication directory")
-    items = {item["operation_product_id" if operation else "materialization_id"]: item for item in products}
+    items = {item["body_product_id" if body else "operation_product_id" if operation else "materialization_id"]: item for item in products}
     paths = set()
     for path in directory.iterdir():
         require(path.is_file() and not path.is_symlink() and path.suffix == ".json"
                 and digest(path.stem) and path.stem in items, "Unexpected publication receipt")
-        expected = _creation_receipt(repository, items[path.stem], github_repository, branch, operation=operation)
+        expected = _creation_receipt(repository, items[path.stem], github_repository, branch, operation=operation, body=body)
         require(read_json(path) == expected and path.read_bytes() == canonical(expected, newline=True),
                 "Publication receipt changed or has incompatible provenance")
         paths.add(path.relative_to(repository).as_posix())
@@ -179,7 +189,7 @@ def _commit(repository, paths, parent, message):
     staged = set(_paths(_git(repository, "diff", "--cached", "--name-only", "-z").stdout))
     require(staged == set(paths), "Staged publication inventory changed")
     for path in paths:
-        require(_git(repository, "show", ":" + path).stdout == (repository / path).read_bytes(),
+        require(_git(repository, "cat-file", "blob", ":" + path).stdout == (repository / path).read_bytes(),
                 "Git attributes or filters changed accepted artifact bytes")
     _git(repository, "commit", "-m", message)
     commit = _text(repository, "rev-parse", "HEAD")
@@ -189,7 +199,7 @@ def _commit(repository, paths, parent, message):
     require(set(changes[1::2]) == set(paths) and all(s == "A" for s in changes[::2]),
             "Publication commit is not the expected append-only addition")
     for path in paths:
-        require(_git(repository, "show", f"{commit}:{path}").stdout == (repository / path).read_bytes(),
+        require(_git(repository, "cat-file", "blob", f"{commit}:{path}").stdout == (repository / path).read_bytes(),
                 "Committed artifact bytes changed")
     return commit
 
@@ -259,10 +269,15 @@ def publish(repository: Path, remote="origin", branch="main",
     _destination(repository, push_urls[0], github_repository)
     mirror = _git(repository, "config", "--bool", "--get", f"remote.{remote}.mirror", check=False)
     require(mirror.stdout.strip() != b"true", "Mirror remotes are not supported")
-    data_files, products, operations = _checked_files(repository)
+    data_files, products, operations, bodies = _checked_files(repository)
     publication_files = _existing_publications(repository, products, github_repository, branch)
     operation_publication_files = _existing_publications(repository, operations, github_repository, branch, operation=True)
     publication_files |= operation_publication_files
+    body_publication_files = _existing_publications(repository, bodies, github_repository, branch, body=True)
+    publication_files |= body_publication_files
+    claim_files, claims = checked_claims(repository)
+    data_files |= claim_files
+    publication_files |= existing_claim_publications(repository, claims, github_repository, branch)
     _check_changes(repository, data_files | publication_files)
     head = _same_parent(repository, remote, branch)
     tracked = set(_paths(_git(repository, "ls-tree", "-r", "--name-only", "-z", "HEAD").stdout))
@@ -276,6 +291,13 @@ def publish(repository: Path, remote="origin", branch="main",
             # the source-bound product and its public release before any commit.
             read_operation_product(repository, item["operation_product_id"])
             operation_releases.append(publish_bundle(repository, item, github_repository, head))
+    body_releases = []
+    for item in bodies:
+        require(item["repository"] == github_repository, "Body release destination differs from Git publication")
+        receipt_path = f"body-publications/{item['body_product_id']}.json"
+        if receipt_path not in body_publication_files or receipt_path not in tracked:
+            read_body_product(repository, item["body_product_id"])
+            body_releases.append(publish_body_bundle(repository, item, github_repository, head))
     additions = data_files - tracked
     data_commit = publication_commit = None
     if additions:
@@ -292,11 +314,27 @@ def publish(repository: Path, remote="origin", branch="main",
         if not path.exists():
             _write_receipt(repository, path, receipt)
         publication_files.add(path.relative_to(repository).as_posix())
+    claim_receipts = []
+    for item in claims:
+        receipt = claim_creation_receipt(repository, item, github_repository, branch)
+        claim_receipts.append(receipt)
+        path = repository / "claim-publications" / (item["claim_id"] + ".json")
+        if not path.exists():
+            _write_receipt(repository, path, receipt)
+        publication_files.add(path.relative_to(repository).as_posix())
     operation_receipts = []
     for item in operations:
         receipt = _creation_receipt(repository, item, github_repository, branch, operation=True)
         operation_receipts.append(receipt)
         path = repository / "operation-publications" / (item["operation_product_id"] + ".json")
+        if not path.exists():
+            _write_receipt(repository, path, receipt)
+        publication_files.add(path.relative_to(repository).as_posix())
+    body_receipts = []
+    for item in bodies:
+        receipt = _creation_receipt(repository, item, github_repository, branch, body=True)
+        body_receipts.append(receipt)
+        path = repository / "body-publications" / (item["body_product_id"] + ".json")
         if not path.exists():
             _write_receipt(repository, path, receipt)
         publication_files.add(path.relative_to(repository).as_posix())
@@ -312,4 +350,7 @@ def publish(repository: Path, remote="origin", branch="main",
             "data_commit": data_commit, "publication_commit": publication_commit,
             "publication_count": len(receipts), "publications": receipts,
             "operation_publication_count": len(operation_receipts), "operation_publications": operation_receipts,
-            "operation_releases": operation_releases}
+            "operation_releases": operation_releases,
+            "body_publication_count": len(body_receipts), "body_publications": body_receipts,
+            "body_releases": body_releases,
+            "claim_publication_count": len(claim_receipts), "claim_publications": claim_receipts}

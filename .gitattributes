@@ -6,3 +6,8 @@ publications/** -text
 reader-archive/** -text
 operation-products/** -text
 operation-publications/** -text
+body-products/** -text
+body-publications/** -text
+later-claims/** -text
+claim-publications/** -text
+tests/fixtures/source_body/*.xml -text
