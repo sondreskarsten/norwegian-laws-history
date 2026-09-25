@@ -115,6 +115,12 @@ Requalification requires the recorded renderer contract. When that contract
 changes, use its pinned implementation to audit an older product; ordinary
 receipt-bound retrieval continues to serve its original bytes.
 
+The [full local rehearsal](docs/evidence/source-body-full-corpus-local.json)
+accounted for all 5,874 selected documents: 1,219 qualified and 4,655 were
+explicitly rejected. It includes independently retrieved examples and browser
+checks of links, footnotes and tables. This local rehearsal is not a public
+body-product publication; common heading and list forms remain unsupported.
+
 Each `body-products/<identity>/receipt.json` points to a separate immutable
 `bodies-<identity>` GitHub release. Large artifacts stay outside Git. The
 publisher downloads the public bundle before committing a separate creation
@@ -122,6 +128,24 @@ receipt under `body-publications/`. Routine catch-up reuses already accepted
 representations; explicit regeneration appends a new identity. Earlier products
 and rejected/missing observations remain preserved. These bodies describe
 observed sources and do not establish what law applied on a historical date.
+
+Use the [complete-body reproduction workflow](.github/workflows/reproduce-bodies.yml)
+with a published body product ID to reproduce the exact receipt, compressed
+bundle and every artifact. It keeps the current full-history ledger and checks
+out the code recorded before product creation separately. Before fetching
+sources, it requires the exact Python and zlib versions and all five generator
+module hashes. Regeneration runs in a fresh directory with networking denied;
+only preceding receipts and the required comparison bundle are retained.
+The requested receipt and artifact tree must be generated afresh. Earlier
+product receipts remain unchanged. The equivalent local command, with the
+matching generator and runtime, is:
+
+```text
+python -m law_history.reproduce_bodies BODY_PRODUCT_ID --report body-reproduction.json
+```
+
+This verifies a published representation; it does not establish legal validity
+or replace a clean-fork publication rehearsal.
 
 ## Proposed later interpretations
 

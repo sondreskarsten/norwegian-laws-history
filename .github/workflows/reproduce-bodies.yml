@@ -1,0 +1,109 @@
+name: Reproduce a published complete body product
+
+on:
+  workflow_dispatch:
+    inputs:
+      product:
+        description: Full published body product ID
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Retain the current ledger and its complete Git history
+        uses: actions/checkout@v4
+        with:
+          path: ledger
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Read the committed product runtime and creation proof
+        id: pinned
+        env:
+          PRODUCT_ID: ${{ inputs.product }}
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, pathlib, re, subprocess
+          ledger = pathlib.Path('ledger')
+          identity = os.environ['PRODUCT_ID']
+          if not re.fullmatch('[0-9a-f]{64}', identity):
+              raise ValueError('Expected a complete body product ID')
+          def committed(name):
+              data = subprocess.check_output(['git', '-C', str(ledger), 'cat-file', 'blob', 'HEAD:' + name])
+              if data != (ledger / name).read_bytes():
+                  raise ValueError('Checkout differs from committed evidence: ' + name)
+              return data, json.loads(data)
+          raw, receipt = committed('body-products/' + identity + '/receipt.json')
+          _, proof = committed('body-publications/' + identity + '.json')
+          if (proof['contract'] != 'history-body-git-publication-v1'
+                  or proof['body_product_id'] != identity
+                  or proof['body_receipt_sha256'] != hashlib.sha256(raw).hexdigest()):
+              raise ValueError('Creation proof does not bind this body receipt')
+          version = receipt['generator']['python']
+          parent = proof['expected_git_parent']
+          if not re.fullmatch(r'3\.[0-9]+\.[0-9]+', version):
+              raise ValueError('Invalid pinned Python version')
+          if not re.fullmatch('[0-9a-f]{40}|[0-9a-f]{64}', parent):
+              raise ValueError('Invalid recorded code commit')
+          subprocess.run(['git', '-C', str(ledger), 'merge-base', '--is-ancestor', parent, 'HEAD'], check=True)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('python=' + version + '\nparent=' + parent + '\n')
+          PY
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ steps.pinned.outputs.python }}
+      - name: Check out the code preceding product creation separately
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.pinned.outputs.parent }}
+          path: generator
+          persist-credentials: false
+      - name: Regenerate with the pinned generator and networking denied
+        env:
+          PRODUCT_ID: ${{ inputs.product }}
+          GENERATOR_COMMIT: ${{ steps.pinned.outputs.parent }}
+        run: |
+          set -o pipefail
+          python -I - <<'PY' 2>&1 | tee "$RUNNER_TEMP/body-reproduction.log"
+          import importlib.util, json, os, pathlib, subprocess, sys
+          ledger = pathlib.Path('ledger').resolve()
+          generator = pathlib.Path('generator').resolve()
+          report_path = pathlib.Path(os.environ['RUNNER_TEMP']) / 'body-reproduction.json'
+          head = lambda path: subprocess.check_output(['git', '-C', str(path), 'rev-parse', 'HEAD'], text=True).strip()
+          result = {'status': 'failed', 'body_product_id': os.environ['PRODUCT_ID'],
+                    'generator_code_checkout': head(generator), 'harness_code_checkout': head(ledger)}
+          try:
+              if result['generator_code_checkout'] != os.environ['GENERATOR_COMMIT']:
+                  raise ValueError('Generator checkout differs from creation proof')
+              sys.path.insert(0, str(generator))
+              import law_history
+              if pathlib.Path(law_history.__file__).resolve().parent != generator / 'law_history':
+                  raise ValueError('Generator package was imported from the wrong checkout')
+              # The current verification harness runs against the recorded code.
+              # It is not one of the five receipt-bound generator modules.
+              spec = importlib.util.spec_from_file_location('law_history.reproduce_bodies', ledger / 'law_history/reproduce_bodies.py')
+              harness = importlib.util.module_from_spec(spec)
+              spec.loader.exec_module(harness)
+              # reproduce() requires exact Python, zlib and all generator hashes
+              # before fetching evidence, then denies networking for generation.
+              result.update(harness.reproduce(ledger, os.environ['PRODUCT_ID']))
+              print(json.dumps({key: result[key] for key in ('status', 'body_product_id', 'network_during_regeneration')}))
+          except Exception as error:
+              result.update(status='failed', error_type=type(error).__name__, error=str(error)[:2000])
+              raise
+          finally:
+              report_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+      - name: Retain reproduction report and available failure diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: independent-complete-body-reproduction
+          path: |
+            ${{ runner.temp }}/body-reproduction.json
+            ${{ runner.temp }}/body-reproduction.log
+          retention-days: 30
+          if-no-files-found: warn
