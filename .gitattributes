@@ -1,0 +1,3 @@
+# Accepted ledger bytes are hashed evidence, including their line endings.
+# Preserve them exactly on Windows and every other checkout platform.
+observations/** -text
