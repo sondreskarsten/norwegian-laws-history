@@ -26,6 +26,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -38,31 +39,20 @@ jobs:
         run: |
           python .github/scripts/ingest_public_observations.py --producer "$PRODUCER" \
             --report "$RUNNER_TEMP/observation-readback.json"
-      - name: Publish append-only accepted observations
+      - name: Publish checked observations, qualified products and Git receipts
+        env:
+          HISTORY_REPOSITORY: ${{ github.repository }}
         run: |
-          if [ ! -d observations ]; then
-            echo 'No producer observations have been published yet.'
-            exit 0
-          fi
-          git add observations/
-          if git diff --cached --quiet; then
-            echo 'Every published observation was already accepted.'
-            exit 0
-          fi
-          if [ -n "$(git diff --cached --name-only --diff-filter=CDMRTUXB)" ]; then
-            echo 'Refusing to modify an existing accepted observation.' >&2
-            exit 1
-          fi
           git config user.name 'Norwegian laws observations'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Accept verified source observations [skip ci]'
-          # A concurrent source change must cause a clean refusal, never a rebase
-          # or force push. The next run replays the same release idempotently.
-          git push origin HEAD:main
+          python -m law_history publish --github-repository "$HISTORY_REPOSITORY" \
+            --report "$RUNNER_TEMP/publication-readback.json"
       - name: Retain consumer readback report
         uses: actions/upload-artifact@v4
         with:
           name: observation-readback
-          path: ${{ runner.temp }}/observation-readback.json
+          path: |
+            ${{ runner.temp }}/observation-readback.json
+            ${{ runner.temp }}/publication-readback.json
           retention-days: 30
           if-no-files-found: error

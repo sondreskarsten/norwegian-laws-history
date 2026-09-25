@@ -112,7 +112,7 @@ Gate outcomes are `passed`, `failed` or `not_verified`, with verifier version, a
 
 Each accepted `history-materialization-v1` receipt records:
 
-- Materialization kind: initially `observed_consolidation`, not “law in force as of year X.”
+- Materialization kind: `observed_document_body_projection`, not “law in force as of year X.”
 - Knowledge cutoff, included observation IDs, exact source member identities and any explicitly selected variant.
 - Content/formatter/verifier versions, code/runtime identity and the per-document gate result.
 - Complete product artifact hashes, parent materialization ID and the final Git tree/commit identity in a separate publication receipt.
@@ -120,7 +120,7 @@ Each accepted `history-materialization-v1` receipt records:
 
 Avoid circular hashes: the commit contains a materialization identity and expected artifact tree; a subsequent publication receipt binds that identity to the observed commit/tree. Hashes do not include their own digest field. Git author/committer identity names the producing project, not Lovdata; Git dates record repository publication/observation policy, not inferred legal effect.
 
-Identical evidence and canonicalizer produce identical semantic artifact bytes/tree. Reprocessing an identical accepted receipt is idempotent. A later observation of unchanged content adds new observation evidence; the first consumer stores no canonical text tree. A parser/formatter migration is explicitly labeled `representation_change` and includes old/new versions and deltas; it is never reported as a new legal amendment.
+Identical evidence and canonicalizer produce identical semantic artifact bytes/tree. Reprocessing an identical accepted receipt is idempotent. A later observation of unchanged content adds new observation evidence. The initial observation consumer stored no canonical text tree; the bounded materializer below adds only independently qualified document-body projections. A parser/formatter migration is explicitly labeled `representation_change` and includes old/new versions and deltas; it is never reported as a new legal amendment.
 
 Publication is append-only with an expected parent. A rejected push triggers regeneration against the new parent or a controlled retry of the same intended commit; never rebase already-generated evidence or force-push history. Existing observation/materialization identities and release assets must not be overwritten. Read back the committed receipt and required raw evidence by digest before recording delivery success.
 
@@ -144,7 +144,33 @@ Before accepting the pilot, independently retrieve the product receipt and cited
 
 `observations/<release-observation-id>/` contains `receipt.json`, `source-observations.json`, `members.jsonl` and `observation.json`. Acceptance validates all release/snapshot/raw/member bindings before atomically promoting a new directory. Prior directories are never edited. The catalog preserves each member occurrence and duplicate refids. Replaying a matching receipt does not rewrite files; conflicting receipt identity or payload fails. The local `.cache/bundles/<sha256>.tar.gz` is ignored by Git and can be repopulated from the receipt URL. Raw XML retrieval verifies the bundle, archive and chosen member hash and requires an explicit occurrence when ambiguous. Outer bundles contain only unique safe regular paths; raw archives are inventoried, never extracted wholesale.
 
-The summary always declares `canonical_status = not_verified` and unresolved legal bounds. `show` retains earlier presence when a later compatible-scope observation lacks a document, labeling absence only as `not_present_in_observation`. Incompatible selections report `scope_not_comparable`, never observed absence. No current command promotes canonical documents or computes legal states.
+The summary always declares `canonical_status = not_verified` and unresolved legal bounds. `show` retains earlier presence when a later compatible-scope observation lacks a document, labeling absence only as `not_present_in_observation`. Incompatible selections report `scope_not_comparable`, never observed absence. The separate bounded materializer below qualifies declared document-body projections; no command computes legal states.
+
+## Bounded document-body materialization
+
+`strict-document-body-v1` declares a narrow ordered projection: document-body
+title, section/article hierarchy, legal paragraphs and explicitly marked ordered
+lists. The qualification report versions normalization, source attributes and
+exclusions. Source metadata outside the body stays in retained XML. Unknown
+inline semantics, tables, footnotes or unnamed/unrepresented forms prevent
+promotion until supported. The complete corpus is not certified by a subset.
+
+`history-materialization-v1` binds one accepted observation, an explicit selection
+of at most 20 refids, its parent product, source/model occurrence identities,
+producer/parser and generator/runtime identities, all artifact hashes and each
+qualification result. Only passed documents have body JSON/HTML; failed and
+missing selections remain inventoried. The receipt's own ID is SHA-256 over its
+canonical payload excluding that ID. Semantic body bytes omit observation and
+publication timestamps. The same inputs, versions and parent give the same
+receipt and artifacts; different runtime versions are different generator
+identities and must not be claimed cross-runtime byte-identical receipts.
+
+The append-only product chain is independent of legal chronology. A new source
+observation may contain unchanged bodies. A changed body with the same original
+XML digest is a representation change; a changed source/body is an observed text
+change without an inferred legal date. Global observation canonical status stays
+`not_verified`, and legal bounds stay null/unresolved. Product publication binds
+the actual Git commit/tree in a subsequent separate receipt.
 
 ## Migration gates
 
@@ -155,4 +181,4 @@ The summary always declares `canonical_status = not_verified` and unresolved leg
 | C — Canonical structural qualification | Independent ordered round-trip equality and zero unclassified remainder for each promoted document | Raw receipt only; quarantine the derived document. |
 | D — Git materialization | Deterministic product tree, knowledge cutoff, expected parent, versioned rendering and explicit unresolved claims | No overwrite/force-push; keep prior accepted state. |
 | E — Delivered pilot | Token-only fork execution, remote product/raw readback, repeat observation and offline reproduction | Report generated/uploaded/read-back states separately; do not claim delivered history. |
-| Later — Legal-state reconstruction | Explicit prior-state basis, scoped operation resolution, commencement evidence and independent consistency checks | Remains out of scope; no synthetic baseline or date fallback. |
+| Later — Legal-state reconstruction | Explicit prior-state basis, scoped operation resolution, commencement evidence and independent consistency checks | Outside this observation-pilot contract; separately included in the full product plan. No synthetic baseline or date fallback. |

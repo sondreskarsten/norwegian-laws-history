@@ -36,11 +36,63 @@ accepted receipt or its hashes to match converted files.
 
 Large source bundles are retained in the ignored `.cache/bundles/` directory by digest. The public release URL remains in the ledger. If a bundle is absent from the cache, `raw` retrieves it from that URL and checks its digest again. A local-only rehearsal cannot be recovered from a nonexistent public URL; keep its bundle. A corrupted cache entry fails closed and can be removed before retrying. SHA-256 proves consistency with a receipt, not a source signature or permanent storage availability.
 
-Every accepted observation currently reports canonical structure as `not_verified` and legal validity as `unresolved`. Parsing/rendering remain potentially lossy; observation timestamps are collector knowledge times. There is no amendment engine, canonical-law promotion, synthetic historical baseline, imported legacy history graph, or mandatory cloud/PAT credential. Public ingestion is read-only and unauthenticated; workflow publication is separate.
+Every accepted observation reports canonical structure as `not_verified` and legal validity as `unresolved`. Observation timestamps are collector knowledge times. Qualified document-body products are separate, scoped projections; they never certify the whole observation or establish legal dates. There is no amendment engine, synthetic historical baseline, imported legacy history graph, or mandatory cloud/PAT credential. Public ingestion is read-only and unauthenticated; workflow publication is separate.
+
+## Qualified observed document bodies
+
+The `materialize` command generates a bounded selection from an accepted public
+observation. It independently compares ordered source, model and rendered-body
+structure using `strict-document-body-v1`. Unknown forms stay unqualified, with
+source-accounting and rejection reasons. Exact XML remains available independently.
+
+```text
+python -m law_history materialize --observation ccdbf3e45098076118bf9362b60d31b7a80dc1aab1dcc2e226a4aee58c92b596
+python -m law_history materializations
+```
+
+Each `materializations/<identity>/` directory contains a browseable README,
+inventory, per-document qualifications and, only for passed documents, readable
+HTML and ordered body JSON. Download the HTML and open it in a browser. The
+default seven-document selection includes complex cases that are deliberately
+reported as unsupported, alongside three qualified candidate documents.
+
+Use repeated `--refid` arguments with an explicit observation for another
+selection of at most 20 documents. `--expected-parent none` requires an empty
+product chain; a full materialization ID requires that current chain tip.
+Replaying the same observation, selection and generator is otherwise a no-op.
+An explicit stale parent is rejected even on replay. Later representations append
+new products and preserve earlier identities; changed source text is an observed
+change, never automatically a legal amendment.
+
+An exclusive local writer lock prevents two concurrent materializers from forking
+the parent chain. A crashed process can leave `.cache/materialization-writer.lock`;
+confirm that its recorded process is no longer running before removing that exact
+lock file and retrying. Accepted products are never removed as recovery.
+
+The generator identity includes exact source hashes and Python runtime version.
+The same evidence, selection, generator/runtime and parent reproduce the same
+product identity. Semantic body identity excludes observation timestamps; a
+runtime or renderer change can produce a new representation receipt without
+changing that semantic body. Published-product and independent readback evidence
+are recorded separately from the availability of these commands.
+
+## Prior reader copies
+
+The [prior reader archive](reader-archive/README.md) preserves 105 exact generated
+Markdown copies recovered from ordinary source-repository Git history, including
+[Viltloven](reader-archive/viltloven.md). Their original source observations and
+legal dates are unknown. They are useful retained reader copies, kept outside the
+raw-observation and qualified-text evidence paths.
 
 ## Workflows
 
-The [observation workflow](.github/workflows/observe.yml) runs daily at 04:30 UTC, on relevant changes to `main`, or manually. It enumerates all published producer observation releases so missed runs can catch up, accepts verified observations, and commits only new ledger files using this repository's ordinary `GITHUB_TOKEN`. Set repository variable `SOURCE_REPOSITORY` to another public producer if needed; the default is `sondreskarsten/norwegian-laws`. A concurrent Git change causes a normal push refusal, with replay on the next run. The [verification workflow](.github/workflows/verify.yml) runs the focused tests. Public delivery is evidenced by the committed ledger and readback report, not by local tests alone.
+The [observation workflow](.github/workflows/observe.yml) runs daily at 04:30 UTC, on relevant changes to `main`, or manually. It enumerates all published producer observation releases so missed runs can catch up, accepts verified observations, and generates the bounded document-body products. Set repository variable `SOURCE_REPOSITORY` to another public producer if needed; the default is `sondreskarsten/norwegian-laws`.
+
+Publication uses this repository's ordinary `GITHUB_TOKEN`. It validates accepted observations and products, checks the expected remote parent, commits only verified additions, pushes normally, and reads back the remote Git objects. A separate `publications/<materialization-id>.json` receipt binds each product to its actual creation commit, tree, subtree and project commit dates. It does not supply legal dates. Replaying publication verifies existing receipts; a fresh checkout can complete missing receipts after an interrupted publication.
+
+The equivalent local command is `python -m law_history publish --github-repository OWNER/REPOSITORY --report publication-readback.json`, from a full checkout of that repository's `main` with ordinary Git write access. The destination must match the remote. Concurrent changes cause a normal refusal; no force push or automatic rebase occurs. An unsuccessful local push preserves its commit for inspection. The next workflow run starts from a fresh checkout and can replay safely. Read both workflow artifacts and the committed receipts before calling a product delivered.
+
+The [verification workflow](.github/workflows/verify.yml) runs the focused checks. Public delivery is evidenced by the committed products and independent readback, not by local checks alone.
 
 Read the [reuse audit](docs/REUSE-AUDIT.md), [migration contract](docs/CONTRACT.md), and [verification evidence](docs/evidence/README.md). The audit pins the assessed producer source and distinguishes tests from legal claims. Run the focused failure/replay tests with:
 
