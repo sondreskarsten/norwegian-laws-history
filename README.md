@@ -22,7 +22,9 @@ The [production replay](https://github.com/sondreskarsten/norwegian-laws-history
 
 ## Verification and limits
 
-Before accepting anything, the consumer independently checks the release's derived identity and URLs, bundle size/digest, safe regular bundle members, exact snapshot-v4 artifact hashes and counts, every retained raw archive/member, selected document bindings, complete parsed amendment occurrences and SQLite consistency. It never imports the producer or publisher at runtime. Unsupported contracts or mismatches fail before an accepted observation is written.
+Before accepting anything, the consumer independently checks the release's derived identity and URLs, bundle size/digest, safe regular bundle members, exact snapshot-v4/v5 artifact hashes and counts, every retained raw archive/member, selected document bindings, complete parsed amendment occurrences and SQLite consistency. It never imports the producer or publisher at runtime. Unsupported contracts or mismatches fail before an accepted observation is written.
+
+Snapshot v5 additionally preserves an ordered `source_body` in every selected current document. The consumer independently compares its text, element order, attributes and inherited context with the exact raw XML using a separate XML reader. This is a capture-fidelity check, not a legal-state claim or permission to render unsupported structures. Existing v4 observations and derived products retain their original contracts and bytes. See [the source-body contract](docs/CONTRACT.md#source-body-snapshot-compatibility).
 
 The current consumer also accepts the explicit ordered-document-container contract, merged in [`99943ec`](https://github.com/sondreskarsten/norwegian-laws-history/commit/99943ec03e1d9f4c5b73e7946f6af7bf09cb9f34). Its [bounded local verification](docs/evidence/container-order-validation.json) is separate from the public observation readback above; neither promotes canonical legal text.
 

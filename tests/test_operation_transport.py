@@ -63,9 +63,13 @@ class FakeGitHub:
                 else: code, value = 1, {"status": "404", "message": "Not Found"}
             elif "/compare/" in endpoint:
                 value = {"status": self.compare_status}
+            elif endpoint.endswith("/git/ref/tags/" + self.receipt["release_tag"]):
+                if self.existing and not self.draft:
+                    value = {"ref": "refs/tags/" + self.receipt["release_tag"], "object": {"sha": self.target}}
+                else: code, value = 1, {"status": "404", "message": "Not Found"}
             elif endpoint.endswith("/commits/" + self.receipt["release_tag"]):
                 if self.existing and not self.draft: value = {"sha": self.target}
-                else: code, value = 1, {"status": "404", "message": "Not Found"}
+                else: code, value = 1, {"status": "422", "message": "No commit found for SHA: " + self.receipt["release_tag"]}
             elif "/commits/" in endpoint:
                 value = {"sha": endpoint.rsplit("/", 1)[1]}
             else: raise AssertionError(args)

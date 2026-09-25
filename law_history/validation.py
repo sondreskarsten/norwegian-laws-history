@@ -25,6 +25,7 @@ CONTENT_CONTRACTS = {
     ("ordered-paragraph-blocks-v1", "law-markdown-ordered-html-v1"),
     ("ordered-law-containers-v1", "law-markdown-ordered-containers-v1"),
 }
+SOURCE_BODY_CONTRACT = ("ordered-source-document-body-v1", "law-markdown-convenience-with-source-body-v1")
 
 
 def require(condition, message: str):
@@ -106,7 +107,7 @@ def validate_receipt(receipt: dict) -> dict:
         "observation_id", "release_tag", "receipt_url"}, "Unsupported release receipt fields")
     require(type(receipt["version"]) is int and receipt["version"] == 1
             and receipt["contract"] == "lovdata-observation-release-v1"
-            and type(receipt["snapshot_version"]) is int and receipt["snapshot_version"] == 4,
+            and type(receipt["snapshot_version"]) is int and receipt["snapshot_version"] in (4, 5),
             "Unsupported release/snapshot version")
     require(isinstance(receipt["repository"], str) and re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", receipt["repository"]), "Invalid repository")
     require(isinstance(receipt["source_sha"], str) and re.fullmatch(r"[0-9a-f]{40}", receipt["source_sha"]), "Invalid source commit")
@@ -150,6 +151,8 @@ def unpack_bundle(bundle: Path, destination: Path, receipt: dict) -> set[str]:
                     output.write(chunk)
     require(len(names) == receipt["member_count"], "Bundle member count mismatch")
     require("manifest.json" in names and file_hash(destination / "manifest.json") == receipt["snapshot_manifest_sha256"], "Snapshot manifest digest mismatch")
+    require(read_json(destination / "manifest.json").get("version") == receipt["snapshot_version"],
+            "Receipt/snapshot version mismatch")
     return names
 
 
@@ -187,7 +190,7 @@ def validate_content_order(model: dict, content_version: str) -> None:
         refs = node.get("content_order", [])
         require(isinstance(refs, list), "Container content_order must be an array")
         if refs:
-            require(content_version == "ordered-law-containers-v1",
+            require(content_version in ("ordered-law-containers-v1", SOURCE_BODY_CONTRACT[0]),
                     "Populated content_order requires the container content contract")
             seen = set()
             for ref in refs:
@@ -216,8 +219,10 @@ def validate_snapshot(root: Path, names: set[str]) -> tuple[dict, dict, list[dic
 
 def _validate_snapshot(root: Path, names: set[str], streams) -> tuple[dict, dict, list[dict]]:
     manifest = read_json(root / "manifest.json")
-    require(type(manifest.get("version")) is int and manifest["version"] == 4, "Only snapshot v4 is accepted")
-    require((manifest.get("content_version"), manifest.get("formatter_version")) in CONTENT_CONTRACTS,
+    require(type(manifest.get("version")) is int and manifest["version"] in (4, 5), "Only snapshots v4 and v5 are accepted")
+    source_bodies = manifest["version"] == 5
+    contracts = {SOURCE_BODY_CONTRACT} if source_bodies else CONTENT_CONTRACTS
+    require((manifest.get("content_version"), manifest.get("formatter_version")) in contracts,
             "Unknown content/formatter contract")
     for field in ("law_count", "forskrift_count", "amendment_act_count", "amendment_count"):
         require(count(manifest.get(field)), f"Invalid {field}")
@@ -244,8 +249,11 @@ def _validate_snapshot(root: Path, names: set[str], streams) -> tuple[dict, dict
             and observation.get("structural_coverage_status") == "not_verified", "Unknown observation/time/structure semantics")
     parser = observation.get("parser_identity", {})
     files = parser.get("source_files")
+    expected_parser_files = {"parser.py", "models.py", "evidence.py"}
+    if source_bodies:
+        expected_parser_files.add("source_body.py")
     require(isinstance(parser.get("package_version"), str) and isinstance(files, dict)
-            and set(files) == {"parser.py", "models.py", "evidence.py"}
+            and set(files) == expected_parser_files
             and all(digest(value) for value in files.values()) and parser.get("sha256") == value_hash(files), "Parser source identity mismatch")
     runtime = observation.get("parser_runtime", {})
     deps = runtime.get("dependencies")
@@ -283,10 +291,17 @@ def _validate_snapshot(root: Path, names: set[str], streams) -> tuple[dict, dict
             for member_ordinal, member in enumerate(raw):
                 row = next(rows, None)
                 require(row is not None, "Missing member inventory row")
-                checksum = None
+                checksum, source_body_raw = None, None
                 if member.isfile():
                     with raw.extractfile(member) as stream:
-                        checksum = hashlib.file_digest(stream, "sha256").hexdigest()
+                        if source_bodies and role != "amendment_acts" and row.get("selected") is True:
+                            from .source_body_gate import MAX_BYTES
+                            require(member.size <= MAX_BYTES, "Selected document exceeds source-body byte limit")
+                            source_body_raw = stream.read(MAX_BYTES + 1)
+                            require(len(source_body_raw) == member.size, "Source-body member size changed")
+                            checksum = hashlib.sha256(source_body_raw).hexdigest()
+                        else:
+                            checksum = hashlib.file_digest(stream, "sha256").hexdigest()
                 expected = {"archive_ordinal": ordinal, "archive_sha256": sha, "role": role,
                             "member_ordinal": member_ordinal, "member_path": member.name,
                             "member_type": "file" if member.isfile() else "directory" if member.isdir() else "other",
@@ -304,6 +319,17 @@ def _validate_snapshot(root: Path, names: set[str], streams) -> tuple[dict, dict
                     require(isinstance(refid, str) and re.fullmatch(r"(?:lov|forskrift)/[A-Za-z0-9][A-Za-z0-9._-]*", refid)
                             and digest(row.get("parsed_model_sha256")), "Invalid parsed identity")
                     require(row.get("source_occurrence_id") == value_hash([ordinal, sha, member_ordinal, member.name, checksum, role]), "Source occurrence identity mismatch")
+                    if source_body_raw is not None:
+                        from .source_body_gate import verify_source_body
+                        name = f"{role}/{refid.replace('/', '-')}.json"
+                        require(row.get("selected_output_path") == name and name in hashes,
+                                "Source-body selected output binding mismatch")
+                        model = read_json(root / name)
+                        require(model.get("refid") == refid and value_hash(model) == row["parsed_model_sha256"],
+                                "Source-body parsed document mismatch")
+                        verify_source_body(source_body_raw, model.get("source_body"),
+                            expected_member_sha256=checksum, expected_refid=refid,
+                            source_occurrence_id=row["source_occurrence_id"])
                     archive_rows.append(row)
                 else:
                     require(all(row.get(field) is None for field in ("refid", "parsed_occurrence_ordinal", "parsed_model_sha256", "source_occurrence_id", "selected_output_path", "selected_output_sha256")) and row.get("selected") is False, "Unparsed member has output binding")
@@ -351,6 +377,8 @@ def _validate_snapshot(root: Path, names: set[str], streams) -> tuple[dict, dict
                             and isinstance(model.get("title"), str) and model["title"].strip()
                             and value_hash(model) == row["parsed_model_sha256"], "Selected parsed document mismatch")
                     validate_content_order(model, manifest["content_version"])
+                    require(isinstance(model.get("source_body"), dict) if source_bodies else "source_body" not in model,
+                            "Source-body field requires the explicit v5 contract")
                     allowed.add(name)
             else:
                 require(row.get("selected_output_path") is None and row.get("selected_output_sha256") is None, "Unselected output binding")

@@ -42,9 +42,9 @@ def bind_model(manifest, artifacts, additions, *, new_contract=True):
         manifest.update(content_version=CONTAINER_CONTENT, formatter_version=CONTAINER_FORMATTER)
 
 
-def fixture(directory, *, present=True, observed="2026-09-25T12:00:00+00:00", mutate=None, unsafe=False):
+def fixture(directory, *, present=True, observed="2026-09-25T12:00:00+00:00", mutate=None, unsafe=False, raw_xml=None):
     directory.mkdir()
-    xml = b'<main class="documentBody"><article>Retained exact source.</article></main>'
+    xml = raw_xml if raw_xml is not None else b'<main class="documentBody"><article>Retained exact source.</article></main>'
     model = {"refid": "lov/2024-01-01-1", "title": "Synthetic contract fixture"}
     archive_bytes = io.BytesIO()
     with tarfile.open(fileobj=archive_bytes, mode="w:bz2") as raw:
@@ -108,7 +108,7 @@ def fixture(directory, *, present=True, observed="2026-09-25T12:00:00+00:00", mu
             info = tarfile.TarInfo("unsafe"); info.type = tarfile.SYMTYPE; info.linkname = "../outside"
             tar.addfile(info)
     receipt = {"version": 1, "contract": "lovdata-observation-release-v1", "repository": "fixture/evidence",
-               "source_sha": "b" * 40, "snapshot_version": 4,
+               "source_sha": "b" * 40, "snapshot_version": manifest["version"],
                "snapshot_manifest_sha256": hashlib.sha256(artifacts["manifest.json"]).hexdigest(),
                "bundle": {"name": "snapshot.tar.gz", "sha256": file_hash(bundle), "bytes": bundle.stat().st_size},
                "member_count": len(artifacts) + int(unsafe),

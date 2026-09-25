@@ -1,0 +1,76 @@
+{
+  "contract": "history-offline-body-reproduction-v1",
+  "status": "reproduced",
+  "materialization_id": "240d7ee30f3a27023a9fa7bac8f4d8a113dbc006b081c839b968e5eccb0f80f4",
+  "observation_id": "ca32e6b7b13b3435683c450f81cfc1ea0ae4c0a95694a0cde0d7cf2bc20e5f4c",
+  "checked_checkout": "a36cebf3ba30416da49e4d6e4274cb01f5304b75",
+  "publication": {
+    "branch": "main",
+    "contract": "history-git-publication-v1",
+    "creation_commit": "fecc4c49aedf716c561934f1cd7dab50309dfd83",
+    "creation_commit_url": "https://github.com/sondreskarsten/norwegian-laws-history/commit/fecc4c49aedf716c561934f1cd7dab50309dfd83",
+    "creation_tree": "fb44758bca086c596ff6c27b6360f7e6ab1993fb",
+    "expected_git_parent": "cd51b90d643b37da10ab924401247333d60dd2d5",
+    "git_date_basis": "actual_project_commit_dates_not_legal_or_source_observation_dates",
+    "github_repository": "sondreskarsten/norwegian-laws-history",
+    "materialization_id": "240d7ee30f3a27023a9fa7bac8f4d8a113dbc006b081c839b968e5eccb0f80f4",
+    "materialization_receipt_sha256": "0e18bc6845060f36fd5ed43a13ca02429fdcbe20a1cd6df6cf096d57398d4066",
+    "materialization_tree": "55cceea6d6bd0d4cea0710ec8d9bebc44a99af42",
+    "materialization_url": "https://github.com/sondreskarsten/norwegian-laws-history/tree/fecc4c49aedf716c561934f1cd7dab50309dfd83/materializations/240d7ee30f3a27023a9fa7bac8f4d8a113dbc006b081c839b968e5eccb0f80f4",
+    "observation_id": "ca32e6b7b13b3435683c450f81cfc1ea0ae4c0a95694a0cde0d7cf2bc20e5f4c",
+    "project_author_date": "2026-09-25T19:30:10Z",
+    "project_committer_date": "2026-09-25T19:30:10Z",
+    "remote_verification": "creation_commit_reachable_from_fetched_destination_branch"
+  },
+  "generator": {
+    "contract": "strict-document-body-v1",
+    "implementation": "CPython",
+    "materializer": "history-materialization-v1",
+    "python": "3.12.14",
+    "source_sha256": {
+      "materialize.py": "ffacd61d4a02a0e5d27e417f1c3451f698a8ec59728ff4dfca22d0f05af94579",
+      "structure.py": "383f0077c5381d190fc3b13c6d9b14a3d11c58d1b7eb7856aa71632ba74ed41d"
+    }
+  },
+  "source_bundle_sha256": "c7deee5e627544a06eef3d442f3ea8920ae4ff282de8a41882cd89daee87d870",
+  "network_during_regeneration": "denied",
+  "target_product_copied": false,
+  "artifact_hashes": {
+    "README.md": "17e9468f257d136ae222c2fed8caf2f66e3558d61c3a56cc6cd45ed0f4591a5b",
+    "documents/forskrift-2022-09-02-1529/body.html": "6922c059fb6b66529a38c1d1e25dc95a27e93997afe0c6b099a9a9ec6cddb842",
+    "documents/forskrift-2022-09-02-1529/body.json": "64bb384e94f646b40e8680628f00849a02400bc5918af65a57c6edab51ee9d75",
+    "documents/forskrift-2022-09-02-1529/qualification.json": "400ebc5cf185c3df9b7a7c58ef0c9e9227df1b184a028ecb345b8d8d01c4197e",
+    "documents/forskrift-2022-09-02-1529/source-accounting.json": "1aa29d914efeca5add16f35f9f06b34bb1f16f9ab0ff02cd1e9b988dbcce3262",
+    "documents/forskrift-2026-09-18-1871/qualification.json": "9eaf5eff32e0aaa144b7c89f0ba60f19462a5b3dffadf8393d1a28f0b7356142",
+    "documents/forskrift-2026-09-18-1871/source-accounting.json": "61cf2a73815d93aacd2f2ce38371cd26062b78ce5475f78243e88559d5e1df46",
+    "documents/lov-1845-06-07/body.html": "89384dbff56061e984bfb064d588076340e27d22e22f59b894132fb0a56c332a",
+    "documents/lov-1845-06-07/body.json": "fadb19264a7cd7c3fd894d44718ad35f57e8d594529d7775747819334b1954fc",
+    "documents/lov-1845-06-07/qualification.json": "39aca4148e6fb26522a7b8f93d963fbd74ef132596684f349e79700a8ab0a756",
+    "documents/lov-1845-06-07/source-accounting.json": "1d31bcf1da7b73b45c6376aa28001c8023132734e97aeb289e217e220a7dffa5",
+    "documents/lov-1916-07-21-2/qualification.json": "c52f0f44f0cbb49216c5bcdce12bf0bb4dbccdfa739d4ae96e3de2e3d5cd8ac4",
+    "documents/lov-1916-07-21-2/source-accounting.json": "197d5dc3544546b19ecb098dd7862af89ced2012fcc64c56de9e887018633e98",
+    "documents/lov-1949-07-28-15/body.html": "f357764e85bbc385971cfdedf4285dabf4600bfd38b9a758000389bab0be8fcc",
+    "documents/lov-1949-07-28-15/body.json": "1019cb10dea9c18200fb7fc6fc37a1d7b4e3375ca00a1250c7b31d73d9b0eb8f",
+    "documents/lov-1949-07-28-15/qualification.json": "70df8d862baac16bf2facfc1455343fc6d3120161b2ca4dd929a9cf1728e91f9",
+    "documents/lov-1949-07-28-15/source-accounting.json": "3ef2a1b0b15fe8f80e005d697562c83337e285e2c0f1baa5bcb410a0d681e9ea",
+    "documents/lov-1967-12-15-9/qualification.json": "2809995a6ddecb2a63ae143dab01a8959a159b0183aabeee993aa68a17d92190",
+    "documents/lov-1967-12-15-9/source-accounting.json": "a01e7fddb9534a8df4eda27e2d08ed0e235d83cc6f533391ae1d2b9fb8937aca",
+    "documents/lov-2011-04-15-11/qualification.json": "ca58ea9ae0b299dcd9693feb2311dfa54404af6f58e393d46b665d99100c3fd4",
+    "documents/lov-2011-04-15-11/source-accounting.json": "9d58851bb2ecd7eba7bf75e834bfc23f69f67ba65651892fa61ff9dffa28449a",
+    "inventory.json": "276146bd00d547e2277f07c684b4165f87d0cecc85486e9326c6822c4b2aa75f",
+    "receipt.json": "0e18bc6845060f36fd5ed43a13ca02429fdcbe20a1cd6df6cf096d57398d4066"
+  },
+  "preserved_prior_product_receipts": {
+    "5adf11f5d6b9b60194c3d4d6c549b5d4a2283b03c930f62ee1d808b605f4465b": "8d104a5bfe28ddb15358a6fc43c02ade70c2ce0a554065b3d428c30e889b8aba",
+    "5ecd4411f9038896f375bc88e56216c798fe5dc4b9e787ff3ec04f34c444c316": "d0208f634f19ae36f45a1125ce4fa958adc5dd4e823ec8578ae16c18202d8c57",
+    "8633cba81d35bd6efbf9ed20c67315705143f00ddf244b67fea7e04693800fd3": "d8d964e79a389a53fd63a011597e2b40a568656bfe1d88613486118e6af4a188",
+    "240d7ee30f3a27023a9fa7bac8f4d8a113dbc006b081c839b968e5eccb0f80f4": "0e18bc6845060f36fd5ed43a13ca02429fdcbe20a1cd6df6cf096d57398d4066",
+    "0c5627df52e35b7ff0e8ded663e67ab3a6d7c7d5e46d59421881af62ba54a0f1": "a3ccb8841c7bef9b9b280141a7c6e65842481bb665e0741b36c1795ac30f9224"
+  },
+  "legal_valid_time": {
+    "from": null,
+    "status": "unresolved",
+    "until": null
+  },
+  "scope": "selected published observed-body product; not a clean-fork publication or legal-state reconstruction"
+}

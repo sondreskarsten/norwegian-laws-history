@@ -1,6 +1,6 @@
 # Observation contract v1 and reconstruction migration requirements
 
-Status: implemented observation-consumer boundary and later migration requirements for [history issue #1](https://github.com/sondreskarsten/norwegian-laws-history/issues/1). The local consumer implements release receipt version 1 and producer evidence snapshot version 4. The canonical and legal-reconstruction stages remain future requirements. Local integration is not proof of a published release; ingestion must name an explicit receipt. No parser-fidelity or legal-baseline claim follows from receipt acceptance.
+Status: implemented observation-consumer boundary and later migration requirements for [history issue #1](https://github.com/sondreskarsten/norwegian-laws-history/issues/1). The consumer implements release receipt version 1 and producer evidence snapshots v4/v5. Snapshot v5 adds independently checked source-body capture; broader canonical rendering and legal reconstruction remain separate requirements. Local integration is not proof of a published release; ingestion must name an explicit receipt. No general parser-fidelity or legal-baseline claim follows from receipt acceptance.
 
 ## Product and scope
 
@@ -44,7 +44,7 @@ The interface must report structural coverage as `not_verified` until the indepe
 
 ### Container-order compatibility
 
-The consumer accepts three exact content/formatter pairs: `legacy-paragraphs-v1` / `law-markdown-v1`, `ordered-paragraph-blocks-v1` / `law-markdown-ordered-html-v1`, and `ordered-law-containers-v1` / `law-markdown-ordered-containers-v1`. It still requires evidence snapshot v4. Unknown or mismatched pairs fail before observation acceptance.
+For snapshot v4, the consumer accepts three exact content/formatter pairs: `legacy-paragraphs-v1` / `law-markdown-v1`, `ordered-paragraph-blocks-v1` / `law-markdown-ordered-html-v1`, and `ordered-law-containers-v1` / `law-markdown-ordered-containers-v1`. Snapshot v5 has its own pair below. Unknown or mismatched pairs fail before observation acceptance.
 
 For the container pair, `content_order` is an optional array on the document root and each section. Missing or empty means the earlier grouping order. Each populated entry has exactly `kind` and `index`; the index is a nonnegative integer (not a boolean) within its owning array. Every item in every mapped array must appear exactly once. Repeated, missing, unknown or out-of-range references fail. The arrays remain the sole content owners.
 
@@ -54,6 +54,48 @@ For the container pair, `content_order` is an optional array on the document roo
 | Section, recursively | `preamble` → `preamble`; `article` → `articles`; `section` → `subsections`; `footnote` → `footnotes`; `remainder` → `remainders` |
 
 A populated `content_order` under either older content pair is rejected, including in nested sections. Empty optional fields remain compatible with older pairs. These checks establish an internally complete ordering declaration; they do not show that XML order or all source semantics were captured. Accepted observations continue to declare canonical status `not_verified` and legal validity `unresolved`.
+
+### Source-body snapshot compatibility
+
+Snapshot v5 requires exactly `ordered-source-document-body-v1` /
+`law-markdown-convenience-with-source-body-v1`. Every selected law/regulation
+retains `source_body`; older contracts reject that field. The existing typed
+arrays and container ordering remain the current reader's convenience projection.
+They do not acquire a fidelity claim from the additional body evidence.
+
+The capture envelope binds the raw member digest, exact ordered mixed-content
+tree, and html/head/body attribute maps, language, base URL and refid. Tree and
+context have independent canonical hashes. An Expat event reader checks each
+selected body against its retained XML independently of the producer's
+ElementTree capture. The archive and member identities, selected model hash,
+output path, refid and receipt/snapshot version must all agree. Processing keeps
+one selected raw body at a time with a 16 MiB raw limit. Unselected duplicate
+occurrences retain exact raw members and catalog/model identities; this contract
+does not add persisted body models for those unselected occurrences.
+
+The parser identity has exactly four source files for v5: `parser.py`, `models.py`,
+`evidence.py` and `source_body.py`. V4 keeps its original three-file identity.
+The independent `source_body_gate.py` has no producer imports and is vendored
+from the producer's standalone gate; its implementation identity must be pinned
+by any later derived product that uses it.
+
+Capture acceptance is distinct from renderer qualification. Unknown body forms
+or captured inherited attributes may be retained exactly while the closed render
+grammar rejects them. The initial grammar supports selected headings, provisions,
+HTTP(S) links, source footnote navigation and regular tables with column spans.
+Lists, numbered margins, row spans, images, formulas and unsupported contexts
+remain explicit rejections. The gate returns HTML only after raw/model comparison,
+grammar checks and reversal of the rendered result back to source events.
+This compatibility release does not change already published body products or
+claim that richer body products have been published. Legal validity remains
+unresolved and whole-document completeness remains unassessed.
+
+Routine operation catch-up preserves the latest accepted representation for an
+observation and destination across consumer upgrades. It reports `already_present`
+with the original generator identity. Explicit `extract-operations --observation`
+still performs generator-specific extraction and can append an intentional new
+representation. Neither path rewrites an older product or treats a code upgrade
+as new source knowledge.
 
 ## Observation identity and clocks
 
