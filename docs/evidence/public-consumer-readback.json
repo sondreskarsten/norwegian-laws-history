@@ -1,0 +1,86 @@
+{
+  "consumer_commit": "810d60b4174fe3feda7bea37ad4310b237cd404e",
+  "consumer_version": "0.1.0",
+  "installed_source_hashes": {
+    "ledger.py": "0ea1197cb30deee221d8686afcc0f0054637751c3c6cbb68ec01a2258757734c",
+    "validation.py": "bd8a657087f446a6bab6c7c6d3df145358ce0f860063e24812c73e05e10a6884",
+    "__init__.py": "b9138b83eca519839235ac409411b1d5a4ffe1daa579fe843faf8206fcdc0109",
+    "__main__.py": "d8d30277f7076bcc4a0087fa0e3451da2a384b60cf06a6def17de23d792e7ce6"
+  },
+  "runtime_dependencies": [],
+  "producer_commit": "2d90a466a8ca3954494f82041409b39242c5c1f5",
+  "observation_id": "ccdbf3e45098076118bf9362b60d31b7a80dc1aab1dcc2e226a4aee58c92b596",
+  "receipt_url": "https://github.com/sondreskarsten/norwegian-laws/releases/download/observation-ccdbf3e45098076118bf9362b60d31b7a80dc1aab1dcc2e226a4aee58c92b596/evidence.json",
+  "public_unauthenticated_bundle_download": true,
+  "bundle": {
+    "bytes": 191396694,
+    "sha256": "dea38d2f289d6611e23635886ac0cd60c5403c34205b36e7f0b84279a3545a35",
+    "receipt_hash_matches": true,
+    "filename": "snapshot.tar.gz"
+  },
+  "ingest_status": "accepted",
+  "replay_status": "already_present",
+  "replay_preserved_all_ledger_bytes_and_mtimes": true,
+  "archive_count": 4,
+  "member_count": 45114,
+  "parsed_occurrence_counts": {
+    "laws": 757,
+    "forskrifter": 5118,
+    "amendment_acts": 39208
+  },
+  "parsed_amendment_count": 99964,
+  "knowledge_cutoff": "2026-09-25T17:40:44.477321+00:00",
+  "canonical_status": "not_verified",
+  "legal_valid_time": {
+    "status": "unresolved",
+    "from": null,
+    "until": null
+  },
+  "raw_readbacks": [
+    {
+      "refid": "lov/1998-07-17-56",
+      "role": "laws",
+      "source_occurrence_id": "8abce8ef66dc6bc48ebedd3bfa3b397f92b8222eeb1179e343dbf83be86509be",
+      "archive_sha256": "6250f46086702c0f48f23c402cf4333970534acb541272ddfab7287717795477",
+      "member_ordinal": 291,
+      "member_path": "nl/nl-19980717-056.xml",
+      "bytes": 346731,
+      "sha256": "50b9d8631367c5b12916d9fa5ea09ee078a1d4c4461e86b6af104f68ba2efed9",
+      "matches_original_raw_member": true,
+      "output_file": "lov-1998-07-17-56.xml"
+    },
+    {
+      "refid": "forskrift/2026-09-18-1871",
+      "role": "forskrifter",
+      "source_occurrence_id": "818cbaa695f160999201d47e77b5441205b22990729c08263558abf11ee9b156",
+      "archive_sha256": "df019408b5ea1d65242317a983e1e5e44fd01a83632c4baab26dd164816b5f98",
+      "member_ordinal": 4849,
+      "member_path": "del/sf-20260918-1871.xml",
+      "bytes": 2999,
+      "sha256": "c5a275765c61e7766c304d140a917fe8dba9aaa50e6dc41c3c36607d9e6ca570",
+      "matches_original_raw_member": true,
+      "output_file": "forskrift-2026-09-18-1871.xml"
+    }
+  ],
+  "scope": "Independent public evidence download and installed-consumer ingest/replay/raw XML verification; no claim of lossless parsing or historical legal correctness",
+  "installation": "Fresh isolated non-editable package; installed Python source hashes matched the pinned consumer commit.",
+  "public_ledger_intake": {
+    "commit": "611153d93419437ba74a07ab07ce5067afabbbef",
+    "workflow_run_url": "https://github.com/sondreskarsten/norwegian-laws-history/actions/runs/36169832648",
+    "status": "accepted",
+    "all_four_committed_ledger_files_match_independent_ingest": true,
+    "file_sha256": {
+      "receipt.json": "da260d54e996e7bd38010530fa8d49e67934d4c591c13ed91b9afc6a3ef444ed",
+      "source-observations.json": "77b00ceebe6f0151c5415f678aa64eeafbbcdb9dca4f3cb95ede5129048a6197",
+      "members.jsonl": "179860bcb2ac51d2f885db7702e2073ef5e1cf63ddfe6887a0aae1c7371b4e57",
+      "observation.json": "fa5fecf45b047b9dd0366060f0a1d094534fa42f2fd601cc77c15406d5de4029"
+    }
+  },
+  "public_ledger_replay": {
+    "workflow_run_url": "https://github.com/sondreskarsten/norwegian-laws-history/actions/runs/36170157045",
+    "job_url": "https://github.com/sondreskarsten/norwegian-laws-history/actions/runs/36170157045/job/108187452240",
+    "status": "already_present",
+    "new_commit_created": false,
+    "verification_basis": "Completed production job log readback"
+  }
+}

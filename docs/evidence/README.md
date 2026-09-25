@@ -1,5 +1,15 @@
 # Evidence inventory
 
+## Public source delivery
+
+[`public-consumer-readback.json`](public-consumer-readback.json) records independent unauthenticated retrieval of the real public observation `ccdbf3e45098076118bf9362b60d31b7a80dc1aab1dcc2e226a4aee58c92b596`, produced by `norwegian-laws@2d90a466a8ca3954494f82041409b39242c5c1f5`. A fresh non-editable installation of consumer commit `810d60b4174fe3feda7bea37ad4310b237cd404e` verified the 191,396,694-byte bundle, accepted its 4 archives and 45,114 members, replayed without changing ledger bytes or modification times, and retrieved exact Regnskapsloven and regulation XML. Both retrieved files matched their original archive members independently. Machine-specific paths are omitted; filenames identify local outputs, not files bundled into this repository.
+
+The [public intake run](https://github.com/sondreskarsten/norwegian-laws-history/actions/runs/36169832648) committed the observation as [`611153d`](https://github.com/sondreskarsten/norwegian-laws-history/commit/611153d93419437ba74a07ab07ce5067afabbbef). All four committed ledger files match the independent ingestion byte for byte. The completed [production replay job](https://github.com/sondreskarsten/norwegian-laws-history/actions/runs/36170157045/job/108187452240) reported `already_present`, found no new observations to commit, and made no commit.
+
+The later ordered-container consumer support is merged at `99943ec03e1d9f4c5b73e7946f6af7bf09cb9f34`; its bounded local evidence is `container-order-validation.json`. The public fresh-install report remains pinned to `810d60b` and does not claim a full-corpus structural gate for the new contract. Canonical structure is still `not_verified`; legal validity is `unresolved`.
+
+## Earlier audit and local rehearsals
+
 Audit source is `sondreskarsten/norwegian-laws@4f5bbf561208e436f488b086ebf34924cd435530`. The original audit used an archived copy of that Git object. Large copied source, temporary test trees and databases are deliberately excluded here.
 
 - `issue1.json`, `pr11.json`, `pr12.json` and `history-tree.json`: fresh GitHub responses used for scope, reported delivery evidence and the README-only destination state.
@@ -11,4 +21,4 @@ Audit source is `sondreskarsten/norwegian-laws@4f5bbf561208e436f488b086ebf34924c
 - `container-order-validation.json`: independent acceptance of the explicit container content/formatter pair from a producer v4 snapshot containing two real XML members in local subset archives. Ordering references are checked; structural fidelity and legal validity remain unverified/unresolved.
 - `document-check.json`: local relative-link and pinned code-line bounds checks, not network availability or semantic review.
 
-The archived-source tests can be repeated with `python -m pytest` and the four named files; use a unique temporary directory outside any implementation checkout. The scripts and outputs support the bounded findings only. They do not certify whole-corpus coverage, legal validity, current deployed-site state or the later v4 interface.
+The archived-source tests can be repeated with `python -m pytest` and the four named files; use a unique temporary directory outside any implementation checkout. Those earlier scripts and outputs support their bounded findings only. They do not certify whole-corpus coverage, legal validity, current deployed-site state or the later v4 interface; public v4 ingestion and retrieval are covered separately above.
