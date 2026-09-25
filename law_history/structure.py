@@ -374,7 +374,7 @@ def canonical_html(events, refid, source_sha):
     return ('<!doctype html><html lang="nb"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>'
             '<title>' + html.escape(events[0][2]) + '</title><style>body{margin:0;background:#f3f4f0;color:#172c32;font:18px/1.65 Georgia,serif}'
             '.wrap{max-width:850px;margin:auto;padding:36px 24px}header{font:14px/1.5 system-ui;color:#54666a;border-bottom:1px solid #c4cecc;padding-bottom:20px}'
-            'h1{font-size:34px;line-height:1.2}h2,h3,h4{line-height:1.3}article,section{margin:28px 0}.legal-paragraph{margin:16px 0}'
+            'h1{font-size:34px;line-height:1.2}h1,h2,h3,h4{overflow-wrap:anywhere}h2,h3,h4{line-height:1.3}article,section{margin:28px 0}.legal-paragraph{margin:16px 0}'
             'ol{list-style:none;padding-left:26px}li{display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:8px;margin:12px 0}'
             '.marker{font-weight:bold;grid-column:1;grid-row:1}li>.legal-paragraph{grid-column:2;margin:0 0 8px}'
             'footer{font:13px/1.5 system-ui;border-top:1px solid #c4cecc;margin-top:30px;padding-top:16px;overflow-wrap:anywhere}</style></head><body><div class="wrap">'
