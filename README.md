@@ -76,6 +76,19 @@ runtime or renderer change can produce a new representation receipt without
 changing that semantic body. Published-product and independent readback evidence
 are recorded separately from the availability of these commands.
 
+To reproduce a published product, run the manual [reproduction workflow](.github/workflows/reproduce.yml)
+with its full materialization ID. It selects the receipt's exact Python version,
+checks the current generator source against the recorded hashes and validates the
+product's actual Git creation receipt. It fetches the source bundle, creates a
+separate ledger with only preceding products, denies network access, and regenerates
+the requested product. Success requires the exact receipt and every artifact to
+match; the requested output is never copied into the fresh ledger. A different
+generator requires checking out its recorded implementation before reproduction.
+This read-only workflow is separate from a clean-fork publication rehearsal.
+
+The equivalent local command, using the matching Python version and generator, is
+`python -m law_history.reproduce MATERIALIZATION_ID --report reproduction.json`.
+
 ## Prior reader copies
 
 The [prior reader archive](reader-archive/README.md) preserves 105 exact generated
@@ -84,9 +97,56 @@ Markdown copies recovered from ordinary source-repository Git history, including
 legal dates are unknown. They are useful retained reader copies, kept outside the
 raw-observation and qualified-text evidence paths.
 
+## Complete parsed amendment evidence
+
+The operation export preserves every producer-parsed act occurrence and operation,
+including unknown targets, unknown operation types, zero-operation acts and empty
+replacement text. It retains original fields and order, exact source/model
+identities, source locations and raw commencement candidates. It does not assign
+legal dates or apply amendments. Every initial temporal claim has unresolved status
+and null legal bounds; the producer's normalized publication-date fallback is not
+used as legal evidence.
+
+```text
+python -m law_history extract-operations --observation OBSERVATION_ID
+python -m law_history operation-products
+python -m law_history operations lov/2001-01-19-6 --product OPERATION_PRODUCT_ID
+```
+
+Use an accepted observation ID from `list`. Omitting `--observation` catches up
+all accepted observations. For a fork, pass `--github-repository OWNER/REPOSITORY`
+when extracting; the workflow uses its own repository automatically. The initial
+full-corpus rehearsal preserved 39,208 acts and 99,964 operations. This is complete
+relative to the producer's parsed inventory, not proof that its parser understood
+every source instruction. Replacement structure and legal interpretation remain
+separate work.
+
+Git stores only `operation-products/<identity>/receipt.json`. Deterministic
+compressed shards, their index and exact input-manifest/source-catalog proofs
+are packaged in `operations.tar.gz`, published at the receipt's GitHub Release
+URL. Receipts bind the full artifact inventory, source observation, generator
+and runtime, parent product and bundle digest. Retrieving a product repopulates
+ignored `.cache/operation-bundles/` and `.cache/operation-artifacts/` as needed,
+then verifies all records against the accepted source inventory. Prior receipts
+and release assets are never replaced. A new extraction identity can result from
+a representation/runtime change without a legal change.
+
+`publish` uploads and anonymously reads back each complete operation bundle before
+committing its receipt. A separate `operation-publications/<identity>.json` binds
+the product to its real Git creation commit and verified release download.
+Publication requires the GitHub CLI and ordinary repository write credentials;
+read-only retrieval requires neither. A failed publication can leave a draft or
+published release for safe replay, without overwriting existing assets. Local
+extraction alone is not public delivery.
+
+An exclusive `.cache/operation-writer.lock` protects the extraction chain. After
+a crash, confirm that the prior writer has stopped before removing that exact
+lock. The accepted product directories are immutable and must not be edited to
+repair a failed verification.
+
 ## Workflows
 
-The [observation workflow](.github/workflows/observe.yml) runs daily at 04:30 UTC, on relevant changes to `main`, or manually. It enumerates all published producer observation releases so missed runs can catch up, accepts verified observations, and generates the bounded document-body products. Set repository variable `SOURCE_REPOSITORY` to another public producer if needed; the default is `sondreskarsten/norwegian-laws`.
+The [observation workflow](.github/workflows/observe.yml) runs daily at 04:30 UTC, on relevant changes to `main`, or manually. It enumerates all published producer observation releases so missed runs can catch up, accepts verified observations, and generates the bounded document-body and complete parsed-operation products. Set repository variable `SOURCE_REPOSITORY` to another public producer if needed; the default is `sondreskarsten/norwegian-laws`.
 
 Publication uses this repository's ordinary `GITHUB_TOKEN`. It validates accepted observations and products, checks the expected remote parent, commits only verified additions, pushes normally, and reads back the remote Git objects. A separate `publications/<materialization-id>.json` receipt binds each product to its actual creation commit, tree, subtree and project commit dates. It does not supply legal dates. Replaying publication verifies existing receipts; a fresh checkout can complete missing receipts after an interrupted publication.
 

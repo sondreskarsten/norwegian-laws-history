@@ -1,0 +1,51 @@
+name: Reproduce a published observed-body product
+
+on:
+  workflow_dispatch:
+    inputs:
+      materialization:
+        description: Full published materialization ID
+        required: true
+        default: '8633cba81d35bd6efbf9ed20c67315705143f00ddf244b67fea7e04693800fd3'
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Read the pinned product runtime
+        id: runtime
+        env:
+          PRODUCT_ID: ${{ inputs.materialization }}
+        run: |
+          python - <<'PY'
+          import json, os, pathlib, re
+          identity = os.environ['PRODUCT_ID']
+          if not re.fullmatch('[0-9a-f]{64}', identity):
+              raise ValueError('Expected a complete materialization ID')
+          receipt = json.loads((pathlib.Path('materializations') / identity / 'receipt.json').read_text())
+          version = receipt['generator']['python']
+          if not re.fullmatch('3\.[0-9]+\.[0-9]+', version):
+              raise ValueError('Invalid pinned Python version')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('python=' + version + '\n')
+          PY
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ steps.runtime.outputs.python }}
+      - run: pip install .
+      - name: Fetch evidence, then regenerate with networking denied
+        env:
+          PRODUCT_ID: ${{ inputs.materialization }}
+        run: python -m law_history.reproduce "$PRODUCT_ID" --report "$RUNNER_TEMP/reproduction.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: independent-body-reproduction
+          path: ${{ runner.temp }}/reproduction.json
+          retention-days: 30
+          if-no-files-found: error

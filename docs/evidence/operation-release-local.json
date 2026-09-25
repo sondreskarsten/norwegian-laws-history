@@ -1,0 +1,194 @@
+{
+  "contract": "operation-release-local-rehearsal-v1",
+  "delivery_status": "local_accepted_diagnostic_not_published",
+  "product": {
+    "artifact_hashes": {
+      "acts/00000.jsonl.gz": "729848c547078e4ad7d96d28ee398438b49c71908c113114c10853e4166cdeef",
+      "acts/00001.jsonl.gz": "9510defd14b0f80d29fb4e1647a4d73e590aea852c9011938f7707008cd8acd9",
+      "acts/00002.jsonl.gz": "edaa4bcfdd75956f523e57bd7713dd8f6a167521448bc05587131bb342ca11f1",
+      "acts/00003.jsonl.gz": "07cf51d9750dec66650b12c426b5fd8a785b6279e8f9e258b4e05b29f46ee256",
+      "acts/00004.jsonl.gz": "d0b37a702df48a355fdd57e70f628de753b5bb4d516cb00ee138cd81206fef15",
+      "acts/00005.jsonl.gz": "e2b378a0ef42985ec368c281ef6a1bd462f40b3162a5f347323766fc91771510",
+      "acts/00006.jsonl.gz": "a9737cdad889269092d06803e28d1e9d32e1e7b2592fae6c4b092dbc01e8f4bc",
+      "acts/00007.jsonl.gz": "5b517677c71b7ecc6dd8d32c117d564446e5e1c1dbfec6573db113aa2093a2c6",
+      "acts/00008.jsonl.gz": "5bbe9029a71e5b98ebb1488eff86ca4f46dc9596f3236f247a2e2a39f27417f5",
+      "acts/00009.jsonl.gz": "e41d1d68f126f4bb46df83e26ffb8a826c25b5b5ec44b953f0167c0c819ec5ad",
+      "acts/00010.jsonl.gz": "f7ec79ec0172ae3fd6f6a05832ac4e0bf51776f79612c5daefb96ce463730eca",
+      "acts/00011.jsonl.gz": "073f75d7842542ae00a235a6970fc130c8dc8448e2cebe50f2a13c1be97c999f",
+      "acts/00012.jsonl.gz": "dd2cd8a0901b315e6c80eabd662c8add2c5cce249500a7deecc5b7d948f55674",
+      "acts/00013.jsonl.gz": "6d40ca22195080a8ffc5e0251739312f2a89205a5016a58d1f12b17f5d40015b",
+      "acts/00014.jsonl.gz": "c17d22c90ff26cac31e001547a89f9f9fe940a972b24020ceb33ec5008d98621",
+      "acts/00015.jsonl.gz": "2113659dec141ae4cf158f1a6acceb8148223752ad7bec4316f6a8d3058d55bf",
+      "acts/00016.jsonl.gz": "93670392f2ee14ad39bdd4b2ea30368bc839479c5b3d42cbe8911509335e7fa7",
+      "acts/00017.jsonl.gz": "2337341381452d5ce99dde27885090f24fbc1b1a27365aab7159a896997f5528",
+      "acts/00018.jsonl.gz": "b2bc1b992d759964f6065c4e6e3c184d0e263448d4acec02c6d3559663c00e72",
+      "acts/00019.jsonl.gz": "777d77d8ab752d3a6579b4725cc5a2dd57d05b64d6a0deae11758f52e04afb21",
+      "acts/00020.jsonl.gz": "bf970a81ffd774eb28d3fbb6fa9c8834c1601fcd0d024382300fbb9d5cde9a1d",
+      "acts/00021.jsonl.gz": "4e36f9c7492aa0f8abf347d925bd05ab7760284d6c729e6957c30f9bf9ae2d99",
+      "acts/00022.jsonl.gz": "2d1efaff3072051fb9bfa5309414538e755d185151691bff2c739a587f98189e",
+      "acts/00023.jsonl.gz": "1219a8273370a68c3b47ad7e115cde96e2c4a0b1cc51384f45e8eaeffd860b01",
+      "acts/00024.jsonl.gz": "d2ef384366187b5ffc0445e836bb1f9bc7307a43bfaccce9cd32319288d2eae3",
+      "acts/00025.jsonl.gz": "c0fc6ec959ce5640d7911d75ee43f768808911b56be7403578133d3c0786b76d",
+      "acts/00026.jsonl.gz": "57dc68a2e67e63f0b5d2f35b739d483ca98d20e0f557993460a969236282d30a",
+      "acts/00027.jsonl.gz": "2bfbfa89cc07153d9ae9170041963842a9f2b45631a3a6901eb34eb94396e2f9",
+      "acts/00028.jsonl.gz": "206ed9d8532e304d6e4663ae11aca8ab032600f94d9f045b0e765e1478351875",
+      "acts/00029.jsonl.gz": "8d896950ce8c812a3f75799e8f78671bc101bc8e644f5f2f6b912ca159c7b067",
+      "acts/00030.jsonl.gz": "9de3da589bac6994c35e0210ff52ef46e5fdeb5b032b0f5020cbd4b369857d90",
+      "acts/00031.jsonl.gz": "aadf076e230261b36b1a344613663372f1f95e8f4ece16286d6dd3c495d788ee",
+      "acts/00032.jsonl.gz": "80054d2259a77f9e23b009778885e7fd05fe87de83595277277e3996e6dc5178",
+      "acts/00033.jsonl.gz": "2e8939fe6d7a45c05261414c6ad59c599221ad5ae0b5c67c06d5170296f3708d",
+      "acts/00034.jsonl.gz": "21708b4fb112af95a17390267ae3725ded217b44b36ee9c176468af3df51f52b",
+      "acts/00035.jsonl.gz": "27811f9062524da4222a24fe707f1a664af83b13d104f602343fb3bb88c6eaf8",
+      "acts/00036.jsonl.gz": "339ad2b875ef8f4d13fcf1547b6de2ad5a0a79032724f977bdcb567d1b26fb7c",
+      "acts/00037.jsonl.gz": "c2cb0ba07b55cdfd904deee98af30715d98f14474a8f7487bd41327ef8ff20bb",
+      "acts/00038.jsonl.gz": "c24ca063e3944df82405ec6b3907b58ecb3d9b0a3cd3952fe33b7f0a694d011b",
+      "acts/00039.jsonl.gz": "39b8aaf62d49200adb2272f99b01226340edff4aa5c35a038228d52c0c8e2f1c",
+      "index.jsonl.gz": "f18e8c3a3ceb15b50f5d6e8c4aa0662fdb52df1c43a952b31e0eee6e5480835b",
+      "input-manifest.json": "b6311d2ea3306f57dddc52668079a89218b5bdac1037a828747bebde8a27c114",
+      "source-members.jsonl.gz": "45c11c6bb4bf0fc09b8c0387c815918730dcdc75bf4817f25fb7d4870d4bea68"
+    },
+    "bundle": {
+      "bytes": 102467016,
+      "name": "operations.tar.gz",
+      "sha256": "d1f2ee21f173e779e2b76524f86e5a679b4bbfe0d31b82de98f30a5792f1e97b",
+      "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/operations-1e90f86b92c99e5b8cfef30595ee72bf9facfd4fccf9dec4be5cb2137d6dfc6e/operations.tar.gz"
+    },
+    "contract": "history-operation-product-v1",
+    "counts": {
+      "acts": 39208,
+      "claims": 139172,
+      "operations": 99964
+    },
+    "coverage": "all_producer_parsed_act_occurrences_not_source_operation_completeness",
+    "diagnostics": {
+      "commencement_candidates": 93772,
+      "empty_replacement_operations": 13201,
+      "producer_unknown_operations": 2588,
+      "uniquely_aligned_instructions": 88166,
+      "unresolved_candidate_targets": 862,
+      "zero_operation_acts": 17665
+    },
+    "generator": {
+      "contract": "history-operation-product-v1",
+      "extractor": "history-operation-evidence-v1",
+      "python": "3.13.15",
+      "sources": {
+        "operation_products.py": "956c197d180cd93bec622a6c5d4fd3d48dcaabde82caa951786677112e3b90f1",
+        "operations.py": "d3c0dd0dc3726fa38d75983baaa9e8084d574809131a44e6c2f897af024c8f1d",
+        "validation.py": "c25e8803a45d5b390cba96c0bbf86aded58a27d88cb8cf77cf93c4e158ac7f6c"
+      },
+      "zlib": "1.3.1"
+    },
+    "knowledge_cutoff": "2026-09-25T18:15:07.434101+00:00",
+    "legal_valid_time_status": "unresolved",
+    "observation_id": "ca32e6b7b13b3435683c450f81cfc1ea0ae4c0a95694a0cde0d7cf2bc20e5f4c",
+    "operation_product_id": "1e90f86b92c99e5b8cfef30595ee72bf9facfd4fccf9dec4be5cb2137d6dfc6e",
+    "parent_operation_product_id": null,
+    "parsed_acts_sha256": "328d899cbae1503794b9d615a0b767f25c38ea2bc71551403433ccf043b5f8ba",
+    "release_tag": "operations-1e90f86b92c99e5b8cfef30595ee72bf9facfd4fccf9dec4be5cb2137d6dfc6e",
+    "repository": "sondreskarsten/norwegian-laws-history",
+    "shards": [
+      "acts/00000.jsonl.gz",
+      "acts/00001.jsonl.gz",
+      "acts/00002.jsonl.gz",
+      "acts/00003.jsonl.gz",
+      "acts/00004.jsonl.gz",
+      "acts/00005.jsonl.gz",
+      "acts/00006.jsonl.gz",
+      "acts/00007.jsonl.gz",
+      "acts/00008.jsonl.gz",
+      "acts/00009.jsonl.gz",
+      "acts/00010.jsonl.gz",
+      "acts/00011.jsonl.gz",
+      "acts/00012.jsonl.gz",
+      "acts/00013.jsonl.gz",
+      "acts/00014.jsonl.gz",
+      "acts/00015.jsonl.gz",
+      "acts/00016.jsonl.gz",
+      "acts/00017.jsonl.gz",
+      "acts/00018.jsonl.gz",
+      "acts/00019.jsonl.gz",
+      "acts/00020.jsonl.gz",
+      "acts/00021.jsonl.gz",
+      "acts/00022.jsonl.gz",
+      "acts/00023.jsonl.gz",
+      "acts/00024.jsonl.gz",
+      "acts/00025.jsonl.gz",
+      "acts/00026.jsonl.gz",
+      "acts/00027.jsonl.gz",
+      "acts/00028.jsonl.gz",
+      "acts/00029.jsonl.gz",
+      "acts/00030.jsonl.gz",
+      "acts/00031.jsonl.gz",
+      "acts/00032.jsonl.gz",
+      "acts/00033.jsonl.gz",
+      "acts/00034.jsonl.gz",
+      "acts/00035.jsonl.gz",
+      "acts/00036.jsonl.gz",
+      "acts/00037.jsonl.gz",
+      "acts/00038.jsonl.gz",
+      "acts/00039.jsonl.gz"
+    ],
+    "snapshot_manifest_sha256": "b6311d2ea3306f57dddc52668079a89218b5bdac1037a828747bebde8a27c114",
+    "source_observation_sha256": "cc234454ff6bdd41b9200b522e9d0cd4d4dce9e38befe5693270d3bc08c36721",
+    "source_receipt_url": "https://github.com/sondreskarsten/norwegian-laws/releases/download/observation-ca32e6b7b13b3435683c450f81cfc1ea0ae4c0a95694a0cde0d7cf2bc20e5f4c/evidence.json"
+  },
+  "verification_seconds": 264.5144194000168,
+  "cases": [
+    {
+      "refid": "lov/2001-01-19-3",
+      "occurrences": 1,
+      "operations": 6,
+      "legal_time_statuses": [
+        "unresolved"
+      ]
+    },
+    {
+      "refid": "lov/2001-01-19-6",
+      "occurrences": 1,
+      "operations": 10,
+      "legal_time_statuses": [
+        "unresolved"
+      ]
+    },
+    {
+      "refid": "lov/2001-04-06-11",
+      "occurrences": 1,
+      "operations": 2,
+      "legal_time_statuses": [
+        "unresolved"
+      ]
+    },
+    {
+      "refid": "lov/2001-04-06-12",
+      "occurrences": 1,
+      "operations": 11,
+      "legal_time_statuses": [
+        "unresolved"
+      ]
+    },
+    {
+      "refid": "lov/2001-12-21-113",
+      "occurrences": 1,
+      "operations": 19,
+      "legal_time_statuses": [
+        "unresolved"
+      ]
+    },
+    {
+      "refid": "lov/2012-03-23-13",
+      "occurrences": 1,
+      "operations": 0,
+      "legal_time_statuses": [
+        "unresolved"
+      ]
+    }
+  ],
+  "git_receipt_bytes": 6761,
+  "limitations": [
+    "Generated before subsequent orchestration/performance repairs; receipt records its original generator.",
+    "A concurrent source edit invalidated the automated replay premise; no byte-identical replay is claimed for this rehearsal.",
+    "Final consumer independently verifies full source catalog/model/operation bindings and six real retrieval cases.",
+    "Production generation and public release readback remain required; the declared local product URL has not been published."
+  ]
+}
