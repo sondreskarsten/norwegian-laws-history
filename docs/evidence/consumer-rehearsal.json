@@ -1,0 +1,33 @@
+{
+  "stage": "isolated_local_release_rehearsal",
+  "public_release_readback": false,
+  "observation_id": "5ea0c69580b749ed3125a609a8b74237cd74509535ac3cf9abd55e3ed58e70d7",
+  "receipt_source_sha": "4f5bbf561208e436f488b086ebf34924cd435530",
+  "replay_status": "already_present",
+  "member_count": 45114,
+  "canonical_status": "not_verified",
+  "legal_valid_time_status": "unresolved",
+  "raw_retrievals": [
+    {
+      "refid": "lov/1998-07-17-56",
+      "role": "laws",
+      "source_occurrence_id": "8abce8ef66dc6bc48ebedd3bfa3b397f92b8222eeb1179e343dbf83be86509be",
+      "bytes": 346731,
+      "sha256": "50b9d8631367c5b12916d9fa5ea09ee078a1d4c4461e86b6af104f68ba2efed9",
+      "source_member": "nl/nl-19980717-056.xml",
+      "verified": true
+    },
+    {
+      "refid": "forskrift/2026-09-18-1871",
+      "role": "forskrifter",
+      "source_occurrence_id": "818cbaa695f160999201d47e77b5441205b22990729c08263558abf11ee9b156",
+      "bytes": 2999,
+      "sha256": "c5a275765c61e7766c304d140a917fe8dba9aaa50e6dc41c3c36607d9e6ca570",
+      "source_member": "del/sf-20260918-1871.xml",
+      "verified": true
+    }
+  ],
+  "constitution_consolidated_occurrences": 2,
+  "ambiguous_source_rejected": "Document source is missing or ambiguous; use a source_occurrence_id from show",
+  "note": "Local rehearsal only: producer receipt source_sha predates the uncommitted evidence extension; no accepted rehearsal ledger is committed or published."
+}

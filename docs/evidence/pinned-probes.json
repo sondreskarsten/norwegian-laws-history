@@ -1,0 +1,33 @@
+{
+  "source_commit": "4f5bbf561208e436f488b086ebf34924cd435530",
+  "mixed_section": {
+    "source_order": [
+      "ALPHA",
+      "BRAVO",
+      "CHARLIE"
+    ],
+    "rendered_order": [
+      "ALPHA",
+      "CHARLIE",
+      "BRAVO"
+    ],
+    "bag_of_tokens_coverage": 1.0
+  },
+  "deferred_commencement": [
+    "2024-05-06",
+    true
+  ],
+  "unknown_commencement": [
+    "2024-05-06",
+    true
+  ],
+  "structured_regulation_repeal_target": "forskrift/2020-01-01-1",
+  "display_projection": {
+    "input_amendments": 2,
+    "output_amendments": 1,
+    "instruction_original": 301,
+    "instruction_exported": 200,
+    "new_text_original": 5001,
+    "new_text_exported": 4000
+  }
+}

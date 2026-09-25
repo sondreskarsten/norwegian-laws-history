@@ -1,0 +1,68 @@
+name: Accept published source observations
+
+on:
+  schedule:
+    - cron: '30 4 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'law_history/**'
+      - 'pyproject.toml'
+      - '.github/scripts/ingest_public_observations.py'
+      - '.github/workflows/observe.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: source-observation-ledger
+  cancel-in-progress: false
+
+jobs:
+  observe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the independent consumer
+        run: pip install .
+      - name: Accept every published observation, including missed runs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PRODUCER: ${{ vars.SOURCE_REPOSITORY || 'sondreskarsten/norwegian-laws' }}
+        run: |
+          python .github/scripts/ingest_public_observations.py --producer "$PRODUCER" \
+            --report "$RUNNER_TEMP/observation-readback.json"
+      - name: Publish append-only accepted observations
+        run: |
+          if [ ! -d observations ]; then
+            echo 'No producer observations have been published yet.'
+            exit 0
+          fi
+          git add observations/
+          if git diff --cached --quiet; then
+            echo 'Every published observation was already accepted.'
+            exit 0
+          fi
+          if [ -n "$(git diff --cached --name-only --diff-filter=CDMRTUXB)" ]; then
+            echo 'Refusing to modify an existing accepted observation.' >&2
+            exit 1
+          fi
+          git config user.name 'Norwegian laws observations'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Accept verified source observations [skip ci]'
+          # A concurrent source change must cause a clean refusal, never a rebase
+          # or force push. The next run replays the same release idempotently.
+          git push origin HEAD:main
+      - name: Retain consumer readback report
+        uses: actions/upload-artifact@v4
+        with:
+          name: observation-readback
+          path: ${{ runner.temp }}/observation-readback.json
+          retention-days: 30
+          if-no-files-found: error
