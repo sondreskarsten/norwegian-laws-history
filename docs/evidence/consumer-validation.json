@@ -1,0 +1,17 @@
+{
+  "stage": "independent_local_snapshot_validation",
+  "result": "passed",
+  "consumer": "law_history.validation.validate_snapshot",
+  "runtime_dependencies": "Python standard library only",
+  "source_observation_sha256": "8dac0916ed2be35f7005111a96a61f68ae1d5b06a9f019c9c285962110da303a",
+  "snapshot_version": 4,
+  "parsed_occurrence_counts": {"laws": 757, "forskrifter": 5118, "amendment_acts": 39208},
+  "member_count": 45114,
+  "parsed_amendment_count": 99964,
+  "knowledge_cutoff": "2026-09-25T17:21:25.328884+00:00",
+  "elapsed_seconds": 82.59,
+  "canonical_status": "not_verified",
+  "legal_valid_time_status": "unresolved",
+  "public_release_readback": false,
+  "note": "Local producer output validation. Producer code was not yet committed; this is not a published observation."
+}
