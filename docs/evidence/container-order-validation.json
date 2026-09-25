@@ -1,0 +1,24 @@
+{
+  "verification": "independent_consumer_accepts_producer_v4_container_contract",
+  "result": "passed",
+  "snapshot_version": 4,
+  "content_version": "ordered-law-containers-v1",
+  "formatter_version": "law-markdown-ordered-containers-v1",
+  "samples": [
+    {
+      "refid": "lov/1916-07-21-2",
+      "xml_sha256": "30aeae890ae1addd914bd9767d29caafca487b0fdded7e7bb4e2809d98f5d9c2",
+      "root_order_references": 13
+    },
+    {
+      "refid": "forskrift/1956-11-09-5",
+      "xml_sha256": "a8cec29d9e4f503f5700293f88cd093286691054ab021df9deb1bfc8477e6c8e",
+      "root_order_references": 3
+    }
+  ],
+  "member_count": 2,
+  "structural_coverage_status": "not_verified",
+  "legal_valid_time_status": "unresolved",
+  "scope": "Two real XML members repacked into explicitly local subset archives; no public release or full structural-fidelity claim.",
+  "tests": "7 focused tests pass; new contract tests first failed before implementation."
+}

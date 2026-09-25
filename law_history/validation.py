@@ -20,6 +20,11 @@ EVIDENCE_FILES = {"observations": "source-observations.json", "members": "source
 ACT_FIELDS = {"refid", "filename", "title", "short_title", "date_in_force", "date_published",
               "ministry", "changes_to", "amendments", "misc_info", "journal_number"}
 AMENDMENT_FIELDS = {"change_type", "target", "instruction", "new_text", "target_law"}
+CONTENT_CONTRACTS = {
+    ("legacy-paragraphs-v1", "law-markdown-v1"),
+    ("ordered-paragraph-blocks-v1", "law-markdown-ordered-html-v1"),
+    ("ordered-law-containers-v1", "law-markdown-ordered-containers-v1"),
+}
 
 
 def require(condition, message: str):
@@ -162,6 +167,45 @@ def _database(root, manifest, selected):
         require(not conn.execute("SELECT 1 FROM amendment_acts p LEFT JOIN amendments a ON p.refid=a.act_refid GROUP BY p.refid,p.amendment_count HAVING p.amendment_count IS NULL OR p.amendment_count != count(a.id) LIMIT 1").fetchone(), "SQLite parent amendment count mismatch")
 
 
+def validate_content_order(model: dict, content_version: str) -> None:
+    """Check reference coverage, not source fidelity or legal interpretation.
+
+    Arrays remain the only content owners. A populated content_order is a
+    permutation referencing every owned item once; missing/empty retains the
+    previous grouping. Only the explicit container contract permits that field
+    to change rendering order, including in nested sections.
+    """
+    root_fields = {"paragraph": "top_level_paragraphs", "remainder": "remainders",
+                   "section": "sections", "article": "top_level_articles"}
+    section_fields = {"preamble": "preamble", "article": "articles", "section": "subsections",
+                      "footnote": "footnotes", "remainder": "remainders"}
+
+    def container(node, fields):
+        require(isinstance(node, dict), "Document/section container must be an object")
+        require(all(isinstance(node.get(field, []), list) for field in fields.values()),
+                "Container content fields must be arrays")
+        refs = node.get("content_order", [])
+        require(isinstance(refs, list), "Container content_order must be an array")
+        if refs:
+            require(content_version == "ordered-law-containers-v1",
+                    "Populated content_order requires the container content contract")
+            seen = set()
+            for ref in refs:
+                require(isinstance(ref, dict) and set(ref) == {"kind", "index"}
+                        and isinstance(ref["kind"], str) and ref["kind"] in fields
+                        and type(ref["index"]) is int, "Invalid container order reference")
+                kind, index = ref["kind"], ref["index"]
+                require(0 <= index < len(node.get(fields[kind], [])), "Container order index out of range")
+                require((kind, index) not in seen, "Duplicate container order reference")
+                seen.add((kind, index))
+            expected = {(kind, i) for kind, field in fields.items() for i in range(len(node.get(field, [])))}
+            require(seen == expected, "Container order must reference every item exactly once")
+        for section in node.get(fields["section"], []):
+            container(section, section_fields)
+
+    container(model, root_fields)
+
+
 def validate_snapshot(root: Path, names: set[str]) -> tuple[dict, dict, list[dict]]:
     try:
         with ExitStack() as streams:
@@ -173,9 +217,8 @@ def validate_snapshot(root: Path, names: set[str]) -> tuple[dict, dict, list[dic
 def _validate_snapshot(root: Path, names: set[str], streams) -> tuple[dict, dict, list[dict]]:
     manifest = read_json(root / "manifest.json")
     require(type(manifest.get("version")) is int and manifest["version"] == 4, "Only snapshot v4 is accepted")
-    require((manifest.get("content_version"), manifest.get("formatter_version")) in {
-        ("legacy-paragraphs-v1", "law-markdown-v1"),
-        ("ordered-paragraph-blocks-v1", "law-markdown-ordered-html-v1")}, "Unknown content/formatter contract")
+    require((manifest.get("content_version"), manifest.get("formatter_version")) in CONTENT_CONTRACTS,
+            "Unknown content/formatter contract")
     for field in ("law_count", "forskrift_count", "amendment_act_count", "amendment_count"):
         require(count(manifest.get(field)), f"Invalid {field}")
     hashes = manifest.get("artifact_hashes")
@@ -307,6 +350,7 @@ def _validate_snapshot(root: Path, names: set[str], streams) -> tuple[dict, dict
                     require(model.get("refid") == row["refid"] and row["refid"].startswith("lov/" if role == "laws" else "forskrift/")
                             and isinstance(model.get("title"), str) and model["title"].strip()
                             and value_hash(model) == row["parsed_model_sha256"], "Selected parsed document mismatch")
+                    validate_content_order(model, manifest["content_version"])
                     allowed.add(name)
             else:
                 require(row.get("selected_output_path") is None and row.get("selected_output_sha256") is None, "Unselected output binding")
