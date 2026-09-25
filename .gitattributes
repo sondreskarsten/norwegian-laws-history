@@ -10,4 +10,5 @@ body-products/** -text
 body-publications/** -text
 later-claims/** -text
 claim-publications/** -text
-tests/fixtures/source_body/*.xml -text
+# Raw fixtures retain source whitespace as well as source line endings.
+tests/fixtures/source_body/*.xml -text -whitespace
