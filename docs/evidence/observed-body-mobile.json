@@ -1,0 +1,141 @@
+{
+  "schema": "public-body-visual-readback-v1",
+  "checked_at": "2026-09-25T19:22:50.472528+00:00",
+  "materialization_id": "5ecd4411f9038896f375bc88e56216c798fe5dc4b9e787ff3ec04f34c444c316",
+  "method": "Chrome CUA visual inspection and read-only DOM measurements of unmodified downloaded public HTML; separate corrected previews rendered from its body.json events",
+  "status": "published_mobile_defect_confirmed_corrected_preview_passed",
+  "finding": "At 390px, lov/1949-07-28-15 title overflows to 597px. Other two published bodies fit. Desktop titles, paragraphs and numbered markers are readable.",
+  "representation_change": "Heading wrapping only; no legal-date or canonical-event change. Corrected previews are not yet published products.",
+  "source_code_edits_by_visual_auditor": false,
+  "documents": [
+    {
+      "refid": "forskrift/2022-09-02-1529",
+      "title": "Delegering av Kongens myndighet etter finansavtaleloven",
+      "published_html_path": "C:\\Users\\AD00068\\Documents\\Github\\norwegian-laws-audit-20260925\\implementation-evidence\\history-products-public\\materializations\\5ecd4411f9038896f375bc88e56216c798fe5dc4b9e787ff3ec04f34c444c316\\documents\\forskrift-2022-09-02-1529\\body.html",
+      "published_html_sha256": "743ab6f1a5908eda4fc536f0806c0f315c1f87fe239c5cbdaccbed3fecd3cc69",
+      "fixed_preview_path": "C:\\Users\\AD00068\\Documents\\Github\\norwegian-laws-audit-20260925\\implementation-evidence\\history-products-public\\fixed-preview\\forskrift-2022-09-02-1529\\body.html",
+      "fixed_html_sha256": "6922c059fb6b66529a38c1d1e25dc95a27e93997afe0c6b099a9a9ec6cddb842",
+      "body_json_sha256": "64bb384e94f646b40e8680628f00849a02400bc5918af65a57c6edab51ee9d75",
+      "raw_member_sha256": "14930283a7383da487766be452a3deee74638822a4a1c4b446ef7d80d74a89e0",
+      "source_occurrence_id": "1b399897f57214a3f91cd37c6007fb7870af7dacce7f90b971da1d9ff69016ba",
+      "event_count": 5,
+      "published_reverse_equals_model_equals_fixed_reverse": true,
+      "raw_source_footer_binding_preserved": true,
+      "css_rule_only_change": "h1,h2,h3,h4{overflow-wrap:anywhere}",
+      "published_file_unchanged": true,
+      "published_mobile": {
+        "viewport_width": 390,
+        "document_scroll_width": 390,
+        "title_readable_without_horizontal_scroll": true,
+        "paragraphs_readable": true,
+        "list_markers": []
+      },
+      "published_desktop": {
+        "viewport_width": 1200,
+        "document_scroll_width": 1200,
+        "titles_paragraphs_and_markers_readable": true
+      },
+      "fixed_preview_mobile": {
+        "viewport_width": 390,
+        "document_scroll_width": 390,
+        "horizontal_overflow": false,
+        "title_fully_readable": true,
+        "paragraphs_readable": true,
+        "paragraph_count": 1,
+        "list_markers": [],
+        "computed_heading_overflow_wrap": "anywhere",
+        "visually_inspected": true
+      }
+    },
+    {
+      "refid": "lov/1845-06-07",
+      "title": "Lov om Perlefiskeriet",
+      "published_html_path": "C:\\Users\\AD00068\\Documents\\Github\\norwegian-laws-audit-20260925\\implementation-evidence\\history-products-public\\materializations\\5ecd4411f9038896f375bc88e56216c798fe5dc4b9e787ff3ec04f34c444c316\\documents\\lov-1845-06-07\\body.html",
+      "published_html_sha256": "2dabef0eb4eab7e565ecf5a8bec00f420727c4f848368be200112b4b45171be7",
+      "fixed_preview_path": "C:\\Users\\AD00068\\Documents\\Github\\norwegian-laws-audit-20260925\\implementation-evidence\\history-products-public\\fixed-preview\\lov-1845-06-07\\body.html",
+      "fixed_html_sha256": "89384dbff56061e984bfb064d588076340e27d22e22f59b894132fb0a56c332a",
+      "body_json_sha256": "fadb19264a7cd7c3fd894d44718ad35f57e8d594529d7775747819334b1954fc",
+      "raw_member_sha256": "9107f86d07f0c8430334fa0340cc6a75f2ad714c30b7b5c37d275858816f3b76",
+      "source_occurrence_id": "97422e60d929fd2400ec5c613b7bc8e7fd641dda61b62a6649412fbaef4c200d",
+      "event_count": 5,
+      "published_reverse_equals_model_equals_fixed_reverse": true,
+      "raw_source_footer_binding_preserved": true,
+      "css_rule_only_change": "h1,h2,h3,h4{overflow-wrap:anywhere}",
+      "published_file_unchanged": true,
+      "published_mobile": {
+        "viewport_width": 390,
+        "document_scroll_width": 390,
+        "title_readable_without_horizontal_scroll": true,
+        "paragraphs_readable": true,
+        "list_markers": []
+      },
+      "published_desktop": {
+        "viewport_width": 1200,
+        "document_scroll_width": 1200,
+        "titles_paragraphs_and_markers_readable": true
+      },
+      "fixed_preview_mobile": {
+        "viewport_width": 390,
+        "document_scroll_width": 390,
+        "horizontal_overflow": false,
+        "title_fully_readable": true,
+        "paragraphs_readable": true,
+        "paragraph_count": 1,
+        "list_markers": [],
+        "computed_heading_overflow_wrap": "anywhere",
+        "visually_inspected": true
+      }
+    },
+    {
+      "refid": "lov/1949-07-28-15",
+      "title": "Lov om adgang for Kongen til å inngå overenskomster med fremmede stater til forebyggelse av dobbeltbeskatning mv. (dobbeltbeskatningsavtaleloven)",
+      "published_html_path": "C:\\Users\\AD00068\\Documents\\Github\\norwegian-laws-audit-20260925\\implementation-evidence\\history-products-public\\materializations\\5ecd4411f9038896f375bc88e56216c798fe5dc4b9e787ff3ec04f34c444c316\\documents\\lov-1949-07-28-15\\body.html",
+      "published_html_sha256": "eeaf5d6b5302d2605bc636a853155b6000aa0407b972a80fab61c3cd476418fd",
+      "fixed_preview_path": "C:\\Users\\AD00068\\Documents\\Github\\norwegian-laws-audit-20260925\\implementation-evidence\\history-products-public\\fixed-preview\\lov-1949-07-28-15\\body.html",
+      "fixed_html_sha256": "f357764e85bbc385971cfdedf4285dabf4600bfd38b9a758000389bab0be8fcc",
+      "body_json_sha256": "1019cb10dea9c18200fb7fc6fc37a1d7b4e3375ca00a1250c7b31d73d9b0eb8f",
+      "raw_member_sha256": "0b4c06febecf138ed76d08335aec5888e4b63701a08a7652594939101968ca89",
+      "source_occurrence_id": "f14be30b59f6e4c25da59f92c82a1d3ccb20ecc2aacfa5d2f21e8e7d5b3f8474",
+      "event_count": 37,
+      "published_reverse_equals_model_equals_fixed_reverse": true,
+      "raw_source_footer_binding_preserved": true,
+      "css_rule_only_change": "h1,h2,h3,h4{overflow-wrap:anywhere}",
+      "published_file_unchanged": true,
+      "published_mobile": {
+        "viewport_width": 390,
+        "document_scroll_width": 597,
+        "title_readable_without_horizontal_scroll": false,
+        "paragraphs_readable": true,
+        "list_markers": [
+          "1.",
+          "2.",
+          "3."
+        ]
+      },
+      "published_desktop": {
+        "viewport_width": 1200,
+        "document_scroll_width": 1185,
+        "titles_paragraphs_and_markers_readable": true
+      },
+      "fixed_preview_mobile": {
+        "viewport_width": 390,
+        "document_scroll_width": 375,
+        "horizontal_overflow": false,
+        "title_fully_readable": true,
+        "paragraphs_readable": true,
+        "paragraph_count": 6,
+        "list_markers": [
+          "1.",
+          "2.",
+          "3."
+        ],
+        "computed_heading_overflow_wrap": "anywhere",
+        "visually_inspected": true
+      }
+    }
+  ],
+  "completed_at": "2026-09-25T19:23:58.316531+00:00",
+  "publication_status": "Corrected preview only; a new representation materialization must be published separately.",
+  "preview_renderer_source_sha256": "383f0077c5381d190fc3b13c6d9b14a3d11c58d1b7eb7856aa71632ba74ed41d",
+  "server_stopped": true
+}

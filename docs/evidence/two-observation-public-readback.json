@@ -1,0 +1,129 @@
+{
+  "scope": "Independent unauthenticated public product and Git receipt readback",
+  "checked_at": "2026-09-25T19:18:52.247707+00:00",
+  "repository": "sondreskarsten/norwegian-laws-history",
+  "publication_commit": "6551ae73a9306cd6950e24b890458314aeb2223a",
+  "workflow_run": 36178454989,
+  "products": [
+    {
+      "materialization_id": "5adf11f5d6b9b60194c3d4d6c549b5d4a2283b03c930f62ee1d808b605f4465b",
+      "observation_id": "ccdbf3e45098076118bf9362b60d31b7a80dc1aab1dcc2e226a4aee58c92b596",
+      "parent_materialization_id": null,
+      "qualified": 3,
+      "unqualified": 4,
+      "artifacts_verified": 23,
+      "publication": {
+        "branch": "main",
+        "contract": "history-git-publication-v1",
+        "creation_commit": "b29c62df05e08b7708af8a0d10dd9f2854ae0a19",
+        "creation_commit_url": "https://github.com/sondreskarsten/norwegian-laws-history/commit/b29c62df05e08b7708af8a0d10dd9f2854ae0a19",
+        "creation_tree": "583ee0439a124ea477d017386c990fd4dd6356d6",
+        "expected_git_parent": "a79eda10c52508ab0ff49e5cf7f2d867b322375b",
+        "git_date_basis": "actual_project_commit_dates_not_legal_or_source_observation_dates",
+        "github_repository": "sondreskarsten/norwegian-laws-history",
+        "materialization_id": "5adf11f5d6b9b60194c3d4d6c549b5d4a2283b03c930f62ee1d808b605f4465b",
+        "materialization_receipt_sha256": "8d104a5bfe28ddb15358a6fc43c02ade70c2ce0a554065b3d428c30e889b8aba",
+        "materialization_tree": "105ab36dc47608d3b9b4a83e937cd38274f2231b",
+        "materialization_url": "https://github.com/sondreskarsten/norwegian-laws-history/tree/b29c62df05e08b7708af8a0d10dd9f2854ae0a19/materializations/5adf11f5d6b9b60194c3d4d6c549b5d4a2283b03c930f62ee1d808b605f4465b",
+        "observation_id": "ccdbf3e45098076118bf9362b60d31b7a80dc1aab1dcc2e226a4aee58c92b596",
+        "project_author_date": "2026-09-25T19:16:30Z",
+        "project_committer_date": "2026-09-25T19:16:30Z",
+        "remote_verification": "creation_commit_reachable_from_fetched_destination_branch"
+      },
+      "generator": {
+        "contract": "strict-document-body-v1",
+        "implementation": "CPython",
+        "materializer": "history-materialization-v1",
+        "python": "3.12.14",
+        "source_sha256": {
+          "materialize.py": "ffacd61d4a02a0e5d27e417f1c3451f698a8ec59728ff4dfca22d0f05af94579",
+          "structure.py": "7959c647a4363d3fa63a005ba1af2c4e02419b10d25d6d8e49adc2e54387f763"
+        }
+      },
+      "local_generator": {
+        "contract": "strict-document-body-v1",
+        "implementation": "CPython",
+        "materializer": "history-materialization-v1",
+        "python": "3.13.15",
+        "source_sha256": {
+          "materialize.py": "ffacd61d4a02a0e5d27e417f1c3451f698a8ec59728ff4dfca22d0f05af94579",
+          "structure.py": "7959c647a4363d3fa63a005ba1af2c4e02419b10d25d6d8e49adc2e54387f763"
+        }
+      },
+      "independent_local_body_and_html_bytes_match": true,
+      "projection_changes": {
+        "forskrift/2022-09-02-1529": "first_qualified_projection",
+        "lov/1845-06-07": "first_qualified_projection",
+        "lov/1949-07-28-15": "first_qualified_projection"
+      },
+      "legal_valid_time": {
+        "from": null,
+        "status": "unresolved",
+        "until": null
+      }
+    },
+    {
+      "materialization_id": "5ecd4411f9038896f375bc88e56216c798fe5dc4b9e787ff3ec04f34c444c316",
+      "observation_id": "ca32e6b7b13b3435683c450f81cfc1ea0ae4c0a95694a0cde0d7cf2bc20e5f4c",
+      "parent_materialization_id": "5adf11f5d6b9b60194c3d4d6c549b5d4a2283b03c930f62ee1d808b605f4465b",
+      "qualified": 3,
+      "unqualified": 4,
+      "artifacts_verified": 23,
+      "publication": {
+        "branch": "main",
+        "contract": "history-git-publication-v1",
+        "creation_commit": "b29c62df05e08b7708af8a0d10dd9f2854ae0a19",
+        "creation_commit_url": "https://github.com/sondreskarsten/norwegian-laws-history/commit/b29c62df05e08b7708af8a0d10dd9f2854ae0a19",
+        "creation_tree": "583ee0439a124ea477d017386c990fd4dd6356d6",
+        "expected_git_parent": "a79eda10c52508ab0ff49e5cf7f2d867b322375b",
+        "git_date_basis": "actual_project_commit_dates_not_legal_or_source_observation_dates",
+        "github_repository": "sondreskarsten/norwegian-laws-history",
+        "materialization_id": "5ecd4411f9038896f375bc88e56216c798fe5dc4b9e787ff3ec04f34c444c316",
+        "materialization_receipt_sha256": "d0208f634f19ae36f45a1125ce4fa958adc5dd4e823ec8578ae16c18202d8c57",
+        "materialization_tree": "e2a9b532822d7d1a4590a79dd78352727d251413",
+        "materialization_url": "https://github.com/sondreskarsten/norwegian-laws-history/tree/b29c62df05e08b7708af8a0d10dd9f2854ae0a19/materializations/5ecd4411f9038896f375bc88e56216c798fe5dc4b9e787ff3ec04f34c444c316",
+        "observation_id": "ca32e6b7b13b3435683c450f81cfc1ea0ae4c0a95694a0cde0d7cf2bc20e5f4c",
+        "project_author_date": "2026-09-25T19:16:30Z",
+        "project_committer_date": "2026-09-25T19:16:30Z",
+        "remote_verification": "creation_commit_reachable_from_fetched_destination_branch"
+      },
+      "generator": {
+        "contract": "strict-document-body-v1",
+        "implementation": "CPython",
+        "materializer": "history-materialization-v1",
+        "python": "3.12.14",
+        "source_sha256": {
+          "materialize.py": "ffacd61d4a02a0e5d27e417f1c3451f698a8ec59728ff4dfca22d0f05af94579",
+          "structure.py": "7959c647a4363d3fa63a005ba1af2c4e02419b10d25d6d8e49adc2e54387f763"
+        }
+      },
+      "local_generator": {
+        "contract": "strict-document-body-v1",
+        "implementation": "CPython",
+        "materializer": "history-materialization-v1",
+        "python": "3.13.15",
+        "source_sha256": {
+          "materialize.py": "ffacd61d4a02a0e5d27e417f1c3451f698a8ec59728ff4dfca22d0f05af94579",
+          "structure.py": "7959c647a4363d3fa63a005ba1af2c4e02419b10d25d6d8e49adc2e54387f763"
+        }
+      },
+      "independent_local_body_and_html_bytes_match": true,
+      "projection_changes": {
+        "forskrift/2022-09-02-1529": "unchanged",
+        "lov/1845-06-07": "unchanged",
+        "lov/1949-07-28-15": "unchanged"
+      },
+      "legal_valid_time": {
+        "from": null,
+        "status": "unresolved",
+        "until": null
+      }
+    }
+  ],
+  "limitations": [
+    "Local Python 3.13 and production Python 3.12 give different representation receipt identities; all qualified semantic JSON and HTML bytes match.",
+    "This establishes two same-day observed products, not legal dates, a clean-fork run or a subsequent daily cycle."
+  ],
+  "creation_commit_contains_verified_product_subtrees": true,
+  "product_subtrees_absent_from_creation_parent": true
+}
