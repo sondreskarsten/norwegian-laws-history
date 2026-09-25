@@ -107,7 +107,8 @@ def _validate(envelope, raw, member, receipt, manifest_bytes, source_bytes):
     manifest, observation, manifest_sha, source_sha = _artifact_context(manifest_bytes, source_bytes)
     require(manifest_sha == receipt["snapshot_manifest_sha256"],
             "Snapshot manifest digest mismatch")
-    require(manifest.get("version") == 4 and manifest.get("evidence", {}).get("parsed_amendments") == PARSED_PATH
+    require(manifest.get("version") in (4, 5) and manifest.get("version") == receipt["snapshot_version"]
+            and manifest.get("evidence", {}).get("parsed_amendments") == PARSED_PATH
             and manifest.get("evidence", {}).get("observations") == SOURCE_PATH,
             "Unsupported parsed/source artifact contract")
     hashes = manifest["artifact_hashes"]

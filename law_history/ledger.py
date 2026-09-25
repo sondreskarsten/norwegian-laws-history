@@ -135,6 +135,7 @@ def ingest(source: str, repository: Path, bundle: Path | None = None) -> dict:
         stage = Path(temp)
         names = unpack_bundle(retained, stage, receipt)
         manifest, observation, members = validate_snapshot(stage, names)
+        require(manifest["version"] == receipt["snapshot_version"], "Receipt/snapshot version mismatch")
         accepted = stage / "accepted"
         accepted.mkdir()
         (accepted / "receipt.json").write_bytes(canonical(receipt, newline=True))

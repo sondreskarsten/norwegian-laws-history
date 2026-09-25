@@ -394,13 +394,17 @@ def _generate(snapshot, output, release, manifest, members):
 
 
 def extract_operations(repository: Path, observation_id: str, expected_parent="auto", snapshot: Path | None = None,
-                       github_repository="sondreskarsten/norwegian-laws-history", *, verify_replay: bool = True) -> dict:
+                       github_repository="sondreskarsten/norwegian-laws-history", *, verify_replay: bool = True,
+                       reuse_existing_observation: bool = False) -> dict:
     """Validate the complete accepted input, then atomically append a full product.
 
     ``snapshot`` can reuse an already unpacked local bundle. Every declared file,
     raw member and model is still checked against the accepted release identity.
     Routine catch-up can skip artifact revalidation for an identical accepted
     receipt; explicit extraction revalidates that matching product by default.
+    ``reuse_existing_observation`` is for routine catch-up: preserve the latest
+    accepted representation for this observation/repository across consumer
+    upgrades. Explicit extraction keeps generator-specific replay by default.
     """
     repository = Path(repository).absolute()
     require(isinstance(github_repository, str) and re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", github_repository),
@@ -418,9 +422,9 @@ def extract_operations(repository: Path, observation_id: str, expected_parent="a
         require(expected_parent == "auto" or expected_parent == parent
                 or expected_parent == "none" and parent is None, "Operation product parent changed")
         generator = generator_identity()
-        for prior in chain:
-            if (prior["observation_id"] == observation_id and prior["generator"] == generator
-                    and prior["repository"] == github_repository):
+        for prior in reversed(chain):
+            if (prior["observation_id"] == observation_id and prior["repository"] == github_repository
+                    and (reuse_existing_observation or prior["generator"] == generator)):
                 if verify_replay:
                     read_operation_product(repository, prior["operation_product_id"])
                 return {"status": "already_present", **prior}
@@ -487,7 +491,8 @@ def extract_operations(repository: Path, observation_id: str, expected_parent="a
 
 
 def extract_all(repository: Path, github_repository="sondreskarsten/norwegian-laws-history") -> list[dict]:
-    return [extract_operations(repository, item["observation_id"], github_repository=github_repository, verify_replay=False)
+    return [extract_operations(repository, item["observation_id"], github_repository=github_repository,
+                               verify_replay=False, reuse_existing_observation=True)
             for item in list_observations(repository)]
 
 
