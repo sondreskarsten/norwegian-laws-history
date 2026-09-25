@@ -1,0 +1,71 @@
+{
+  "status": "reproduced",
+  "body_product_id": "36d9b49189c0ad607d01c5be44059a8d43ec38d7794fa3b5a1afc96049bb0611",
+  "generator_code_checkout": "5a1c09cabe7565a731f3ceec7065e7b31cdde676",
+  "harness_code_checkout": "91d85d566251e585b163a9c0fa197a72c1918db8",
+  "contract": "history-offline-source-body-reproduction-v1",
+  "observation_id": "e7b9f7d26047ee3b45e65597f034b62fbdf6444b1349c96c93ade9711414e7fa",
+  "checked_checkout": "91d85d566251e585b163a9c0fa197a72c1918db8",
+  "publication": {
+    "body_product_id": "36d9b49189c0ad607d01c5be44059a8d43ec38d7794fa3b5a1afc96049bb0611",
+    "body_product_url": "https://github.com/fixture/history/tree/20856fc203432795278894ec7b9c02c35ebb4861/body-products/36d9b49189c0ad607d01c5be44059a8d43ec38d7794fa3b5a1afc96049bb0611",
+    "body_receipt_sha256": "d9c5c7e462eca3180a71fabca62a0ee33769d0ef1d675fca66def91ad0f7c771",
+    "body_tree": "00dcf732d35ff58f6208c2068adcb1a115a955fd",
+    "branch": "main",
+    "bundle": {
+      "bytes": 3491,
+      "name": "bodies.tar.gz",
+      "sha256": "1864e66030a0dabda10897bed2c126b7da72c0ab4b6299eb2c96ab9da7606dcd",
+      "url": "https://github.com/fixture/history/releases/download/bodies-36d9b49189c0ad607d01c5be44059a8d43ec38d7794fa3b5a1afc96049bb0611/bodies.tar.gz"
+    },
+    "contract": "history-body-git-publication-v1",
+    "creation_commit": "20856fc203432795278894ec7b9c02c35ebb4861",
+    "creation_commit_url": "https://github.com/fixture/history/commit/20856fc203432795278894ec7b9c02c35ebb4861",
+    "creation_tree": "b9907c24d7e097803b353059fe7ea29c1ad30672",
+    "expected_git_parent": "5a1c09cabe7565a731f3ceec7065e7b31cdde676",
+    "git_date_basis": "actual_project_commit_dates_not_legal_or_source_observation_dates",
+    "github_repository": "fixture/history",
+    "observation_id": "e7b9f7d26047ee3b45e65597f034b62fbdf6444b1349c96c93ade9711414e7fa",
+    "project_author_date": "2026-09-26T00:04:54+02:00",
+    "project_committer_date": "2026-09-26T00:04:54+02:00",
+    "release_tag": "bodies-36d9b49189c0ad607d01c5be44059a8d43ec38d7794fa3b5a1afc96049bb0611",
+    "release_verification": "anonymous_download_size_sha256_and_exact_artifact_inventory",
+    "remote_verification": "creation_commit_reachable_from_fetched_destination_branch"
+  },
+  "generator": {
+    "contract": "history-source-body-product-v1",
+    "gate": "observed-body-links-notes-colspans-v2",
+    "python": "3.13.15",
+    "sources": {
+      "body_transport.py": "e9d7e46f056d900984880a625dbf95361b6ca454f29ae20e86e19f49c4793a73",
+      "ledger.py": "fbf77ad6e76488b2ff975a8af8bfecdf3796445ba01b04fc58ae41236de151f8",
+      "source_body_gate.py": "aed6824b5298e9a0b9579c9bb08fb834521007bf25f521dedbc1414cb4a2cd95",
+      "source_body_products.py": "9a3ee47a08aea50b3d1d3a452ed43761eebc1e3e7a4a9c7280ed0962edc28db4",
+      "validation.py": "f0bf57e4f04e91df17f2c923d32bfdc31735d3fc7c856108b46abad4228622e3"
+    },
+    "zlib": "1.3.1"
+  },
+  "source_bundle_sha256": "42030494ecd537847fc5722044100115ff5177386d49369f9a422ffa52a4f0e2",
+  "body_bundle_sha256": "1864e66030a0dabda10897bed2c126b7da72c0ab4b6299eb2c96ab9da7606dcd",
+  "comparison_dependency": "e503a0d3ce47df2b5d06b02d09c20b125cc0436d61afcff2ec32117c978b208e",
+  "network_during_regeneration": "denied",
+  "target_product_copied": false,
+  "artifact_hashes": {
+    "receipt.json": "d9c5c7e462eca3180a71fabca62a0ee33769d0ef1d675fca66def91ad0f7c771",
+    "documents/00000.jsonl.gz": "83b5257a8eafd4cb616473c1db40213d252f425e1cae9e9df644fc6e671a266a",
+    "inventory.jsonl.gz": "e648e6aec447bf2b1341427cecd7f9daf5eb504ba07f21250551995d6e549066",
+    "last-qualified.jsonl.gz": "b0e77437928032d6f1bbc66660e6a8458b7948887d9704527b7b7cb671772856"
+  },
+  "preserved_product_receipts": {
+    "e503a0d3ce47df2b5d06b02d09c20b125cc0436d61afcff2ec32117c978b208e": "5b0a1134ec514498cd07e6f6171bd1329b72c25c6acc0fd44b101a9a7cba04ea",
+    "36d9b49189c0ad607d01c5be44059a8d43ec38d7794fa3b5a1afc96049bb0611": "d9c5c7e462eca3180a71fabca62a0ee33769d0ef1d675fca66def91ad0f7c771"
+  },
+  "legal_valid_time": {
+    "from": null,
+    "status": "unresolved",
+    "until": null
+  },
+  "scope": "exact published observed-body representation; not legal reconstruction or a clean fork",
+  "local_acceptance_scope": "Actual workflow Python programs, real local Git publication and separate recorded-parent checkout; cached fixture source/release transport. No GitHub Actions or public release run claimed.",
+  "selected_python": "3.13.15"
+}

@@ -30,6 +30,17 @@ def main(argv=None):
     project.add_argument("--refid", action="append", help="Explicit bounded document selection; repeat up to 20 times")
     project.add_argument("--expected-parent", default="auto", help="Expected prior materialization ID, or none for the first")
     commands.add_parser("materializations", help="Read and verify the append-only derived-product chain")
+    bodies = commands.add_parser("qualify-bodies", help="Qualify every selected body in an accepted v5 observation")
+    bodies.add_argument("--observation", help="Accepted observation; omit to catch up only missing v5 products")
+    bodies.add_argument("--expected-parent", default="auto")
+    bodies.add_argument("--snapshot", type=Path)
+    bodies.add_argument("--github-repository", default="sondreskarsten/norwegian-laws-history")
+    inventory = commands.add_parser("body-products", help="List source-body receipts, optionally requalifying complete products")
+    inventory.add_argument("--verify", action="store_true", help="Requalify every product against its complete raw source")
+    body = commands.add_parser("body", help="Retrieve one document from a pinned qualified source-body product")
+    body.add_argument("refid")
+    body.add_argument("--product", required=True)
+    body.add_argument("--output", type=Path, help="Save qualified standalone HTML to a new file")
     operations = commands.add_parser("extract-operations", help="Preserve every parsed act/operation with unresolved temporal evidence")
     operations.add_argument("--observation", help="Accepted observation ID; omitted means catch up all accepted observations")
     operations.add_argument("--expected-parent", default="auto")
@@ -39,6 +50,10 @@ def main(argv=None):
     act = commands.add_parser("operations", help="Retrieve original operations and unresolved claims for an amendment act")
     act.add_argument("refid")
     act.add_argument("--product", help="Pinned operation-product ID; defaults to the latest product")
+    propose = commands.add_parser("propose-claim", help="Append a source-bound proposal without assigning legal eligibility")
+    propose.add_argument("request", type=Path, help="JSON proposal with exact subject, evidence and superseded claim")
+    claims = commands.add_parser("claim-history", help="Read every proposed interpretation for an exact pinned subject")
+    claims.add_argument("target", type=Path, help="JSON target with exact product, source occurrence and subject revision")
     publish = commands.add_parser("publish", help="Publish new ledger/products and separate Git receipts with checked parents")
     publish.add_argument("--remote", default="origin")
     publish.add_argument("--branch", default="main")
@@ -61,6 +76,26 @@ def main(argv=None):
                 result = materialize_all(args.repository)
         elif args.command == "materializations":
             result = materializations(args.repository)
+        elif args.command == "qualify-bodies":
+            from .source_body_products import qualify_all, qualify_bodies
+            if args.observation:
+                result = qualify_bodies(args.repository, args.observation, args.expected_parent, args.snapshot, args.github_repository)
+            else:
+                if args.snapshot or args.expected_parent != "auto":
+                    raise ValueError("A snapshot or parent requires --observation")
+                result = qualify_all(args.repository, args.github_repository)
+        elif args.command == "body-products":
+            from .source_body_products import body_products
+            result = body_products(args.repository, verify=args.verify)
+        elif args.command == "body":
+            from .source_body_reader import read_body
+            result = read_body(args.repository, args.refid, args.product)
+            if args.output:
+                if result["status"] != "qualified":
+                    raise ValueError("This document has no qualified body in the selected product")
+                with args.output.open("xb") as stream:
+                    stream.write(result["document"]["html"].encode("utf-8"))
+                result = {**result, "document": None, "output": str(args.output)}
         elif args.command == "extract-operations":
             from .operation_products import extract_all, extract_operations
             if args.observation:
@@ -75,6 +110,11 @@ def main(argv=None):
         elif args.command == "operations":
             from .operation_products import show_operations
             result = show_operations(args.repository, args.refid, args.product)
+        elif args.command in ("propose-claim", "claim-history"):
+            from .later_claims import claim_history, propose_claim
+            from .validation import read_json
+            result = (propose_claim(args.repository, read_json(args.request)) if args.command == "propose-claim"
+                      else claim_history(args.repository, read_json(args.target)))
         elif args.command == "publish":
             from .publication import publish as publish_products
             result = publish_products(args.repository, args.remote, args.branch, args.github_repository)

@@ -1,0 +1,393 @@
+{
+  "contract": "local-source-body-full-corpus-rehearsal-v1",
+  "status": "passed",
+  "local_unpublished_rehearsal": true,
+  "published": false,
+  "receipt_urls_are_prospective_only": true,
+  "scope": "All 5,874 selected law/regulation bodies in the exact retained-source v5 snapshot; not legal-as-of reconstruction.",
+  "source_head_label": "5e8e8895717ac3c781fb8ac8456f8b8d3e116c53",
+  "source_code_note": "The source HEAD labels a local rehearsal; the producer changes were uncommitted when the snapshot and bundle were built. Independent module hashes record the actual implementation.",
+  "preserved_input": {
+    "retained_public_observation_id": "ca32e6b7b13b3435683c450f81cfc1ea0ae4c0a95694a0cde0d7cf2bc20e5f4c",
+    "snapshot_manifest_sha256": "d5685df90acc955e023a9e17867ac3ebc185af4292783fde8bc239a28ee57aed",
+    "source_observation_sha256": "bc4d620f18fbf14d058127c32e9c229407d88d8423bcc67fab1e4c4142ab6f83",
+    "snapshot_version": 5,
+    "content_version": "ordered-source-document-body-v1",
+    "formatter_version": "law-markdown-convenience-with-source-body-v1",
+    "counts": {
+      "law_count": 756,
+      "forskrift_count": 5118,
+      "amendment_act_count": 39208,
+      "amendment_count": 99964
+    },
+    "parsed_occurrences": {
+      "laws": 757,
+      "forskrifter": 5118,
+      "amendment_acts": 39208
+    },
+    "compatibility": {
+      "parsed_convenience_hashes_matched": 5875,
+      "selected_legacy_file_hashes_matched": 5874,
+      "amendment_parsed_hashes_matched": 39208,
+      "differences": []
+    },
+    "producer_module_hashes": {
+      "lovdata-loader\\src\\lovdata_loader\\models.py": "bc5201610b33b1e07284b635699bebefdf3ca31767aa6d0084c6b8443d6c1242",
+      "lovdata-loader\\src\\lovdata_loader\\parser.py": "e0e22847a74b1572cdf2d6ac0d994b1ae78affc18ce440e0f2f612dd581d2eef",
+      "lovdata-loader\\src\\lovdata_loader\\evidence.py": "6d1b9a6114a15fe3bd09c84586bbc98100924591bd90e4206a7a3d0aa50e1f1e",
+      "lovdata-loader\\src\\lovdata_loader\\store.py": "f383810f71b74c58a09433bdc196b4ea2ed17f6cc8c7a0a5983e14de23b4bd80",
+      "lovdata-loader\\src\\lovdata_loader\\source_body.py": "f13931a85ae6f4cf71999f2ef2bdfd7115e73ba489c2611db7c83993d6d7b2a9",
+      "lovdata-loader\\src\\lovdata_loader\\source_body_gate.py": "4af2fcc601e3120e49984e2c2ad90e295e8e1d5354f838c1ef23ca4b66fe1bb2"
+    }
+  },
+  "prepared_release": {
+    "observation_id": "8b88da8aa33b2590fdd57c7effd8075196e198f08d40692fea65efda8025efa9",
+    "receipt_sha256": "e5a5defa27fbca1c095281281ebd27997a74dd5e737068a1d74ec82ae52a82da",
+    "source_sha": "5e8e8895717ac3c781fb8ac8456f8b8d3e116c53",
+    "bundle_sha256": "a22e64d8ea11febdf9acb7d335defed1d70339f86bef3072b051c9849af7a25c",
+    "bundle_bytes": 240659798,
+    "bundle_file_count": 5883,
+    "prepare_code_hashes_read_after_prepare": {
+      ".github/scripts/publish_evidence.py": "8dcf27d817cfcaf144cd6b229a32d8d383c32b88a2ee5aeb16c6af229672dad1",
+      "lovdata-publisher/src/lovdata_publisher/snapshot.py": "23498bff011da42aa2d131f3d6cdaedd915721e245c5407882dcbfe49bd0b30c"
+    },
+    "publish_invoked": false
+  },
+  "independent_intake": {
+    "status": "accepted",
+    "seconds": 298.942,
+    "catalog_sha256": "179860bcb2ac51d2f885db7702e2073ef5e1cf63ddfe6887a0aae1c7371b4e57",
+    "catalog_member_count": 45114,
+    "archive_count": 4,
+    "unresolved_member_count": 0,
+    "exact_bundle_replay": "already_present",
+    "constitution_occurrences": [
+      {
+        "archive_ordinal": 0,
+        "archive_sha256": "6250f46086702c0f48f23c402cf4333970534acb541272ddfab7287717795477",
+        "member_ordinal": 6,
+        "member_path": "nl/nl-18140517-000-nn.xml",
+        "member_sha256": "a29c9d613869b8cd841fb8a9edf26663f0488f9047c9eca9d5614cbf5e6b61e4",
+        "member_size_bytes": 139962,
+        "member_type": "file",
+        "parse_status": "parsed",
+        "refid": "lov/1814-05-17",
+        "role": "laws",
+        "selected": false,
+        "source_occurrence_id": "c702605c3463d47697886c171f9abf135993aa45b7597e2faf85e0176671eec7"
+      },
+      {
+        "archive_ordinal": 0,
+        "archive_sha256": "6250f46086702c0f48f23c402cf4333970534acb541272ddfab7287717795477",
+        "member_ordinal": 7,
+        "member_path": "nl/nl-18140517-000.xml",
+        "member_sha256": "3493422a8c32753bf2b7848a84fcf1047dca9be6cf56658221fdb3fdc63da259",
+        "member_size_bytes": 138982,
+        "member_type": "file",
+        "parse_status": "parsed",
+        "refid": "lov/1814-05-17",
+        "role": "laws",
+        "selected": true,
+        "source_occurrence_id": "bd04de46838236d93773aba7516ba9c6bf2f4da68b3850cd043001c0ee2c3763"
+      }
+    ],
+    "source_modules_changed_during_intake": [],
+    "legal_valid_time": {
+      "status": "unresolved",
+      "from": null,
+      "until": null
+    }
+  },
+  "body_product": {
+    "body_product_id": "bfeb9e01c8c34e3e244276597869f412f962a9092e5acd2484d0daa8a395f26a",
+    "gate_version": "observed-body-links-notes-colspans-v2",
+    "generator": {
+      "contract": "history-source-body-product-v1",
+      "gate": "observed-body-links-notes-colspans-v2",
+      "python": "3.13.15",
+      "sources": {
+        "body_transport.py": "e9d7e46f056d900984880a625dbf95361b6ca454f29ae20e86e19f49c4793a73",
+        "ledger.py": "fbf77ad6e76488b2ff975a8af8bfecdf3796445ba01b04fc58ae41236de151f8",
+        "source_body_gate.py": "aed6824b5298e9a0b9579c9bb08fb834521007bf25f521dedbc1414cb4a2cd95",
+        "source_body_products.py": "9a3ee47a08aea50b3d1d3a452ed43761eebc1e3e7a4a9c7280ed0962edc28db4",
+        "validation.py": "f0bf57e4f04e91df17f2c923d32bfdc31735d3fc7c856108b46abad4228622e3"
+      },
+      "zlib": "1.3.1"
+    },
+    "counts": {
+      "forskrifter": 5118,
+      "laws": 756,
+      "passed": 1219,
+      "rejected": 4655,
+      "selected": 5874
+    },
+    "seconds": 451.286,
+    "bundle_sha256": "5da5b608b8f0d909f3a01f5714167d5e0c023cf529eaea3834a0924c55751e1a",
+    "bundle_bytes": 3449873,
+    "source_bundle_sha256": "a22e64d8ea11febdf9acb7d335defed1d70339f86bef3072b051c9849af7a25c",
+    "parent_body_product_id": null,
+    "comparison_product_id": null,
+    "module_hashes_before": {
+      "source_body_products.py": "6b0059d13c8748760e346287ab3d41c6cd1027a2a02126132df7e928ccffda0a",
+      "source_body_gate.py": "13c38bfc2126b6cd18f67db040bd68c25b6d7052c4b99fbe40686794d671fbeb",
+      "body_transport.py": "8bc62a882a8b1bccb47df00996fc62a6ed0a411c8b5543601c42586c254f1c3e",
+      "validation.py": "f0bf57e4f04e91df17f2c923d32bfdc31735d3fc7c856108b46abad4228622e3",
+      "ledger.py": "fbf77ad6e76488b2ff975a8af8bfecdf3796445ba01b04fc58ae41236de151f8"
+    },
+    "module_hashes_after": {
+      "source_body_products.py": "6b0059d13c8748760e346287ab3d41c6cd1027a2a02126132df7e928ccffda0a",
+      "source_body_gate.py": "13c38bfc2126b6cd18f67db040bd68c25b6d7052c4b99fbe40686794d671fbeb",
+      "body_transport.py": "8bc62a882a8b1bccb47df00996fc62a6ed0a411c8b5543601c42586c254f1c3e",
+      "validation.py": "f0bf57e4f04e91df17f2c923d32bfdc31735d3fc7c856108b46abad4228622e3",
+      "ledger.py": "fbf77ad6e76488b2ff975a8af8bfecdf3796445ba01b04fc58ae41236de151f8"
+    },
+    "independent_generated_product_audit": "passed_before_atomic_acceptance",
+    "rejected_reader_payloads": 0,
+    "legal_valid_time": {
+      "from": null,
+      "status": "unresolved",
+      "until": null
+    }
+  },
+  "rejection_codes": {
+    "unsupported_form": 3888,
+    "unsupported_attribute": 492,
+    "source_context_mismatch": 271,
+    "unsupported_nesting": 3,
+    "unsupported_context": 1
+  },
+  "first_rejection_reason_per_document": [
+    {
+      "code": "unsupported_form",
+      "detail": "('span', 'legalArticleTitle')",
+      "documents": 1811
+    },
+    {
+      "code": "unsupported_form",
+      "detail": "('h3', 'legalArticleHeader')",
+      "documents": 1315
+    },
+    {
+      "code": "unsupported_attribute",
+      "detail": "['data-text-align']",
+      "documents": 420
+    },
+    {
+      "code": "unsupported_form",
+      "detail": "('ol', 'defaultList')",
+      "documents": 407
+    },
+    {
+      "code": "source_context_mismatch",
+      "detail": "Body source identity differs from header refid",
+      "documents": 271
+    },
+    {
+      "code": "unsupported_form",
+      "detail": "('article', 'defaultP')",
+      "documents": 155
+    },
+    {
+      "code": "unsupported_form",
+      "detail": "('ul', 'defaultList')",
+      "documents": 99
+    },
+    {
+      "code": "unsupported_form",
+      "detail": "('article', 'numberedLegalP')",
+      "documents": 37
+    },
+    {
+      "code": "unsupported_attribute",
+      "detail": "['data-legalArea']",
+      "documents": 34
+    },
+    {
+      "code": "unsupported_attribute",
+      "detail": "['data-repealeddate']",
+      "documents": 16
+    },
+    {
+      "code": "unsupported_attribute",
+      "detail": "['data-link-type']",
+      "documents": 16
+    },
+    {
+      "code": "unsupported_form",
+      "detail": "('p', 'leddfortsettelse')",
+      "documents": 15
+    },
+    {
+      "code": "unsupported_form",
+      "detail": "('sub', '')",
+      "documents": 14
+    },
+    {
+      "code": "unsupported_form",
+      "detail": "('h4', '')",
+      "documents": 11
+    },
+    {
+      "code": "unsupported_form",
+      "detail": "('article', 'marginIdArticle')",
+      "documents": 11
+    },
+    {
+      "code": "unsupported_attribute",
+      "detail": "['data-text-size']",
+      "documents": 5
+    },
+    {
+      "code": "unsupported_form",
+      "detail": "('strong', '')",
+      "documents": 4
+    },
+    {
+      "code": "unsupported_form",
+      "detail": "('article', 'centeredP')",
+      "documents": 3
+    },
+    {
+      "code": "unsupported_nesting",
+      "detail": "Child does not have a declared browser-safe parent",
+      "documents": 3
+    },
+    {
+      "code": "unsupported_form",
+      "detail": "('caption', '')",
+      "documents": 2
+    },
+    {
+      "code": "unsupported_form",
+      "detail": "('div', 'indent')",
+      "documents": 2
+    },
+    {
+      "code": "unsupported_attribute",
+      "detail": "['lang']",
+      "documents": 1
+    },
+    {
+      "code": "unsupported_context",
+      "detail": "Captured context attributes are outside the render grammar",
+      "documents": 1
+    },
+    {
+      "code": "unsupported_form",
+      "detail": "('span', 'letterspacing')",
+      "documents": 1
+    },
+    {
+      "code": "unsupported_form",
+      "detail": "('blockquote', '')",
+      "documents": 1
+    }
+  ],
+  "identity_rejection_clarification": "The 271 source_context_mismatch cases are render-gate restrictions on the redundant main data-lovdata-URL (including absence or INS prefix); all source captures passed independent raw/model equality. These are not reported as capture corruption.",
+  "reader_readbacks": [
+    {
+      "refid": "lov/1687-04-15",
+      "status": "qualified",
+      "source_occurrence_id": "d876f68d3ae9f2939e614e493858fd1a89d0418c260300a85d93e709a2344f80",
+      "read_verification": "pinned_receipt_and_exact_artifact_bytes",
+      "source_requalification_in_this_read": false,
+      "html_sha256": "0fa2cf430c6344e6682064d6d810e5dbc5cae7ab8b9bdfd67b85295858363e39",
+      "html_bytes": 6152
+    },
+    {
+      "refid": "lov/1751-10-02",
+      "status": "qualified",
+      "source_occurrence_id": "404b78c8f8df293a9921325418839889ba250512e05969fec274175571229987",
+      "read_verification": "pinned_receipt_and_exact_artifact_bytes",
+      "source_requalification_in_this_read": false,
+      "html_sha256": "232d3ab351dbc4d0aba4e59f3c47fb7f792527be85649c0a3e648f2d71dde608",
+      "html_bytes": 31350
+    },
+    {
+      "refid": "forskrift/1969-06-27-4",
+      "status": "qualified",
+      "source_occurrence_id": "2b9c62590a7c361c691d30db09f10513d0a58efc42bc1ec440eda25085aa55ea",
+      "read_verification": "pinned_receipt_and_exact_artifact_bytes",
+      "source_requalification_in_this_read": false,
+      "html_sha256": "d545ae51150acebd33e7c257c2489052eb110820f4c72eac19cdc54adebc058e",
+      "html_bytes": 24999
+    },
+    {
+      "refid": "lov/2020-05-07-40",
+      "status": "not_qualified",
+      "source_occurrence_id": "4d74e772e2ecc9e43e63ba711dbae3a3293e99de4d47f063200356cfdbf6070f",
+      "read_verification": "pinned_receipt_and_exact_artifact_bytes",
+      "source_requalification_in_this_read": false,
+      "reasons": [
+        {
+          "code": "unsupported_context",
+          "detail": "Captured context attributes are outside the render grammar",
+          "path": "/"
+        }
+      ]
+    }
+  ],
+  "reader_source_sha256": "5ccf7b509e3591139d2deec00b6ca3caf9c8c656a13d0734194119bf68f37447",
+  "visual_readback": {
+    "status": "passed",
+    "checked_at": "2026-09-25T22:03:21.021022+00:00",
+    "method": "Chrome browser DOM inspection and actual screenshots via approved computer-use tool",
+    "viewport": {
+      "width": 1267,
+      "height": 624
+    },
+    "samples": [
+      {
+        "refid": "lov/1687-04-15",
+        "result": "Heading hierarchy, block paragraph separation and inline amendment note links visually readable; no document horizontal overflow.",
+        "heading_count": 13,
+        "external_link_targets": [
+          "https://lovdata.no/lov/2023-06-16-40",
+          "https://lovdata.no/forskrift/2023-06-16-898"
+        ]
+      },
+      {
+        "refid": "lov/1751-10-02",
+        "result": "Footnote marker 1 navigated to its visible note; the return link navigated back to the exact reference. Footnote remained separate from article text; no document horizontal overflow.",
+        "note_hash": "#source-body-note-1",
+        "return_hash": "#source-body-ref-1-1"
+      },
+      {
+        "refid": "forskrift/1969-06-27-4",
+        "result": "Table headers, merged column spans and numeric columns visually align. Table remains in a keyboard-focusable horizontal scroll region; no document horizontal overflow at inspected viewport.",
+        "tables": 1,
+        "rows": 35,
+        "cells": 221,
+        "colspans": [
+          4,
+          2,
+          4,
+          2,
+          4,
+          2,
+          4,
+          2,
+          4,
+          2,
+          4,
+          2
+        ],
+        "footnote_references": 2,
+        "footnote_targets": 2,
+        "scroll_region": {
+          "aria_label": "Tabell (rull vannrett ved behov)",
+          "tabindex": 0,
+          "overflow_x": "auto"
+        }
+      }
+    ],
+    "screenshots": "Inspected in tool output; no screenshot files retained.",
+    "scope_limit": "Three pinned examples at default browser viewport; not whole-corpus visual or mobile certification."
+  },
+  "artifacts_relative_to_audit_root": {
+    "producer_evidence": "implementation-evidence/d6-producer-capture",
+    "snapshot": "implementation-evidence/d6-v5-snapshot",
+    "release_and_intake": "implementation-evidence/d6-v5-release",
+    "accepted_body_inventory": "implementation-evidence/d6-v5-release/isolated-ledger/.cache/body-artifacts/bfeb9e01c8c34e3e244276597869f412f962a9092e5acd2484d0daa8a395f26a/inventory.jsonl.gz"
+  }
+}
