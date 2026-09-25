@@ -28,6 +28,12 @@ The current consumer also accepts the explicit ordered-document-container contra
 
 Accepted observations are immutable directories under `observations/<release-observation-id>/`. They contain the release receipt, original source-observation metadata, a member/refid catalog and an observation summary. Replaying an identical receipt is a no-op. A later observation adds a directory; it never erases earlier sources. `show` reports `not_present_in_observation` only for comparable selections. Changed selections report `scope_not_comparable`; neither makes a repeal claim.
 
+Git preserves ledger bytes exactly, including line endings. A fresh Windows
+checkout with automatic CRLF conversion enabled was verified with `list` and
+the recorded hashes. If an older checkout reports `Stored observation payload
+changed`, use a fresh clone to restore the published bytes; do not rewrite the
+accepted receipt or its hashes to match converted files.
+
 Large source bundles are retained in the ignored `.cache/bundles/` directory by digest. The public release URL remains in the ledger. If a bundle is absent from the cache, `raw` retrieves it from that URL and checks its digest again. A local-only rehearsal cannot be recovered from a nonexistent public URL; keep its bundle. A corrupted cache entry fails closed and can be removed before retrying. SHA-256 proves consistency with a receipt, not a source signature or permanent storage availability.
 
 Every accepted observation currently reports canonical structure as `not_verified` and legal validity as `unresolved`. Parsing/rendering remain potentially lossy; observation timestamps are collector knowledge times. There is no amendment engine, canonical-law promotion, synthetic historical baseline, imported legacy history graph, or mandatory cloud/PAT credential. Public ingestion is read-only and unauthenticated; workflow publication is separate.
