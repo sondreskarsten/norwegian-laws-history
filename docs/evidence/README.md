@@ -10,6 +10,18 @@ The later ordered-container consumer support is merged at `99943ec03e1d9f4c5b73e
 
 ## Earlier audit and local rehearsals
 
+`prior-reader-backfill.json` records 105 exact prior generated reader copies
+(61 laws and 44 regulations), recovered from a pinned ordinary-main deletion.
+Every staged copy matches both its original Git blob and SHA-256 identity;
+metadata keeps unknown source observations and legal dates explicit. These are
+derived Markdown copies, separate from qualified observed bodies and raw XML.
+
+The bounded body qualification, deterministic materialization and checked Git
+publication checks exercise rejection, replay, parent changes and interrupted
+publication in disposable repositories. Public product delivery and real-source
+reproduction are recorded separately; passing these checks alone does not
+certify corpus-wide structure or historical legal correctness.
+
 Audit source is `sondreskarsten/norwegian-laws@4f5bbf561208e436f488b086ebf34924cd435530`. The original audit used an archived copy of that Git object. Large copied source, temporary test trees and databases are deliberately excluded here.
 
 - `issue1.json`, `pr11.json`, `pr12.json` and `history-tree.json`: fresh GitHub responses used for scope, reported delivery evidence and the README-only destination state.

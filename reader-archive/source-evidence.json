@@ -1,0 +1,582 @@
+{
+  "schema": "prior-reader-backfill-audit-source-v1",
+  "repository": "sondreskarsten/norwegian-laws",
+  "branch_lineage": "main",
+  "deletion_commit": "b8e08232422013a96c38cdfc074618c979777458",
+  "deletion_commit_time": "2026-07-21T11:23:35Z",
+  "parent_commit": "98d4e4d5d43d22384cf9c1862816bf8f57122c33",
+  "current_main": "c8fba0a6bfe131883dee63d6ab702a1dc1f248aa",
+  "verified_via": "GitHub plugin commit API pages 1-8 (per_page=300) and exact local Git tree comparison",
+  "total_changed_files": 2395,
+  "removed_count": 105,
+  "issue_claimed_count": 101,
+  "files": [
+    {
+      "path": "forskrifter/forskrift-1960-06-02-1.md",
+      "blob_sha1": "3e8b9b9e27512d4d02e57d551f7cb7bc2e214f0d",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-1960-06-02-2.md",
+      "blob_sha1": "e4ed06ee49fecce6d72adc0b47d9628e60e2140b",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-1960-06-02-4.md",
+      "blob_sha1": "f975ac3d631839697fe0e2dadb55a5e6c847c970",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-1983-07-08-1250.md",
+      "blob_sha1": "501a8332a54195fc27fe456f212536e9f996015b",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-1984-10-24-1878.md",
+      "blob_sha1": "ba66918d5049cab724e3382092a9e7c4f129cea2",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-1984-10-24-1879.md",
+      "blob_sha1": "2dbad372be123abb562a004627c64a09d3b200ba",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-1984-12-07-1957.md",
+      "blob_sha1": "73583667fa55a7c114d9d4a050e14b0a87a67024",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-1988-11-25-940.md",
+      "blob_sha1": "b8e7b43c8a9cfdc6790e12a5430203e74c76c499",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-1989-07-14-565.md",
+      "blob_sha1": "72d3def6685a379dab1ec4bc632c313c5849d9d5",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2007-06-29-742.md",
+      "blob_sha1": "8b66bbbbc1e4812953e8eb57b05f917681437908",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2008-02-08-112.md",
+      "blob_sha1": "8966150ed59b713f1425901666ff92a89ee592d4",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2009-05-20-534.md",
+      "blob_sha1": "ed92af8f8f5e9ce10cd014f97430f3f77d56a3ea",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2011-12-16-1258.md",
+      "blob_sha1": "5f0d6d24ea52805f38234d26d57179aad69818c2",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2012-10-26-993.md",
+      "blob_sha1": "055acbe0f0de04c92e2bbd19749d13cd6a111675",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2016-12-17-1708.md",
+      "blob_sha1": "73a2e5ddd33316a88ceef8805d3785ff0e6130db",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2019-12-20-2136.md",
+      "blob_sha1": "ea8ed79f7d690efaf9ba95535fdb011480e97af2",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2023-09-18-1440.md",
+      "blob_sha1": "9acd2f487c1a37831f94b4657bbbf3b49e9fd875",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2024-06-25-1217.md",
+      "blob_sha1": "b645ecf7f287d18c3b83a85b061096bc41baf664",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2024-06-26-1359.md",
+      "blob_sha1": "b83a5a0f1a7e102cada3212d928acb6ec4b13029",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2025-05-08-892.md",
+      "blob_sha1": "c4cb81b7463eecf06fcdb0eefc7bf2c97009eaf3",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2025-05-23-837.md",
+      "blob_sha1": "4ccb096669cd8805f546f0daeb04523b4a7b44eb",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2025-06-23-1281.md",
+      "blob_sha1": "d62c804b81a4d15bd78610a538ae6ea061331424",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2025-06-27-1345.md",
+      "blob_sha1": "748e8922b5dba9f82dfe2bdfb398865ce15f8b63",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2025-06-27-1361.md",
+      "blob_sha1": "101e3e9425d9f8c7b375cf57f629c555e122e084",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2025-07-01-1399.md",
+      "blob_sha1": "a43974d1d89749b12e9fbaea3da0d54da15e2361",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2025-09-25-1933.md",
+      "blob_sha1": "4434863a95b94c08b661b67d081664278cfc1fe2",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2025-12-18-2658.md",
+      "blob_sha1": "d897e4c30c06be222f0629cddfb1e4041eb5b8bd",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2026-01-15-47.md",
+      "blob_sha1": "693db31a80896a53b94542e2c2f9be8b4e0e9f62",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2026-01-21-91.md",
+      "blob_sha1": "f638e2e479d76aa446f986f79111a270cf38adab",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2026-02-17-227.md",
+      "blob_sha1": "b219f0c7dc74b48fcaf40ef9546cac970eea3198",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2026-03-20-442.md",
+      "blob_sha1": "04aaf529d2ab0145b6577c1e7a18cf3a5194755e",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2026-04-14-617.md",
+      "blob_sha1": "724fb2f764af09347902338ad8e37e9c8727dd48",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2026-04-15-596.md",
+      "blob_sha1": "51620c4988f402a847dd6a521070ffb0b0c79dd8",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2026-04-21-622.md",
+      "blob_sha1": "2d89a266b482b315e79dbbc54e2ccafe04246af1",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2026-04-29-746.md",
+      "blob_sha1": "d9e8596e4b45b53ea01679b510c5c7aef3771379",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2026-05-04-717.md",
+      "blob_sha1": "e9032c933193ab1a427306607e8bf68e3808f92b",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2026-05-05-742.md",
+      "blob_sha1": "86e165c1745b524ca7cd2d576b54aeb383b06200",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2026-05-05-749.md",
+      "blob_sha1": "55af6aace1c6ec22a81e09956075256e4257e824",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2026-05-07-766.md",
+      "blob_sha1": "d9996b02810d043187a2c56ec5d03439a662335b",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2026-05-07-774.md",
+      "blob_sha1": "1781d3bedc085e6d09a796bedef4f5f5f43eaf4e",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2026-05-12-810.md",
+      "blob_sha1": "e7c2f77b7d273367a6f9c85aba7b82e15b003a59",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2026-05-26-906.md",
+      "blob_sha1": "a682c057049cfee727bdf9f283d421a3240e6a4d",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2026-06-05-1011.md",
+      "blob_sha1": "21b9677db3521b0128f7ead34be18d8c2ac35f9a",
+      "status": "removed"
+    },
+    {
+      "path": "forskrifter/forskrift-2026-06-05-1018.md",
+      "blob_sha1": "4cfdfd68f8742ccb62d4f3014aa7c6700d5eb4f9",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-1954-03-01.md",
+      "blob_sha1": "91935d88ff6f40b61d595d26bf405f507ce950ea",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-1965-11-15.md",
+      "blob_sha1": "baaac55d5a81172aff1a6f821026d506b8fb8211",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-1969-06-13-38.md",
+      "blob_sha1": "ae8647ab7f1b9ae3d77bb8d1a6f2cf1e275916f1",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-1981-05-29-38.md",
+      "blob_sha1": "7ec6d1a55f613943df517f729556fc09fe522d06",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-1985-06-21-78.md",
+      "blob_sha1": "58e878f0cf2f38f01f61ad7347644a3494731c46",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-1991-08-30-71.md",
+      "blob_sha1": "7fb3cb66c1374658471bbb47291feccd976015dd",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-1992-12-04-126.md",
+      "blob_sha1": "dffd64a5b30c0de366e63fbd091b3a8f70dc9d9e",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-1994-06-03-15.md",
+      "blob_sha1": "de5608c24588199fd88b71aa12eb1fca97ab68d8",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2004-05-07-21.md",
+      "blob_sha1": "d9687215f0d2d1783cae75d5306a2688abb23a84",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2005-06-17-89.md",
+      "blob_sha1": "27b8a54a25616b072e51a50d9d7abe06c74a058a",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2009-06-19-101.md",
+      "blob_sha1": "55acaa07fe0f7e0c327a5c5443fdea4e6458bb4e",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2012-03-16-12.md",
+      "blob_sha1": "ff697e48368c4ef23ec4b3e134daeda69571ebea",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2013-01-11-3.md",
+      "blob_sha1": "10bb0c0b183bc49201446ee3e8358848cde5cc0d",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2024-06-21-50.md",
+      "blob_sha1": "30b2cfd0958461e952addbd86f0f020366b7b15c",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2024-06-25-53.md",
+      "blob_sha1": "4c0c1bdf81ad61af69f6a08824a1385e93dcb94d",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-03-14-3.md",
+      "blob_sha1": "9360864178ce0552d4da42ee6b9278fc2f3cc63e",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-05-27-17.md",
+      "blob_sha1": "e9d877b675596a37a82fa7f4a507030790f71998",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-06-27.md",
+      "blob_sha1": "149284a10fe99ec11dbebee5ce4c83e73566d494",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-06-29.md",
+      "blob_sha1": "0dcf4266d7fc8dc17f246c0575743bed90164236",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-10-31.md",
+      "blob_sha1": "cc3643f75cada2cd296a8e12990b3373583af9b2",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-20-109.md",
+      "blob_sha1": "664cc8f96f1845ec8d2b8fe3821ff03576f84bee",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-20-37.md",
+      "blob_sha1": "f8874262f92d08ac0836df443a4b43485d4b9549",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-20-42.md",
+      "blob_sha1": "5f104d261d6e8bba8a2ab19d36d161afb60b5a44",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-20-43.md",
+      "blob_sha1": "0d91c2eca9502167b99c55a9fb8a28fe510a4a76",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-20-45.md",
+      "blob_sha1": "cf65889fcc8ddf763ac74dc30f424f2ef567a63a",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-20-46.md",
+      "blob_sha1": "0956469fb4c44ce833fc5511fe79700314821af3",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-20-48.md",
+      "blob_sha1": "e59faa779ddcbfea3fb15799db361c5ff0e01e14",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-20-59.md",
+      "blob_sha1": "ba0658f522c91815a07565fb75d6ba6221d9f9c0",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-20-60.md",
+      "blob_sha1": "daadad206b9669a538fddf52392b3f2a5bcab6de",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-20-63.md",
+      "blob_sha1": "cee05d19edbec5be170d19ac4a8e12cff5a94fc6",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-20-64.md",
+      "blob_sha1": "4f1a4029587b37800659e657b6a7d79e08a96114",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-20-65.md",
+      "blob_sha1": "c11a8d2ee40ea37bedfe9117b182196c79dad805",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-20-67.md",
+      "blob_sha1": "44de6dde3df338ec1a614d6de2301465fe207e42",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-20-69.md",
+      "blob_sha1": "874d737a23380c3dfc7e8f9fa14557ffcdf46b1b",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-20-70.md",
+      "blob_sha1": "50e07d557f4eb8ee7f091fd538c0ff05f4d497fe",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-20-74.md",
+      "blob_sha1": "153676a87266e55f2dca6967c29e3c9749470444",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-20-78.md",
+      "blob_sha1": "e30b1e9afd82dd0417eb407ebae13ae8c9b9d845",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-20-86.md",
+      "blob_sha1": "f5fd2356f1d881e1b05d12d154dbb365d188c70f",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-06-20-94.md",
+      "blob_sha1": "dab9ce19601df236ac64279c40a2d70baba8940b",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-12-19-113.md",
+      "blob_sha1": "5ca0d06b04ca65a4ba8f6d351ada4bd72384d143",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-12-19-114.md",
+      "blob_sha1": "a98411ce3230176b4c4c60605dfdfb77fe1de92e",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-12-22-115.md",
+      "blob_sha1": "8d0b8da5db023ed7a6e1ec6e89a01cb507f14f05",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-12-22-117.md",
+      "blob_sha1": "8c113393adca74a23b56c9de5575bb591cafd11f",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-12-22-118.md",
+      "blob_sha1": "2f7618e96b82b0bee65f5039bfd6a340a6037fb2",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-12-22-119.md",
+      "blob_sha1": "26431e1b4854a42ce5e3131f6269224547ccafd7",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-12-22-120.md",
+      "blob_sha1": "307755bbe8b5c1ab50076e41826828342f5e25e3",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-12-22-121.md",
+      "blob_sha1": "af5fd377c12f064edfbed5fb9baaaadff8960f29",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-12-22-126.md",
+      "blob_sha1": "b2207b11254dc99cca948f223da32186fb92ec6f",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-12-22-127.md",
+      "blob_sha1": "6aec9913b048add509bd09029754f691bddb4b06",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-12-22-129.md",
+      "blob_sha1": "ec6e6513ed0b0d7adfc62d8bbf3123ff01fcba2f",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2025-12-22-130.md",
+      "blob_sha1": "d63cf8e4677d06f7c70147939e1683c5ed25c4f7",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2026-01-23-1.md",
+      "blob_sha1": "495420fd222cfc8c91beecd0b72622a175990e17",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2026-02-06-4.md",
+      "blob_sha1": "b1c4366c519d95d6f4e4a4a0f0f2b28742e41f3f",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2026-03-06-7.md",
+      "blob_sha1": "eb110c5a65a4fc8b1e97491a4961ca73cc087829",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2026-03-13-9.md",
+      "blob_sha1": "49f1b5468b5bd112b8f15d9f4746bb164c218104",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2026-03-20-10.md",
+      "blob_sha1": "fd7e4061e7ff3f5f339dbe932fa67d0aa511a2ad",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2026-04-10-14.md",
+      "blob_sha1": "895a446f2010a846539b09c047445ca2f8a957dd",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2026-05-07-17.md",
+      "blob_sha1": "d343b43cc77df08c746d39acc2ad25633f4c6c86",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2026-05-29-21.md",
+      "blob_sha1": "3b1b931ffe075cfead283af94b7894a01f421025",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2026-06-12-26.md",
+      "blob_sha1": "25345168e7916c6dbe1c8345b86e30239c4e78db",
+      "status": "removed"
+    },
+    {
+      "path": "lover/lov-2026-06-12-27.md",
+      "blob_sha1": "a7d56a2011ca3b9ae2feca441deda142a8c2aab7",
+      "status": "removed"
+    }
+  ],
+  "viltloven_main_path_history": [
+    {
+      "sha": "b8e08232422013a96c38cdfc074618c979777458",
+      "commit_time": "2026-07-21T11:23:35Z",
+      "subject": "Oppdater lover og forskrifter fra Lovdata API 2026-07-21 [skip ci]"
+    },
+    {
+      "sha": "a6d36284d5bf205a82db19cb07a5d2f3941c0db8",
+      "commit_time": "2026-06-13T18:21:29Z",
+      "subject": "Completeness-by-design for the law parser"
+    },
+    {
+      "sha": "ec53a72a501935a5dc98a861e57d05f04f457090",
+      "commit_time": "2026-05-19T11:44:48Z",
+      "subject": "Oppdater lover og forskrifter fra Lovdata API 2026-05-19 [skip ci]"
+    },
+    {
+      "sha": "def36befa26d797167f6f07b0152627f89b57564",
+      "commit_time": "2026-05-19T06:55:47Z",
+      "subject": "Oppdater lover og forskrifter fra Lovdata API 2026-05-19 [skip ci]"
+    },
+    {
+      "sha": "66ebf4102aeb6a91c9fffe775b49e73a4a236dd5",
+      "commit_time": "2026-05-18T13:01:33Z",
+      "subject": "Oppdater lover og forskrifter fra Lovdata API 2026-05-18 [skip ci]"
+    },
+    {
+      "sha": "6d564ac85a2bc0716859c40d5848edee7ea4a8f6",
+      "commit_time": "2026-05-06T23:38:30Z",
+      "subject": "Oppdater lover fra Lovdata API 2026-05-06 [skip ci]"
+    },
+    {
+      "sha": "3aa2f37b3f4917c863f5419056f92313c8fefbb4",
+      "commit_time": "2026-02-19T02:33:29Z",
+      "subject": "v0.3.0: sist-endret fix, historical Lovtidend, yearly version tags, test suite"
+    },
+    {
+      "sha": "4b516590ea3b48508b1db3c4fa03fd4fe46219a8",
+      "commit_time": "2026-02-18T23:48:14Z",
+      "subject": "Initial import: 774 gjeldende lover + pipeline + Quarto book"
+    }
+  ]
+}

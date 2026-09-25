@@ -9,6 +9,7 @@ import re
 import urllib.request
 
 from law_history.ledger import ingest, load_receipt
+from law_history.materialize import materialize_all
 
 
 def releases(repository: str):
@@ -52,7 +53,13 @@ def synchronize(repository: Path, producer: str) -> dict:
                          'knowledge_cutoff': result['knowledge_cutoff'],
                          'member_count': result['member_count']})
         print(json.dumps(accepted[-1]), flush=True)
-    return {'version': 1, 'producer': producer, 'observations': accepted,
+    projections = []
+    for result in materialize_all(repository):
+        projections.append({key: result[key] for key in ('status', 'observation_id', 'materialization_id',
+                                                       'parent_materialization_id', 'refids', 'documents')})
+        print(json.dumps({'materialization_id': result['materialization_id'], 'status': result['status'],
+                          'qualified_documents': sum(d['status'] == 'passed' for d in result['documents'])}), flush=True)
+    return {'version': 2, 'producer': producer, 'observations': accepted, 'materializations': projections,
             'canonical_status': 'not_verified', 'legal_valid_time_status': 'unresolved'}
 
 
