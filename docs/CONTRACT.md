@@ -17,6 +17,7 @@ The baseline producer assessed by the reuse audit is pinned to [`4f5bbf561208e43
 | Producer snapshot v2 | Shipped | Generated-artifact hashes/counts, legacy paragraph representation. Not enough raw provenance for history ingestion. |
 | Producer snapshot v3 | Shipped | Requires `ordered-paragraph-blocks-v1` and `law-markdown-ordered-html-v1` for affected snapshots. Repairs tested paragraph ordering; does not certify whole-document structural coverage. |
 | Producer snapshot v4 and `parsed-amendment-acts.v1.jsonl` | Implemented producer/consumer interface; public delivery verified separately | Immutable raw/member evidence and full parsed act occurrences under `lovdata-source-evidence-v1`. |
+| `ordered-law-containers-v1` / `law-markdown-ordered-containers-v1` | Explicitly supported content/formatter pair within snapshot v4 | Optional root/section ordering references preserve interleaving of existing arrays. Reference validation is not independent source-fidelity verification. |
 | `history-observation-v1` | Implemented consumer receipt/catalog | Source occurrence identity, observed/knowledge times, immutable evidence closure and attribution. |
 | `history-canonical-v1` | Proposed here | A declared structural grammar, normalization rules, formatter identity and an independent ordered round-trip gate. |
 | `history-materialization-v1` | Proposed here | Product tree, observation cutoff, explicit evidence status, code identity and append-only Git publication. |
@@ -40,6 +41,19 @@ The observation artifact records `parser_identity` with `package_version`, SHA-2
 Parsed-act envelopes declare `schema_version = parsed-amendment-acts-v1`, source identity and occurrence ordinal; `record` holds the exact parsed model, and `amendment_occurrences` preserves original ordinals and target/operation statuses. Its fidelity claim is `lossless_relative_to_parsed_model`; legal validity remains unresolved with null bounds.
 
 The interface must report structural coverage as `not_verified` until the independent gate below has actually passed. The publication workflow supplies durable publication and digest readback. The history consumer downloads only explicitly selected published evidence bundles; it does not acquire directly from Lovdata.
+
+### Container-order compatibility
+
+The consumer accepts three exact content/formatter pairs: `legacy-paragraphs-v1` / `law-markdown-v1`, `ordered-paragraph-blocks-v1` / `law-markdown-ordered-html-v1`, and `ordered-law-containers-v1` / `law-markdown-ordered-containers-v1`. It still requires evidence snapshot v4. Unknown or mismatched pairs fail before observation acceptance.
+
+For the container pair, `content_order` is an optional array on the document root and each section. Missing or empty means the earlier grouping order. Each populated entry has exactly `kind` and `index`; the index is a nonnegative integer (not a boolean) within its owning array. Every item in every mapped array must appear exactly once. Repeated, missing, unknown or out-of-range references fail. The arrays remain the sole content owners.
+
+| Container | Reference kind → owning field |
+|---|---|
+| Document | `paragraph` → `top_level_paragraphs`; `remainder` → `remainders`; `section` → `sections`; `article` → `top_level_articles` |
+| Section, recursively | `preamble` → `preamble`; `article` → `articles`; `section` → `subsections`; `footnote` → `footnotes`; `remainder` → `remainders` |
+
+A populated `content_order` under either older content pair is rejected, including in nested sections. Empty optional fields remain compatible with older pairs. These checks establish an internally complete ordering declaration; they do not show that XML order or all source semantics were captured. Accepted observations continue to declare canonical status `not_verified` and legal validity `unresolved`.
 
 ## Observation identity and clocks
 

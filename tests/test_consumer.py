@@ -13,6 +13,34 @@ import unittest
 from law_history.ledger import ingest, raw_member, show_document
 from law_history.validation import canonical, file_hash, value_hash
 
+CONTAINER_CONTENT = "ordered-law-containers-v1"
+CONTAINER_FORMATTER = "law-markdown-ordered-containers-v1"
+
+
+def ordered_model():
+    return {
+        "top_level_paragraphs": [{"text": "First paragraph"}], "remainders": ["Root remainder"],
+        "top_level_articles": [{"name": "§ 2", "header_text": "Second article"}],
+        "sections": [{"heading": "Section", "preamble": ["Lead"],
+                      "articles": [{"name": "§ 1", "header_text": "First article"}],
+                      "subsections": [{"heading": "Nested", "content_order": []}],
+                      "footnotes": ["Note"], "remainders": ["Section remainder"],
+                      "content_order": [{"kind": k, "index": 0} for k in ("article", "preamble", "section", "remainder", "footnote")]}],
+        "content_order": [{"kind": k, "index": 0} for k in ("section", "paragraph", "article", "remainder")],
+    }
+
+
+def bind_model(manifest, artifacts, additions, *, new_contract=True):
+    name = "laws/lov-2024-01-01-1.json"
+    model = json.loads(artifacts[name]); model.update(additions)
+    artifacts[name] = canonical(model, newline=True)
+    source = json.loads(artifacts["source-members.jsonl"])
+    source["parsed_model_sha256"] = value_hash(model)
+    source["selected_output_sha256"] = hashlib.sha256(artifacts[name]).hexdigest()
+    artifacts["source-members.jsonl"] = canonical(source, newline=True)
+    if new_contract:
+        manifest.update(content_version=CONTAINER_CONTENT, formatter_version=CONTAINER_FORMATTER)
+
 
 def fixture(directory, *, present=True, observed="2026-09-25T12:00:00+00:00", mutate=None, unsafe=False):
     directory.mkdir()
@@ -157,6 +185,38 @@ class ConsumerTests(unittest.TestCase):
             path, _, _ = fixture(self.root / f"bad{i}", mutate=mutation)
             with self.assertRaises(ValueError): ingest(str(path), self.ledger)
         self.assertEqual(len(list((self.ledger / "observations").iterdir())), 1)
+
+    def test_container_order_contract_accepts_refs_but_old_contract_rejects_them(self):
+        ordered, _, _ = fixture(self.root / "ordered", mutate=lambda m, a: bind_model(m, a, ordered_model()))
+        accepted = ingest(str(ordered), self.ledger)
+        self.assertEqual(accepted["canonical_status"], "not_verified")
+        self.assertEqual(accepted["legal_valid_time"]["status"], "unresolved")
+        old, _, _ = fixture(self.root / "old", mutate=lambda m, a: bind_model(m, a, ordered_model(), new_contract=False))
+        with self.assertRaises(ValueError): ingest(str(old), self.ledger)
+        empty, _, _ = fixture(self.root / "empty", mutate=lambda m, a: bind_model(m, a, {"content_order": [], "sections": [{"heading": "Legacy", "content_order": []}]}, new_contract=False))
+        self.assertEqual(ingest(str(empty), self.ledger)["status"], "accepted")
+
+    def test_container_refs_cover_every_index_once_and_validate_nested_sections(self):
+        from law_history.validation import validate_content_order
+        model = ordered_model()
+        validate_content_order(model, CONTAINER_CONTENT)
+        invalid = [
+            [{"kind": "paragraph", "index": True}],
+            [{"kind": "paragraph", "index": -1}],
+            [{"kind": "paragraph", "index": 1}],
+            [{"kind": "unknown", "index": 0}],
+            [{"kind": "paragraph", "index": 0, "extra": 1}],
+            model["content_order"][:-1],
+            [*model["content_order"], model["content_order"][0]],
+        ]
+        for refs in invalid:
+            with self.subTest(refs=refs), self.assertRaises(ValueError):
+                validate_content_order({**model, "content_order": refs}, CONTAINER_CONTENT)
+        nested = deepcopy(model)
+        nested["sections"][0]["content_order"].pop()
+        with self.assertRaises(ValueError): validate_content_order(nested, CONTAINER_CONTENT)
+        nested = deepcopy(model); nested["content_order"] = []
+        with self.assertRaises(ValueError): validate_content_order(nested, "ordered-paragraph-blocks-v1")
 
 
 if __name__ == "__main__":
