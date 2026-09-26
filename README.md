@@ -9,6 +9,7 @@ python -m pip install .
 python -m law_history ingest https://github.com/sondreskarsten/norwegian-laws/releases/download/observation-ccdbf3e45098076118bf9362b60d31b7a80dc1aab1dcc2e226a4aee58c92b596/evidence.json
 python -m law_history list
 python -m law_history show lov/1998-07-17-56
+python -m law_history show forskrift/2022-12-21-2456 --role forskrifter
 python -m law_history raw lov/1998-07-17-56 --observation ccdbf3e45098076118bf9362b60d31b7a80dc1aab1dcc2e226a4aee58c92b596 --occurrence 8abce8ef66dc6bc48ebedd3bfa3b397f92b8222eeb1179e343dbf83be86509be --output regnskapsloven.xml
 ```
 
@@ -29,6 +30,8 @@ Snapshot v5 additionally preserves an ordered `source_body` in every selected cu
 The current consumer also accepts the explicit ordered-document-container contract, merged in [`99943ec`](https://github.com/sondreskarsten/norwegian-laws-history/commit/99943ec03e1d9f4c5b73e7946f6af7bf09cb9f34). Its [bounded local verification](docs/evidence/container-order-validation.json) is separate from the public observation readback above; neither promotes canonical legal text.
 
 Accepted observations are immutable directories under `observations/<release-observation-id>/`. They contain the release receipt, original source-observation metadata, a member/refid catalog and an observation summary. Replaying an identical receipt is a no-op. A later observation adds a directory; it never erases earlier sources. `show` reports `not_present_in_observation` only for comparable selections. Changed selections report `scope_not_comparable`; neither makes a repeal claim.
+
+Use `show --role laws`, `--role forskrifter` or `--role amendment_acts` to inspect membership in one archive role. A regulation can leave the current corpus while its original act remains in the amendment archive; an unrestricted lookup correctly still finds that source. The role-specific lookup exposes the current-corpus exit. A missing archive or changed selection is explicitly incomparable. The [public-ledger example](docs/evidence/current-source-exit-public.json) records six current-corpus observations followed by three observed absences, with legal validity still unresolved.
 
 Git preserves ledger bytes exactly, including line endings. A fresh Windows
 checkout with automatic CRLF conversion enabled was verified with `list` and

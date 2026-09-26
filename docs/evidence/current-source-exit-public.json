@@ -1,0 +1,165 @@
+{
+  "status": "verified_public_ledger_current_source_exit",
+  "checked_at": "2026-09-26T06:02:41.108359+00:00",
+  "history_commit": "0fc0e3558fa96ee829981a988b2e7c66e4881c5e",
+  "result": {
+    "refid": "forskrift/2022-12-21-2456",
+    "source_role": "forskrifter",
+    "canonical_status": "not_verified",
+    "legal_valid_time": {
+      "status": "unresolved",
+      "from": null,
+      "until": null
+    },
+    "observations": [
+      {
+        "observation_id": "ccdbf3e45098076118bf9362b60d31b7a80dc1aab1dcc2e226a4aee58c92b596",
+        "observed_at": "2026-09-25T17:40:44.477321+00:00",
+        "status": "present",
+        "members": [
+          {
+            "archive_ordinal": 1,
+            "archive_sha256": "df019408b5ea1d65242317a983e1e5e44fd01a83632c4baab26dd164816b5f98",
+            "member_ordinal": 2776,
+            "member_path": "sf/sf-20221221-2456.xml",
+            "member_sha256": "b8b28eb0f552e1800e2603d3ba70ad7772e4818e4b1fea717a213e943be87331",
+            "member_size_bytes": 3850,
+            "member_type": "file",
+            "parse_status": "parsed",
+            "refid": "forskrift/2022-12-21-2456",
+            "role": "forskrifter",
+            "selected": true,
+            "source_occurrence_id": "201af0693d6942903f2fe1c104ad8d71448e6fe2c5d8e233033e6ef481e613d8"
+          }
+        ]
+      },
+      {
+        "observation_id": "ca32e6b7b13b3435683c450f81cfc1ea0ae4c0a95694a0cde0d7cf2bc20e5f4c",
+        "observed_at": "2026-09-25T18:15:07.434101+00:00",
+        "status": "present",
+        "members": [
+          {
+            "archive_ordinal": 1,
+            "archive_sha256": "df019408b5ea1d65242317a983e1e5e44fd01a83632c4baab26dd164816b5f98",
+            "member_ordinal": 2776,
+            "member_path": "sf/sf-20221221-2456.xml",
+            "member_sha256": "b8b28eb0f552e1800e2603d3ba70ad7772e4818e4b1fea717a213e943be87331",
+            "member_size_bytes": 3850,
+            "member_type": "file",
+            "parse_status": "parsed",
+            "refid": "forskrift/2022-12-21-2456",
+            "role": "forskrifter",
+            "selected": true,
+            "source_occurrence_id": "201af0693d6942903f2fe1c104ad8d71448e6fe2c5d8e233033e6ef481e613d8"
+          }
+        ]
+      },
+      {
+        "observation_id": "e378587b33f6b9354af0bfa6fd57d237c3fefd0ff43a16b1fe0abdd4d9b73fb5",
+        "observed_at": "2026-09-25T19:08:47.117452+00:00",
+        "status": "present",
+        "members": [
+          {
+            "archive_ordinal": 1,
+            "archive_sha256": "df019408b5ea1d65242317a983e1e5e44fd01a83632c4baab26dd164816b5f98",
+            "member_ordinal": 2776,
+            "member_path": "sf/sf-20221221-2456.xml",
+            "member_sha256": "b8b28eb0f552e1800e2603d3ba70ad7772e4818e4b1fea717a213e943be87331",
+            "member_size_bytes": 3850,
+            "member_type": "file",
+            "parse_status": "parsed",
+            "refid": "forskrift/2022-12-21-2456",
+            "role": "forskrifter",
+            "selected": true,
+            "source_occurrence_id": "201af0693d6942903f2fe1c104ad8d71448e6fe2c5d8e233033e6ef481e613d8"
+          }
+        ]
+      },
+      {
+        "observation_id": "3cd28f0210e7e2c25f83bf575be0888c1254761a99afcf38bc4135ff4b2beaa1",
+        "observed_at": "2026-09-25T19:42:24.374140+00:00",
+        "status": "present",
+        "members": [
+          {
+            "archive_ordinal": 1,
+            "archive_sha256": "df019408b5ea1d65242317a983e1e5e44fd01a83632c4baab26dd164816b5f98",
+            "member_ordinal": 2776,
+            "member_path": "sf/sf-20221221-2456.xml",
+            "member_sha256": "b8b28eb0f552e1800e2603d3ba70ad7772e4818e4b1fea717a213e943be87331",
+            "member_size_bytes": 3850,
+            "member_type": "file",
+            "parse_status": "parsed",
+            "refid": "forskrift/2022-12-21-2456",
+            "role": "forskrifter",
+            "selected": true,
+            "source_occurrence_id": "201af0693d6942903f2fe1c104ad8d71448e6fe2c5d8e233033e6ef481e613d8"
+          }
+        ]
+      },
+      {
+        "observation_id": "26bef8aa2c51211e765f193aceee91e2b16a6c18f515c277b379fe3000bd1c7f",
+        "observed_at": "2026-09-25T20:34:28.621501+00:00",
+        "status": "present",
+        "members": [
+          {
+            "archive_ordinal": 1,
+            "archive_sha256": "df019408b5ea1d65242317a983e1e5e44fd01a83632c4baab26dd164816b5f98",
+            "member_ordinal": 2776,
+            "member_path": "sf/sf-20221221-2456.xml",
+            "member_sha256": "b8b28eb0f552e1800e2603d3ba70ad7772e4818e4b1fea717a213e943be87331",
+            "member_size_bytes": 3850,
+            "member_type": "file",
+            "parse_status": "parsed",
+            "refid": "forskrift/2022-12-21-2456",
+            "role": "forskrifter",
+            "selected": true,
+            "source_occurrence_id": "201af0693d6942903f2fe1c104ad8d71448e6fe2c5d8e233033e6ef481e613d8"
+          }
+        ]
+      },
+      {
+        "observation_id": "ca9c375bd0272ffa836c0328e1579083e1539618ea6f206905e140ec188a4cee",
+        "observed_at": "2026-09-25T21:58:37.175598+00:00",
+        "status": "present",
+        "members": [
+          {
+            "archive_ordinal": 1,
+            "archive_sha256": "df019408b5ea1d65242317a983e1e5e44fd01a83632c4baab26dd164816b5f98",
+            "member_ordinal": 2776,
+            "member_path": "sf/sf-20221221-2456.xml",
+            "member_sha256": "b8b28eb0f552e1800e2603d3ba70ad7772e4818e4b1fea717a213e943be87331",
+            "member_size_bytes": 3850,
+            "member_type": "file",
+            "parse_status": "parsed",
+            "refid": "forskrift/2022-12-21-2456",
+            "role": "forskrifter",
+            "selected": true,
+            "source_occurrence_id": "201af0693d6942903f2fe1c104ad8d71448e6fe2c5d8e233033e6ef481e613d8"
+          }
+        ]
+      },
+      {
+        "observation_id": "be688fe828a9bfa712680a2531fc619186b8b472ba60359bb12c6c2bf9df3f6b",
+        "observed_at": "2026-09-26T01:47:15.246004+00:00",
+        "status": "not_present_in_observation",
+        "scope_comparable": true,
+        "members": []
+      },
+      {
+        "observation_id": "6251bb3c980628a2ffa3505f4c52fe5dfe0e1914a142073d35a740413360c815",
+        "observed_at": "2026-09-26T02:29:55.248059+00:00",
+        "status": "not_present_in_observation",
+        "scope_comparable": true,
+        "members": []
+      },
+      {
+        "observation_id": "ac7a53c3b6fd337f64bd4064983af98cde5607932106225a447715895f5a0549",
+        "observed_at": "2026-09-26T03:21:11.995275+00:00",
+        "status": "not_present_in_observation",
+        "scope_comparable": true,
+        "members": []
+      }
+    ]
+  },
+  "limit": "Source archive membership only; the amendment archive retains this refid and no repeal date is inferred."
+}
