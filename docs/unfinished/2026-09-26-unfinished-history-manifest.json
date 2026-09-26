@@ -1,0 +1,200 @@
+{
+  "base_commit": "db9e9cb3dcc158a5a36e5ae2eb4e59548e459046",
+  "status": "UNFINISHED_NOT_ACTIVE_NOT_PUBLISHED",
+  "tracked_files": [
+    "law_history/__main__.py",
+    "law_history/reader_export.py",
+    "law_history/source_body_gate.py",
+    "law_history/source_body_products.py",
+    "pyproject.toml"
+  ],
+  "untracked_files": [
+    "law_history/body_assets.py",
+    "law_history/math_render.py",
+    "law_history/pilot_evidence/for-2026-09-10-1780/README.md",
+    "law_history/pilot_evidence/for-2026-09-10-1780/coverage-index.jsonl.gz",
+    "law_history/pilot_evidence/for-2026-09-10-1780/coverage.json",
+    "law_history/pilot_evidence/for-2026-09-10-1780/original.xml",
+    "law_history/pilot_evidence/for-2026-09-10-1780/registry.json",
+    "law_history/reconstruction.py",
+    "tests/fixtures/body_assets/provenance.json",
+    "tests/fixtures/body_assets/source.gif",
+    "tests/fixtures/body_assets/source.jpg",
+    "tests/fixtures/body_assets/source.png",
+    "tests/fixtures/source_body/images-acquisition-records.json",
+    "tests/fixtures/source_body/images-forskrift-2001-04-18-426.xml",
+    "tests/fixtures/source_body/images-forskrift-2012-07-03-766.xml",
+    "tests/fixtures/source_body/images-forskrift-2013-09-20-1109.xml",
+    "tests/fixtures/source_body/images-forskrift-2021-12-17-3666.xml",
+    "tests/fixtures/source_body/images-forskrift-2022-06-17-1114.xml",
+    "tests/fixtures/source_body/images-forskrift-2024-11-05-2662.xml",
+    "tests/fixtures/source_body/images-source-members.json",
+    "tests/test_body_assets.py",
+    "tests/test_math_render.py",
+    "tests/test_reconstruction.py",
+    "tests/test_source_body_images.py",
+    "tests/test_source_body_media_products.py"
+  ],
+  "files": {
+    "evidence/WRAPPER-PARENT-BATCH-PROPOSAL.md": {
+      "sha256": "5eb8202005b86fb69906d7496c59241a0f3bc76ea906e64be2347c99e4f817a1",
+      "bytes": 4719
+    },
+    "evidence/body-assets-inspection/trailing-container-readback.json": {
+      "sha256": "138180e92db4729383cda90fc9be3fc66126cadbd5ee220c9608393f88ef3a52",
+      "bytes": 3389
+    },
+    "evidence/d11-images/qualification.json": {
+      "sha256": "3f75623f0da5041f9854d79610c6b19cd1fbb4eac59d5582f92ad0ca68dfe6ee",
+      "bytes": 2952
+    },
+    "evidence/math-adapter-corpus/report.json": {
+      "sha256": "5034def3995a638b6c9fa20f777480be0d3f097fe85bc3d7f1fbf2096ca812cb",
+      "bytes": 139776
+    },
+    "evidence/v10-wrapper-proposal-scan.json": {
+      "sha256": "635d78ba312b1e7816c27804b787f6678ed7c052101329dd577f80ada4353089",
+      "bytes": 24605
+    },
+    "evidence/v11-images-grammar-report.json": {
+      "sha256": "f9bf7f47b0adcb2a96f9ca422e12488dedb495ed08fb5964469849b6bdb1e89c",
+      "bytes": 62599
+    },
+    "evidence/v12-unfinished-source_body_gate.patch": {
+      "sha256": "066e5a19f5caf131549cabdb1a0cb957434320ac2437ada28660c7ac8d13dd6c",
+      "bytes": 6433
+    },
+    "evidence/v12-unfinished-source_body_gate.py": {
+      "sha256": "82cb02d55175756913f0df2c8d6c7ec68019a2141a48b3e9c17547e814aaf920",
+      "bytes": 60028
+    },
+    "evidence/v12-unfinished-test_source_body_flow_wrappers.py": {
+      "sha256": "2bd60525a85897137862eb1ccfb9fb52d9ee6d8a515789bd9ea2d40ba43b2773",
+      "bytes": 5131
+    },
+    "law_history/__main__.py": {
+      "sha256": "cb5bbb81361ca8d5905eac512934896658510270547e692e8260374a2ea59aad",
+      "bytes": 11762
+    },
+    "law_history/body_assets.py": {
+      "sha256": "90594ceabec8dbe9b50f130d219e9dd86438976667b545fe5a69b45b1cc74af7",
+      "bytes": 12445
+    },
+    "law_history/math_render.py": {
+      "sha256": "1c4eb063642cf4129ccf4a95adb6292b12faccf15c24ac39e0109ab30e79bef1",
+      "bytes": 14601
+    },
+    "law_history/pilot_evidence/for-2026-09-10-1780/README.md": {
+      "sha256": "05f5c1d37489bf656d8fdc9e877b165d5a0d902797cb7938e6cd95e95e9cb75d",
+      "bytes": 2950
+    },
+    "law_history/pilot_evidence/for-2026-09-10-1780/coverage-index.jsonl.gz": {
+      "sha256": "ed8054f93ab29818cc5752643403e906267f4a445842e9d394e7f224ccda015a",
+      "bytes": 98545
+    },
+    "law_history/pilot_evidence/for-2026-09-10-1780/coverage.json": {
+      "sha256": "62647a888865c25ea3f0793547bd9231d62fce811b6939fe2249ee74917a5236",
+      "bytes": 30860
+    },
+    "law_history/pilot_evidence/for-2026-09-10-1780/original.xml": {
+      "sha256": "935c96a7a4bad336572398dc044b96867131d2e7ec38a4081dbb8836fb29b7a0",
+      "bytes": 17008
+    },
+    "law_history/pilot_evidence/for-2026-09-10-1780/registry.json": {
+      "sha256": "fad9a7d77e3c5f3e4366c1d7d80ca4e0011bd2cc1370f2705f94591dfa81a195",
+      "bytes": 12194
+    },
+    "law_history/reader_export.py": {
+      "sha256": "f88f920477381851cb1ea3a404671526257dbc5b2597596b920755e8cb15ec3c",
+      "bytes": 10648
+    },
+    "law_history/reconstruction.py": {
+      "sha256": "415cc84917526ed31d3d69a246c2f3e759fcdd02ebe2b17a858ddf8ed6eec8ec",
+      "bytes": 16196
+    },
+    "law_history/source_body_gate.py": {
+      "sha256": "dc9afe79ceb34ed8882036dd419de4ecea95079bf312c4a48aa4b92d0ece6fa7",
+      "bytes": 56811
+    },
+    "law_history/source_body_products.py": {
+      "sha256": "fcb8e4f78ddb494d58d63f424515a037f7581fb2704ef3fab6cb2e4d077b7298",
+      "bytes": 38675
+    },
+    "pyproject.toml": {
+      "sha256": "dc7f6d9c45ae3e5506304d7ad97fda898eb67db000e9c6bc6950734a3c1bd01f",
+      "bytes": 442
+    },
+    "tests/fixtures/body_assets/provenance.json": {
+      "sha256": "bc2d3afed5155fe48a624ae50bcfac23b1b565f69605d852b70c205ca8e7d59f",
+      "bytes": 2513
+    },
+    "tests/fixtures/body_assets/source.gif": {
+      "sha256": "d8a2aa632780279f7d094185fe058e303ef2e31162655357b9b7c6d6932ec4d6",
+      "bytes": 308
+    },
+    "tests/fixtures/body_assets/source.jpg": {
+      "sha256": "776ba30ff6a6f9160099ebb071ecb27b084d91b2fdab972861849a8c2bdb5256",
+      "bytes": 306748
+    },
+    "tests/fixtures/body_assets/source.png": {
+      "sha256": "150365eb06b8a335539210d6627e00230a7755317b7c58fd13bf5fdd4d626652",
+      "bytes": 297
+    },
+    "tests/fixtures/source_body/images-acquisition-records.json": {
+      "sha256": "f55f7bf1862664c8abc6a72343665236b68608488154106ea6898615769f7755",
+      "bytes": 47091
+    },
+    "tests/fixtures/source_body/images-forskrift-2001-04-18-426.xml": {
+      "sha256": "e4c2e2dc8ddb59cf7488017f02fac8d3bf753c6c19f40bfe729f3c3f0008c71e",
+      "bytes": 15284
+    },
+    "tests/fixtures/source_body/images-forskrift-2012-07-03-766.xml": {
+      "sha256": "bc861b9b19556cb6a5c0bc2b19e276ac61f34b602fa667ccffdb4c350df64a44",
+      "bytes": 8011
+    },
+    "tests/fixtures/source_body/images-forskrift-2013-09-20-1109.xml": {
+      "sha256": "58550721bfec523340530ee9d04aa84f8139b172bb30214d955daad4c87ec156",
+      "bytes": 17287
+    },
+    "tests/fixtures/source_body/images-forskrift-2021-12-17-3666.xml": {
+      "sha256": "a606969d13c57396c706722982019072460a6b3124918d41e49f211a77817f17",
+      "bytes": 46454
+    },
+    "tests/fixtures/source_body/images-forskrift-2022-06-17-1114.xml": {
+      "sha256": "0fb778876fb1c6cd6043751e911bd06e25c41cef2ead89202e482c27b12da137",
+      "bytes": 3689
+    },
+    "tests/fixtures/source_body/images-forskrift-2024-11-05-2662.xml": {
+      "sha256": "c290e981219da7b49ffcd29e1905a7ab45f80bbc8495293e936eb0b670d5bbcb",
+      "bytes": 83468
+    },
+    "tests/fixtures/source_body/images-source-members.json": {
+      "sha256": "6b944c0f4f3d81819a3b49b08dca2093660e5cb867377069eb9dacabe02f5e70",
+      "bytes": 6069
+    },
+    "tests/test_body_assets.py": {
+      "sha256": "7f990b9cabf0d35b953702407c12eab22ed5b9266753b5538b73473036111c01",
+      "bytes": 7894
+    },
+    "tests/test_math_render.py": {
+      "sha256": "b00d77be8ddeca36c60b6c2f14ffef3cfcf08bcfec6e0e591658003dad6c2c64",
+      "bytes": 7157
+    },
+    "tests/test_reconstruction.py": {
+      "sha256": "e4e07b20c7b71650308e46e117831ac2f8512cd1bfa6cdd2ff48c5fb304a9def",
+      "bytes": 11402
+    },
+    "tests/test_source_body_images.py": {
+      "sha256": "354eb8f8f5416b498ffe88249cb8e92b05d69d0c41ab433a93daa55690f2656b",
+      "bytes": 3443
+    },
+    "tests/test_source_body_media_products.py": {
+      "sha256": "fa043bf6a54d67e5663580e552a6ed5f4bc82ecd86074788d7dc57fd12bcae5e",
+      "bytes": 11325
+    },
+    "working-tree.patch": {
+      "sha256": "92dbf27bf195e43ee48e3d739c1c864e99c4a989c0440f36f2396ae7b19c4992",
+      "bytes": 43277
+    }
+  }
+}
