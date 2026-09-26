@@ -1,0 +1,53 @@
+{
+  "contract": "source-body-v3-full-corpus-local-v1",
+  "status": "passed",
+  "checked_at_utc": "2026-09-26T01:14:46.849295+00:00",
+  "published": false,
+  "observation_id": "8b88da8aa33b2590fdd57c7effd8075196e198f08d40692fea65efda8025efa9",
+  "body_product_id": "d0f3413b7f30f6ec117c1f06b73403ee07509c8075c01062cd340406e65297bb",
+  "parent_body_product_id": "bfeb9e01c8c34e3e244276597869f412f962a9092e5acd2484d0daa8a395f26a",
+  "counts": {
+    "forskrifter": 5118,
+    "laws": 756,
+    "passed": 3203,
+    "rejected": 2671,
+    "selected": 5874
+  },
+  "bundle": {
+    "bytes": 13694880,
+    "name": "bodies.tar.gz",
+    "sha256": "176ece255f8fb94edd5d09da1de05b97c68d2499818b8dc779d763dbf56f00a8",
+    "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/bodies-d0f3413b7f30f6ec117c1f06b73403ee07509c8075c01062cd340406e65297bb/bodies.tar.gz"
+  },
+  "generator": {
+    "contract": "history-source-body-product-v1",
+    "gate": "observed-body-source-lists-v3",
+    "python": "3.13.15",
+    "sources": {
+      "body_transport.py": "e9d7e46f056d900984880a625dbf95361b6ca454f29ae20e86e19f49c4793a73",
+      "ledger.py": "fbf77ad6e76488b2ff975a8af8bfecdf3796445ba01b04fc58ae41236de151f8",
+      "source_body_gate.py": "7b072a0a4f18f69fa587a111b2c2a654ba24bc2f395bef5cd2cb351161fbe883",
+      "source_body_products.py": "9a3ee47a08aea50b3d1d3a452ed43761eebc1e3e7a4a9c7280ed0962edc28db4",
+      "validation.py": "f0bf57e4f04e91df17f2c923d32bfdc31735d3fc7c856108b46abad4228622e3"
+    },
+    "zlib": "1.3.1"
+  },
+  "receipt_sha256": "62053f914aa5dbd48b413eef7a219803308595fe2396bf1d7f2909d099c30415",
+  "preservation": {
+    "prior_qualified_documents": 1219,
+    "prior_qualified_html_css_body_semantics_unchanged": 1219,
+    "all_source_semantics_unchanged": 5874,
+    "newly_qualified": 1984,
+    "lost_qualifications": 0,
+    "old_receipt_sha256": "7feb7e49792c7c24163ac133bc4304186c6b1318f70bd8fc232e3735c23eec5a"
+  },
+  "rejections": {
+    "unsupported_form": 1585,
+    "unsupported_attribute": 957,
+    "unsupported_nesting": 13,
+    "unsupported_context": 1,
+    "unsupported_list_marker": 31,
+    "source_context_mismatch": 84
+  },
+  "scope": "Full retained local snapshot independently source/render qualified and audited. Prospective release URL is not public; legal validity remains unresolved."
+}

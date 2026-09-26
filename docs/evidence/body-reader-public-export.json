@@ -1,0 +1,18 @@
+{
+  "status": "exported",
+  "history_commit": "8d577246ffcb8dd0e068be3c8cce7151c3543177",
+  "products": 1,
+  "documents": 5874,
+  "index_sha256": "fa17fd8ae927ed16f0f8f1f3e6bc13293ca57c099796501576ae2eedcccc4ba4",
+  "contract": "published-body-reader-export-readback-v1",
+  "scope": "Fresh detached checkout of public ledger; anonymous release download and exact receipt/proof/artifact/payload verification; not renderer requalification",
+  "body_product_id": "cf02a777e1ead1c15ca117166a6b46541a33568d9f0d32ab751a13a656ad1cdf",
+  "counts": {
+    "selected": 5874,
+    "passed": 1219,
+    "rejected": 4655
+  },
+  "source_requalification": false,
+  "legal_validity": "unresolved",
+  "reader_deployment": false
+}

@@ -119,7 +119,7 @@ The [full local rehearsal](docs/evidence/source-body-full-corpus-local.json)
 accounted for all 5,874 selected documents: 1,219 qualified and 4,655 were
 explicitly rejected. It includes independently retrieved examples and browser
 checks of links, footnotes and tables. This local rehearsal is not a public
-body-product publication; common heading and list forms remain unsupported.
+body-product publication. The subsequent [v3 full rehearsal](docs/evidence/source-body-v3-full-corpus-local.json) qualified 3,203 bodies and rejected 2,671, preserving the exact text, structure, HTML and styling of all 1,219 prior qualified bodies. Its expanded coverage is local until separately published.
 
 Each `body-products/<identity>/receipt.json` points to a separate immutable
 `bodies-<identity>` GitHub release. Large artifacts stay outside Git. The
