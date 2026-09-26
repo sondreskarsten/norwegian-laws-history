@@ -1,0 +1,73 @@
+{
+  "status": "verified",
+  "checked_at": "2026-09-26T02:25:23.832627+00:00",
+  "scope": "Public artifact retrieval, exact committed proofs, retained representations and new source observation; no legal-as-of reconstruction",
+  "previous_product": "795fec6c07968be0a127bf3656d85c73626a1eeb0ade5dc5c7350faa4916981b",
+  "product": "fee2266eb1728ea03c7dc57a2799d2c44474d3dc46311e563d076872edc811f5",
+  "observation": "be688fe828a9bfa712680a2531fc619186b8b472ba60359bb12c6c2bf9df3f6b",
+  "counts": {
+    "forskrifter": 5118,
+    "laws": 756,
+    "passed": 4175,
+    "rejected": 1699,
+    "selected": 5874
+  },
+  "unchanged_prior_qualified_preserved_byte_for_byte": 3201,
+  "same_semantic_documents": 5866,
+  "newly_qualified_existing_documents": 974,
+  "new_document_ids": [
+    "forskrift/2026-09-16-1888"
+  ],
+  "absent_document_ids": [
+    "forskrift/2022-12-21-2456"
+  ],
+  "changed_semantic_document_ids": [
+    "forskrift/1998-09-16-890",
+    "forskrift/2018-09-26-1467",
+    "forskrift/2024-03-06-538",
+    "lov/1962-06-22-12",
+    "lov/1997-02-28-19",
+    "lov/2026-06-12-24",
+    "lov/2026-06-23-64"
+  ],
+  "paragraph_examples": {
+    "lov/1814-05-17": {
+      "status": "passed",
+      "html_sha256": "b82cc6af104b4d883a3e2db8351d493ed7c4f8cf52d2a2e1ab7d00af02709623",
+      "semantic_sha256": "7e5938ad1111bf1ff4f31101fe41cb05d9d84e6dce50325ec2b4a7da57025b47"
+    },
+    "lov/1981-04-08-7": {
+      "status": "passed",
+      "html_sha256": "13b7806ff26b74b80a6e932f82ac0c0e80fa374cc7d2fdd3e784be819d1dd11b",
+      "semantic_sha256": "264a7ccc79612e8cf9524cbcdcf684486aa311fd8651d876172d43d7c434ae15"
+    },
+    "lov/1909-03-23": {
+      "status": "passed",
+      "html_sha256": "4af38d44843bc95fa6c13513c0f5e54fb94097d51d28ea87cb187655c15e49f4",
+      "semantic_sha256": "1d904365a0fbb70508d3831b5ba6bb7145e2e3a25815aadd03c55f77f3cb44a5"
+    },
+    "forskrift/2000-11-16-1152": {
+      "status": "passed",
+      "html_sha256": "fca2db5624da22d5da2e55fff4b3f6da4607dbe05ddacbfcf0716cbe69f5d762",
+      "semantic_sha256": "149ea3ea2395941cb1e7ddaf1b93fbd70b660c202d2f6cae5254d540c73daaaa"
+    }
+  },
+  "bundle": {
+    "bytes": 22782041,
+    "name": "bodies.tar.gz",
+    "sha256": "f03197c960f0a712f6099489731faa2e0c00db8a8bb49956f4adb281c64205c1",
+    "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/bodies-fee2266eb1728ea03c7dc57a2799d2c44474d3dc46311e563d076872edc811f5/bodies.tar.gz"
+  },
+  "export": {
+    "status": "exported",
+    "history_commit": "ee69a619f2ae86645097d85bfd04ba6733031ea3",
+    "products": 3,
+    "documents": 5875,
+    "index_sha256": "c0db7c3552fdf588bf458bb980d96d7330eb4df16e2a7a681d8a0f30e40ad404"
+  },
+  "legal_valid_time": {
+    "from": null,
+    "status": "unresolved",
+    "until": null
+  }
+}
