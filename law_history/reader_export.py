@@ -24,6 +24,16 @@ def export_reader(repository: Path, output: Path) -> dict:
     repository, output = Path(repository).resolve(), Path(output).absolute()
     require(not output.exists(), "Reader export destination already exists")
     head = _text(repository, "rev-parse", "HEAD")
+    expected_receipts = {
+        name for name in _git(repository, "ls-tree", "-r", "--name-only", "-z", head, "--", "body-products").stdout.decode("utf-8").split("\0")
+        if re.fullmatch(r"body-products/[^/]+/receipt\.json", name)
+    }
+
+    def complete_receipts():
+        actual = {path.relative_to(repository).as_posix() for path in (repository / "body-products").glob("*/receipt.json")}
+        require(actual == expected_receipts, "Reader receipt membership differs from committed HEAD")
+
+    complete_receipts()
     chain = body_products(repository, verify=False)
     remote = _text(repository, "remote", "get-url", "origin")
     match = re.fullmatch(r"(?:https://github\.com/|git@github\.com:)([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+?)(?:\.git)?/?", remote)
@@ -126,6 +136,7 @@ def export_reader(repository: Path, output: Path) -> dict:
             index["documents"][refid] = {"path": name, "metadata_sha256": _sha(data), "versions": len(rows),
                                           "qualified_versions": sum(row["status"] == "passed" for row in rows)}
         (fresh / "index.json").write_bytes(canonical(index, newline=True))
+        complete_receipts()
         require(_text(repository, "rev-parse", "HEAD") == head
                 and all((repository / name).read_bytes() == data for name, data in pinned.items()),
                 "History checkout changed during reader export")

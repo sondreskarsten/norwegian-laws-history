@@ -46,6 +46,15 @@ class ReaderExportTests(unittest.TestCase):
                         self.assertEqual(retrieved['status'], 'not_qualified')
             with self.assertRaisesRegex(ValueError, 'destination already exists'):
                 reader_export.export_reader(self.repository, output)
+            receipt = self.repository / 'body-products' / second['body_product_id'] / 'receipt.json'
+            saved = receipt.read_bytes()
+            receipt.unlink()
+            try:
+                with self.assertRaisesRegex(ValueError, 'membership differs'):
+                    reader_export.export_reader(self.repository, self.root / 'incomplete')
+                self.assertFalse((self.root / 'incomplete').exists())
+            finally:
+                receipt.write_bytes(saved)
             proof = self.repository / 'body-publications' / (second['body_product_id'] + '.json')
             proof.write_bytes(proof.read_bytes() + b' ')
             bad = self.root / 'not-exported'
