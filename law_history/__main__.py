@@ -18,6 +18,9 @@ def main(argv=None):
     accept.add_argument("receipt")
     accept.add_argument("--bundle", type=Path, help="Explicit local snapshot.tar.gz; otherwise use sibling/public URL")
     commands.add_parser("list", help="List accepted observations")
+    coverage = commands.add_parser("source-coverage", help="Inventory retained source availability; not qualified legal coverage")
+    coverage.add_argument("refid", nargs="?", help="Omit to inventory every retained document")
+    coverage.add_argument("--known-at", help="Include accepted source observations up to this timezone-aware timestamp")
     show = commands.add_parser("show", help="Show a document's source observations, including observed absence")
     show.add_argument("refid")
     show.add_argument("--role", choices=("laws", "forskrifter", "amendment_acts"),
@@ -67,6 +70,9 @@ def main(argv=None):
             result = ingest(args.receipt, args.repository, args.bundle)
         elif args.command == "list":
             result = list_observations(args.repository)
+        elif args.command == "source-coverage":
+            from .source_coverage import source_coverage
+            result = source_coverage(args.repository, args.refid, args.known_at)
         elif args.command == "show":
             result = show_document(args.repository, args.refid, args.role)
         elif args.command == "materialize":
