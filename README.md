@@ -1,5 +1,7 @@
 # Norwegian laws: observed source history
 
+**Work paused, 26 September 2026:** [delivered functionality, unfinished work and pending runs](docs/DELIVERY-STATUS.md).
+
 This repository independently verifies published Lovdata evidence releases and records which source bytes were observed. It can show a document's observations and retrieve its exact archived XML. It does not reconstruct past legal states or infer commencement or repeal dates.
 
 The Python consumer uses only the standard library (Python 3.11+). From this checkout:
