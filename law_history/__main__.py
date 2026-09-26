@@ -55,6 +55,12 @@ def main(argv=None):
     act = commands.add_parser("operations", help="Retrieve original operations and unresolved claims for an amendment act")
     act.add_argument("refid")
     act.add_argument("--product", help="Pinned operation-product ID; defaults to the latest product")
+    primary = commands.add_parser("verify-primary", help="Independently verify a supplemental primary-source acquisition")
+    primary.add_argument("receipt")
+    primary.add_argument("--bundle", type=Path, help="Reuse the exact acquired bundle")
+    ordered = commands.add_parser("ordered-operations", help="Retrieve complete ordered amendment trees and source instruction candidates")
+    ordered.add_argument("refid")
+    ordered.add_argument("--product", help="Pinned existing operation-product ID; defaults to latest")
     propose = commands.add_parser("propose-claim", help="Append a source-bound proposal without assigning legal eligibility")
     propose.add_argument("request", type=Path, help="JSON proposal with exact subject, evidence and superseded claim")
     claims = commands.add_parser("claim-history", help="Read every proposed interpretation for an exact pinned subject")
@@ -118,6 +124,12 @@ def main(argv=None):
         elif args.command == "operations":
             from .operation_products import show_operations
             result = show_operations(args.repository, args.refid, args.product)
+        elif args.command == "verify-primary":
+            from .primary_sources import read_primary_sources
+            result = read_primary_sources(args.receipt, args.bundle)
+        elif args.command == "ordered-operations":
+            from .ordered_operations import show_ordered_operations
+            result = show_ordered_operations(args.repository, args.refid, args.product)
         elif args.command in ("propose-claim", "claim-history"):
             from .later_claims import claim_history, propose_claim
             from .validation import read_json

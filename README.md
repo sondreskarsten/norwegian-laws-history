@@ -21,6 +21,12 @@ This example uses a real public receipt and a 191 MB source bundle. The observat
 
 Use `python -m law_history source-coverage [REFID]` to inventory retained source versions and their exact observation/member locations. Add `--known-at TIMESTAMP` to exclude later observations. [The complete coverage report](docs/SOURCE-COVERAGE.md) separates source availability from unqualified baselines and unresolved legal intervals.
 
+## Complete raw amendment and supplemental source evidence
+
+[`ordered-operations REFID --product PRODUCT_ID`](docs/ORDERED-AMENDMENTS.md) retrieves full ordered raw amendment trees alongside existing parsed operations. Targets and replacement scope remain candidates until qualified.
+
+[`verify-primary RECEIPT_URL`](docs/PRIMARY-SOURCES.md) independently verifies supplemental primary-source acquisitions. Older scans and source-hosted printouts are available; acquisition does not establish legal-time coverage.
+
 ## Delivered public observation
 
 On 25 September 2026, the [first public intake](https://github.com/sondreskarsten/norwegian-laws-history/actions/runs/36169832648) accepted 4 archives and 45,114 source members in commit [`611153d`](https://github.com/sondreskarsten/norwegian-laws-history/commit/611153d93419437ba74a07ab07ce5067afabbbef). A fresh isolated consumer installation independently accepted the same public bundle, replayed it without changing ledger files, and retrieved Regnskapsloven and `forskrift/2026-09-18-1871` XML byte for byte from their original archive members. All four committed ledger files match that independent ingestion.
