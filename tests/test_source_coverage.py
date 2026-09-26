@@ -8,6 +8,16 @@ from test_consumer import fixture
 
 
 class SourceCoverageTests(unittest.TestCase):
+    def test_latest_cutoff_compares_instants_across_timezone_offsets(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); repository = root / "ledger"
+            for i, observed in enumerate(("2026-09-25T11:00:00+02:00", "2026-09-25T10:00:00+00:00")):
+                source, _, _ = fixture(root / str(i), observed=observed)
+                ingest(str(source), repository)
+            report = source_coverage(repository)
+            self.assertEqual(report["latest_included_knowledge_cutoff"], "2026-09-25T10:00:00+00:00")
+            self.assertEqual(report["inputs"][0]["knowledge_cutoff"], "2026-09-25T11:00:00+02:00")
+
     def test_retained_source_is_not_a_historical_baseline_and_cutoff_excludes_future(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

@@ -22,6 +22,9 @@ def source_coverage(repository: Path, refid: str | None = None, known_at: str | 
     accepted = list_observations(repository)
     summaries = [s for s in accepted if cutoff is None or
                  s["knowledge_cutoff"] is not None and timestamp(s["knowledge_cutoff"]) <= cutoff]
+    summaries.sort(key=lambda s: (s["knowledge_cutoff"] is not None,
+        timestamp(s["knowledge_cutoff"]) if s["knowledge_cutoff"] is not None else None,
+        s["observation_id"]))
     documents, inputs = {}, []
 
     def document(identity):
