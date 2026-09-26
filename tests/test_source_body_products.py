@@ -120,7 +120,8 @@ class SourceBodyProductTests(unittest.TestCase):
         return list(products._rows(products.artifact_tree(self.repository, receipt) / name))
 
     def test_three_real_complex_bodies_and_rejected_context_cover_full_inventory(self):
-        raws = [path.read_bytes() for path in sorted(FIXTURES.glob("*.xml"))]
+        raws = [(FIXTURES / name).read_bytes() for name in
+                ("lov-1687-04-15.xml", "lov-1751-10-02.xml", "forskrift-1969-06-27-4.xml")]
         self.assertEqual(len(raws), 3)
         rejected = small_xml(context=' dir="rtl"')
         receipt = self.build([*raws, rejected])
