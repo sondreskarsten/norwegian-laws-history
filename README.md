@@ -1,6 +1,6 @@
 # Norwegian laws: observed source history
 
-**Work paused, 26 September 2026:** [delivered functionality, unfinished work and pending runs](docs/DELIVERY-STATUS.md).
+**Delivery resumed, 26 September 2026:** [delivered functionality, unfinished work and pending runs](docs/DELIVERY-STATUS.md).
 
 This repository independently verifies published Lovdata evidence releases and records which source bytes were observed. It can show a document's observations and retrieve its exact archived XML. It does not reconstruct past legal states or infer commencement or repeal dates.
 
@@ -16,6 +16,10 @@ python -m law_history raw lov/1998-07-17-56 --observation ccdbf3e45098076118bf93
 ```
 
 This example uses a real public receipt and a 191 MB source bundle. The observation is already accepted in this repository, so replay reports `already_present`; use `--repository PATH` before `ingest` for a separate ledger. The installed `law-history` command is equivalent to `python -m law_history`. For local ingestion, `snapshot.tar.gz` may sit beside `evidence.json`, or be supplied using `--bundle`. `raw --output` creates a new file and never overwrites one. For another document, obtain its observation and source occurrence IDs from `show`.
+
+## Historical source availability
+
+Use `python -m law_history source-coverage [REFID]` to inventory retained source versions and their exact observation/member locations. Add `--known-at TIMESTAMP` to exclude later observations. [The complete coverage report](docs/SOURCE-COVERAGE.md) separates source availability from unqualified baselines and unresolved legal intervals.
 
 ## Delivered public observation
 
