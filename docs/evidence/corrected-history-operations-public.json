@@ -1,0 +1,397 @@
+{
+  "status": "public_complete_operation_product_verified",
+  "checked_at": "2026-09-26T02:36:45.976684+00:00",
+  "product": "182c4b744bea6186df0fe2281ac710bf9471c4a25cf04bcfff1deb82e66c0780",
+  "observation": "be688fe828a9bfa712680a2531fc619186b8b472ba60359bb12c6c2bf9df3f6b",
+  "counts": {
+    "acts": 39214,
+    "claims": 139186,
+    "operations": 99972
+  },
+  "bundle": {
+    "bytes": 102605176,
+    "name": "operations.tar.gz",
+    "sha256": "9c9772bda0ec0e53005e22d22c24863727c645e762ece35f5a156b0f73a29ad4",
+    "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/operations-182c4b744bea6186df0fe2281ac710bf9471c4a25cf04bcfff1deb82e66c0780/operations.tar.gz"
+  },
+  "corrected_sample": {
+    "operation_product_id": "182c4b744bea6186df0fe2281ac710bf9471c4a25cf04bcfff1deb82e66c0780",
+    "observation_id": "be688fe828a9bfa712680a2531fc619186b8b472ba60359bb12c6c2bf9df3f6b",
+    "refid": "forskrift/2025-05-28-955",
+    "status": "found",
+    "occurrences": [
+      {
+        "act": {
+          "act_id": "b67f979594c67cd639d6caf07fa06c08aac12ae1eeb4d21469ea81dbe34bb800",
+          "clocks": {
+            "historical_knowledge_time": {
+              "at": null,
+              "status": "unknown"
+            },
+            "knowledge_cutoff": "2026-09-26T01:47:15.246004+00:00",
+            "knowledge_cutoff_basis": "local_archive_observation",
+            "observed_at": "2026-09-26T01:41:17.130409+00:00",
+            "release_publication": {
+              "assertion": null,
+              "status": "unknown"
+            },
+            "retrieval_time_status": "recorded",
+            "retrieved_at": "2026-09-26T01:37:50.447142+00:00",
+            "source_date_in_force": "2025-06-15",
+            "source_date_published": "2025-06-06 14:50",
+            "source_last_modified": "2026-09-14T01:31:00Z"
+          },
+          "commencement_expressions": [
+            {
+              "context": {
+                "ancestor_sections": [],
+                "preceding_sibling": {
+                  "source": {
+                    "element_id": null,
+                    "member_sha256": "4204439d2013a94dda7b5fad474f6e8d270b7a4cca9b713d4827247f3b13cca3",
+                    "path": "/html[1]/body[1]/header[1]/dl[1]/dt[5]",
+                    "path_version": "xml-element-sibling-path-v1",
+                    "source_occurrence_id": "04b513e26d419e1c30cf82e778f92ae40c4c04bd12b9dc409b523604f3272dc4"
+                  },
+                  "text": "I kraft fra"
+                }
+              },
+              "expression_id": "b469af3aa499d18aecf496ccacea1179e38044de2aeee24f586b7d69032973f2",
+              "legal_scope_status": "unresolved",
+              "method": "commencement-candidates-v1",
+              "preceding_replacement_instruction": false,
+              "producer_replacement_match_ordinals": [],
+              "role": "metadata_expression",
+              "source": {
+                "element_id": null,
+                "member_sha256": "4204439d2013a94dda7b5fad474f6e8d270b7a4cca9b713d4827247f3b13cca3",
+                "path": "/html[1]/body[1]/header[1]/dl[1]/dd[5]",
+                "path_version": "xml-element-sibling-path-v1",
+                "source_occurrence_id": "04b513e26d419e1c30cf82e778f92ae40c4c04bd12b9dc409b523604f3272dc4"
+              },
+              "text": "2025-06-15",
+              "text_representation": "xml_character_data_without_whitespace_normalization",
+              "text_run_ordinal": 0
+            },
+            {
+              "context": {
+                "ancestor_sections": [
+                  {
+                    "headings": [
+                      {
+                        "source": {
+                          "element_id": null,
+                          "member_sha256": "4204439d2013a94dda7b5fad474f6e8d270b7a4cca9b713d4827247f3b13cca3",
+                          "path": "/html[1]/body[1]/main[1]/section[2]/h2[1]",
+                          "path_version": "xml-element-sibling-path-v1",
+                          "source_occurrence_id": "04b513e26d419e1c30cf82e778f92ae40c4c04bd12b9dc409b523604f3272dc4"
+                        },
+                        "text": "II"
+                      }
+                    ],
+                    "source": {
+                      "element_id": "kapittel-2",
+                      "member_sha256": "4204439d2013a94dda7b5fad474f6e8d270b7a4cca9b713d4827247f3b13cca3",
+                      "path": "/html[1]/body[1]/main[1]/section[2]",
+                      "path_version": "xml-element-sibling-path-v1",
+                      "source_occurrence_id": "04b513e26d419e1c30cf82e778f92ae40c4c04bd12b9dc409b523604f3272dc4"
+                    }
+                  }
+                ],
+                "preceding_sibling": {
+                  "source": {
+                    "element_id": null,
+                    "member_sha256": "4204439d2013a94dda7b5fad474f6e8d270b7a4cca9b713d4827247f3b13cca3",
+                    "path": "/html[1]/body[1]/main[1]/section[2]/h2[1]",
+                    "path_version": "xml-element-sibling-path-v1",
+                    "source_occurrence_id": "04b513e26d419e1c30cf82e778f92ae40c4c04bd12b9dc409b523604f3272dc4"
+                  },
+                  "text": "II"
+                }
+              },
+              "expression_id": "99cfe376ebc96c11a21e8827e1353581ed7fdb770cdd559f22ace6d32055ff72",
+              "legal_scope_status": "unresolved",
+              "method": "commencement-candidates-v1",
+              "preceding_replacement_instruction": false,
+              "producer_replacement_match_ordinals": [],
+              "role": "commencement_candidate",
+              "source": {
+                "element_id": "kapittel-2-ledd-1",
+                "member_sha256": "4204439d2013a94dda7b5fad474f6e8d270b7a4cca9b713d4827247f3b13cca3",
+                "path": "/html[1]/body[1]/main[1]/section[2]/article[1]",
+                "path_version": "xml-element-sibling-path-v1",
+                "source_occurrence_id": "04b513e26d419e1c30cf82e778f92ae40c4c04bd12b9dc409b523604f3272dc4"
+              },
+              "text": "Forskriften trer i kraft 15. juni 2025.",
+              "text_representation": "xml_character_data_without_whitespace_normalization",
+              "text_run_ordinal": 0
+            }
+          ],
+          "context": {
+            "bundle_sha256": "83e946e4ef03576b3e9b235b5c041a54adf25bbf00a8c1094133ddb51b5f523f",
+            "data_attribution": {
+              "license": "NLOD 2.0",
+              "license_url": "https://data.norge.no/nlod/no/2.0",
+              "provider": "Lovdata"
+            },
+            "observation_id": "be688fe828a9bfa712680a2531fc619186b8b472ba60359bb12c6c2bf9df3f6b",
+            "parser_identity": {
+              "package_version": "0.1.0",
+              "sha256": "46fcb6401505f8293c20722c35d59117f8c94621c47fed9d1af324a5ff0e3e95",
+              "source_files": {
+                "evidence.py": "6d1b9a6114a15fe3bd09c84586bbc98100924591bd90e4206a7a3d0aa50e1f1e",
+                "models.py": "4f792c1916b94abb4a18ffbcbab34f264fd818eeebc6dcac66b74d729865f11b",
+                "parser.py": "f9a2812df6709be0acfc00cd9b17d3d7abd9469fa6262da719164977c6f1e4be",
+                "source_body.py": "f13931a85ae6f4cf71999f2ef2bdfd7115e73ba489c2611db7c83993d6d7b2a9"
+              }
+            },
+            "parser_runtime": {
+              "dependencies": {
+                "beautifulsoup4": "4.15.0",
+                "lxml": "6.1.3",
+                "soupsieve": "2.10"
+              },
+              "html_backend": "html.parser",
+              "python_implementation": "CPython",
+              "python_version": "3.12.14",
+              "unknown_dependency_version": null
+            },
+            "producer_source_sha": "94126da394454c21112408c322855b9f295ffeb9",
+            "receipt_url": "https://github.com/sondreskarsten/norwegian-laws/releases/download/observation-be688fe828a9bfa712680a2531fc619186b8b472ba60359bb12c6c2bf9df3f6b/evidence.json",
+            "release_tag": "observation-be688fe828a9bfa712680a2531fc619186b8b472ba60359bb12c6c2bf9df3f6b",
+            "snapshot_manifest_sha256": "eda6c147c409b0a5957bcb38b86af46467ff6e468347e04b63325eecd6672134",
+            "source_observation_sha256": "09bf5cda8b7a8063f3178441848ef7042df0d19096cc17aafb459289e2f512dd"
+          },
+          "contract": "history-operation-evidence-v1",
+          "expression_coverage": {
+            "method": "commencement-candidates-v1",
+            "scope_assignment": "not_performed",
+            "status": "candidates_only_not_complete"
+          },
+          "operation_coverage": "all_operations_in_producer_model_not_source_completeness",
+          "parsed_evidence": {
+            "artifact_path": "parsed-amendment-acts.v1.jsonl",
+            "artifact_sha256": "f9846a8b4989c27d51ea4952b90bb9e442b715d7196480124aff35db672e762e",
+            "json_pointer": "/record",
+            "parsed_occurrence_ordinal": 37009
+          },
+          "parsed_model_sha256": "18de9593645becb3d852aae21a91070cd3fa2ea151d8d4ce4e92d62dd479b85a",
+          "parsed_revision_id": "71ea6a46a34ceda88e05ca1ba32814bba89cb3e1b1b5f28379ace5f029e357de",
+          "producer_envelope": {
+            "amendment_occurrences": [
+              {
+                "operation_status": "identified",
+                "ordinal": 0,
+                "target_status": "identified"
+              }
+            ],
+            "fidelity": "lossless_relative_to_parsed_model",
+            "legal_valid_time": {
+              "date": null,
+              "status": "unresolved"
+            },
+            "parsed_occurrence_ordinal": 37009,
+            "record": {
+              "amendments": [
+                {
+                  "change_type": "change",
+                  "instruction": "§ 3 skal lyde:",
+                  "new_text": "§ 3.Lønnsbestemmelser\nArbeidstakere som utfører arbeid i henhold til § 2, skal minst ha en lønn per time på kroner 218,62.",
+                  "target": "§ 3",
+                  "target_law": "forskrift/2024-10-21-2534"
+                }
+              ],
+              "changes_to": [
+                "forskrift/2024-10-21-2534"
+              ],
+              "date_in_force": "2025-06-15",
+              "date_published": "2025-06-06 14:50",
+              "filename": "sf-20250528-0955.xml",
+              "journal_number": "2025-0575",
+              "ministry": "Arbeids- og inkluderingsdepartementet",
+              "misc_info": "Hjemmel:Fastsatt av Tariffnemnda 28. mai 2025 med hjemmel i lov 4. juni 1993 nr. 58 om allmenngjøring av tariffavtaler m.v. (allmenngjøringsloven) § 5.",
+              "refid": "forskrift/2025-05-28-955",
+              "short_title": "",
+              "title": "Forskrift om endring i forskrift om delvis allmenngjøring av tariffavtaler for persontransport med turbil"
+            },
+            "schema_version": "parsed-amendment-acts-v1",
+            "source_occurrence_id": "04b513e26d419e1c30cf82e778f92ae40c4c04bd12b9dc409b523604f3272dc4",
+            "source_structure_status": "not_verified"
+          },
+          "refid": "forskrift/2025-05-28-955",
+          "source_member": {
+            "archive_ordinal": 2,
+            "archive_sha256": "c9780176c37df85d3bdcb49240b0aafcba70fe018e17afc4317404742f0b4e6a",
+            "member_ordinal": 37034,
+            "member_path": "lti/2025/sf-20250528-0955.xml",
+            "member_sha256": "4204439d2013a94dda7b5fad474f6e8d270b7a4cca9b713d4827247f3b13cca3",
+            "member_size_bytes": 3367,
+            "member_type": "file",
+            "parse_status": "parsed",
+            "parsed_model_sha256": "18de9593645becb3d852aae21a91070cd3fa2ea151d8d4ce4e92d62dd479b85a",
+            "parsed_occurrence_ordinal": 37009,
+            "refid": "forskrift/2025-05-28-955",
+            "role": "amendment_acts",
+            "selected": true,
+            "selected_output_path": "amendments.db",
+            "selected_output_sha256": "49e5206fd331c44ae15f7438b0c248eb53383a90b50685e76bbef658938272dc",
+            "source_occurrence_id": "04b513e26d419e1c30cf82e778f92ae40c4c04bd12b9dc409b523604f3272dc4"
+          },
+          "source_occurrence_id": "04b513e26d419e1c30cf82e778f92ae40c4c04bd12b9dc409b523604f3272dc4",
+          "source_url": "https://api.lovdata.no/v1/publicData/get/lovtidend-avd1-2001-2025.tar.bz2"
+        },
+        "claims": [
+          {
+            "act_expression_candidates": [
+              "b469af3aa499d18aecf496ccacea1179e38044de2aeee24f586b7d69032973f2",
+              "99cfe376ebc96c11a21e8827e1353581ed7fdb770cdd559f22ace6d32055ff72"
+            ],
+            "claim_id": "165027118d832e3a781e5158470a11b64b523095c6d8a3025490d01f2dcdf61a",
+            "clocks": {
+              "historical_knowledge_time": {
+                "at": null,
+                "status": "unknown"
+              },
+              "knowledge_cutoff": "2026-09-26T01:47:15.246004+00:00",
+              "knowledge_cutoff_basis": "local_archive_observation",
+              "observed_at": "2026-09-26T01:41:17.130409+00:00",
+              "release_publication": {
+                "assertion": null,
+                "status": "unknown"
+              },
+              "retrieval_time_status": "recorded",
+              "retrieved_at": "2026-09-26T01:37:50.447142+00:00",
+              "source_date_in_force": "2025-06-15",
+              "source_date_published": "2025-06-06 14:50",
+              "source_last_modified": "2026-09-14T01:31:00Z"
+            },
+            "contract": "history-unresolved-legal-time-v1",
+            "expression_scope_assignment": "unresolved",
+            "legal_valid_time": {
+              "from": null,
+              "reason": "source_expressions_have_not_been_scoped_or_legally_interpreted",
+              "status": "unresolved",
+              "until": null
+            },
+            "method": "retain_unresolved_no_legal_interpretation-v1",
+            "observation_id": "be688fe828a9bfa712680a2531fc619186b8b472ba60359bb12c6c2bf9df3f6b",
+            "parsed_evidence": {
+              "artifact_path": "parsed-amendment-acts.v1.jsonl",
+              "artifact_sha256": "f9846a8b4989c27d51ea4952b90bb9e442b715d7196480124aff35db672e762e",
+              "json_pointer": "/record",
+              "parsed_occurrence_ordinal": 37009
+            },
+            "source_occurrence_id": "04b513e26d419e1c30cf82e778f92ae40c4c04bd12b9dc409b523604f3272dc4",
+            "subject": {
+              "id": "b67f979594c67cd639d6caf07fa06c08aac12ae1eeb4d21469ea81dbe34bb800",
+              "kind": "act",
+              "parsed_revision_id": "71ea6a46a34ceda88e05ca1ba32814bba89cb3e1b1b5f28379ace5f029e357de"
+            },
+            "supersedes": [],
+            "target_resolution_status": "not_applicable"
+          },
+          {
+            "act_expression_candidates": [
+              "b469af3aa499d18aecf496ccacea1179e38044de2aeee24f586b7d69032973f2",
+              "99cfe376ebc96c11a21e8827e1353581ed7fdb770cdd559f22ace6d32055ff72"
+            ],
+            "claim_id": "6ff0c523351bb28fc23e898ced8e0d2359726a64a32ec97d04ff22620ee35bad",
+            "clocks": {
+              "historical_knowledge_time": {
+                "at": null,
+                "status": "unknown"
+              },
+              "knowledge_cutoff": "2026-09-26T01:47:15.246004+00:00",
+              "knowledge_cutoff_basis": "local_archive_observation",
+              "observed_at": "2026-09-26T01:41:17.130409+00:00",
+              "release_publication": {
+                "assertion": null,
+                "status": "unknown"
+              },
+              "retrieval_time_status": "recorded",
+              "retrieved_at": "2026-09-26T01:37:50.447142+00:00",
+              "source_date_in_force": "2025-06-15",
+              "source_date_published": "2025-06-06 14:50",
+              "source_last_modified": "2026-09-14T01:31:00Z"
+            },
+            "contract": "history-unresolved-legal-time-v1",
+            "expression_scope_assignment": "unresolved",
+            "legal_valid_time": {
+              "from": null,
+              "reason": "source_expressions_have_not_been_scoped_or_legally_interpreted",
+              "status": "unresolved",
+              "until": null
+            },
+            "method": "retain_unresolved_no_legal_interpretation-v1",
+            "observation_id": "be688fe828a9bfa712680a2531fc619186b8b472ba60359bb12c6c2bf9df3f6b",
+            "parsed_evidence": {
+              "artifact_path": "parsed-amendment-acts.v1.jsonl",
+              "artifact_sha256": "f9846a8b4989c27d51ea4952b90bb9e442b715d7196480124aff35db672e762e",
+              "json_pointer": "/record/amendments/0",
+              "parsed_occurrence_ordinal": 37009
+            },
+            "source_occurrence_id": "04b513e26d419e1c30cf82e778f92ae40c4c04bd12b9dc409b523604f3272dc4",
+            "subject": {
+              "id": "190065c4592501d2aa3ea7bbe5400f62aeabca6a772f918407aef80e60a19a49",
+              "kind": "operation"
+            },
+            "supersedes": [],
+            "target_resolution_status": "unresolved"
+          }
+        ],
+        "contract": "history-operation-evidence-v1",
+        "operations": [
+          {
+            "act_id": "b67f979594c67cd639d6caf07fa06c08aac12ae1eeb4d21469ea81dbe34bb800",
+            "contract": "history-operation-evidence-v1",
+            "observation_id": "be688fe828a9bfa712680a2531fc619186b8b472ba60359bb12c6c2bf9df3f6b",
+            "operation_id": "190065c4592501d2aa3ea7bbe5400f62aeabca6a772f918407aef80e60a19a49",
+            "operation_ordinal": 0,
+            "parsed_evidence": {
+              "artifact_path": "parsed-amendment-acts.v1.jsonl",
+              "artifact_sha256": "f9846a8b4989c27d51ea4952b90bb9e442b715d7196480124aff35db672e762e",
+              "json_pointer": "/record/amendments/0",
+              "parsed_occurrence_ordinal": 37009
+            },
+            "parsed_model_sha256": "18de9593645becb3d852aae21a91070cd3fa2ea151d8d4ce4e92d62dd479b85a",
+            "parsed_revision_id": "71ea6a46a34ceda88e05ca1ba32814bba89cb3e1b1b5f28379ace5f029e357de",
+            "producer_record": {
+              "change_type": "change",
+              "instruction": "§ 3 skal lyde:",
+              "new_text": "§ 3.Lønnsbestemmelser\nArbeidstakere som utfører arbeid i henhold til § 2, skal minst ha en lønn per time på kroner 218,62.",
+              "target": "§ 3",
+              "target_law": "forskrift/2024-10-21-2534"
+            },
+            "producer_status": {
+              "operation_status": "identified",
+              "ordinal": 0,
+              "target_status": "identified"
+            },
+            "source_alignment": {
+              "candidates": [
+                {
+                  "element_id": null,
+                  "member_sha256": "4204439d2013a94dda7b5fad474f6e8d270b7a4cca9b713d4827247f3b13cca3",
+                  "path": "/html[1]/body[1]/main[1]/section[1]/article[2]",
+                  "path_version": "xml-element-sibling-path-v1",
+                  "source_occurrence_id": "04b513e26d419e1c30cf82e778f92ae40c4c04bd12b9dc409b523604f3272dc4"
+                }
+              ],
+              "method": "xml_block_text_ascii_whitespace_v1",
+              "reason": null,
+              "status": "unique_text_match"
+            },
+            "source_occurrence_id": "04b513e26d419e1c30cf82e778f92ae40c4c04bd12b9dc409b523604f3272dc4",
+            "target_resolution": {
+              "basis": "producer_candidate_only",
+              "candidate_document": "forskrift/2024-10-21-2534",
+              "candidate_expression": "§ 3",
+              "status": "unresolved"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "scope": "Complete release artifact/index/source-catalog/record validation, then exact act retrieval; target and legal-time interpretation remain unresolved."
+}

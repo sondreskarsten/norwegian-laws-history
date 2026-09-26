@@ -1,0 +1,56 @@
+{
+  "status": "verified",
+  "checked_at": "2026-09-26T02:50:15.485183+00:00",
+  "scope": "Public artifact retrieval, exact committed proofs, retained representations and new source observation; no legal-as-of reconstruction",
+  "previous_product": "fee2266eb1728ea03c7dc57a2799d2c44474d3dc46311e563d076872edc811f5",
+  "product": "48740f7058b6296da6866b9f8c13197a247097a2623a3b75132600c7e5a9d66d",
+  "observation": "be688fe828a9bfa712680a2531fc619186b8b472ba60359bb12c6c2bf9df3f6b",
+  "counts": {
+    "forskrifter": 5118,
+    "laws": 756,
+    "passed": 4376,
+    "rejected": 1498,
+    "selected": 5874
+  },
+  "unchanged_prior_qualified_preserved_byte_for_byte": 4175,
+  "same_semantic_documents": 5874,
+  "newly_qualified_existing_documents": 201,
+  "new_document_ids": [],
+  "absent_document_ids": [],
+  "changed_semantic_document_ids": [],
+  "paragraph_examples": {
+    "lov/2018-03-23-3": {
+      "status": "passed",
+      "html_sha256": "9ec738bef5b019a1e84bf87cd2fb02051c0cd226f7ec30d576cea66a1eb00566",
+      "semantic_sha256": "a3897d4eda87a5b6c2ae41c7de6a64e930023ac1a65027ab7864b716cc4928bf"
+    },
+    "forskrift/2017-02-08-2182": {
+      "status": "passed",
+      "html_sha256": "bd3d936e6be7e58c61bdd48b7c875f56a1431d12fd0b460b0466363779634dad",
+      "semantic_sha256": "e4c37234acea8a9d9647c649cf765556a63ec66b6aacabd4d2fcc29138c520b8"
+    },
+    "forskrift/1995-07-13-646": {
+      "status": "passed",
+      "html_sha256": "f47b16a2e4fce4ea80576f74f9865f853c90661c173ee7035ab6897cea5beb97",
+      "semantic_sha256": "c4c64fdaa0aa34898798988699786abe73e23b756172a27eee0422051dcb5f63"
+    }
+  },
+  "bundle": {
+    "bytes": 29094417,
+    "name": "bodies.tar.gz",
+    "sha256": "dc90c6ccdf6037b5723f3f0123395bf9e6b562cfea1d3d637bcf53ba72d5dca3",
+    "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/bodies-48740f7058b6296da6866b9f8c13197a247097a2623a3b75132600c7e5a9d66d/bodies.tar.gz"
+  },
+  "export": {
+    "status": "exported",
+    "history_commit": "03d2d392ab636dcce67cccc500988079d9ab4926",
+    "products": 4,
+    "documents": 5875,
+    "index_sha256": "1859bfcbb42d76665e58c11ddae1f13afb88999b829b7c243d8c186d161dc497"
+  },
+  "legal_valid_time": {
+    "from": null,
+    "status": "unresolved",
+    "until": null
+  }
+}
