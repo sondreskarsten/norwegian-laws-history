@@ -1,0 +1,2775 @@
+{
+  "contract": "scratch-source-body-grammar-inventory-v1",
+  "scope": "complete_selected_v5_model_grammar_only",
+  "qualification_status": "not_run",
+  "legal_validity": "not_assessed",
+  "method": "Recheck manifest/catalog/each selected JSON digest and source-body/header member identities; run scratch v4 grammar and enumerate all form/attribute/nesting gaps. Does not re-stream raw archives, render, reverse-check or install a body product. Prior independent full v5 capture validation is separate evidence.",
+  "gate_version": "observed-body-source-paragraphs-v4",
+  "gate_sha256": "07ce396eb49ad960b93763ecff7390a88ee54d6746de7369bfa48a4dea84a4d4",
+  "observation_id": "8b88da8aa33b2590fdd57c7effd8075196e198f08d40692fea65efda8025efa9",
+  "snapshot_manifest_sha256": "d5685df90acc955e023a9e17867ac3ebc185af4292783fde8bc239a28ee57aed",
+  "source_members_sha256": "6d018627a7fb179d7ff3401b9fe7e08469876350cfa5211e1e673afdb5c24002",
+  "selected_counts": {
+    "laws": 756,
+    "forskrifter": 5118
+  },
+  "selected_json_bytes_read": 898426516,
+  "elapsed_seconds": 197.804,
+  "status_counts": {
+    "grammar_candidate": 4254,
+    "grammar_rejected": 1620
+  },
+  "first_reasons": [
+    {
+      "reason": "unsupported_form: ('strong', '')",
+      "selected_documents": 205,
+      "examples": [
+        {
+          "refid": "lov/1916-06-30-1",
+          "source_occurrence_id": "82283297b08f3abe2c1d41cf5de4ace238074142b742f4fd961a7e05957b9c2e",
+          "path": "/main[1]/section[2]/section[5]/article[2]/article[3]/strong[1]",
+          "selected_output_path": "laws/lov-1916-06-30-1.json"
+        },
+        {
+          "refid": "lov/1916-07-21-2",
+          "source_occurrence_id": "debd340d82e59e6e7251ee911430b84bd86e57abda63e67313952896879d8008",
+          "path": "/main[1]/article[12]/article[2]/strong[1]",
+          "selected_output_path": "laws/lov-1916-07-21-2.json"
+        },
+        {
+          "refid": "lov/1918-05-31-4",
+          "source_occurrence_id": "77c76a3351234755fc9e9d27f243632f3bb0acee18355b256e14b8c205aa6674",
+          "path": "/main[1]/section[2]/article[14]/article[3]/strong[1]",
+          "selected_output_path": "laws/lov-1918-05-31-4.json"
+        },
+        {
+          "refid": "lov/1932-05-27-2",
+          "source_occurrence_id": "b6caaebf12ed52af50b75aca79b39e940f7764e02e15776395f3e00f5cdf9f92",
+          "path": "/main[1]/section[1]/section[7]/article[1]/article[3]/strong[1]",
+          "selected_output_path": "laws/lov-1932-05-27-2.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_attribute: ['data-repealeddate']",
+      "selected_documents": 200,
+      "examples": [
+        {
+          "refid": "lov/1888-06-23-3",
+          "source_occurrence_id": "be4e352e8cd2d21ce81c58545f6cb10267353801309b6eebd3b85a3f000d6598",
+          "path": "/main[1]/article[12]",
+          "selected_output_path": "laws/lov-1888-06-23-3.json"
+        },
+        {
+          "refid": "lov/1894-07-21-5",
+          "source_occurrence_id": "c496c684991485b8204deade4f7e816c5e402970ce321f19e35301b71fb926bf",
+          "path": "/main[1]/article[3]",
+          "selected_output_path": "laws/lov-1894-07-21-5.json"
+        },
+        {
+          "refid": "lov/1902-05-22-13",
+          "source_occurrence_id": "dc31853f1192e125fcf97fb278ff668d7c345c0728f2c790ae31f80cd5e56804",
+          "path": "/main[1]/section[2]/section[2]/article[4]",
+          "selected_output_path": "laws/lov-1902-05-22-13.json"
+        },
+        {
+          "refid": "lov/1917-06-01-1",
+          "source_occurrence_id": "2fda0ada087a308fc87bfba7a3a6b155746da0f177fd737e4d4b157592449807",
+          "path": "/main[1]/section[1]/article[3]",
+          "selected_output_path": "laws/lov-1917-06-01-1.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_attribute: ['data-link-type']",
+      "selected_documents": 197,
+      "examples": [
+        {
+          "refid": "lov/2016-09-09-80",
+          "source_occurrence_id": "a1184604e3d13a0bbfce8e72ec62a6a20f8008a47daf881a6d6dba7a2870c068",
+          "path": "/main[1]/section[1]/article[1]/a[2]",
+          "selected_output_path": "laws/lov-2016-09-09-80.json"
+        },
+        {
+          "refid": "lov/2025-06-20-99",
+          "source_occurrence_id": "3e24cdd90e631ebeddc2f61aa4bbdff15b1d02f96c79779165f355887e711e8b",
+          "path": "/main[1]/section[6]/article[1]/a[1]",
+          "selected_output_path": "laws/lov-2025-06-20-99.json"
+        },
+        {
+          "refid": "forskrift/1966-02-11-3449",
+          "source_occurrence_id": "1a9df6e17f521d83158cd5fd06c5e3fa814224a5ec3898b33ad020ad2774b209",
+          "path": "/main[1]/section[1]/article[1]/a[1]",
+          "selected_output_path": "forskrifter/forskrift-1966-02-11-3449.json"
+        },
+        {
+          "refid": "forskrift/1977-05-13-2",
+          "source_occurrence_id": "44151b681d1f16ebaac028d0efca45ffb609dc82600c80fba64b58153489d8c5",
+          "path": "/main[1]/section[3]/article[2]/a[1]",
+          "selected_output_path": "forskrifter/forskrift-1977-05-13-2.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('h4', '')",
+      "selected_documents": 102,
+      "examples": [
+        {
+          "refid": "lov/1967-12-15-9",
+          "source_occurrence_id": "372388b750180fc43b44f352ecb25d2eac403038a88ea5268666c106d47f3242",
+          "path": "/main[1]/section[14]/section[1]/section[1]/h4[1]",
+          "selected_output_path": "laws/lov-1967-12-15-9.json"
+        },
+        {
+          "refid": "lov/1977-03-25-22",
+          "source_occurrence_id": "ad08c104c77ed7a2e043c21ebb6c4770545e5436b60c338a473574d2de75b6f2",
+          "path": "/main[1]/section[3]/section[3]/section[1]/h4[1]",
+          "selected_output_path": "laws/lov-1977-03-25-22.json"
+        },
+        {
+          "refid": "lov/1991-07-20-67",
+          "source_occurrence_id": "5f406aabc401e8a5d1997f3736d3888aac372dbcd09445efd7a1e15424dcc773",
+          "path": "/main[1]/section[1]/section[1]/section[1]/h4[1]",
+          "selected_output_path": "laws/lov-1991-07-20-67.json"
+        },
+        {
+          "refid": "lov/1992-11-27-109",
+          "source_occurrence_id": "589631e6f236b842c1951b840649061502d5aa1e22bb2009163dacc7c73f1ff3",
+          "path": "/main[1]/section[1]/section[2]/section[1]/h4[1]",
+          "selected_output_path": "laws/lov-1992-11-27-109.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_attribute: ['margin-top']",
+      "selected_documents": 102,
+      "examples": [
+        {
+          "refid": "lov/1999-06-18-40",
+          "source_occurrence_id": "7e126c16ff75e54ab5bdea783b04d11e51bd47c8a72f98610160df21d099d67c",
+          "path": "/main[1]/article[7]/article[2]",
+          "selected_output_path": "laws/lov-1999-06-18-40.json"
+        },
+        {
+          "refid": "lov/2001-06-15-59",
+          "source_occurrence_id": "68352fa626ab87fbbd06610eb2af4fec5181ff4beff66dd4c344f1a124675175",
+          "path": "/main[1]/section[9]/article[3]/article[3]",
+          "selected_output_path": "laws/lov-2001-06-15-59.json"
+        },
+        {
+          "refid": "lov/2003-08-29-90",
+          "source_occurrence_id": "d453a742e4d8c70075d5532b9aad5124a483ecf27300f7bed078607f8e723283",
+          "path": "/main[1]/section[1]/article[3]",
+          "selected_output_path": "laws/lov-2003-08-29-90.json"
+        },
+        {
+          "refid": "lov/2004-12-10-77",
+          "source_occurrence_id": "52ac42926ff0adb2792e7f8b64a84a934c29b6ef3ddd71f528ca700d1168d605",
+          "path": "/main[1]/section[1]/article[2]",
+          "selected_output_path": "laws/lov-2004-12-10-77.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('sup', '')",
+      "selected_documents": 95,
+      "examples": [
+        {
+          "refid": "lov/2009-06-05-35",
+          "source_occurrence_id": "f848fa4423ecbc77d7f09250d2a8453d1f8157a7b46543faed5b3957a09b73c9",
+          "path": "/main[1]/section[2]/article[2]/article[2]/ol[1]/li[6]/article[1]/article[1]/sup[1]",
+          "selected_output_path": "laws/lov-2009-06-05-35.json"
+        },
+        {
+          "refid": "lov/2025-06-20-107",
+          "source_occurrence_id": "8a5959798663256d2ca90a9501ec7736e20a3d4befc7134af129bc7042f0cacd",
+          "path": "/main[1]/section[1]/article[6]/article[1]/ol[1]/li[1]/article[1]/article[1]/sup[1]",
+          "selected_output_path": "laws/lov-2025-06-20-107.json"
+        },
+        {
+          "refid": "forskrift/1983-10-20-1580",
+          "source_occurrence_id": "dd287a03a35190069be7e68d60176c935498742d2cf346313cd9600aa68cf8f8",
+          "path": "/main[1]/article[11]/article[4]/sup[1]",
+          "selected_output_path": "forskrifter/forskrift-1983-10-20-1580.json"
+        },
+        {
+          "refid": "forskrift/1984-09-21-1674",
+          "source_occurrence_id": "6bb39d431a627c24ce03bc618b213cecc6827ce2e7fcc9cefe64eefe5a259e67",
+          "path": "/main[1]/article[6]/article[1]/table[1]/tbody[1]/tr[3]/td[3]/sup[1]",
+          "selected_output_path": "forskrifter/forskrift-1984-09-21-1674.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('sub', '')",
+      "selected_documents": 87,
+      "examples": [
+        {
+          "refid": "lov/1990-06-29-50",
+          "source_occurrence_id": "3f3b98ec58d7b3b313b535be5f957204f2231da2a8de12591bc72f8a7fd81107",
+          "path": "/main[1]/section[1]/article[3]/article[8]/sub[1]",
+          "selected_output_path": "laws/lov-1990-06-29-50.json"
+        },
+        {
+          "refid": "lov/1990-12-21-72",
+          "source_occurrence_id": "c62d3acaa66494cbded32a9ce48a591593e350f190b44a794bc34272e44cfe3f",
+          "path": "/main[1]/h1[1]/sub[1]",
+          "selected_output_path": "laws/lov-1990-12-21-72.json"
+        },
+        {
+          "refid": "lov/1996-11-29-72",
+          "source_occurrence_id": "5f05956b9e897f95ad7f386c76ee5fc2dbe3273a2ae69f2d33a80c824193f489",
+          "path": "/main[1]/section[4]/article[8]/article[3]/sub[1]",
+          "selected_output_path": "laws/lov-1996-11-29-72.json"
+        },
+        {
+          "refid": "lov/1999-03-26-14",
+          "source_occurrence_id": "26c1823cc35006f26db93fb08a0658bc761b26e95d7319b20325df563debb217",
+          "path": "/main[1]/section[2]/section[1]/article[3]/article[1]/ol[1]/li[13]/article[1]/article[1]/sub[1]",
+          "selected_output_path": "laws/lov-1999-03-26-14.json"
+        }
+      ]
+    },
+    {
+      "reason": "source_context_mismatch: Body source identity differs from header refid",
+      "selected_documents": 84,
+      "examples": [
+        {
+          "refid": "forskrift/1965-06-19-3582",
+          "source_occurrence_id": "09995404e9ae56ae29a5aa4be14970489a55219729a5ccf107338ef101a1c1bd",
+          "path": "/main[1]",
+          "selected_output_path": "forskrifter/forskrift-1965-06-19-3582.json"
+        },
+        {
+          "refid": "forskrift/1965-06-19-3583",
+          "source_occurrence_id": "3581e98ac90bdf544fef71fc57fe126a02d049a936888d0048abdeb4d18f1521",
+          "path": "/main[1]",
+          "selected_output_path": "forskrifter/forskrift-1965-06-19-3583.json"
+        },
+        {
+          "refid": "forskrift/1988-02-10-4875",
+          "source_occurrence_id": "f7f5012bba5f928b1bd7b415ea5825f8bba8b55c5c108b005a471d50e171b222",
+          "path": "/main[1]",
+          "selected_output_path": "forskrifter/forskrift-1988-02-10-4875.json"
+        },
+        {
+          "refid": "forskrift/1992-06-19-465",
+          "source_occurrence_id": "bc0de4700329988c573c470916a0fce09c5cb3a0854602fd859bd764b105e837",
+          "path": "/main[1]",
+          "selected_output_path": "forskrifter/forskrift-1992-06-19-465.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_attribute: ['data-text-size']",
+      "selected_documents": 72,
+      "examples": [
+        {
+          "refid": "lov/2025-02-28-2",
+          "source_occurrence_id": "392790dbfd28f572eb8dff14ab2bf4f92f5a262a34cd553c62bdb3184194f33c",
+          "path": "/main[1]/article[1]/ol[1]",
+          "selected_output_path": "laws/lov-2025-02-28-2.json"
+        },
+        {
+          "refid": "lov/2025-06-20-39",
+          "source_occurrence_id": "db1cf8f905f03a35f0f6ba9111b4e670036726330749c428b08648818899df8e",
+          "path": "/main[1]/article[1]/ol[1]",
+          "selected_output_path": "laws/lov-2025-06-20-39.json"
+        },
+        {
+          "refid": "lov/2025-06-20-40",
+          "source_occurrence_id": "d7091b4f4fc5be10258ed72259531c1d4ddd667292e12c2306ba7a9055a5f522",
+          "path": "/main[1]/article[1]/ol[1]",
+          "selected_output_path": "laws/lov-2025-06-20-40.json"
+        },
+        {
+          "refid": "lov/2025-06-20-71",
+          "source_occurrence_id": "9a8b24dea8ee1d2a07ea7b546493d1fe5128ebd26939b553f682584ed77506fc",
+          "path": "/main[1]/article[1]/ol[1]",
+          "selected_output_path": "laws/lov-2025-06-20-71.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('article', 'marginIdArticle')",
+      "selected_documents": 61,
+      "examples": [
+        {
+          "refid": "forskrift/1947-04-26-1",
+          "source_occurrence_id": "c222536b5f4dde3e489b600c523d44c4c8698601bf589a80288459873346aa7d",
+          "path": "/main[1]/section[1]/article[1]",
+          "selected_output_path": "forskrifter/forskrift-1947-04-26-1.json"
+        },
+        {
+          "refid": "forskrift/1956-11-09-8632",
+          "source_occurrence_id": "2b597f19b2fd47cb59cbeb500626fca42a8a6df5f7d68ef60d131ec1e1898912",
+          "path": "/main[1]/article[1]/article[1]",
+          "selected_output_path": "forskrifter/forskrift-1956-11-09-8632.json"
+        },
+        {
+          "refid": "forskrift/1972-08-25-3",
+          "source_occurrence_id": "a69cfe5a261544a24a782702b87dcaf77893a4f865f61bef9f544f8613dbf48f",
+          "path": "/main[1]/section[4]/article[1]",
+          "selected_output_path": "forskrifter/forskrift-1972-08-25-3.json"
+        },
+        {
+          "refid": "forskrift/1976-09-06-4054",
+          "source_occurrence_id": "73fc3759e38782e69573d69bd447e0f5c32fe9d3f19fc0bcb637d097fb50860d",
+          "path": "/main[1]/section[1]/article[1]",
+          "selected_output_path": "forskrifter/forskrift-1976-09-06-4054.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('span', 'miscHeadline')",
+      "selected_documents": 61,
+      "examples": [
+        {
+          "refid": "forskrift/1980-06-17-8756",
+          "source_occurrence_id": "aa639a1164943ceba321bdeb0ae3862f2b76b5de190a68d8dfa4b0bff1f97fdd",
+          "path": "/main[1]/article[7]/ol[1]/li[2]/article[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-1980-06-17-8756.json"
+        },
+        {
+          "refid": "forskrift/1990-01-25-92",
+          "source_occurrence_id": "0c7a3edbf21fe79255c9c4f72b3b5b6db14d2b696b1198aca9eefb6975b127d5",
+          "path": "/main[1]/section[4]/article[5]/ol[1]/li[2]/article[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-1990-01-25-92.json"
+        },
+        {
+          "refid": "forskrift/1990-12-07-959",
+          "source_occurrence_id": "17c19b5c0f66d6cb239cd48166fa867d8c5fce9922910d9a69f5a2c4802b4d6b",
+          "path": "/main[1]/section[3]/article[6]/ol[1]/li[1]/article[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-1990-12-07-959.json"
+        },
+        {
+          "refid": "forskrift/1992-09-15-704",
+          "source_occurrence_id": "5d0238768d0d6587ca860ff42bf1ace04accb872ebb1be07b1bce17580e312cc",
+          "path": "/main[1]/section[4]/article[2]/article[1]/ol[1]/li[5]/article[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-1992-09-15-704.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_list_marker: Unordered subset supports unlabeled disc items or matching explicit hyphen fields",
+      "selected_documents": 49,
+      "examples": [
+        {
+          "refid": "forskrift/1962-08-03-5",
+          "source_occurrence_id": "0922a7bdf5843fb58319ded86767522cbdfa32f09bd2719d0228a445bdcf3b1b",
+          "path": "/main[1]/article[11]/ul[1]",
+          "selected_output_path": "forskrifter/forskrift-1962-08-03-5.json"
+        },
+        {
+          "refid": "forskrift/1990-07-16-3965",
+          "source_occurrence_id": "8f8b2f1241ef4cbbcafede0ff04eb32184974245ef97f84be1f4764583109276",
+          "path": "/main[1]/article[3]/ul[1]",
+          "selected_output_path": "forskrifter/forskrift-1990-07-16-3965.json"
+        },
+        {
+          "refid": "forskrift/1996-01-10-16",
+          "source_occurrence_id": "a692408b76884ff8c414f749e90d2337e9b2da2454ad15501895abcf76bc8f9d",
+          "path": "/main[1]/article[4]/article[1]/ul[1]",
+          "selected_output_path": "forskrifter/forskrift-1996-01-10-16.json"
+        },
+        {
+          "refid": "forskrift/2003-12-10-1745",
+          "source_occurrence_id": "93e61a3c11f783ab43746293eb8ac70261feb6ebb3d3394b579fce1b61a9b817",
+          "path": "/main[1]/section[5]/section[1]/article[3]/ul[1]",
+          "selected_output_path": "forskrifter/forskrift-2003-12-10-1745.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('img', '')",
+      "selected_documents": 35,
+      "examples": [
+        {
+          "refid": "forskrift/2001-04-18-426",
+          "source_occurrence_id": "bbe5f91ca2df2b83f2a1f36da9f816ecd7cf6b95153eb5152c22464ec7b807d2",
+          "path": "/main[1]/section[1]/article[6]/img[1]",
+          "selected_output_path": "forskrifter/forskrift-2001-04-18-426.json"
+        },
+        {
+          "refid": "forskrift/2002-06-28-650",
+          "source_occurrence_id": "5666eca9304f72275daba5c76f75546d6da988fbd5bedcdc6bc591bebe2fed1c",
+          "path": "/main[1]/section[4]/article[1]/img[1]",
+          "selected_output_path": "forskrifter/forskrift-2002-06-28-650.json"
+        },
+        {
+          "refid": "forskrift/2002-12-03-1383",
+          "source_occurrence_id": "b80da17f401fbfef1d644e8a5e70878eafa8e11ab7c933bf97e80adf4538f725",
+          "path": "/main[1]/section[1]/article[1]/img[1]",
+          "selected_output_path": "forskrifter/forskrift-2002-12-03-1383.json"
+        },
+        {
+          "refid": "forskrift/2004-04-16-629",
+          "source_occurrence_id": "a79555c8df3ffbd49daf9a58a4c9a293570155b3a6d985c61a0f3249722528bf",
+          "path": "/main[1]/section[9]/article[1]/img[1]",
+          "selected_output_path": "forskrifter/forskrift-2004-04-16-629.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('caption', '')",
+      "selected_documents": 33,
+      "examples": [
+        {
+          "refid": "lov/1951-06-29-34",
+          "source_occurrence_id": "59bf38898d58c1393b06e9c52681c900a7baa2ec74140eb1005837cadf9e955c",
+          "path": "/main[1]/section[3]/article[1]/table[1]/caption[1]",
+          "selected_output_path": "laws/lov-1951-06-29-34.json"
+        },
+        {
+          "refid": "forskrift/1987-12-18-991",
+          "source_occurrence_id": "b2a2b0e12219c2c76e2def7a937ab4624a26f997e7098e1b9d0fb44e347a45a4",
+          "path": "/main[1]/article[1]/article[1]/table[1]/caption[1]",
+          "selected_output_path": "forskrifter/forskrift-1987-12-18-991.json"
+        },
+        {
+          "refid": "forskrift/1995-04-10-368",
+          "source_occurrence_id": "b38eeaad9ae5640b107d4654539106eef660808ddd2b87e2cffce50236797f82",
+          "path": "/main[1]/section[7]/article[1]/table[1]/caption[1]",
+          "selected_output_path": "forskrifter/forskrift-1995-04-10-368.json"
+        },
+        {
+          "refid": "forskrift/1995-04-21-378",
+          "source_occurrence_id": "7673fb4a66666f5c509230e5b4b8b615a7e87b03a6dbc89945238c2ac155a2f1",
+          "path": "/main[1]/article[1]/article[4]/ul[1]/li[2]/article[1]/article[1]/table[1]/caption[1]",
+          "selected_output_path": "forskrifter/forskrift-1995-04-21-378.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('span', '')",
+      "selected_documents": 31,
+      "examples": [
+        {
+          "refid": "forskrift/2009-01-19-77",
+          "source_occurrence_id": "d58795f54fa9c784b6a3ccc4b2365a4d0c39cfcb5ff5855f51af78599fdbd6d0",
+          "path": "/main[1]/section[8]/article[8]/table[1]/tbody[1]/tr[1]/td[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-2009-01-19-77.json"
+        },
+        {
+          "refid": "forskrift/2009-12-11-1507",
+          "source_occurrence_id": "8eeb96bbb93250946a024f42ed62a33df33cf99f0c0bad7450def25b9245d388",
+          "path": "/main[1]/article[3]/article[25]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-2009-12-11-1507.json"
+        },
+        {
+          "refid": "forskrift/2009-12-18-1693",
+          "source_occurrence_id": "ac4bbf287c97bafe6fc305a3c5df3df80d5d80aad55776d08c46dd6faee4e277",
+          "path": "/main[1]/article[3]/article[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-2009-12-18-1693.json"
+        },
+        {
+          "refid": "forskrift/2014-07-01-945",
+          "source_occurrence_id": "4594f2221378e4fe2d48edbd8678f5a4a2a6f7e49aaa8f32449bd70a84585c83",
+          "path": "/main[1]/article[2]/article[1]/ol[1]/li[3]/article[1]/article[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-2014-07-01-945.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_attribute: ['data-rulesAssistanceType']",
+      "selected_documents": 30,
+      "examples": [
+        {
+          "refid": "forskrift/2004-03-30-595",
+          "source_occurrence_id": "cd926248605a7063bb3ea7f55e570cd3eaec72dab83fc4787db35e4800f7fef8",
+          "path": "/main[1]/section[2]/section[1]/article[1]",
+          "selected_output_path": "forskrifter/forskrift-2004-03-30-595.json"
+        },
+        {
+          "refid": "forskrift/2005-12-23-1703",
+          "source_occurrence_id": "1f36e83ec42b7a992956c58a14e56754940c7c5fbd5ef65399e8d4cd805a5504",
+          "path": "/main[1]/section[1]/section[1]/article[1]",
+          "selected_output_path": "forskrifter/forskrift-2005-12-23-1703.json"
+        },
+        {
+          "refid": "forskrift/2008-12-22-1623",
+          "source_occurrence_id": "df664fe3d97cee63768b1ed3044317acc9ceaad5758bbc9d965bde164cf8fa8b",
+          "path": "/main[1]/section[10]/section[1]/article[1]",
+          "selected_output_path": "forskrifter/forskrift-2008-12-22-1623.json"
+        },
+        {
+          "refid": "forskrift/2008-12-22-1624",
+          "source_occurrence_id": "b91c11d7ad5cfed2f4b10184ad8120b6bc4eb5006b8d2ef375bb19dcf6c7bc5b",
+          "path": "/main[1]/section[14]/section[1]/article[2]",
+          "selected_output_path": "forskrifter/forskrift-2008-12-22-1624.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_nesting: Child does not have a declared browser-safe parent",
+      "selected_documents": 25,
+      "examples": [
+        {
+          "refid": "lov/1915-08-13-5",
+          "source_occurrence_id": "03a75c52ff0c90323099c861dfcff059970bd67c35a83d0d4ae6fbcd5eed74fe",
+          "path": "/main[1]/section[2]/article[4]/article[3]/a[1]/sup[1]",
+          "selected_output_path": "laws/lov-1915-08-13-5.json"
+        },
+        {
+          "refid": "lov/1999-06-18-42",
+          "source_occurrence_id": "30ee2e3947a35f3d804d6d50d434a1a4718777ced0469b425a72fa5a170f8664",
+          "path": "/main[1]/article[2]/article[1]/a[1]/sup[1]",
+          "selected_output_path": "laws/lov-1999-06-18-42.json"
+        },
+        {
+          "refid": "lov/2001-06-15-75",
+          "source_occurrence_id": "330f3da6b2b15d9ad85dd57725275109d5dc99a4e5752f0dd0227c15e3d33532",
+          "path": "/main[1]/section[3]/article[3]/article[2]/a[1]/sup[1]",
+          "selected_output_path": "laws/lov-2001-06-15-75.json"
+        },
+        {
+          "refid": "lov/2002-06-21-43",
+          "source_occurrence_id": "bc1dc62d22309eb1dccb034a9823d69adeffef7088f3d355ae3d4b5b05eb647b",
+          "path": "/main[1]/article[2]/article[1]/a[1]/sup[1]",
+          "selected_output_path": "laws/lov-2002-06-21-43.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('article', 'document-change')",
+      "selected_documents": 24,
+      "examples": [
+        {
+          "refid": "lov/2023-11-24-84",
+          "source_occurrence_id": "adf01c870454da534a3b4ea0a04af270b212fc26191767ac6cdee6d145e537cd",
+          "path": "/main[1]/section[1]/article[1]",
+          "selected_output_path": "laws/lov-2023-11-24-84.json"
+        },
+        {
+          "refid": "lov/2023-12-20-104",
+          "source_occurrence_id": "050b62ab645f51d7b5c3c80b6dfbef212f79ca1d27fc4b2f8a4b928a62ae7d1d",
+          "path": "/main[1]/section[1]/article[1]",
+          "selected_output_path": "laws/lov-2023-12-20-104.json"
+        },
+        {
+          "refid": "lov/2023-12-20-107",
+          "source_occurrence_id": "d36501f8150cbf2b36f621895447c4e8b070612e9f8560a739ea60cd809b8caa",
+          "path": "/main[1]/section[1]/article[1]",
+          "selected_output_path": "laws/lov-2023-12-20-107.json"
+        },
+        {
+          "refid": "lov/2024-01-12-2",
+          "source_occurrence_id": "bc56eacad1e981e953ad58b84ff469f6f4d89a563198b9d8edec63874098a19d",
+          "path": "/main[1]/section[2]/article[1]",
+          "selected_output_path": "laws/lov-2024-01-12-2.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('div', 'indent')",
+      "selected_documents": 16,
+      "examples": [
+        {
+          "refid": "forskrift/1949-01-20-1",
+          "source_occurrence_id": "d0467b9bb57c9060e6272eefd167b62a5b9094ab8e9b46a62480a52cb8148b9d",
+          "path": "/main[1]/section[1]/div[1]",
+          "selected_output_path": "forskrifter/forskrift-1949-01-20-1.json"
+        },
+        {
+          "refid": "forskrift/1978-01-17-4",
+          "source_occurrence_id": "f3e8df1e8ff6f94398d142290e2c41db608f33cdb50dc9d42b21de145fc82966",
+          "path": "/main[1]/section[2]/article[4]/div[1]",
+          "selected_output_path": "forskrifter/forskrift-1978-01-17-4.json"
+        },
+        {
+          "refid": "forskrift/1994-10-04-918",
+          "source_occurrence_id": "6980b41bbf366106fa5b62a80b0e2dab7b66bd73aaf8c489197c710713a9fe41",
+          "path": "/main[1]/section[1]/article[9]/div[1]",
+          "selected_output_path": "forskrifter/forskrift-1994-10-04-918.json"
+        },
+        {
+          "refid": "forskrift/2018-05-15-731",
+          "source_occurrence_id": "b29251339556a548e30c6db9e66bba7bced3c2aee8a08a56403594eef5732c76",
+          "path": "/main[1]/section[3]/article[2]/div[1]",
+          "selected_output_path": "forskrifter/forskrift-2018-05-15-731.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('div', 'latexBlock')",
+      "selected_documents": 14,
+      "examples": [
+        {
+          "refid": "forskrift/2004-04-01-611",
+          "source_occurrence_id": "36f99251734e5a781f661491c576782ed4389fb84a9d2207c9b5ccef4204798e",
+          "path": "/main[1]/article[8]/article[2]/div[1]",
+          "selected_output_path": "forskrifter/forskrift-2004-04-01-611.json"
+        },
+        {
+          "refid": "forskrift/2010-11-01-1394",
+          "source_occurrence_id": "8254203f739b55b02cb40c73b5b7943b6ac1ce2063d25badae67d987af2f7e63",
+          "path": "/main[1]/section[1]/article[4]/div[1]",
+          "selected_output_path": "forskrifter/forskrift-2010-11-01-1394.json"
+        },
+        {
+          "refid": "forskrift/2011-12-22-1523",
+          "source_occurrence_id": "14a54a4f0b794fa25e344898cccf61043800453023927fe3f37e6e1a13e2d7b0",
+          "path": "/main[1]/section[2]/article[12]/article[1]/div[1]",
+          "selected_output_path": "forskrifter/forskrift-2011-12-22-1523.json"
+        },
+        {
+          "refid": "forskrift/2018-11-09-1689",
+          "source_occurrence_id": "c2d87439cb0a8c7fadb21914e392a4ad914e299cf019fce0d86fad645c513a54",
+          "path": "/main[1]/section[1]/article[4]/article[3]/div[1]",
+          "selected_output_path": "forskrifter/forskrift-2018-11-09-1689.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('blockquote', '')",
+      "selected_documents": 12,
+      "examples": [
+        {
+          "refid": "forskrift/2001-07-06-757",
+          "source_occurrence_id": "84243823cd7c760bf6f516de5b11c7f2c73912ee3443c6270c55b91f6a62021f",
+          "path": "/main[1]/section[6]/section[3]/blockquote[1]",
+          "selected_output_path": "forskrifter/forskrift-2001-07-06-757.json"
+        },
+        {
+          "refid": "forskrift/2005-08-29-941",
+          "source_occurrence_id": "359cd74a5298b06dce3161a261010b5e1e420d660d756ab7ad7cc002a6f8b2c1",
+          "path": "/main[1]/section[1]/section[3]/blockquote[1]",
+          "selected_output_path": "forskrifter/forskrift-2005-08-29-941.json"
+        },
+        {
+          "refid": "forskrift/2007-03-16-277",
+          "source_occurrence_id": "f3dbd4135e9ba267eafbc3eaee1e573057b6e83223768c5cb5d677eafe53d703",
+          "path": "/main[1]/section[1]/section[1]/blockquote[1]",
+          "selected_output_path": "forskrifter/forskrift-2007-03-16-277.json"
+        },
+        {
+          "refid": "forskrift/2007-12-07-1389",
+          "source_occurrence_id": "07d9f67cac7b0a16b667e7564b76cbf8d9f947459108574356cd0d81c9dc3d39",
+          "path": "/main[1]/section[8]/section[19]/blockquote[1]",
+          "selected_output_path": "forskrifter/forskrift-2007-12-07-1389.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('span', 'data-pronounced-line')",
+      "selected_documents": 11,
+      "examples": [
+        {
+          "refid": "forskrift/1990-06-29-492",
+          "source_occurrence_id": "f9752eaa18dc67f859d8c5c95ce3261e28fa7259dc69740d84db02cdb11f5bcc",
+          "path": "/main[1]/article[1]/ol[1]/li[1]/article[1]/article[1]/ul[1]/li[1]/article[1]/article[1]/ol[1]/li[1]/article[1]/article[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-1990-06-29-492.json"
+        },
+        {
+          "refid": "forskrift/1992-07-30-592",
+          "source_occurrence_id": "7da68dd344622c30377c02c058b2e3cc557e0d9206d95f98c285540ad3047c4c",
+          "path": "/main[1]/section[1]/article[7]/article[4]/ul[1]/li[1]/article[1]/article[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-1992-07-30-592.json"
+        },
+        {
+          "refid": "forskrift/1992-07-30-593",
+          "source_occurrence_id": "dae32cd3f7fe051a2a4bc99a99e518dd9fd54afb497e96d6ec43d03657da11ce",
+          "path": "/main[1]/section[1]/article[6]/article[4]/ul[1]/li[1]/article[1]/article[1]/ul[1]/li[1]/article[1]/article[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-1992-07-30-593.json"
+        },
+        {
+          "refid": "forskrift/1993-08-06-832",
+          "source_occurrence_id": "761b20c349658649dc1a5c7d732765a40c6387f305e775399388764070939c56",
+          "path": "/main[1]/section[2]/section[11]/article[2]/article[1]/ul[1]/li[1]/article[1]/article[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-1993-08-06-832.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_attribute: ['rowspan']",
+      "selected_documents": 11,
+      "examples": [
+        {
+          "refid": "forskrift/1997-04-21-373",
+          "source_occurrence_id": "2566c11e280897913cd6710b59c14dadfecb7da273535f23a71646579ccdde0a",
+          "path": "/main[1]/section[2]/article[1]/table[1]/tbody[1]/tr[2]/td[1]",
+          "selected_output_path": "forskrifter/forskrift-1997-04-21-373.json"
+        },
+        {
+          "refid": "forskrift/2013-02-14-199",
+          "source_occurrence_id": "cfd51810532cf7627fba975f7cd8c10d2fca293666fa19d421494b29840d0e2f",
+          "path": "/main[1]/section[1]/article[8]/table[1]/tbody[1]/tr[798]/td[2]",
+          "selected_output_path": "forskrifter/forskrift-2013-02-14-199.json"
+        },
+        {
+          "refid": "forskrift/2014-06-20-780",
+          "source_occurrence_id": "5bb07cbc4a08ce3e5a51405fdf029d65b5b505740f71d6f93161656a14b597a8",
+          "path": "/main[1]/section[1]/article[1]/table[1]/tbody[1]/tr[1]/td[3]",
+          "selected_output_path": "forskrifter/forskrift-2014-06-20-780.json"
+        },
+        {
+          "refid": "forskrift/2017-06-21-854",
+          "source_occurrence_id": "affe581d6af937bbedfbc87e6886f19bbc3200dcc0be0dd3dd6f36271dd74e9d",
+          "path": "/main[1]/section[10]/article[1]/table[1]/tbody[1]/tr[2]/td[1]",
+          "selected_output_path": "forskrifter/forskrift-2017-06-21-854.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_paragraph_label: Bounded source paragraph number required",
+      "selected_documents": 9,
+      "examples": [
+        {
+          "refid": "lov/1931-01-30",
+          "source_occurrence_id": "5c3a3c598fd3442a7150b6007b10b4d201239f7c4a7fa630c0f49d5171d23d34",
+          "path": "/main[1]/section[1]/article[1]/article[1]",
+          "selected_output_path": "laws/lov-1931-01-30.json"
+        },
+        {
+          "refid": "forskrift/1966-12-31-4089",
+          "source_occurrence_id": "bda58c55526788d54bf2cb364858c59efa7dc2dacde9869176e1b71ca753865a",
+          "path": "/main[1]/article[1]/article[1]",
+          "selected_output_path": "forskrifter/forskrift-1966-12-31-4089.json"
+        },
+        {
+          "refid": "forskrift/1974-01-01-4107",
+          "source_occurrence_id": "ce6d027b8c483ab45f559f3524f0e122ae6807e1eeb4e8a8937c8592f3ceb450",
+          "path": "/main[1]/article[1]/article[1]",
+          "selected_output_path": "forskrifter/forskrift-1974-01-01-4107.json"
+        },
+        {
+          "refid": "forskrift/2003-07-08-931",
+          "source_occurrence_id": "e4601efb5ee8bcac8258448cd12aec1fa64e0b3208d254ce8a9cb4c22a926d4e",
+          "path": "/main[1]/section[1]/article[1]",
+          "selected_output_path": "forskrifter/forskrift-2003-07-08-931.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_attribute: ['lang']",
+      "selected_documents": 9,
+      "examples": [
+        {
+          "refid": "lov/1981-12-18-90",
+          "source_occurrence_id": "b553705bf4b0056f0f3e608bab905a025c3062f6294fc1a3afc967a9f4d566c8",
+          "path": "/main[1]/section[1]/section[1]",
+          "selected_output_path": "laws/lov-1981-12-18-90.json"
+        },
+        {
+          "refid": "lov/1999-05-21-30",
+          "source_occurrence_id": "6260c0a1d9170b57913410617ea0daa9a822996762bbd2e4638fcf7aaad505a8",
+          "path": "/main[1]/section[1]/section[1]",
+          "selected_output_path": "laws/lov-1999-05-21-30.json"
+        },
+        {
+          "refid": "lov/2010-11-12-58",
+          "source_occurrence_id": "24bfdd47c432ca04912df6001ff171b7c795e862ae5a8b21061359f3ee54c978",
+          "path": "/main[1]/section[1]",
+          "selected_output_path": "laws/lov-2010-11-12-58.json"
+        },
+        {
+          "refid": "lov/2017-06-16-51",
+          "source_occurrence_id": "d94a435ecd8c252c071caf718c6e9efaf04a18fe001c501c9c7c6945ab6fe8e9",
+          "path": "/main[1]/section[8]",
+          "selected_output_path": "laws/lov-2017-06-16-51.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_list_marker: Ordered item requires exact bounded source label and positive declared value",
+      "selected_documents": 9,
+      "examples": [
+        {
+          "refid": "lov/2015-12-11-99",
+          "source_occurrence_id": "a600e4d3eaddbeb866003b6905af13866bf450c61d826077bfdd90813646b2fe",
+          "path": "/main[1]/section[2]/article[11]/article[1]/ol[1]",
+          "selected_output_path": "laws/lov-2015-12-11-99.json"
+        },
+        {
+          "refid": "forskrift/1999-08-23-957",
+          "source_occurrence_id": "c62e343f1356074d10e24befae59852027069ebbc84e0c54c6e0344a62941df6",
+          "path": "/main[1]/section[4]/article[1]/article[1]/ol[1]",
+          "selected_output_path": "forskrifter/forskrift-1999-08-23-957.json"
+        },
+        {
+          "refid": "forskrift/2000-12-22-1574",
+          "source_occurrence_id": "920981f3d0b5aff5ed14d4985a422b6197f8f0a760f682cee206c81118fa78d2",
+          "path": "/main[1]/article[2]/article[1]/ol[1]/li[3]/article[1]/article[1]/ol[1]/li[2]/article[1]/article[1]/ol[1]",
+          "selected_output_path": "forskrifter/forskrift-2000-12-22-1574.json"
+        },
+        {
+          "refid": "forskrift/2001-12-21-1525",
+          "source_occurrence_id": "f8817fa63b52cd829d7c7a882a7d21d5e9e34fe16f4a7276a6fd2a4753403fbf",
+          "path": "/main[1]/section[6]/article[3]/ol[1]",
+          "selected_output_path": "forskrifter/forskrift-2001-12-21-1525.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('tr', 'startGroup')",
+      "selected_documents": 5,
+      "examples": [
+        {
+          "refid": "forskrift/2002-11-07-1290",
+          "source_occurrence_id": "756c7266c66738e34bbc89d96094ec74e107b3bc900cafffd4dc1c49894d28e6",
+          "path": "/main[1]/section[9]/section[1]/article[1]/table[1]/tbody[1]/tr[25]",
+          "selected_output_path": "forskrifter/forskrift-2002-11-07-1290.json"
+        },
+        {
+          "refid": "forskrift/2014-09-05-1157",
+          "source_occurrence_id": "8bba993ffec027f911b0b942f5a2bf806e2f2fa1b222cd265d4c964fc08f10ee",
+          "path": "/main[1]/section[7]/article[1]/table[1]/tbody[1]/tr[2]",
+          "selected_output_path": "forskrifter/forskrift-2014-09-05-1157.json"
+        },
+        {
+          "refid": "forskrift/2018-08-01-1215",
+          "source_occurrence_id": "7bd1be10160f7308ce9838d17e470d59cbe34bd5e5a624c6c84a7073c8c9cd31",
+          "path": "/main[1]/section[5]/article[3]/article[2]/table[1]/tbody[1]/tr[3]",
+          "selected_output_path": "forskrifter/forskrift-2018-08-01-1215.json"
+        },
+        {
+          "refid": "forskrift/2019-03-25-321",
+          "source_occurrence_id": "ee35382d1ad2b10abc0cfb645ad499f3125fce467b73ec204b6826307fd49df9",
+          "path": "/main[1]/article[1]/article[1]/table[1]/tbody[1]/tr[5]",
+          "selected_output_path": "forskrifter/forskrift-2019-03-25-321.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('span', 'latexInline')",
+      "selected_documents": 5,
+      "examples": [
+        {
+          "refid": "forskrift/2009-12-22-1810",
+          "source_occurrence_id": "d938a38c95e3e4ce23149cd0eaaa5349e86650a016d1438f7e239771fa46e876",
+          "path": "/main[1]/section[2]/section[2]/article[2]/article[1]/p[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-2009-12-22-1810.json"
+        },
+        {
+          "refid": "forskrift/2011-02-08-130",
+          "source_occurrence_id": "bdb7b035d58971adae55a3e622beb408d1fe51c4ec4b6d7149e3f54023601e37",
+          "path": "/main[1]/section[2]/article[3]/article[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-2011-02-08-130.json"
+        },
+        {
+          "refid": "forskrift/2015-08-25-999",
+          "source_occurrence_id": "d36a6f1c7b7d6c72617c7bc2461fcb11d11af692f2a14e8565da21be5873faf7",
+          "path": "/main[1]/section[14]/article[2]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-2015-08-25-999.json"
+        },
+        {
+          "refid": "forskrift/2017-01-06-10",
+          "source_occurrence_id": "b76e13c5287d2bcdda5ad9c20bf78e7f5559dc70680663f717d6f57fccb3a55e",
+          "path": "/main[1]/article[3]/article[2]/ul[1]/li[1]/article[1]/article[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-2017-01-06-10.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('article', 'footnoteLegalP')",
+      "selected_documents": 4,
+      "examples": [
+        {
+          "refid": "forskrift/1973-06-01-1",
+          "source_occurrence_id": "d8f866b00a6cd96a51546c568eea6bfc65656c28fab51360da6778a7decb72f2",
+          "path": "/main[1]/section[5]/footer[1]/article[1]/article[1]",
+          "selected_output_path": "forskrifter/forskrift-1973-06-01-1.json"
+        },
+        {
+          "refid": "forskrift/2004-11-02-1441",
+          "source_occurrence_id": "29360aa4d6e432c4983f8469cdd1fd00c69df5294b38970440f263b8ec243336",
+          "path": "/main[1]/section[3]/article[2]/footer[1]/article[1]/article[1]",
+          "selected_output_path": "forskrifter/forskrift-2004-11-02-1441.json"
+        },
+        {
+          "refid": "forskrift/2011-03-11-265",
+          "source_occurrence_id": "38d754194ea750793c2c296a4413727ddbb1ac4cff5968be586ed08601765886",
+          "path": "/main[1]/article[3]/footer[1]/article[1]/article[1]",
+          "selected_output_path": "forskrifter/forskrift-2011-03-11-265.json"
+        },
+        {
+          "refid": "forskrift/2006-02-14-199",
+          "source_occurrence_id": "99ab4e2b95a0a35d49495adb9db218f5b4cf466802022e407117f9da7ddac960",
+          "path": "/main[1]/section[5]/footer[2]/article[3]/article[1]",
+          "selected_output_path": "forskrifter/forskrift-2006-02-14-199.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('span', 'underline')",
+      "selected_documents": 4,
+      "examples": [
+        {
+          "refid": "forskrift/1998-03-13-195",
+          "source_occurrence_id": "7afcfde07c31c4d76f93399d8e66f4827f9b4e334ef6f412aaaa3b9f553de36f",
+          "path": "/main[1]/article[6]/article[1]/table[1]/thead[1]/tr[1]/th[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-1998-03-13-195.json"
+        },
+        {
+          "refid": "forskrift/2001-03-30-360",
+          "source_occurrence_id": "1e1e60181fcb74592468fbba9a325cc620fd73f5ca6b2719a5e9dcfafb2cd55c",
+          "path": "/main[1]/section[8]/section[1]/article[1]/table[1]/tbody[1]/tr[1]/td[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-2001-03-30-360.json"
+        },
+        {
+          "refid": "forskrift/2012-11-26-1104",
+          "source_occurrence_id": "ffa63e3c188c39b59e386a0dc0bcf3e682024b77ee3d9ae17a0b81fa3ffdcd60",
+          "path": "/main[1]/article[2]/article[4]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-2012-11-26-1104.json"
+        },
+        {
+          "refid": "forskrift/2019-12-06-1740",
+          "source_occurrence_id": "ea01a0b7d4aad2dd34117fa5e4e93e33218882696b2b46e0e192a53dc92f68fb",
+          "path": "/main[1]/section[1]/section[3]/article[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-2019-12-06-1740.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_paragraph_label: Visible paragraph label differs from its source number",
+      "selected_documents": 3,
+      "examples": [
+        {
+          "refid": "forskrift/2006-05-12-545",
+          "source_occurrence_id": "d24fe1168cc072f6b2acf22cd90babbf4b6700e0e50dda6716e389bd4932d8f6",
+          "path": "/main[1]/article[2]/article[1]",
+          "selected_output_path": "forskrifter/forskrift-2006-05-12-545.json"
+        },
+        {
+          "refid": "forskrift/2006-07-06-968",
+          "source_occurrence_id": "bbd9a66fb571d1ee5e94ae6886fb40e6a75402b2a0d85efcd0144e10e294eaa7",
+          "path": "/main[1]/section[2]/article[1]/article[1]",
+          "selected_output_path": "forskrifter/forskrift-2006-07-06-968.json"
+        },
+        {
+          "refid": "forskrift/2026-06-18-1131",
+          "source_occurrence_id": "9d9a9053fe005b7f4f451e6cabb1212caf84d2dfb17bbc85baabb3325ed5c41d",
+          "path": "/main[1]/section[4]/article[6]/article[4]",
+          "selected_output_path": "forskrifter/forskrift-2026-06-18-1131.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_nesting: Nested anchors are invalid HTML",
+      "selected_documents": 2,
+      "examples": [
+        {
+          "refid": "lov/2002-06-21-34",
+          "source_occurrence_id": "0f0f6baa0c3f08f4d080c82f10a0e062852dedaeaa92a7e27c0253d79c669c6c",
+          "path": "/main[1]/section[1]/article[2]/article[2]/ol[1]/li[3]/article[1]/article[1]/a[1]",
+          "selected_output_path": "laws/lov-2002-06-21-34.json"
+        },
+        {
+          "refid": "forskrift/1993-12-21-1381",
+          "source_occurrence_id": "ec7a146158a5b40522c287cbb03c8a65fe31ce822d22f189001de8627f0c5707",
+          "path": "/main[1]/section[2]/article[2]/article[1]/a[2]",
+          "selected_output_path": "forskrifter/forskrift-1993-12-21-1381.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('article', 'futureLegalArticle')",
+      "selected_documents": 2,
+      "examples": [
+        {
+          "refid": "lov/2021-04-23-22",
+          "source_occurrence_id": "0c13316075b07ff24da371318c75b1f222b8497b7933f624d8da5b0dbc883839",
+          "path": "/main[1]/section[2]/article[2]",
+          "selected_output_path": "laws/lov-2021-04-23-22.json"
+        },
+        {
+          "refid": "forskrift/2013-08-09-970",
+          "source_occurrence_id": "8215e921dde5aea6cad50b1738b646daf09412f8e83f751596ce0ce95fd211d9",
+          "path": "/main[1]/section[1]/article[4]",
+          "selected_output_path": "forskrifter/forskrift-2013-08-09-970.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('div', 'box')",
+      "selected_documents": 2,
+      "examples": [
+        {
+          "refid": "forskrift/2021-03-01-622",
+          "source_occurrence_id": "7832eb59d236322ea5df42055059550a8f3c103c60da7ea7c8249ba12799e0b3",
+          "path": "/main[1]/section[2]/div[1]",
+          "selected_output_path": "forskrifter/forskrift-2021-03-01-622.json"
+        },
+        {
+          "refid": "forskrift/2024-05-13-850",
+          "source_occurrence_id": "d009a6b5bf7016eb3641fbd9c5381541b29573f7b9489459b0ed14697fa31130",
+          "path": "/main[1]/section[2]/section[1]/div[1]",
+          "selected_output_path": "forskrifter/forskrift-2024-05-13-850.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('span', 'futuretitle')",
+      "selected_documents": 2,
+      "examples": [
+        {
+          "refid": "forskrift/2021-06-02-1774",
+          "source_occurrence_id": "ac070df6e03d3853d42569db4754458f41e9af0b3a1f109afdfb242b8a858677",
+          "path": "/main[1]/section[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-2021-06-02-1774.json"
+        },
+        {
+          "refid": "forskrift/2021-06-02-1789",
+          "source_occurrence_id": "79f54e05abfa38bda658796f810d17e8e0b60a9e440fd3e0884a622ccfbd5c3e",
+          "path": "/main[1]/section[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-2021-06-02-1789.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('figure', '')",
+      "selected_documents": 2,
+      "examples": [
+        {
+          "refid": "forskrift/2021-06-20-2086",
+          "source_occurrence_id": "115f8bd8f596985682742b6ceed530a02ac5d374c4149257c9a4d43664a519a8",
+          "path": "/main[1]/section[2]/article[2]/figure[1]",
+          "selected_output_path": "forskrifter/forskrift-2021-06-20-2086.json"
+        },
+        {
+          "refid": "forskrift/2015-06-19-703",
+          "source_occurrence_id": "57c1c3cb21914f1d56864a73caa01768f5d77c11cdcf369b32623717dfdc9e22",
+          "path": "/main[1]/section[12]/section[3]/article[2]/figure[1]",
+          "selected_output_path": "forskrifter/forskrift-2015-06-19-703.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_context: Captured context attributes are outside the render grammar",
+      "selected_documents": 1,
+      "examples": [
+        {
+          "refid": "lov/2020-05-07-40",
+          "source_occurrence_id": "4d74e772e2ecc9e43e63ba711dbae3a3293e99de4d47f063200356cfdbf6070f",
+          "path": "/",
+          "selected_output_path": "laws/lov-2020-05-07-40.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('span', 'letterspacing')",
+      "selected_documents": 1,
+      "examples": [
+        {
+          "refid": "forskrift/1961-12-22-4",
+          "source_occurrence_id": "22aa2674912c6702e0a7016a3ff76b88421343ce3cf40f8f9ad074df53e113c2",
+          "path": "/main[1]/article[2]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-1961-12-22-4.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_attribute: Link target required",
+      "selected_documents": 1,
+      "examples": [
+        {
+          "refid": "forskrift/2014-05-06-607",
+          "source_occurrence_id": "5f4a55e5365d43b108bf24607d83e373244b823a8288afb8863ca9edc62afdad",
+          "path": "/main[1]/article[2]/article[4]/a[3]",
+          "selected_output_path": "forskrifter/forskrift-2014-05-06-607.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('span', 'errorMessage')",
+      "selected_documents": 1,
+      "examples": [
+        {
+          "refid": "forskrift/2020-03-09-720",
+          "source_occurrence_id": "e2bb94c98aa28ffd66671f6e4da22db2c55a62def35bbd923f1aeb5a4bddd763",
+          "path": "/main[1]/span[1]",
+          "selected_output_path": "forskrifter/forskrift-2020-03-09-720.json"
+        }
+      ]
+    },
+    {
+      "reason": "unsupported_form: ('s', '')",
+      "selected_documents": 1,
+      "examples": [
+        {
+          "refid": "forskrift/2024-09-17-2297",
+          "source_occurrence_id": "d8a567e7842080dc242d0b490ab2107f508ae1fa3019b8373c02d924f3d04c5a",
+          "path": "/main[1]/section[1]/article[4]/article[3]/s[1]",
+          "selected_output_path": "forskrifter/forskrift-2024-09-17-2297.json"
+        }
+      ]
+    }
+  ],
+  "all_unknown_forms": [
+    {
+      "form": "('strong', '')",
+      "selected_documents": 341
+    },
+    {
+      "form": "('h4', '')",
+      "selected_documents": 238
+    },
+    {
+      "form": "('sup', '')",
+      "selected_documents": 228
+    },
+    {
+      "form": "('sub', '')",
+      "selected_documents": 216
+    },
+    {
+      "form": "('span', 'miscHeadline')",
+      "selected_documents": 188
+    },
+    {
+      "form": "('article', 'marginIdArticle')",
+      "selected_documents": 150
+    },
+    {
+      "form": "('span', 'data-marginOriginalId')",
+      "selected_documents": 150
+    },
+    {
+      "form": "('h5', '')",
+      "selected_documents": 119
+    },
+    {
+      "form": "('img', '')",
+      "selected_documents": 117
+    },
+    {
+      "form": "('h5', 'legalArticleHeader')",
+      "selected_documents": 113
+    },
+    {
+      "form": "('caption', '')",
+      "selected_documents": 77
+    },
+    {
+      "form": "('div', 'indent')",
+      "selected_documents": 77
+    },
+    {
+      "form": "('article', 'futureLegalArticle')",
+      "selected_documents": 77
+    },
+    {
+      "form": "('span', 'futureLegalArticleHeader')",
+      "selected_documents": 77
+    },
+    {
+      "form": "('article', 'document-change')",
+      "selected_documents": 71
+    },
+    {
+      "form": "('article', 'change')",
+      "selected_documents": 71
+    },
+    {
+      "form": "('h6', '')",
+      "selected_documents": 68
+    },
+    {
+      "form": "('h6', 'legalArticleHeader')",
+      "selected_documents": 60
+    },
+    {
+      "form": "('span', '')",
+      "selected_documents": 55
+    },
+    {
+      "form": "('div', 'latexBlock')",
+      "selected_documents": 46
+    },
+    {
+      "form": "('p', '')",
+      "selected_documents": 43
+    },
+    {
+      "form": "('tr', 'startGroup')",
+      "selected_documents": 40
+    },
+    {
+      "form": "('div', '')",
+      "selected_documents": 30
+    },
+    {
+      "form": "('div', 'legalArticleHeader')",
+      "selected_documents": 29
+    },
+    {
+      "form": "('span', 'latexInline')",
+      "selected_documents": 28
+    },
+    {
+      "form": "('span', 'futuretitle')",
+      "selected_documents": 21
+    },
+    {
+      "form": "('article', 'footnoteLegalP')",
+      "selected_documents": 18
+    },
+    {
+      "form": "('blockquote', '')",
+      "selected_documents": 18
+    },
+    {
+      "form": "('span', 'data-pronounced-line')",
+      "selected_documents": 16
+    },
+    {
+      "form": "('span', 'underline')",
+      "selected_documents": 15
+    },
+    {
+      "form": "('article', 'footnoteDefaultP')",
+      "selected_documents": 8
+    },
+    {
+      "form": "('figcaption', '')",
+      "selected_documents": 6
+    },
+    {
+      "form": "('figure', '')",
+      "selected_documents": 6
+    },
+    {
+      "form": "('li', 'consolidationElement')",
+      "selected_documents": 5
+    },
+    {
+      "form": "('s', '')",
+      "selected_documents": 4
+    },
+    {
+      "form": "('div', 'box')",
+      "selected_documents": 3
+    },
+    {
+      "form": "('span', 'letterspacing')",
+      "selected_documents": 1
+    },
+    {
+      "form": "('small', '')",
+      "selected_documents": 1
+    },
+    {
+      "form": "('span', 'errorMessage')",
+      "selected_documents": 1
+    }
+  ],
+  "all_extra_attributes": [
+    {
+      "form_attribute": "('a', '')@data-link-type",
+      "selected_documents": 361,
+      "top_observed_values": [
+        [
+          "external",
+          206
+        ],
+        [
+          "staticfile",
+          189
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('article', 'legalArticle')@data-repealeddate",
+      "selected_documents": 253,
+      "top_observed_values": [
+        [
+          "2017-01-01",
+          34
+        ],
+        [
+          "2018-07-20",
+          17
+        ],
+        [
+          "2018-01-01",
+          14
+        ],
+        [
+          "2022-01-01",
+          11
+        ],
+        [
+          "2016-01-01",
+          11
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('article', 'defaultP')@margin-top",
+      "selected_documents": 188,
+      "top_observed_values": [
+        [
+          "true",
+          188
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('article', 'legalP')@data-text-size",
+      "selected_documents": 75,
+      "top_observed_values": [
+        [
+          "small",
+          75
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('article', 'listArticle')@data-text-size",
+      "selected_documents": 52,
+      "top_observed_values": [
+        [
+          "small",
+          52
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('article', 'defaultP')@data-rulesAssistanceType",
+      "selected_documents": 41,
+      "top_observed_values": [
+        [
+          "0",
+          41
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('article', 'legalP')@data-rulesAssistanceType",
+      "selected_documents": 41,
+      "top_observed_values": [
+        [
+          "0",
+          41
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('td', '')@rowspan",
+      "selected_documents": 39,
+      "top_observed_values": [
+        [
+          "2",
+          29
+        ],
+        [
+          "3",
+          20
+        ],
+        [
+          "4",
+          14
+        ],
+        [
+          "6",
+          9
+        ],
+        [
+          "5",
+          7
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('footer', 'footnotes')@data-rulesAssistanceType",
+      "selected_documents": 39,
+      "top_observed_values": [
+        [
+          "0",
+          39
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('article', 'legalArticle')@data-rulesAssistanceType",
+      "selected_documents": 37,
+      "top_observed_values": [
+        [
+          "0",
+          37
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('ol', 'defaultList')@data-rulesAssistanceType",
+      "selected_documents": 37,
+      "top_observed_values": [
+        [
+          "0",
+          37
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('section', 'section')@data-rulesAssistanceType",
+      "selected_documents": 33,
+      "top_observed_values": [
+        [
+          "0",
+          33
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('article', 'numberedLegalP')@data-rulesAssistanceType",
+      "selected_documents": 32,
+      "top_observed_values": [
+        [
+          "0",
+          32
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('span', 'legalArticleValue')@data-repealeddate",
+      "selected_documents": 31,
+      "top_observed_values": [
+        [
+          "2018-07-20",
+          7
+        ],
+        [
+          "2017-01-01",
+          4
+        ],
+        [
+          "2020-01-01",
+          2
+        ],
+        [
+          "2016-01-01",
+          2
+        ],
+        [
+          "2019-01-01",
+          2
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('ol', 'defaultList')@data-text-size",
+      "selected_documents": 29,
+      "top_observed_values": [
+        [
+          "small",
+          29
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('ul', 'defaultList')@data-text-size",
+      "selected_documents": 27,
+      "top_observed_values": [
+        [
+          "small",
+          27
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('ul', 'defaultList')@data-rulesAssistanceType",
+      "selected_documents": 23,
+      "top_observed_values": [
+        [
+          "0",
+          23
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('h2', '')@data-repealeddate",
+      "selected_documents": 18,
+      "top_observed_values": [
+        [
+          "2015-01-01",
+          2
+        ],
+        [
+          "2017-01-01",
+          2
+        ],
+        [
+          "2005-01-01",
+          1
+        ],
+        [
+          "2005-07-01",
+          1
+        ],
+        [
+          "2003-01-01",
+          1
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('article', 'changesToParent')@data-rulesAssistanceType",
+      "selected_documents": 18,
+      "top_observed_values": [
+        [
+          "0",
+          18
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('p', 'leddfortsettelse')@data-rulesAssistanceType",
+      "selected_documents": 12,
+      "top_observed_values": [
+        [
+          "0",
+          12
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('th', '')@rowspan",
+      "selected_documents": 7,
+      "top_observed_values": [
+        [
+          "2",
+          6
+        ],
+        [
+          "4",
+          1
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('section', 'section')@lang",
+      "selected_documents": 6,
+      "top_observed_values": [
+        [
+          "en",
+          5
+        ],
+        [
+          "nn",
+          1
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('table', '')@lang",
+      "selected_documents": 6,
+      "top_observed_values": [
+        [
+          "en",
+          6
+        ],
+        [
+          "nn",
+          2
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('span', 'footnoteLabel')@data-repealeddate",
+      "selected_documents": 4,
+      "top_observed_values": [
+        [
+          "1995-01-01",
+          1
+        ],
+        [
+          "2007-07-01",
+          1
+        ],
+        [
+          "2023-07-01",
+          1
+        ],
+        [
+          "2013-01-15",
+          1
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('article', 'defaultP')@lang",
+      "selected_documents": 4,
+      "top_observed_values": [
+        [
+          "en",
+          4
+        ],
+        [
+          "nn",
+          1
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('h3', '')@data-repealeddate",
+      "selected_documents": 4,
+      "top_observed_values": [
+        [
+          "2026-07-01",
+          1
+        ],
+        [
+          "2020-07-01",
+          1
+        ],
+        [
+          "2016-08-01",
+          1
+        ],
+        [
+          "2016-01-01",
+          1
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('article', 'footnote')@data-repealeddate",
+      "selected_documents": 3,
+      "top_observed_values": [
+        [
+          "2012-01-20",
+          1
+        ],
+        [
+          "2018-07-01",
+          1
+        ],
+        [
+          "2019-04-10",
+          1
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('ol', 'defaultList')@lang",
+      "selected_documents": 3,
+      "top_observed_values": [
+        [
+          "en",
+          3
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('ul', 'defaultList')@lang",
+      "selected_documents": 3,
+      "top_observed_values": [
+        [
+          "en",
+          3
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('footer', 'footnotes')@lang",
+      "selected_documents": 2,
+      "top_observed_values": [
+        [
+          "en",
+          2
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('article', 'defaultP')@data-repealeddate",
+      "selected_documents": 1,
+      "top_observed_values": [
+        [
+          "2019-12-31",
+          1
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('br', '')@data-rulesAssistanceType",
+      "selected_documents": 1,
+      "top_observed_values": [
+        [
+          "0",
+          1
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('a', '')@data-repealeddate",
+      "selected_documents": 1,
+      "top_observed_values": [
+        [
+          "2025-07-01",
+          1
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('article', 'centeredP')@data-rulesAssistanceType",
+      "selected_documents": 1,
+      "top_observed_values": [
+        [
+          "0",
+          1
+        ]
+      ]
+    },
+    {
+      "form_attribute": "('article', 'legalP')@lang",
+      "selected_documents": 1,
+      "top_observed_values": [
+        [
+          "en",
+          1
+        ]
+      ]
+    }
+  ],
+  "all_parent_form_gaps": [
+    {
+      "pair": "('section', 'section') -> ('h4', '')",
+      "selected_documents": 238
+    },
+    {
+      "pair": "('article', 'changesToParent') -> ('strong', '')",
+      "selected_documents": 193
+    },
+    {
+      "pair": "('article', 'legalP') -> ('sup', '')",
+      "selected_documents": 192
+    },
+    {
+      "pair": "('span', 'miscHeadline') -> ('i', '')",
+      "selected_documents": 183
+    },
+    {
+      "pair": "('article', 'legalP') -> ('sub', '')",
+      "selected_documents": 159
+    },
+    {
+      "pair": "('article', 'marginIdArticle') -> ('span', 'data-marginOriginalId')",
+      "selected_documents": 150
+    },
+    {
+      "pair": "('article', 'marginIdArticle') -> ('article', 'legalP')",
+      "selected_documents": 149
+    },
+    {
+      "pair": "('section', 'section') -> ('h5', '')",
+      "selected_documents": 119
+    },
+    {
+      "pair": "('section', 'section') -> ('article', 'marginIdArticle')",
+      "selected_documents": 118
+    },
+    {
+      "pair": "('article', 'defaultP') -> ('strong', '')",
+      "selected_documents": 115
+    },
+    {
+      "pair": "('article', 'legalArticle') -> ('h5', 'legalArticleHeader')",
+      "selected_documents": 113
+    },
+    {
+      "pair": "('h5', 'legalArticleHeader') -> ('span', 'legalArticleValue')",
+      "selected_documents": 113
+    },
+    {
+      "pair": "('h4', '') -> ('br', '')",
+      "selected_documents": 112
+    },
+    {
+      "pair": "('article', 'listArticle') -> ('span', 'miscHeadline')",
+      "selected_documents": 108
+    },
+    {
+      "pair": "('article', 'marginIdArticle') -> ('span', 'miscHeadline')",
+      "selected_documents": 106
+    },
+    {
+      "pair": "('h5', 'legalArticleHeader') -> ('span', 'legalArticleTitle')",
+      "selected_documents": 86
+    },
+    {
+      "pair": "('h4', '') -> ('a', '')",
+      "selected_documents": 83
+    },
+    {
+      "pair": "('table', '') -> ('caption', '')",
+      "selected_documents": 77
+    },
+    {
+      "pair": "('span', 'futureLegalArticleHeader') -> ('span', 'legalArticleValue')",
+      "selected_documents": 77
+    },
+    {
+      "pair": "('article', 'futureLegalArticle') -> ('span', 'futureLegalArticleHeader')",
+      "selected_documents": 77
+    },
+    {
+      "pair": "('td', '') -> ('sup', '')",
+      "selected_documents": 77
+    },
+    {
+      "pair": "('article', 'defaultP') -> ('img', '')",
+      "selected_documents": 76
+    },
+    {
+      "pair": "('h5', '') -> ('br', '')",
+      "selected_documents": 75
+    },
+    {
+      "pair": "('td', '') -> ('sub', '')",
+      "selected_documents": 74
+    },
+    {
+      "pair": "('span', 'futureLegalArticleHeader') -> ('span', 'legalArticleTitle')",
+      "selected_documents": 73
+    },
+    {
+      "pair": "('article', 'legalP') -> ('strong', '')",
+      "selected_documents": 72
+    },
+    {
+      "pair": "('article', 'futureLegalArticle') -> ('article', 'legalP')",
+      "selected_documents": 71
+    },
+    {
+      "pair": "('article', 'document-change') -> ('article', 'change')",
+      "selected_documents": 71
+    },
+    {
+      "pair": "('section', 'section') -> ('h6', '')",
+      "selected_documents": 68
+    },
+    {
+      "pair": "('article', 'change') -> ('article', 'defaultP')",
+      "selected_documents": 62
+    },
+    {
+      "pair": "('h6', 'legalArticleHeader') -> ('span', 'legalArticleValue')",
+      "selected_documents": 60
+    },
+    {
+      "pair": "('article', 'legalArticle') -> ('h6', 'legalArticleHeader')",
+      "selected_documents": 60
+    },
+    {
+      "pair": "('i', '') -> ('sub', '')",
+      "selected_documents": 57
+    },
+    {
+      "pair": "('article', 'document-change') -> ('article', 'defaultP')",
+      "selected_documents": 56
+    },
+    {
+      "pair": "('h6', 'legalArticleHeader') -> ('span', 'legalArticleTitle')",
+      "selected_documents": 55
+    },
+    {
+      "pair": "('section', 'section') -> ('article', 'document-change')",
+      "selected_documents": 54
+    },
+    {
+      "pair": "('div', 'indent') -> ('article', 'legalP')",
+      "selected_documents": 52
+    },
+    {
+      "pair": "('h5', 'legalArticleHeader') -> ('br', '')",
+      "selected_documents": 49
+    },
+    {
+      "pair": "('h6', 'legalArticleHeader') -> ('br', '')",
+      "selected_documents": 48
+    },
+    {
+      "pair": "('article', 'change') -> ('article', 'legalP')",
+      "selected_documents": 47
+    },
+    {
+      "pair": "('h6', '') -> ('br', '')",
+      "selected_documents": 47
+    },
+    {
+      "pair": "('caption', '') -> ('i', '')",
+      "selected_documents": 46
+    },
+    {
+      "pair": "('article', 'legalArticle') -> ('div', 'indent')",
+      "selected_documents": 45
+    },
+    {
+      "pair": "('td', '') -> ('strong', '')",
+      "selected_documents": 45
+    },
+    {
+      "pair": "('section', 'section') -> ('article', 'futureLegalArticle')",
+      "selected_documents": 43
+    },
+    {
+      "pair": "('div', 'indent') -> ('article', 'defaultP')",
+      "selected_documents": 42
+    },
+    {
+      "pair": "('article', 'legalP') -> ('span', '')",
+      "selected_documents": 40
+    },
+    {
+      "pair": "('tr', 'startGroup') -> ('td', '')",
+      "selected_documents": 40
+    },
+    {
+      "pair": "('tbody', '') -> ('tr', 'startGroup')",
+      "selected_documents": 40
+    },
+    {
+      "pair": "('article', 'legalP') -> ('div', 'latexBlock')",
+      "selected_documents": 38
+    },
+    {
+      "pair": "('article', 'legalP') -> ('p', '')",
+      "selected_documents": 38
+    },
+    {
+      "pair": "('article', 'marginIdArticle') -> ('article', 'defaultP')",
+      "selected_documents": 35
+    },
+    {
+      "pair": "('i', '') -> ('sup', 'footnotereference')",
+      "selected_documents": 32
+    },
+    {
+      "pair": "('article', 'legalArticle') -> ('article', 'marginIdArticle')",
+      "selected_documents": 31
+    },
+    {
+      "pair": "('i', '') -> ('sup', '')",
+      "selected_documents": 31
+    },
+    {
+      "pair": "('article', 'legalP') -> ('footer', 'footnotes')",
+      "selected_documents": 31
+    },
+    {
+      "pair": "('article', 'change') -> ('article', 'futureLegalArticle')",
+      "selected_documents": 30
+    },
+    {
+      "pair": "('article', 'legalP') -> ('img', '')",
+      "selected_documents": 29
+    },
+    {
+      "pair": "('article', 'legalArticle') -> ('div', 'legalArticleHeader')",
+      "selected_documents": 29
+    },
+    {
+      "pair": "('div', 'legalArticleHeader') -> ('span', 'legalArticleValue')",
+      "selected_documents": 29
+    },
+    {
+      "pair": "('article', 'marginIdArticle') -> ('ol', 'defaultList')",
+      "selected_documents": 29
+    },
+    {
+      "pair": "('p', 'leddfortsettelse') -> ('strong', '')",
+      "selected_documents": 29
+    },
+    {
+      "pair": "('section', 'section') -> ('div', '')",
+      "selected_documents": 29
+    },
+    {
+      "pair": "('div', 'legalArticleHeader') -> ('span', 'legalArticleTitle')",
+      "selected_documents": 27
+    },
+    {
+      "pair": "('div', 'legalArticleHeader') -> ('br', '')",
+      "selected_documents": 25
+    },
+    {
+      "pair": "('article', 'change') -> ('li', '')",
+      "selected_documents": 24
+    },
+    {
+      "pair": "('article', 'numberedLegalP') -> ('sup', '')",
+      "selected_documents": 23
+    },
+    {
+      "pair": "('h5', '') -> ('strong', '')",
+      "selected_documents": 23
+    },
+    {
+      "pair": "('div', '') -> ('br', '')",
+      "selected_documents": 22
+    },
+    {
+      "pair": "('section', 'section') -> ('div', 'indent')",
+      "selected_documents": 20
+    },
+    {
+      "pair": "('article', 'numberedLegalP') -> ('strong', '')",
+      "selected_documents": 19
+    },
+    {
+      "pair": "('article', 'footnote') -> ('article', 'footnoteLegalP')",
+      "selected_documents": 18
+    },
+    {
+      "pair": "('article', 'defaultP') -> ('sub', '')",
+      "selected_documents": 18
+    },
+    {
+      "pair": "('article', 'legalP') -> ('span', 'latexInline')",
+      "selected_documents": 18
+    },
+    {
+      "pair": "('h5', '') -> ('sup', 'footnotereference')",
+      "selected_documents": 18
+    },
+    {
+      "pair": "('article', 'numberedLegalP') -> ('sub', '')",
+      "selected_documents": 18
+    },
+    {
+      "pair": "('span', 'legalArticleTitle') -> ('sub', '')",
+      "selected_documents": 17
+    },
+    {
+      "pair": "('article', 'legalArticle') -> ('article', 'document-change')",
+      "selected_documents": 17
+    },
+    {
+      "pair": "('p', '') -> ('br', '')",
+      "selected_documents": 17
+    },
+    {
+      "pair": "('article', 'footnote') -> ('strong', '')",
+      "selected_documents": 17
+    },
+    {
+      "pair": "('strong', '') -> ('i', '')",
+      "selected_documents": 17
+    },
+    {
+      "pair": "('p', '') -> ('i', '')",
+      "selected_documents": 16
+    },
+    {
+      "pair": "('h5', '') -> ('a', '')",
+      "selected_documents": 16
+    },
+    {
+      "pair": "('th', '') -> ('strong', '')",
+      "selected_documents": 16
+    },
+    {
+      "pair": "('h6', '') -> ('strong', '')",
+      "selected_documents": 16
+    },
+    {
+      "pair": "('h1', '') -> ('sub', '')",
+      "selected_documents": 15
+    },
+    {
+      "pair": "('article', 'change') -> ('article', 'numberedLegalP')",
+      "selected_documents": 15
+    },
+    {
+      "pair": "('article', 'footnote') -> ('ol', 'defaultList')",
+      "selected_documents": 15
+    },
+    {
+      "pair": "('article', 'centeredP') -> ('table', '')",
+      "selected_documents": 15
+    },
+    {
+      "pair": "('span', 'miscHeadline') -> ('strong', '')",
+      "selected_documents": 14
+    },
+    {
+      "pair": "('article', 'legalP') -> ('span', 'data-pronounced-line')",
+      "selected_documents": 14
+    },
+    {
+      "pair": "('p', 'leddfortsettelse') -> ('table', '')",
+      "selected_documents": 14
+    },
+    {
+      "pair": "('a', '') -> ('sup', 'footnotereference')",
+      "selected_documents": 13
+    },
+    {
+      "pair": "('article', 'footnote') -> ('ul', 'defaultList')",
+      "selected_documents": 13
+    },
+    {
+      "pair": "('article', 'futureLegalArticle') -> ('article', 'numberedLegalP')",
+      "selected_documents": 13
+    },
+    {
+      "pair": "('a', '') -> ('sub', '')",
+      "selected_documents": 13
+    },
+    {
+      "pair": "('article', 'centeredP') -> ('img', '')",
+      "selected_documents": 13
+    },
+    {
+      "pair": "('article', 'footnote') -> ('sub', '')",
+      "selected_documents": 13
+    },
+    {
+      "pair": "('span', 'data-marginOriginalId') -> ('i', '')",
+      "selected_documents": 13
+    },
+    {
+      "pair": "('section', 'section') -> ('span', 'futuretitle')",
+      "selected_documents": 12
+    },
+    {
+      "pair": "('article', 'footnote') -> ('sup', '')",
+      "selected_documents": 12
+    },
+    {
+      "pair": "('td', '') -> ('img', '')",
+      "selected_documents": 12
+    },
+    {
+      "pair": "('section', 'section') -> ('blockquote', '')",
+      "selected_documents": 12
+    },
+    {
+      "pair": "('article', 'numberedLegalP') -> ('span', '')",
+      "selected_documents": 12
+    },
+    {
+      "pair": "('h4', '') -> ('sup', 'footnotereference')",
+      "selected_documents": 11
+    },
+    {
+      "pair": "('strong', '') -> ('a', '')",
+      "selected_documents": 11
+    },
+    {
+      "pair": "('article', 'marginIdArticle') -> ('ul', 'defaultList')",
+      "selected_documents": 11
+    },
+    {
+      "pair": "('p', 'leddfortsettelse') -> ('sub', '')",
+      "selected_documents": 11
+    },
+    {
+      "pair": "('article', 'defaultP') -> ('sup', '')",
+      "selected_documents": 10
+    },
+    {
+      "pair": "('i', '') -> ('strong', '')",
+      "selected_documents": 10
+    },
+    {
+      "pair": "('blockquote', '') -> ('article', 'legalP')",
+      "selected_documents": 10
+    },
+    {
+      "pair": "('h6', '') -> ('sup', 'footnotereference')",
+      "selected_documents": 9
+    },
+    {
+      "pair": "('article', 'change') -> ('span', 'futuretitle')",
+      "selected_documents": 9
+    },
+    {
+      "pair": "('article', 'legalArticle') -> ('p', 'leddfortsettelse')",
+      "selected_documents": 9
+    },
+    {
+      "pair": "('h5', '') -> ('i', '')",
+      "selected_documents": 9
+    },
+    {
+      "pair": "('article', 'marginIdArticle') -> ('p', '')",
+      "selected_documents": 9
+    },
+    {
+      "pair": "('article', 'centeredP') -> ('strong', '')",
+      "selected_documents": 9
+    },
+    {
+      "pair": "('article', 'footnote') -> ('table', '')",
+      "selected_documents": 9
+    },
+    {
+      "pair": "('blockquote', '') -> ('article', 'defaultP')",
+      "selected_documents": 9
+    },
+    {
+      "pair": "('td', '') -> ('span', '')",
+      "selected_documents": 9
+    },
+    {
+      "pair": "('article', 'footnote') -> ('p', 'leddfortsettelse')",
+      "selected_documents": 9
+    },
+    {
+      "pair": "('main', 'documentBody') -> ('div', 'indent')",
+      "selected_documents": 9
+    },
+    {
+      "pair": "('article', 'futureLegalArticle') -> ('article', 'changesToParent')",
+      "selected_documents": 8
+    },
+    {
+      "pair": "('article', 'footnote') -> ('article', 'footnoteDefaultP')",
+      "selected_documents": 8
+    },
+    {
+      "pair": "('p', '') -> ('strong', '')",
+      "selected_documents": 8
+    },
+    {
+      "pair": "('td', '') -> ('span', 'latexInline')",
+      "selected_documents": 8
+    },
+    {
+      "pair": "('article', 'defaultP') -> ('div', 'latexBlock')",
+      "selected_documents": 8
+    },
+    {
+      "pair": "('p', 'leddfortsettelse') -> ('img', '')",
+      "selected_documents": 8
+    },
+    {
+      "pair": "('h5', 'legalArticleHeader') -> ('sup', 'footnotereference')",
+      "selected_documents": 7
+    },
+    {
+      "pair": "('h4', '') -> ('i', '')",
+      "selected_documents": 7
+    },
+    {
+      "pair": "('p', '') -> ('sub', '')",
+      "selected_documents": 7
+    },
+    {
+      "pair": "('article', 'marginIdArticle') -> ('sup', 'footnotereference')",
+      "selected_documents": 7
+    },
+    {
+      "pair": "('h6', '') -> ('a', '')",
+      "selected_documents": 7
+    },
+    {
+      "pair": "('caption', '') -> ('br', '')",
+      "selected_documents": 7
+    },
+    {
+      "pair": "('div', '') -> ('strong', '')",
+      "selected_documents": 7
+    },
+    {
+      "pair": "('section', 'section') -> ('p', 'leddfortsettelse')",
+      "selected_documents": 7
+    },
+    {
+      "pair": "('article', 'legalP') -> ('div', 'indent')",
+      "selected_documents": 6
+    },
+    {
+      "pair": "('figure', '') -> ('img', '')",
+      "selected_documents": 6
+    },
+    {
+      "pair": "('figure', '') -> ('figcaption', '')",
+      "selected_documents": 6
+    },
+    {
+      "pair": "('p', 'leddfortsettelse') -> ('sup', '')",
+      "selected_documents": 6
+    },
+    {
+      "pair": "('i', '') -> ('span', '')",
+      "selected_documents": 6
+    },
+    {
+      "pair": "('article', 'futureLegalArticle') -> ('footer', 'footnotes')",
+      "selected_documents": 5
+    },
+    {
+      "pair": "('h2', '') -> ('sub', '')",
+      "selected_documents": 5
+    },
+    {
+      "pair": "('main', 'documentBody') -> ('article', 'marginIdArticle')",
+      "selected_documents": 5
+    },
+    {
+      "pair": "('td', '') -> ('span', 'underline')",
+      "selected_documents": 5
+    },
+    {
+      "pair": "('article', 'numberedLegalP') -> ('div', 'latexBlock')",
+      "selected_documents": 5
+    },
+    {
+      "pair": "('article', 'legalP') -> ('span', 'underline')",
+      "selected_documents": 5
+    },
+    {
+      "pair": "('strong', '') -> ('sup', 'footnotereference')",
+      "selected_documents": 5
+    },
+    {
+      "pair": "('div', '') -> ('a', '')",
+      "selected_documents": 5
+    },
+    {
+      "pair": "('li', 'consolidationElement') -> ('article', 'listArticle')",
+      "selected_documents": 5
+    },
+    {
+      "pair": "('ul', 'defaultList') -> ('li', 'consolidationElement')",
+      "selected_documents": 5
+    },
+    {
+      "pair": "('article', 'footnoteLegalP') -> ('a', '')",
+      "selected_documents": 4
+    },
+    {
+      "pair": "('a', '') -> ('a', '')",
+      "selected_documents": 4
+    },
+    {
+      "pair": "('article', 'legalArticle') -> ('article', 'futureLegalArticle')",
+      "selected_documents": 4
+    },
+    {
+      "pair": "('caption', '') -> ('sup', 'footnotereference')",
+      "selected_documents": 4
+    },
+    {
+      "pair": "('h6', '') -> ('i', '')",
+      "selected_documents": 4
+    },
+    {
+      "pair": "('th', '') -> ('sub', '')",
+      "selected_documents": 4
+    },
+    {
+      "pair": "('p', '') -> ('table', '')",
+      "selected_documents": 4
+    },
+    {
+      "pair": "('article', 'defaultP') -> ('figure', '')",
+      "selected_documents": 4
+    },
+    {
+      "pair": "('a', '') -> ('img', '')",
+      "selected_documents": 4
+    },
+    {
+      "pair": "('article', 'footnote') -> ('span', '')",
+      "selected_documents": 4
+    },
+    {
+      "pair": "('caption', '') -> ('strong', '')",
+      "selected_documents": 4
+    },
+    {
+      "pair": "('span', 'legalArticleTitle') -> ('span', '')",
+      "selected_documents": 4
+    },
+    {
+      "pair": "('article', 'listArticle') -> ('ol', 'defaultList')",
+      "selected_documents": 4
+    },
+    {
+      "pair": "('main', 'documentBody') -> ('blockquote', '')",
+      "selected_documents": 4
+    },
+    {
+      "pair": "('div', 'indent') -> ('ol', 'defaultList')",
+      "selected_documents": 3
+    },
+    {
+      "pair": "('span', 'futureLegalArticleHeader') -> ('br', '')",
+      "selected_documents": 3
+    },
+    {
+      "pair": "('p', '') -> ('sup', '')",
+      "selected_documents": 3
+    },
+    {
+      "pair": "('h3', '') -> ('sub', '')",
+      "selected_documents": 3
+    },
+    {
+      "pair": "('span', 'data-pronounced-line') -> ('i', '')",
+      "selected_documents": 3
+    },
+    {
+      "pair": "('article', 'defaultP') -> ('span', 'data-pronounced-line')",
+      "selected_documents": 3
+    },
+    {
+      "pair": "('span', 'legalArticleTitle') -> ('sup', '')",
+      "selected_documents": 3
+    },
+    {
+      "pair": "('article', 'numberedLegalP') -> ('img', '')",
+      "selected_documents": 3
+    },
+    {
+      "pair": "('span', 'underline') -> ('a', '')",
+      "selected_documents": 3
+    },
+    {
+      "pair": "('strong', '') -> ('br', '')",
+      "selected_documents": 3
+    },
+    {
+      "pair": "('strong', '') -> ('sub', '')",
+      "selected_documents": 3
+    },
+    {
+      "pair": "('span', 'data-pronounced-line') -> ('span', 'data-pronounced-line')",
+      "selected_documents": 3
+    },
+    {
+      "pair": "('span', 'data-pronounced-line') -> ('br', '')",
+      "selected_documents": 3
+    },
+    {
+      "pair": "('section', 'section') -> ('div', 'box')",
+      "selected_documents": 3
+    },
+    {
+      "pair": "('div', 'box') -> ('article', 'defaultP')",
+      "selected_documents": 3
+    },
+    {
+      "pair": "('caption', '') -> ('a', '')",
+      "selected_documents": 3
+    },
+    {
+      "pair": "('span', 'futureLegalArticleHeader') -> ('sup', 'footnotereference')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('h2', '') -> ('span', '')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('article', 'change') -> ('ol', 'defaultList')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('p', '') -> ('sup', 'footnotereference')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('p', '') -> ('div', 'latexBlock')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('article', 'footnoteLegalP') -> ('i', '')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('th', '') -> ('sup', '')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('td', '') -> ('div', 'latexBlock')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('h4', '') -> ('sub', '')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('p', '') -> ('img', '')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('td', '') -> ('s', '')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('a', '') -> ('span', 'underline')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('p', 'leddfortsettelse') -> ('div', 'latexBlock')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('p', 'leddfortsettelse') -> ('span', 'latexInline')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('article', 'numberedLegalP') -> ('span', 'latexInline')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('i', '') -> ('span', 'underline')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('article', 'footnoteDefaultP') -> ('strong', '')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('div', '') -> ('sup', 'footnotereference')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('div', 'indent') -> ('footer', 'footnotes')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('figcaption', '') -> ('i', '')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('article', 'legalP') -> ('figure', '')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('div', '') -> ('i', '')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('article', 'legalArticle') -> ('blockquote', '')",
+      "selected_documents": 2
+    },
+    {
+      "pair": "('div', 'legalArticleHeader') -> ('sup', 'footnotereference')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'changesToParent') -> ('ol', 'defaultList')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'document-change') -> ('article', 'changesToParent')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'document-change') -> ('article', 'legalP')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'futureLegalArticle') -> ('span', 'futuretitle')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'legalP') -> ('span', 'letterspacing')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('sub', '') -> ('sub', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('sup', '') -> ('i', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('p', '') -> ('a', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('th', '') -> ('span', 'underline')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'defaultP') -> ('span', 'underline')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('h2', '') -> ('sup', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('h6', '') -> ('sub', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'defaultP') -> ('div', 'indent')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('sub', '') -> ('i', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'centeredP') -> ('sub', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('span', 'underline') -> ('sup', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('h6', 'legalArticleHeader') -> ('sup', 'footnotereference')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('div', 'indent') -> ('div', 'indent')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('span', '') -> ('sup', 'footnotereference')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('a', '') -> ('sup', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'footnoteLegalP') -> ('sub', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('small', '') -> ('strong', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('small', '') -> ('sub', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('small', '') -> ('a', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('td', '') -> ('small', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('h3', '') -> ('strong', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('div', 'indent') -> ('article', 'numberedLegalP')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('strong', '') -> ('sup', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('p', 'leddfortsettelse') -> ('footer', 'footnotes')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'footnoteDefaultP') -> ('a', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'numberedLegalP') -> ('span', 'underline')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'defaultP') -> ('span', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('span', '') -> ('span', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('h5', '') -> ('sub', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'defaultP') -> ('p', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('h4', '') -> ('strong', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'defaultP') -> ('span', 'latexInline')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'legalP') -> ('s', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'legalP') -> ('div', 'box')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('div', 'box') -> ('article', 'legalP')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('span', 'errorMessage') -> ('strong', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('main', 'documentBody') -> ('span', 'errorMessage')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'footnote') -> ('span', 'underline')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('h2', '') -> ('strong', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('figcaption', '') -> ('br', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('thead', '') -> ('tr', 'startGroup')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('tr', 'startGroup') -> ('th', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('h3', '') -> ('footer', 'footnotes')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('span', '') -> ('a', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'numberedLegalP') -> ('s', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('div', '') -> ('ul', 'defaultList')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'legalP') -> ('div', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('h4', '') -> ('span', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('span', '') -> ('br', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('h3', '') -> ('sup', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('span', 'data-marginOriginalId') -> ('strong', '')",
+      "selected_documents": 1
+    },
+    {
+      "pair": "('article', 'footnoteLegalP') -> ('table', '')",
+      "selected_documents": 1
+    }
+  ],
+  "counts_overlap": "All-form/attribute/parent totals count distinct selected documents per gap and overlap; first reasons count one per rejected document. Neither is a passing product count."
+}

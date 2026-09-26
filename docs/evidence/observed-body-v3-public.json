@@ -1,0 +1,36 @@
+{
+  "status": "verified",
+  "checked_at": "2026-09-26T01:39:12.782893+00:00",
+  "scope": "public artifact retrieval, exact committed proofs and prior representation preservation; no source requalification",
+  "previous_product": "cf02a777e1ead1c15ca117166a6b46541a33568d9f0d32ab751a13a656ad1cdf",
+  "product": "795fec6c07968be0a127bf3656d85c73626a1eeb0ade5dc5c7350faa4916981b",
+  "observation": "ca9c375bd0272ffa836c0328e1579083e1539618ea6f206905e140ec188a4cee",
+  "counts": {
+    "forskrifter": 5118,
+    "laws": 756,
+    "passed": 3203,
+    "rejected": 2671,
+    "selected": 5874
+  },
+  "previous_qualified_preserved_byte_for_byte": 1219,
+  "all_document_semantic_identities_preserved": 5874,
+  "newly_qualified": 1984,
+  "bundle": {
+    "bytes": 13695034,
+    "name": "bodies.tar.gz",
+    "sha256": "e8333f0ec5e8f90720cfa4884ede90a116e8b3b5a3a726fe30137aab82b7dd8d",
+    "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/bodies-795fec6c07968be0a127bf3656d85c73626a1eeb0ade5dc5c7350faa4916981b/bodies.tar.gz"
+  },
+  "export": {
+    "status": "exported",
+    "history_commit": "377b9d46bdad1535578f5d8c538c60217452e994",
+    "products": 2,
+    "documents": 5874,
+    "index_sha256": "68a85fe5fe776120f7c909f361a3f3c3a949ff69cb211492368fd6bf0656ee9e"
+  },
+  "legal_valid_time": {
+    "from": null,
+    "status": "unresolved",
+    "until": null
+  }
+}
