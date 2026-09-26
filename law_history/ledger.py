@@ -186,27 +186,28 @@ def list_observations(repository: Path) -> list[dict]:
     return sorted(results, key=lambda row: (row["knowledge_cutoff"] or "", row["observation_id"]))
 
 
-def show_document(repository: Path, refid: str) -> dict:
+def show_document(repository: Path, refid: str, role: str | None = None) -> dict:
     require(isinstance(refid, str) and "/" in refid, "Expected a document refid such as lov/1998-07-17-56")
+    require(role is None or role in {"laws", "forskrifter", "amendment_acts"}, "Unknown source archive role")
     observations = []
     known_roles, previous_scope = set(), set()
     for summary in list_observations(repository):
         _, _, members = read_observation(repository, summary["observation_id"])
-        found = [row for row in members if row["refid"] == refid]
-        scope = {(s["role"], s["original_filename"], tuple(s["prefixes"])) for s in summary["scope"]}
-        roles = {s[0] for s in scope}
+        found = [row for row in members if row["refid"] == refid and (role is None or row["role"] == role)]
+        scope = {(s["role"], s["original_filename"], tuple(s["prefixes"])) for s in summary["scope"]
+                 if role is None or s["role"] == role}
         if found:
             known_roles.update(row["role"] for row in found)
             previous_scope = {s for s in scope if s[0] in known_roles}
             observations.append({"observation_id": summary["observation_id"], "observed_at": summary["knowledge_cutoff"],
                                  "status": "present", "members": found})
-        elif known_roles & roles:
+        elif known_roles:
             comparable = previous_scope <= scope
             observations.append({"observation_id": summary["observation_id"], "observed_at": summary["knowledge_cutoff"],
                                  "status": "not_present_in_observation" if comparable else "scope_not_comparable",
                                  "scope_comparable": comparable,
                                  "members": []})
-    return {"refid": refid, "canonical_status": "not_verified",
+    return {"refid": refid, **({"source_role": role} if role is not None else {}), "canonical_status": "not_verified",
             "legal_valid_time": {"status": "unresolved", "from": None, "until": None},
             "observations": observations}
 

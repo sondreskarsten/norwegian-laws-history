@@ -20,6 +20,8 @@ def main(argv=None):
     commands.add_parser("list", help="List accepted observations")
     show = commands.add_parser("show", help="Show a document's source observations, including observed absence")
     show.add_argument("refid")
+    show.add_argument("--role", choices=("laws", "forskrifter", "amendment_acts"),
+                      help="Restrict presence/absence to one archive role, e.g. current regulations")
     raw = commands.add_parser("raw", help="Retrieve exact archived XML after digest verification")
     raw.add_argument("refid")
     raw.add_argument("--observation", required=True)
@@ -66,7 +68,7 @@ def main(argv=None):
         elif args.command == "list":
             result = list_observations(args.repository)
         elif args.command == "show":
-            result = show_document(args.repository, args.refid)
+            result = show_document(args.repository, args.refid, args.role)
         elif args.command == "materialize":
             if args.observation:
                 result = materialize(args.repository, args.observation, args.refid, args.expected_parent)
