@@ -1,0 +1,550 @@
+{
+  "contract": "public-operation-consumer-readback-v1",
+  "status": "verified",
+  "checked_at_utc": "2026-09-25T22:09:33.473927+00:00",
+  "repository": "sondreskarsten/norwegian-laws-history",
+  "public_ledger_commit": "223728a90243bee5cb62cd05a219d9df8787504c",
+  "local_checkout_at_start": "09bb6989c7ab418e1c8da0eaa1e70c5e9afbd313",
+  "workflow": {
+    "run_id": 36192928094,
+    "url": "https://github.com/sondreskarsten/norwegian-laws-history/actions/runs/36192928094",
+    "conclusion": "success",
+    "artifact_id": 10889411169,
+    "publication_report_sha256": "5c333e85d34a8c040ac129d619ec8f58e55424ddb7dfb94b6e5174ee938d3ba5",
+    "observation_report_sha256": "a4dfc5cf041da4d62f6c5c42e9a4503b220e2b9f86ad9e4d8ca548f3fda204e9"
+  },
+  "consumer_runtime": {
+    "python": "3.13.15"
+  },
+  "products": [
+    {
+      "operation_product_id": "c50ffc5258eeaddb4eebf172818c61ef32833340a97104e184b219b424ba9b3f",
+      "observation_id": "ccdbf3e45098076118bf9362b60d31b7a80dc1aab1dcc2e226a4aee58c92b596",
+      "parent_operation_product_id": null,
+      "counts": {
+        "acts": 39208,
+        "claims": 139172,
+        "operations": 99964
+      },
+      "coverage": "all_producer_parsed_act_occurrences_not_source_operation_completeness",
+      "knowledge_cutoff": "2026-09-25T17:40:44.477321+00:00",
+      "legal_valid_time_status": "unresolved",
+      "bundle": {
+        "bytes": 102497361,
+        "name": "operations.tar.gz",
+        "sha256": "03556084c4093eb55ebe3ee9854aa643b4d50957f3648cd697590521eb19ad70",
+        "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/operations-c50ffc5258eeaddb4eebf172818c61ef32833340a97104e184b219b424ba9b3f/operations.tar.gz"
+      },
+      "generator": {
+        "contract": "history-operation-product-v1",
+        "extractor": "history-operation-evidence-v1",
+        "python": "3.12.14",
+        "sources": {
+          "operation_products.py": "50549e7d300eec3ae17da1b41061530b0efec815bdb7c8b41c2a918a29790cbd",
+          "operations.py": "34a214a282daada0c1bd04797a571e29e2522d3b4f53d4173231870cf6146e2f",
+          "validation.py": "f0bf57e4f04e91df17f2c923d32bfdc31735d3fc7c856108b46abad4228622e3"
+        },
+        "zlib": "1.3"
+      },
+      "receipt_sha256": "5a589ae58251d73bdbeef5000f30c5111a31497f6e62ac42e4f6d7965e7c0a8f",
+      "creation_proof_sha256": "2f37e748b61ea585f124ad34bf437702659d2a5c65f26e146b3ea439752b4803",
+      "creation_proof": {
+        "branch": "main",
+        "bundle": {
+          "bytes": 102497361,
+          "name": "operations.tar.gz",
+          "sha256": "03556084c4093eb55ebe3ee9854aa643b4d50957f3648cd697590521eb19ad70",
+          "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/operations-c50ffc5258eeaddb4eebf172818c61ef32833340a97104e184b219b424ba9b3f/operations.tar.gz"
+        },
+        "contract": "history-operation-git-publication-v1",
+        "creation_commit": "def241fa24a78b3f98642630b1ae995719e1818d",
+        "creation_commit_url": "https://github.com/sondreskarsten/norwegian-laws-history/commit/def241fa24a78b3f98642630b1ae995719e1818d",
+        "creation_tree": "4d8fdaf7723a67fab951202e8a1790da30668ace",
+        "expected_git_parent": "0667744eca06beed498234e19dfb0f2ea395ef9e",
+        "git_date_basis": "actual_project_commit_dates_not_legal_or_source_observation_dates",
+        "github_repository": "sondreskarsten/norwegian-laws-history",
+        "observation_id": "ccdbf3e45098076118bf9362b60d31b7a80dc1aab1dcc2e226a4aee58c92b596",
+        "operation_product_id": "c50ffc5258eeaddb4eebf172818c61ef32833340a97104e184b219b424ba9b3f",
+        "operation_product_url": "https://github.com/sondreskarsten/norwegian-laws-history/tree/def241fa24a78b3f98642630b1ae995719e1818d/operation-products/c50ffc5258eeaddb4eebf172818c61ef32833340a97104e184b219b424ba9b3f",
+        "operation_receipt_sha256": "5a589ae58251d73bdbeef5000f30c5111a31497f6e62ac42e4f6d7965e7c0a8f",
+        "operation_tree": "f3b15d706428663a5d5cfe2c30cebaa12c84fd0a",
+        "project_author_date": "2026-09-25T22:03:47Z",
+        "project_committer_date": "2026-09-25T22:03:47Z",
+        "release_tag": "operations-c50ffc5258eeaddb4eebf172818c61ef32833340a97104e184b219b424ba9b3f",
+        "release_verification": "anonymous_download_size_sha256_and_exact_artifact_inventory",
+        "remote_verification": "creation_commit_reachable_from_fetched_destination_branch"
+      },
+      "committed_canonical_receipt_and_proof": "verified",
+      "public_release": {
+        "status": "published_metadata_verified",
+        "release_id": 396951882,
+        "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/tag/operations-c50ffc5258eeaddb4eebf172818c61ef32833340a97104e184b219b424ba9b3f",
+        "tag": "operations-c50ffc5258eeaddb4eebf172818c61ef32833340a97104e184b219b424ba9b3f",
+        "tag_commit": "0667744eca06beed498234e19dfb0f2ea395ef9e",
+        "published_at": "2026-09-25T22:01:25Z",
+        "github_release_immutable": false,
+        "asset_id": 589338725,
+        "asset_bytes": 102497361,
+        "asset_digest": "sha256:03556084c4093eb55ebe3ee9854aa643b4d50957f3648cd697590521eb19ad70",
+        "asset_url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/operations-c50ffc5258eeaddb4eebf172818c61ef32833340a97104e184b219b424ba9b3f/operations.tar.gz",
+        "asset_count": 1,
+        "independently_downloaded_in_this_readback": false
+      },
+      "generator_source_hashes_at_creation_parent": "verified"
+    },
+    {
+      "operation_product_id": "14f8cea9285d8059ce98d96124e9d96ae0848692174336c7314a366e78a6e0fe",
+      "observation_id": "ca32e6b7b13b3435683c450f81cfc1ea0ae4c0a95694a0cde0d7cf2bc20e5f4c",
+      "parent_operation_product_id": "c50ffc5258eeaddb4eebf172818c61ef32833340a97104e184b219b424ba9b3f",
+      "counts": {
+        "acts": 39208,
+        "claims": 139172,
+        "operations": 99964
+      },
+      "coverage": "all_producer_parsed_act_occurrences_not_source_operation_completeness",
+      "knowledge_cutoff": "2026-09-25T18:15:07.434101+00:00",
+      "legal_valid_time_status": "unresolved",
+      "bundle": {
+        "bytes": 102467016,
+        "name": "operations.tar.gz",
+        "sha256": "d1f2ee21f173e779e2b76524f86e5a679b4bbfe0d31b82de98f30a5792f1e97b",
+        "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/operations-14f8cea9285d8059ce98d96124e9d96ae0848692174336c7314a366e78a6e0fe/operations.tar.gz"
+      },
+      "generator": {
+        "contract": "history-operation-product-v1",
+        "extractor": "history-operation-evidence-v1",
+        "python": "3.12.14",
+        "sources": {
+          "operation_products.py": "50549e7d300eec3ae17da1b41061530b0efec815bdb7c8b41c2a918a29790cbd",
+          "operations.py": "34a214a282daada0c1bd04797a571e29e2522d3b4f53d4173231870cf6146e2f",
+          "validation.py": "f0bf57e4f04e91df17f2c923d32bfdc31735d3fc7c856108b46abad4228622e3"
+        },
+        "zlib": "1.3"
+      },
+      "receipt_sha256": "d9ba764ea4ffb506041f981537e6fdc82d1765a6caf0c60b759e5a359a92954e",
+      "creation_proof_sha256": "86d9eeb26956d37aded5715a52ee17d94c2769bed7a408ce3b7bea7b874d7df6",
+      "creation_proof": {
+        "branch": "main",
+        "bundle": {
+          "bytes": 102467016,
+          "name": "operations.tar.gz",
+          "sha256": "d1f2ee21f173e779e2b76524f86e5a679b4bbfe0d31b82de98f30a5792f1e97b",
+          "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/operations-14f8cea9285d8059ce98d96124e9d96ae0848692174336c7314a366e78a6e0fe/operations.tar.gz"
+        },
+        "contract": "history-operation-git-publication-v1",
+        "creation_commit": "def241fa24a78b3f98642630b1ae995719e1818d",
+        "creation_commit_url": "https://github.com/sondreskarsten/norwegian-laws-history/commit/def241fa24a78b3f98642630b1ae995719e1818d",
+        "creation_tree": "4d8fdaf7723a67fab951202e8a1790da30668ace",
+        "expected_git_parent": "0667744eca06beed498234e19dfb0f2ea395ef9e",
+        "git_date_basis": "actual_project_commit_dates_not_legal_or_source_observation_dates",
+        "github_repository": "sondreskarsten/norwegian-laws-history",
+        "observation_id": "ca32e6b7b13b3435683c450f81cfc1ea0ae4c0a95694a0cde0d7cf2bc20e5f4c",
+        "operation_product_id": "14f8cea9285d8059ce98d96124e9d96ae0848692174336c7314a366e78a6e0fe",
+        "operation_product_url": "https://github.com/sondreskarsten/norwegian-laws-history/tree/def241fa24a78b3f98642630b1ae995719e1818d/operation-products/14f8cea9285d8059ce98d96124e9d96ae0848692174336c7314a366e78a6e0fe",
+        "operation_receipt_sha256": "d9ba764ea4ffb506041f981537e6fdc82d1765a6caf0c60b759e5a359a92954e",
+        "operation_tree": "b9fdbf5a9a7696c9ec53bd5c6d7e198480838236",
+        "project_author_date": "2026-09-25T22:03:47Z",
+        "project_committer_date": "2026-09-25T22:03:47Z",
+        "release_tag": "operations-14f8cea9285d8059ce98d96124e9d96ae0848692174336c7314a366e78a6e0fe",
+        "release_verification": "anonymous_download_size_sha256_and_exact_artifact_inventory",
+        "remote_verification": "creation_commit_reachable_from_fetched_destination_branch"
+      },
+      "committed_canonical_receipt_and_proof": "verified",
+      "public_release": {
+        "status": "published_metadata_verified",
+        "release_id": 396952153,
+        "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/tag/operations-14f8cea9285d8059ce98d96124e9d96ae0848692174336c7314a366e78a6e0fe",
+        "tag": "operations-14f8cea9285d8059ce98d96124e9d96ae0848692174336c7314a366e78a6e0fe",
+        "tag_commit": "0667744eca06beed498234e19dfb0f2ea395ef9e",
+        "published_at": "2026-09-25T22:01:59Z",
+        "github_release_immutable": false,
+        "asset_id": 589339529,
+        "asset_bytes": 102467016,
+        "asset_digest": "sha256:d1f2ee21f173e779e2b76524f86e5a679b4bbfe0d31b82de98f30a5792f1e97b",
+        "asset_url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/operations-14f8cea9285d8059ce98d96124e9d96ae0848692174336c7314a366e78a6e0fe/operations.tar.gz",
+        "asset_count": 1,
+        "independently_downloaded_in_this_readback": false
+      },
+      "generator_source_hashes_at_creation_parent": "verified"
+    },
+    {
+      "operation_product_id": "cf7dbf59fbb16fd2a02e9fa8fbdb4043dbac5d056aaa2b2fa8459d81eb7b2d1d",
+      "observation_id": "e378587b33f6b9354af0bfa6fd57d237c3fefd0ff43a16b1fe0abdd4d9b73fb5",
+      "parent_operation_product_id": "14f8cea9285d8059ce98d96124e9d96ae0848692174336c7314a366e78a6e0fe",
+      "counts": {
+        "acts": 39208,
+        "claims": 139172,
+        "operations": 99964
+      },
+      "coverage": "all_producer_parsed_act_occurrences_not_source_operation_completeness",
+      "knowledge_cutoff": "2026-09-25T19:08:47.117452+00:00",
+      "legal_valid_time_status": "unresolved",
+      "bundle": {
+        "bytes": 102467696,
+        "name": "operations.tar.gz",
+        "sha256": "e616bb74960c2a2d50d32ace6a9ddce4d0cda5b95998e631c5688578d7a4ab94",
+        "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/operations-cf7dbf59fbb16fd2a02e9fa8fbdb4043dbac5d056aaa2b2fa8459d81eb7b2d1d/operations.tar.gz"
+      },
+      "generator": {
+        "contract": "history-operation-product-v1",
+        "extractor": "history-operation-evidence-v1",
+        "python": "3.12.14",
+        "sources": {
+          "operation_products.py": "50549e7d300eec3ae17da1b41061530b0efec815bdb7c8b41c2a918a29790cbd",
+          "operations.py": "34a214a282daada0c1bd04797a571e29e2522d3b4f53d4173231870cf6146e2f",
+          "validation.py": "f0bf57e4f04e91df17f2c923d32bfdc31735d3fc7c856108b46abad4228622e3"
+        },
+        "zlib": "1.3"
+      },
+      "receipt_sha256": "f9e3179db72eb68489465361265edcc70ee70df4942754964982a84b90b6f00c",
+      "creation_proof_sha256": "b2fe7e3e5e1220a7378d0ded6a98cea8465f8d36e4d2c30b22762d71db9a26c3",
+      "creation_proof": {
+        "branch": "main",
+        "bundle": {
+          "bytes": 102467696,
+          "name": "operations.tar.gz",
+          "sha256": "e616bb74960c2a2d50d32ace6a9ddce4d0cda5b95998e631c5688578d7a4ab94",
+          "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/operations-cf7dbf59fbb16fd2a02e9fa8fbdb4043dbac5d056aaa2b2fa8459d81eb7b2d1d/operations.tar.gz"
+        },
+        "contract": "history-operation-git-publication-v1",
+        "creation_commit": "def241fa24a78b3f98642630b1ae995719e1818d",
+        "creation_commit_url": "https://github.com/sondreskarsten/norwegian-laws-history/commit/def241fa24a78b3f98642630b1ae995719e1818d",
+        "creation_tree": "4d8fdaf7723a67fab951202e8a1790da30668ace",
+        "expected_git_parent": "0667744eca06beed498234e19dfb0f2ea395ef9e",
+        "git_date_basis": "actual_project_commit_dates_not_legal_or_source_observation_dates",
+        "github_repository": "sondreskarsten/norwegian-laws-history",
+        "observation_id": "e378587b33f6b9354af0bfa6fd57d237c3fefd0ff43a16b1fe0abdd4d9b73fb5",
+        "operation_product_id": "cf7dbf59fbb16fd2a02e9fa8fbdb4043dbac5d056aaa2b2fa8459d81eb7b2d1d",
+        "operation_product_url": "https://github.com/sondreskarsten/norwegian-laws-history/tree/def241fa24a78b3f98642630b1ae995719e1818d/operation-products/cf7dbf59fbb16fd2a02e9fa8fbdb4043dbac5d056aaa2b2fa8459d81eb7b2d1d",
+        "operation_receipt_sha256": "f9e3179db72eb68489465361265edcc70ee70df4942754964982a84b90b6f00c",
+        "operation_tree": "cc39c8ce749d896a07207fc6fc945887a1be9b55",
+        "project_author_date": "2026-09-25T22:03:47Z",
+        "project_committer_date": "2026-09-25T22:03:47Z",
+        "release_tag": "operations-cf7dbf59fbb16fd2a02e9fa8fbdb4043dbac5d056aaa2b2fa8459d81eb7b2d1d",
+        "release_verification": "anonymous_download_size_sha256_and_exact_artifact_inventory",
+        "remote_verification": "creation_commit_reachable_from_fetched_destination_branch"
+      },
+      "committed_canonical_receipt_and_proof": "verified",
+      "public_release": {
+        "status": "published_metadata_verified",
+        "release_id": 396952388,
+        "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/tag/operations-cf7dbf59fbb16fd2a02e9fa8fbdb4043dbac5d056aaa2b2fa8459d81eb7b2d1d",
+        "tag": "operations-cf7dbf59fbb16fd2a02e9fa8fbdb4043dbac5d056aaa2b2fa8459d81eb7b2d1d",
+        "tag_commit": "0667744eca06beed498234e19dfb0f2ea395ef9e",
+        "published_at": "2026-09-25T22:02:32Z",
+        "github_release_immutable": false,
+        "asset_id": 589340354,
+        "asset_bytes": 102467696,
+        "asset_digest": "sha256:e616bb74960c2a2d50d32ace6a9ddce4d0cda5b95998e631c5688578d7a4ab94",
+        "asset_url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/operations-cf7dbf59fbb16fd2a02e9fa8fbdb4043dbac5d056aaa2b2fa8459d81eb7b2d1d/operations.tar.gz",
+        "asset_count": 1,
+        "independently_downloaded_in_this_readback": false
+      },
+      "generator_source_hashes_at_creation_parent": "verified"
+    },
+    {
+      "operation_product_id": "b4744636a163990311e48a860308cb7140b303f50f8c58711f1892c49e9f702c",
+      "observation_id": "3cd28f0210e7e2c25f83bf575be0888c1254761a99afcf38bc4135ff4b2beaa1",
+      "parent_operation_product_id": "cf7dbf59fbb16fd2a02e9fa8fbdb4043dbac5d056aaa2b2fa8459d81eb7b2d1d",
+      "counts": {
+        "acts": 39208,
+        "claims": 139172,
+        "operations": 99964
+      },
+      "coverage": "all_producer_parsed_act_occurrences_not_source_operation_completeness",
+      "knowledge_cutoff": "2026-09-25T19:42:24.374140+00:00",
+      "legal_valid_time_status": "unresolved",
+      "bundle": {
+        "bytes": 102496417,
+        "name": "operations.tar.gz",
+        "sha256": "71ff8e1bdb86023c96f29c10783e47f87716a063f02fe50feaee7e1a8efeb44b",
+        "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/operations-b4744636a163990311e48a860308cb7140b303f50f8c58711f1892c49e9f702c/operations.tar.gz"
+      },
+      "generator": {
+        "contract": "history-operation-product-v1",
+        "extractor": "history-operation-evidence-v1",
+        "python": "3.12.14",
+        "sources": {
+          "operation_products.py": "50549e7d300eec3ae17da1b41061530b0efec815bdb7c8b41c2a918a29790cbd",
+          "operations.py": "34a214a282daada0c1bd04797a571e29e2522d3b4f53d4173231870cf6146e2f",
+          "validation.py": "f0bf57e4f04e91df17f2c923d32bfdc31735d3fc7c856108b46abad4228622e3"
+        },
+        "zlib": "1.3"
+      },
+      "receipt_sha256": "23a7034643ec99153497b59ac66ca3118c6e8d2814635daa2ac74c1f11a122f0",
+      "creation_proof_sha256": "defc72bc555f83676a9d9e47321e88f34f0597e9530d0c40c6ae3b80155d3fe8",
+      "creation_proof": {
+        "branch": "main",
+        "bundle": {
+          "bytes": 102496417,
+          "name": "operations.tar.gz",
+          "sha256": "71ff8e1bdb86023c96f29c10783e47f87716a063f02fe50feaee7e1a8efeb44b",
+          "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/operations-b4744636a163990311e48a860308cb7140b303f50f8c58711f1892c49e9f702c/operations.tar.gz"
+        },
+        "contract": "history-operation-git-publication-v1",
+        "creation_commit": "def241fa24a78b3f98642630b1ae995719e1818d",
+        "creation_commit_url": "https://github.com/sondreskarsten/norwegian-laws-history/commit/def241fa24a78b3f98642630b1ae995719e1818d",
+        "creation_tree": "4d8fdaf7723a67fab951202e8a1790da30668ace",
+        "expected_git_parent": "0667744eca06beed498234e19dfb0f2ea395ef9e",
+        "git_date_basis": "actual_project_commit_dates_not_legal_or_source_observation_dates",
+        "github_repository": "sondreskarsten/norwegian-laws-history",
+        "observation_id": "3cd28f0210e7e2c25f83bf575be0888c1254761a99afcf38bc4135ff4b2beaa1",
+        "operation_product_id": "b4744636a163990311e48a860308cb7140b303f50f8c58711f1892c49e9f702c",
+        "operation_product_url": "https://github.com/sondreskarsten/norwegian-laws-history/tree/def241fa24a78b3f98642630b1ae995719e1818d/operation-products/b4744636a163990311e48a860308cb7140b303f50f8c58711f1892c49e9f702c",
+        "operation_receipt_sha256": "23a7034643ec99153497b59ac66ca3118c6e8d2814635daa2ac74c1f11a122f0",
+        "operation_tree": "092ecd22f8b522be011771e3de6994f95a792296",
+        "project_author_date": "2026-09-25T22:03:47Z",
+        "project_committer_date": "2026-09-25T22:03:47Z",
+        "release_tag": "operations-b4744636a163990311e48a860308cb7140b303f50f8c58711f1892c49e9f702c",
+        "release_verification": "anonymous_download_size_sha256_and_exact_artifact_inventory",
+        "remote_verification": "creation_commit_reachable_from_fetched_destination_branch"
+      },
+      "committed_canonical_receipt_and_proof": "verified",
+      "public_release": {
+        "status": "published_metadata_verified",
+        "release_id": 396952614,
+        "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/tag/operations-b4744636a163990311e48a860308cb7140b303f50f8c58711f1892c49e9f702c",
+        "tag": "operations-b4744636a163990311e48a860308cb7140b303f50f8c58711f1892c49e9f702c",
+        "tag_commit": "0667744eca06beed498234e19dfb0f2ea395ef9e",
+        "published_at": "2026-09-25T22:03:07Z",
+        "github_release_immutable": false,
+        "asset_id": 589341460,
+        "asset_bytes": 102496417,
+        "asset_digest": "sha256:71ff8e1bdb86023c96f29c10783e47f87716a063f02fe50feaee7e1a8efeb44b",
+        "asset_url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/operations-b4744636a163990311e48a860308cb7140b303f50f8c58711f1892c49e9f702c/operations.tar.gz",
+        "asset_count": 1,
+        "independently_downloaded_in_this_readback": false
+      },
+      "generator_source_hashes_at_creation_parent": "verified"
+    },
+    {
+      "operation_product_id": "b88e8efbc7fc3d1f31baa4fad467e2360e5d2b958eefa17d98a25b6566e0ed08",
+      "observation_id": "26bef8aa2c51211e765f193aceee91e2b16a6c18f515c277b379fe3000bd1c7f",
+      "parent_operation_product_id": "b4744636a163990311e48a860308cb7140b303f50f8c58711f1892c49e9f702c",
+      "counts": {
+        "acts": 39208,
+        "claims": 139172,
+        "operations": 99964
+      },
+      "coverage": "all_producer_parsed_act_occurrences_not_source_operation_completeness",
+      "knowledge_cutoff": "2026-09-25T20:34:28.621501+00:00",
+      "legal_valid_time_status": "unresolved",
+      "bundle": {
+        "bytes": 102468090,
+        "name": "operations.tar.gz",
+        "sha256": "0bdb7f35e9ae74bbc8e017a019f5a5ad9cbd947c269fe3c7c8858b9ff68de7e9",
+        "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/operations-b88e8efbc7fc3d1f31baa4fad467e2360e5d2b958eefa17d98a25b6566e0ed08/operations.tar.gz"
+      },
+      "generator": {
+        "contract": "history-operation-product-v1",
+        "extractor": "history-operation-evidence-v1",
+        "python": "3.12.14",
+        "sources": {
+          "operation_products.py": "50549e7d300eec3ae17da1b41061530b0efec815bdb7c8b41c2a918a29790cbd",
+          "operations.py": "34a214a282daada0c1bd04797a571e29e2522d3b4f53d4173231870cf6146e2f",
+          "validation.py": "f0bf57e4f04e91df17f2c923d32bfdc31735d3fc7c856108b46abad4228622e3"
+        },
+        "zlib": "1.3"
+      },
+      "receipt_sha256": "58bd8c2f715a51ff5a53860028378f22d8502bddf7b61e3d05caefbd38de3c5a",
+      "creation_proof_sha256": "3702669ffe0632b10aea64e03067652a06440299146fe44e0de50d67636649b2",
+      "creation_proof": {
+        "branch": "main",
+        "bundle": {
+          "bytes": 102468090,
+          "name": "operations.tar.gz",
+          "sha256": "0bdb7f35e9ae74bbc8e017a019f5a5ad9cbd947c269fe3c7c8858b9ff68de7e9",
+          "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/operations-b88e8efbc7fc3d1f31baa4fad467e2360e5d2b958eefa17d98a25b6566e0ed08/operations.tar.gz"
+        },
+        "contract": "history-operation-git-publication-v1",
+        "creation_commit": "def241fa24a78b3f98642630b1ae995719e1818d",
+        "creation_commit_url": "https://github.com/sondreskarsten/norwegian-laws-history/commit/def241fa24a78b3f98642630b1ae995719e1818d",
+        "creation_tree": "4d8fdaf7723a67fab951202e8a1790da30668ace",
+        "expected_git_parent": "0667744eca06beed498234e19dfb0f2ea395ef9e",
+        "git_date_basis": "actual_project_commit_dates_not_legal_or_source_observation_dates",
+        "github_repository": "sondreskarsten/norwegian-laws-history",
+        "observation_id": "26bef8aa2c51211e765f193aceee91e2b16a6c18f515c277b379fe3000bd1c7f",
+        "operation_product_id": "b88e8efbc7fc3d1f31baa4fad467e2360e5d2b958eefa17d98a25b6566e0ed08",
+        "operation_product_url": "https://github.com/sondreskarsten/norwegian-laws-history/tree/def241fa24a78b3f98642630b1ae995719e1818d/operation-products/b88e8efbc7fc3d1f31baa4fad467e2360e5d2b958eefa17d98a25b6566e0ed08",
+        "operation_receipt_sha256": "58bd8c2f715a51ff5a53860028378f22d8502bddf7b61e3d05caefbd38de3c5a",
+        "operation_tree": "d31d8817da96f9983961e4e354776bdf3b029120",
+        "project_author_date": "2026-09-25T22:03:47Z",
+        "project_committer_date": "2026-09-25T22:03:47Z",
+        "release_tag": "operations-b88e8efbc7fc3d1f31baa4fad467e2360e5d2b958eefa17d98a25b6566e0ed08",
+        "release_verification": "anonymous_download_size_sha256_and_exact_artifact_inventory",
+        "remote_verification": "creation_commit_reachable_from_fetched_destination_branch"
+      },
+      "committed_canonical_receipt_and_proof": "verified",
+      "public_release": {
+        "status": "published_metadata_verified",
+        "release_id": 396952856,
+        "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/tag/operations-b88e8efbc7fc3d1f31baa4fad467e2360e5d2b958eefa17d98a25b6566e0ed08",
+        "tag": "operations-b88e8efbc7fc3d1f31baa4fad467e2360e5d2b958eefa17d98a25b6566e0ed08",
+        "tag_commit": "0667744eca06beed498234e19dfb0f2ea395ef9e",
+        "published_at": "2026-09-25T22:03:40Z",
+        "github_release_immutable": false,
+        "asset_id": 589342165,
+        "asset_bytes": 102468090,
+        "asset_digest": "sha256:0bdb7f35e9ae74bbc8e017a019f5a5ad9cbd947c269fe3c7c8858b9ff68de7e9",
+        "asset_url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/operations-b88e8efbc7fc3d1f31baa4fad467e2360e5d2b958eefa17d98a25b6566e0ed08/operations.tar.gz",
+        "asset_count": 1,
+        "independently_downloaded_in_this_readback": true
+      },
+      "generator_source_hashes_at_creation_parent": "verified"
+    }
+  ],
+  "latest_download": {
+    "status": "verified",
+    "anonymous": true,
+    "fresh_cache": true,
+    "url": "https://github.com/sondreskarsten/norwegian-laws-history/releases/download/operations-b88e8efbc7fc3d1f31baa4fad467e2360e5d2b958eefa17d98a25b6566e0ed08/operations.tar.gz",
+    "bytes": 102468090,
+    "sha256": "0bdb7f35e9ae74bbc8e017a019f5a5ad9cbd947c269fe3c7c8858b9ff68de7e9",
+    "elapsed_seconds": 9.432,
+    "artifact_count": 43,
+    "exact_bundle_members_and_hashes": "verified"
+  },
+  "full_product_read": {
+    "status": "verified",
+    "operation_product_id": "b88e8efbc7fc3d1f31baa4fad467e2360e5d2b958eefa17d98a25b6566e0ed08",
+    "elapsed_seconds": 44.217,
+    "counts": {
+      "acts": 39208,
+      "claims": 139172,
+      "operations": 99964
+    },
+    "checks": [
+      "exact artifact membership and bytes",
+      "every shard and index row",
+      "all producer act records and operations match accepted source catalog identities",
+      "source observation clocks and manifest bindings",
+      "all initial claim bounds are unresolved with null from/until"
+    ]
+  },
+  "cli_read": {
+    "status": "found",
+    "portable_command": "python -m law_history --repository LEDGER operations forskrift/2025-05-28-955 --product b88e8efbc7fc3d1f31baa4fad467e2360e5d2b958eefa17d98a25b6566e0ed08",
+    "exit_code": 0,
+    "output_sha256": "059d203b553a4156d3d5c34a256aacd8798c6c8d249fb42fc90a8799b3ebfba6",
+    "refid": "forskrift/2025-05-28-955",
+    "occurrences": 1,
+    "operations": 1,
+    "claims": 2,
+    "source_member": {
+      "archive_ordinal": 2,
+      "archive_sha256": "c9780176c37df85d3bdcb49240b0aafcba70fe018e17afc4317404742f0b4e6a",
+      "member_ordinal": 37034,
+      "member_path": "lti/2025/sf-20250528-0955.xml",
+      "member_sha256": "4204439d2013a94dda7b5fad474f6e8d270b7a4cca9b713d4827247f3b13cca3",
+      "member_size_bytes": 3367,
+      "member_type": "file",
+      "parse_status": "parsed",
+      "parsed_model_sha256": "dee01842289349baa0c833670edf4f44760c8bc46aa3a1e7a28fc49088984585",
+      "parsed_occurrence_ordinal": 37009,
+      "refid": "forskrift/2025-05-28-955",
+      "role": "amendment_acts",
+      "selected": true,
+      "selected_output_path": "amendments.db",
+      "selected_output_sha256": "2aa9f04bbd32bbb1edecfaaf4179883328357ee358b58b5981bc95f1190a51ee",
+      "source_occurrence_id": "04b513e26d419e1c30cf82e778f92ae40c4c04bd12b9dc409b523604f3272dc4"
+    },
+    "clocks": {
+      "historical_knowledge_time": {
+        "at": null,
+        "status": "unknown"
+      },
+      "knowledge_cutoff": "2026-09-25T20:34:28.621501+00:00",
+      "knowledge_cutoff_basis": "local_archive_observation",
+      "observed_at": "2026-09-25T20:27:17.394487+00:00",
+      "release_publication": {
+        "assertion": null,
+        "status": "unknown"
+      },
+      "retrieval_time_status": "recorded",
+      "retrieved_at": "2026-09-25T20:24:32.878771+00:00",
+      "source_date_in_force": "2025-06-15",
+      "source_date_published": "2025-06-06 14:50",
+      "source_last_modified": "2026-09-14T01:31:00Z"
+    },
+    "operation": {
+      "act_id": "b67f979594c67cd639d6caf07fa06c08aac12ae1eeb4d21469ea81dbe34bb800",
+      "contract": "history-operation-evidence-v1",
+      "observation_id": "26bef8aa2c51211e765f193aceee91e2b16a6c18f515c277b379fe3000bd1c7f",
+      "operation_id": "7688857b04928159976831958f6574bfff824a1a672af24644e60df96af78cf3",
+      "operation_ordinal": 0,
+      "parsed_evidence": {
+        "artifact_path": "parsed-amendment-acts.v1.jsonl",
+        "artifact_sha256": "328d899cbae1503794b9d615a0b767f25c38ea2bc71551403433ccf043b5f8ba",
+        "json_pointer": "/record/amendments/0",
+        "parsed_occurrence_ordinal": 37009
+      },
+      "parsed_model_sha256": "dee01842289349baa0c833670edf4f44760c8bc46aa3a1e7a28fc49088984585",
+      "parsed_revision_id": "b61385af119e0acdf718cb3ee264ec2fdbd3a192449c266c248efb9ef6592d59",
+      "producer_record": {
+        "change_type": "change",
+        "instruction": "§ 3 skal lyde:",
+        "new_text": "§ 3.Lønnsbestemmelser\nArbeidstakere som utfører arbeid i henhold til § 2, skal minst ha en lønn per time på kroner 218,62.",
+        "target": "§ 3 s",
+        "target_law": "forskrift/2024-10-21-2534"
+      },
+      "producer_status": {
+        "operation_status": "identified",
+        "ordinal": 0,
+        "target_status": "identified"
+      },
+      "source_alignment": {
+        "candidates": [
+          {
+            "element_id": null,
+            "member_sha256": "4204439d2013a94dda7b5fad474f6e8d270b7a4cca9b713d4827247f3b13cca3",
+            "path": "/html[1]/body[1]/main[1]/section[1]/article[2]",
+            "path_version": "xml-element-sibling-path-v1",
+            "source_occurrence_id": "04b513e26d419e1c30cf82e778f92ae40c4c04bd12b9dc409b523604f3272dc4"
+          }
+        ],
+        "method": "xml_block_text_ascii_whitespace_v1",
+        "reason": null,
+        "status": "unique_text_match"
+      },
+      "source_occurrence_id": "04b513e26d419e1c30cf82e778f92ae40c4c04bd12b9dc409b523604f3272dc4",
+      "target_resolution": {
+        "basis": "producer_candidate_only",
+        "candidate_document": "forskrift/2024-10-21-2534",
+        "candidate_expression": "§ 3 s",
+        "status": "unresolved"
+      }
+    },
+    "initial_claim_legal_bounds": [
+      {
+        "from": null,
+        "reason": "source_expressions_have_not_been_scoped_or_legally_interpreted",
+        "status": "unresolved",
+        "until": null
+      },
+      {
+        "from": null,
+        "reason": "source_expressions_have_not_been_scoped_or_legally_interpreted",
+        "status": "unresolved",
+        "until": null
+      }
+    ],
+    "raw_binding": {
+      "status": "verified",
+      "source": "previously retained raw archive, rehashed and bound to latest public input manifest",
+      "archive_sha256": "c9780176c37df85d3bdcb49240b0aafcba70fe018e17afc4317404742f0b4e6a",
+      "member_sha256": "4204439d2013a94dda7b5fad474f6e8d270b7a4cca9b713d4827247f3b13cca3",
+      "bytes": 3367
+    },
+    "claim_reason": "source_expressions_have_not_been_scoped_or_legally_interpreted"
+  },
+  "retained_public_receipts_and_proofs_unchanged": true,
+  "local_checkout_at_end": "8de030db38ef082101316573d1cd96d1cd8ff8c8",
+  "limits": [
+    "Latest operation bundle independently downloaded and fully read here; four earlier bundles only checked by canonical receipts, creation proofs, live release metadata and the successful production readback report.",
+    "No re-extraction/regeneration of any operation product.",
+    "Raw XML readback covers one actual amendment, not every raw source member.",
+    "Operation coverage is the producer parsed inventory, not proof of source completeness or historical legal correctness.",
+    "GitHub reports releases are not immutable; content-addressed receipts detect changed bytes but do not enforce hosting retention.",
+    "This is public consumer readback, not an offline reproduction, clean-fork acceptance or subsequent scheduled cycle."
+  ]
+}

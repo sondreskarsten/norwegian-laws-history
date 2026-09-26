@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '30 4 * * *'
   workflow_dispatch:
+    inputs:
+      regenerate_body_observation:
+        description: Optional full accepted observation ID to qualify with the current renderer
+        required: false
+        default: ''
   push:
     branches: [main]
     paths:
@@ -40,6 +45,15 @@ jobs:
           set -o pipefail
           python .github/scripts/ingest_public_observations.py --producer "$PRODUCER" \
             --report "$RUNNER_TEMP/observation-readback.json" 2>&1 | tee "$RUNNER_TEMP/observation-intake.log"
+      - name: Append an explicitly requested body representation
+        if: github.event_name == 'workflow_dispatch' && inputs.regenerate_body_observation != ''
+        env:
+          BODY_OBSERVATION: ${{ inputs.regenerate_body_observation }}
+          HISTORY_REPOSITORY: ${{ github.repository }}
+        run: |
+          python -m law_history qualify-bodies --observation "$BODY_OBSERVATION" \
+            --github-repository "$HISTORY_REPOSITORY" > "$RUNNER_TEMP/body-regeneration.json"
+
       - name: Publish checked observations, body and operation products, and Git receipts
         env:
           HISTORY_REPOSITORY: ${{ github.repository }}
@@ -60,5 +74,6 @@ jobs:
             ${{ runner.temp }}/publication-readback.json
             ${{ runner.temp }}/observation-intake.log
             ${{ runner.temp }}/observation-publication.log
+            ${{ runner.temp }}/body-regeneration.json
           retention-days: 30
           if-no-files-found: warn

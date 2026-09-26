@@ -96,8 +96,8 @@ The equivalent local command, using the matching Python version and generator, i
 For accepted snapshot-v5 evidence, `qualify-bodies` accounts for every selected
 law and regulation. Each document either has a qualified ordered body with
 standalone HTML, or an explicit rejection with its original XML still available.
-The grammar currently supports declared links, notes and simple column-spanning
-tables; unsupported structures remain rejected. A complete inventory does not
+The grammar supports declared links, notes, simple column-spanning tables,
+source-labelled nested lists and additional article headings; unsupported structures remain rejected. A complete inventory does not
 mean every document qualifies.
 
 ```text
@@ -146,6 +146,26 @@ python -m law_history.reproduce_bodies BODY_PRODUCT_ID --report body-reproductio
 
 This verifies a published representation; it does not establish legal validity
 or replace a clean-fork publication rehearsal.
+
+The observation workflow preserves existing representations during routine
+catch-up. To apply an updated renderer to a retained observation, run it manually
+with `regenerate_body_observation` set to that complete observation ID. It appends
+a new representation and publishes it through the same checked path; previous
+receipts and release bundles remain unchanged.
+
+## Exporting the observed-history reader
+
+```text
+python -m law_history.reader_export --repository . --output reader-export
+```
+
+The destination must not exist. Export checks committed product receipts and
+their actual Git publication proofs, pins the checkout, verifies artifact and
+payload bytes, and emits a compact index with all retained versions. Qualified
+HTML is copied exactly; rejected versions contain reasons and source links.
+The current-law publisher uses this export for its observed-version reader.
+Export neither changes the ledger nor requalifies older products with a newer
+renderer. Its dates describe observations, not legal effective dates.
 
 ## Proposed later interpretations
 
