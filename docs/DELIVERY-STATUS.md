@@ -1,5 +1,7 @@
 # Delivery status
 
+**Update 30 October 2026.** The evidence ledger continues unchanged (55 scheduled intake runs succeeded through 29 October). The current-law repository restored its nightly `law-history` reconstruction and bound its publication commits to source digests and parser identity; the reader's history links point there again. Issues #4, #5, #6 and #8 (structural gate, canonical format, temporal claims, observed pilot) are closed as not planned: the reconstruction scope moved to the laws repository, and this repository's remaining role is retention and retrieval of exact sources and qualified bodies. The `fix/reliable-history-delivery` branch was merged and deleted. The rest of this document describes the state on 26 September 2026.
+
 Updated 26 September 2026. This document supersedes earlier status summaries; dated evidence files retain the results of their own runs. Work stays in `github.com/sondreskarsten` on `fix/reliable-laws-delivery` and `fix/reliable-history-delivery`. Preserve generated branches, historical references and immutable publications. No cloud handoff or DNB migration is part of delivery.
 
 Implementation stopped at the user's request. See [WIND-DOWN.md](WIND-DOWN.md) for the complete unfinished-work record and recoverable code archive. Active runtime remains the merged v10 code.
