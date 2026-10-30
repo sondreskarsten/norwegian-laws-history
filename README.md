@@ -1,6 +1,6 @@
 # Norwegian laws: observed source history
 
-**Delivery resumed, 26 September 2026:** [delivered functionality, unfinished work and pending runs](docs/DELIVERY-STATUS.md).
+**Position, 30 October 2026:** this repository is the evidence ledger. It keeps accepting daily observations and publishing qualified bodies as described below, and the current-law reader still embeds its export. User-facing history (yearly reconstructions, per-act commits, the MCP tools) lives in the [norwegian-laws](https://github.com/sondreskarsten/norwegian-laws) repository on its nightly `law-history` branch; reliable legal-date reconstruction is not delivered by either repository. See [DELIVERY-STATUS.md](docs/DELIVERY-STATUS.md) and the laws repository's [stress-test log](https://github.com/sondreskarsten/norwegian-laws/blob/main/docs/STRESS-TEST-2026-10-29.md).
 
 This repository independently verifies published Lovdata evidence releases and records which source bytes were observed. It can show a document's observations and retrieve its exact archived XML. It does not reconstruct past legal states or infer commencement or repeal dates.
 
