@@ -35,7 +35,7 @@ class PublicObservationCatchupTests(unittest.TestCase):
                              published_at=str(i), assets=[{'name': n} for n in ('evidence.json', 'snapshot.tar.gz')])
                          for i, r in enumerate([old_receipt, new_receipt])]
 
-    def run_catchup(self, report, *, fail_body=False):
+    def run_catchup(self, report, *, fail_body=False, max_new=None):
         with contextlib.ExitStack() as stack:
             stack.enter_context(patch.object(catchup, 'releases', return_value=reversed(self.releases)))
             stack.enter_context(patch.object(catchup, 'load_receipt', side_effect=lambda url: load_receipt(str(self.paths[url]))))
@@ -44,7 +44,7 @@ class PublicObservationCatchupTests(unittest.TestCase):
             stack.enter_context(contextlib.redirect_stdout(io.StringIO()))
             if fail_body:
                 stack.enter_context(patch.object(catchup, 'qualify_all', side_effect=RuntimeError('body catch-up failed')))
-            return catchup.synchronize(self.repository, 'fixture/evidence', report_path=report)
+            return catchup.synchronize(self.repository, 'fixture/evidence', report_path=report, max_new=max_new)
 
     def test_v4_pilot_operations_and_v5_full_body_catchup_replay(self):
         report_path = self.root / 'diagnostics/readback.json'
@@ -80,6 +80,18 @@ class PublicObservationCatchupTests(unittest.TestCase):
         self.releases[1]['assets'] = [{'name': 'evidence.json'}, {'name': 'laws-index.sqlite.gz'}]
         with self.assertRaisesRegex(ValueError, 'Unexpected assets in producer observation'):
             self.run_catchup(self.root / 'diagnostics/missing.json')
+
+    def test_cap_on_new_observations_defers_the_rest_to_the_next_run(self):
+        first = self.run_catchup(self.root / 'diagnostics/capped.json', max_new=1)
+        self.assertEqual(first['status'], 'completed')
+        self.assertEqual([r['observation_id'] for r in first['observations']], self.identities[:1])
+        self.assertEqual(first['observations'][0]['status'], 'accepted')
+        self.assertEqual(first['deferred_observations'], 1)
+        second = self.run_catchup(self.root / 'diagnostics/capped-again.json', max_new=1)
+        self.assertEqual([r['status'] for r in second['observations']], ['already_present', 'accepted'])
+        self.assertEqual(second['deferred_observations'], 0)
+        third = self.run_catchup(self.root / 'diagnostics/capped-done.json', max_new=1)
+        self.assertEqual([r['status'] for r in third['observations']], ['already_present', 'already_present'])
 
     def test_failure_retains_completed_work_and_does_not_report_success(self):
         report_path = self.root / 'diagnostics/failed.json'

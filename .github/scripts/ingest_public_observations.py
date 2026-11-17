@@ -35,11 +35,12 @@ def releases(repository: str):
         page += 1
 
 
-def synchronize(repository: Path, producer: str, *, report_path: Path | None = None) -> dict:
+def synchronize(repository: Path, producer: str, *, report_path: Path | None = None,
+                max_new: int | None = None) -> dict:
     report = {'version': 4, 'producer': producer, 'status': 'running',
               'observations': [], 'materializations': [], 'operation_products': [], 'body_products': [],
               'publication_status': 'not_attempted', 'canonical_status': 'not_verified',
-              'legal_valid_time_status': 'unresolved'}
+              'legal_valid_time_status': 'unresolved', 'deferred_observations': 0}
 
     def checkpoint(phase: str, **progress):
         report['phase'] = phase
@@ -60,7 +61,13 @@ def synchronize(repository: Path, producer: str, *, report_path: Path | None = N
                       if not release['draft'] and re.fullmatch(r'observation-[0-9a-f]{64}', release['tag_name'])]
         # Oldest release first makes catch-up progress easy to inspect. The ledger
         # itself orders by observed source time, never by publication/Git date.
+        accepted = 0
         for ordinal, release in enumerate(sorted(candidates, key=lambda item: (item['published_at'], item['tag_name'])), 1):
+            if max_new is not None and accepted >= max_new:
+                report['deferred_observations'] = len(candidates) - ordinal + 1
+                checkpoint('observation_intake', ordinal=ordinal, total=len(candidates), status='deferred',
+                           deferred=report['deferred_observations'])
+                break
             tag = release['tag_name']
             checkpoint('observation_intake', release=tag, ordinal=ordinal, total=len(candidates), status='started')
             names = [asset['name'] for asset in release['assets']]
@@ -75,6 +82,7 @@ def synchronize(repository: Path, producer: str, *, report_path: Path | None = N
             summary = {key: result[key] for key in ('observation_id', 'status', 'knowledge_cutoff', 'member_count')}
             summary['snapshot_version'] = receipt['snapshot_version']
             report['observations'].append(summary)
+            accepted += summary['status'] != 'already_present'
             checkpoint('observation_intake', ordinal=ordinal, total=len(candidates), **summary)
         checkpoint('pilot_materialization', status='started')
         for result in materialize_all(repository):
@@ -113,5 +121,6 @@ if __name__ == '__main__':
     parser.add_argument('--repository', type=Path, default=Path('.'))
     parser.add_argument('--producer', default='sondreskarsten/norwegian-laws')
     parser.add_argument('--report', type=Path, required=True)
+    parser.add_argument('--max-new', type=int, default=4)
     args = parser.parse_args()
-    synchronize(args.repository, args.producer, report_path=args.report)
+    synchronize(args.repository, args.producer, report_path=args.report, max_new=args.max_new)
