@@ -68,6 +68,19 @@ class PublicObservationCatchupTests(unittest.TestCase):
         self.assertEqual(before, receipt.read_bytes())
         self.assertEqual(json.loads(report_path.read_text()), replay)
 
+    def test_corpus_index_asset_is_tolerated_and_other_assets_are_refused(self):
+        self.releases[1]['assets'].append({'name': 'laws-index.sqlite.gz'})
+        report = self.run_catchup(self.root / 'diagnostics/index.json')
+        self.assertEqual(report['status'], 'completed')
+        self.assertEqual([r['observation_id'] for r in report['observations']], self.identities)
+
+        self.releases[1]['assets'].append({'name': 'notes.txt'})
+        with self.assertRaisesRegex(ValueError, 'Unexpected assets in producer observation'):
+            self.run_catchup(self.root / 'diagnostics/extra.json')
+        self.releases[1]['assets'] = [{'name': 'evidence.json'}, {'name': 'laws-index.sqlite.gz'}]
+        with self.assertRaisesRegex(ValueError, 'Unexpected assets in producer observation'):
+            self.run_catchup(self.root / 'diagnostics/missing.json')
+
     def test_failure_retains_completed_work_and_does_not_report_success(self):
         report_path = self.root / 'diagnostics/failed.json'
         with self.assertRaisesRegex(RuntimeError, 'body catch-up failed'):
