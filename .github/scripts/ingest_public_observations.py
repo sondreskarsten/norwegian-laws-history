@@ -14,6 +14,8 @@ from law_history.materialize import materialize_all
 from law_history.operation_products import extract_all
 from law_history.source_body_products import qualify_all
 
+DERIVED_ASSETS = frozenset({'laws-index.sqlite.gz'})
+
 
 def releases(repository: str):
     page = 1
@@ -62,7 +64,7 @@ def synchronize(repository: Path, producer: str, *, report_path: Path | None = N
             tag = release['tag_name']
             checkpoint('observation_intake', release=tag, ordinal=ordinal, total=len(candidates), status='started')
             names = [asset['name'] for asset in release['assets']]
-            if sorted(names) != ['evidence.json', 'snapshot.tar.gz']:
+            if sorted(name for name in names if name not in DERIVED_ASSETS) != ['evidence.json', 'snapshot.tar.gz']:
                 raise ValueError(f'Unexpected assets in producer observation: {tag}')
             url = f'https://github.com/{producer}/releases/download/{tag}/evidence.json'
             receipt = load_receipt(url)
